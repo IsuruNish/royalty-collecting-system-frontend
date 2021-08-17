@@ -1,4 +1,4 @@
-![OSCA logo](image.jpg)
+![OSCA logo](OSCA.jpg)
 
 <br/>
 <br/>
@@ -18,11 +18,12 @@
 | Tel      | 0094 11 230 5070|
 | Tel/ Fax   | 0094 11 230 4070|
 | Address      | No. 73, Sir James Peiris Mawatha, Colombo 02 |
-|
+
 
 <br/>
 <br/>
----
+<br/>
+
 
 # WHY IS **OSCA**?
 <p align=justify>They don’t have a system for their members to get ideas about the transparency of royalties. OSCA members have zero motivation when getting a membership and updating their change song ownerships. OSCA Officials have to spend more time when getting information for the licenses.</p>
