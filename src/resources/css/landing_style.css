@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(207, 207, 207);
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    font-family: poppins;
+    font-weight: bold;
+    font-size: 16px;
+}
+header a{
+    text-decoration: none;
+}
+
+.heading{
+    transition: 0.6s;
+    font-size: 70px;
+}
+
+header{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 2;
+    position:fixed;
+    width: 100%;
+    color:white;
+    background-color:rgb(11, 175, 175);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    padding-left: 70px;
+    padding-right: 0;
+    transition: 0.6s;
+}
+
+header.sticky{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color:rgb(11, 175, 175);
+    transition: ease-out 0.3s;
+    color:black;
+}
+header.sticky h1{
+    color: white;
+    transition: 0.6s;
+    font-size: 35px;
+}
+
+header.sticky li a{
+    padding-top: 22px;
+    padding-bottom: 22px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+
+.nav_bar{
+    list-style: none;
+    flex-basis: 50%;
+}
+
+.nav_bar li{
+    display: inline-block;
+    padding: 0 15px;   
+}
+
+.nav_bar li a{
+    transition: 0.3s;
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+    margin: 0;
+}
+
+.nav_bar li a:hover{
+    background-color: #3F46AD;
+    color: white;
+}
+
+.nav_buttons{
+    list-style: none;
+}
+
+.nav_buttons li{
+    display: inline-block;
+    padding: 0 15px;
+    
+}
+
+.signup{
+    transition: 0.3s;
+    font-size: 20px;
+    margin: 0;
+    background-color:#3F46AD;
+    color: white;
+    margin-right: 15px;
+    padding: 13px; 
+}
+
+.login{
+    transition: 0.3s;
+    font-size: 20px;
+    margin: 0;
+    color: white;
+
+}
+
+
+
+
+
+
+
+footer{
+    background-color: white;
+    margin-top: 10%;
+    padding: 30px;
+}
+
+footer h1{
+    font-size: 18px;
+    text-align: center;
+}
+
+.page.done{
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+
+.nav-signup, .nav-login{
+    display: none;
+}
+
+.toggle{
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35px;
+    height: 25px;
+}
+  
+.toggle .bar{
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}

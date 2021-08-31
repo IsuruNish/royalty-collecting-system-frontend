@@ -1,0 +1,535 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(90deg, #17cfcf 0%, #0bafaf 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.content{
+  /* position: relative;
+  right: 7%; */
+  /* padding-top: 10%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: blue; */
+}
+
+.content div{
+  display: flex;
+  justify-content: center;
+}
+
+img{
+  width: 70%
+}
+
+h1{
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+input{
+  width: 90%;
+  margin-top: 8%;
+  /* margin-bottom: 2%; */
+  border: none;
+  outline:none;
+  border-bottom: 3px solid rgb(207, 207, 207);
+}
+
+input:focus{
+  transition: 0.3s;
+  border-bottom: 3px solid rgb(11, 175, 175);
+}
+
+button{
+  cursor: pointer;
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  font-size: 1.3rem;
+  font-weight:bold;
+  outline: none;
+  margin-top: 15%;
+  margin-bottom: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: rgb(11, 175, 175);
+}
+
+.home a{
+  text-decoration: none;
+  color: black;
+}
+
+#loginIcon{
+  position: relative;
+  right: 3%;
+  top: 23px;
+}
+
+#backIcon{
+  position: relative;
+  right: 2%;
+  top: 4px;
+}
+
+
+
+
+@media (max-width: 1111px){
+  img{
+    display: none;
+  }
+
+  .wrap{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 5%;
+  }
+
+  .content{
+    width: 50%;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  #loginIcon{
+    position:fixed;
+    top: 46%;
+    right: 69%;
+  }
+
+}
+
+@media (max-width: 704px){
+  img{
+    display: none;
+  }
+
+  .wrap{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    /* padding-left: 5%; */
+  }
+
+  .content{
+    width: 50%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  input{
+    width: 100%;
+    margin-top: 30%;
+    margin-bottom: 30%;
+
+  }
+  #loginIcon{
+    position:fixed;
+    top: 48%;
+    right: 72%;
+  }
+
+}
+
+
+
+
+
+
+/* 
+
+
+@media (max-width: 1920px){
+
+  .formDivSignup{
+    margin-left: 15%;
+    margin-top:4%;
+    padding-left: 5%;
+
+  }
+  
+  .formDivSignup h1{
+    margin-bottom: 5%;
+  }
+  
+  .formDivSignup button{
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  
+  .buttonEffect{
+    margin-top: 1%;
+    margin-left: 9%;
+  }
+  
+  .containerLogin:before {
+    top: -30%;
+  }
+
+  .sideLogin img{
+    margin-top: 20%;
+    width: 100%;
+  }
+  
+  .containerSignup:before {
+    top: -30%;
+    right: 45%;
+  }
+
+  
+.sideSignup img{
+  margin-top: 25%;
+  width: 85%;
+}
+
+.sideSignup {
+  margin-right: 5%;
+}
+
+
+
+
+}
+
+@media (max-width: 1536px){
+  .formDivSignup{
+    margin-left: 10%;
+    margin-top:1%;
+  }
+  
+  .formDivSignup h1{
+    margin-bottom: 0%;
+  }
+  
+  .formDivSignup button{
+    margin-top: 20%;
+    margin-left: 15%;
+  }
+  
+  .buttonEffect{
+    margin-left: 12%;
+    margin-top: 2%;
+  }
+  
+  .containerLogin:before {
+    top: -50%;
+  }
+
+  .sideLogin img{
+    width: 75%;
+  }
+  
+  .containerSignup:before {
+    top: -50%;
+    right: 40%;
+  }
+
+  
+.sideSignup img{
+  margin-top: 25%;
+  width: 65%;
+}
+.formDivLogin input{
+  margin-top: 20%;
+}
+
+.sideSignup {
+  margin-right: 0%;
+}
+
+#loginIcon{
+  top: 5rem;
+}
+}
+
+
+
+@media (max-width: 1025px){
+
+  .formDivSignup{
+    margin-left: 15%;
+    margin-top:4%;
+    padding-left: 5%;
+  }
+  
+  .formDivSignup h1{
+    margin-bottom: 5%;
+  }
+  
+  .formDivSignup button{
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+  
+  .buttonEffect{
+    margin-top: 1%;
+    margin-left: 5%;
+  }
+
+
+  .containerLogin {
+    width: 100%;
+    max-height: 100vh;
+    flex-direction: column;
+
+  }
+  
+  .containerLogin:before {
+    top: -142%;
+    right: -20%;
+
+  }
+
+  .formDivLogin{
+    margin-top: 0%;
+    margin-left: 40%;
+    margin-bottom: 3%;
+  }
+  .formDivLogin input{
+    margin-top: 8%;
+    width: 80%;
+  }
+
+  .formDivLogin h1{
+    margin-left: 10%;
+  }
+
+  .formDivLogin button{
+    margin-left: 15%;
+    position: relative;
+    bottom: 50px;
+  }
+
+  .sideLogin{
+    margin-left: 40%;
+    width: 90%;
+  }
+
+  .sideLogin p,.sideLogin h1{
+    margin-right: 5%;
+    width: 40%;
+  }
+
+  .sideLogin img{
+    margin-top: 10%;
+    width: 20%;
+  }
+
+
+  #loginIcon{
+    position: relative;
+    top: 1px;
+    right: 20px;
+  }
+    
+  .containerSignup:before {
+    top: -80%;
+    right: 40%;
+  }
+
+  
+  .sideSignup img{
+    margin-top: 50%;
+    width: 95%;
+    margin-left: 20%;
+    transition: all 0.6s ease;
+  }
+
+.sideSignup {
+  padding-left: 10%;
+  padding-right: 21%;
+}
+
+.sideSignup p{
+  text-align: center;
+  padding-right: 25%;
+}
+
+.sideSignup h1{
+  text-align: center;
+}
+
+.formDivSignup h1{
+  font-size: 41px;
+}
+}
+
+
+@media (max-width: 869px){
+
+  .home{
+    position: absolute;
+    top: 92%;
+    right: 45%;
+  }
+
+  .homeSignup{
+    position: absolute;
+    top: 94%;
+    left: 30%;
+  }
+
+  #homeSignupIcon{
+    left: 10px;
+  }
+  
+  .containerLogin{
+    max-height: 210vh;
+    align-self: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .containerLogin:before{
+    top: -1270px;
+    right: -500px;
+  }
+
+  .buttonEffect{
+    margin-left: 3rem;
+    margin-top: 1rem;
+  }
+
+  .sideLogin{
+    margin-bottom: 12rem;
+    position: relative;
+    right: 5rem;
+  }
+
+  .sideLogin h1{
+    width: fit-content;
+  }
+
+  .sideLogin p{
+    width: 15rem;
+  }
+
+  .sideLogin img{
+    display: none;
+  }
+
+  .formDivLogin{
+    position: relative;
+    right: 3rem;
+  }
+
+  .formDivLogin input{
+    margin-bottom: 10%;
+    width: 120%;
+  }
+
+  .formDivLogin button{
+    margin-top:6rem;
+    position: relative;
+    right: 8%;
+  }
+
+  #loginIcon{
+    position: relative;
+    top: 43px;
+    right: 30px;
+  }
+
+
+
+  .containerSignup{
+    max-height: 210vh;
+    align-self: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .containerSignup:before{
+    top: -1250px;
+    right: 750px;
+  }
+
+
+  .sideSignup{
+    margin-bottom: 5rem;
+    order: -1;
+  }
+
+  .sideSignup img{
+    display: none;
+  }
+
+  .sideSignup p{
+    width: 72%;
+    margin-left: 25%;
+  }
+
+
+  .formDivSignup input{
+    margin-bottom: 10%;
+    width: 120%;
+  }
+
+
+
+  .formDivSignup{
+    position: relative;
+    left: 1rem;
+    margin-top: 2rem;
+  }
+
+  .formDivSignup h1{
+    margin-right: 6rem;
+  }
+ 
+  #signupIcon{
+    top: 55px;
+    right: 30px;
+  }
+
+  .formDivSignup button{
+    margin-bottom:6rem;
+    position: relative;
+    right: 15%;
+  }
+
+} */

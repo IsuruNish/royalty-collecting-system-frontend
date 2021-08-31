@@ -1,0 +1,397 @@
+
+.page{
+    min-height: 100vh;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 4%;
+    transform: translateY(150px);
+    position: relative;
+	opacity: 0;
+	transition: all 2s ease;
+}
+
+.forSignup{
+    margin-top: 19%;
+}
+
+.forSignup h1{
+    font-size: 80px;
+}
+
+.forSignup p{
+    margin-top: 3%;
+    font-size: 25px;
+}
+
+
+
+.buttonEffect{
+    margin-left: 10%;
+    margin-top: 3%;
+    border-radius: 3rem;
+    color: rgb(11, 175, 175);;
+    font-size: 1.5rem;
+    font-weight: 100;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border:  2px solid currentColor;
+    position: absolute;
+    /* transition: .2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0; */
+
+}
+
+.buttonEffect::after{
+    background-color: rgb(11, 175, 175);;
+    border-radius: 3rem;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: .2s transform ease-out;
+    will-change: transform;
+    
+    will-change: transform;
+    z-index: -1;
+}
+    
+.buttonEffect:hover::after{
+    transform: translate(0, 0);
+}
+    
+.buttonEffect:hover{
+    border: 2px solid transparent;
+    color: black;
+    font-weight: bolder;
+    transform: scale(1.05);
+    will-change: transform;
+}
+
+.forImage{
+    margin-top: 10%;
+}
+
+.img{
+    width: 700px;
+    height: 600px;
+    border-radius: 100px;
+}
+
+
+/* .page2{
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+} */
+
+.forLogin{
+    margin-top: 11%;
+}
+
+.forLogin h1{
+    font-size: 80px;
+}
+
+
+
+
+
+@media (max-width: 1919px){
+
+    .nav_bar li a{
+
+        padding-top: 33px;
+        padding-bottom: 22px;
+    
+    }
+}
+
+
+
+
+@media (max-width: 1223px){
+
+    .signup{
+        margin-top: 1rem;
+        background-color:transparent;
+        color: black;
+        margin-right: 15px;
+        padding: 13px; 
+    }
+
+    .nav_buttons{
+        display: none;
+    }
+
+    .nav_bar li{
+        margin-right: 4rem;
+        display: inline-block;
+        padding:0;
+        margin-bottom: 2rem;
+    }
+    
+    .nav_bar li a{
+        transition: 0s;
+        color: black;
+        font-size: 20px;
+
+        padding: 0;    
+    }
+    
+    .nav_bar li a:hover{
+        padding: 0;
+        color: black;
+    }
+
+
+    .nav_bar ul{
+    flex-direction: column;
+    }
+
+    .toggle{
+      display: flex;
+    }
+
+    .nav_bar{
+        display: none;
+    }
+
+    .nav_bar.active{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav_bar ul, .nav_buttons ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-signup, .nav-login{
+        display: initial;
+    }
+
+  
+    
+} 
+
+
+@media (max-width: 1100px){
+
+    .forSignup p{
+        font-size: 20px;
+    }
+    
+    .forSignup h1{
+        font-size: 70px;
+    }
+    
+    .forLogin h1{
+        font-size: 70px;
+    }
+
+    .nav_bar li{
+        margin-right: 4rem;
+        display: inline-block;
+        padding:0;
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+    
+    .nav_bar li a{
+        transition: 0s;
+        color: white;
+        font-size: 20px;
+        padding: 0;    
+    }
+    
+    .nav_bar li a:hover{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        transition: 0.2s;
+        color: white;
+        /* color: white; */
+    }
+    
+    /* .nav_bar li a{
+        padding-top: 33px;
+        padding-bottom: 22px;
+    }
+    .nav_bar li a:hover{
+        background-color: transparent;
+    }
+    
+     */
+    .forSignup {
+        /* margin-top: 40%; */
+        margin-top: 25rem;
+        margin-left: 1rem;
+        margin-right:1rem;
+    
+    }
+    
+    .forSignup h1{
+        font-size: 50px;
+    }
+    
+    .forSignup p{
+        font-size: 18px;
+    }
+    
+    .buttonEffect{
+        font-size: 18px;
+    }
+    
+    .img{
+        /* margin-top: 40%; */
+        margin-top: 10rem;
+    
+        width: 300px;
+        height: 500px;
+    }
+    
+    .forLogin {
+        margin-left: 1rem;
+        margin-right:1rem;
+        margin-top: 40%;
+    }
+    
+    .forLogin h1{
+        font-size: 50px;
+    }
+    
+    .forLogin p{
+        font-size: 18px;
+    }
+    
+    .buttonEffect{
+        font-size: 18px;
+    }
+    
+    /* .page{
+        flex-direction: column;
+        justify-content: center;
+        margin-left:8rem;
+    }
+    
+    #img2{
+        display: none;
+    } */
+    }
+
+
+
+
+@media (max-width: 600px){
+    /* body{
+
+    } */
+
+    .nav_bar li{
+        margin-right: 4rem;
+        display: inline-block;
+        padding:0;
+        margin-bottom: 2rem;
+    }
+    
+    .nav_bar li a{
+        transition: 0s;
+        color: white;
+        font-size: 20px;
+        padding: 0;    
+    }
+    
+    .nav_bar li a:hover{
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        transition: 0.2s;
+        color: white;
+        /* color: white; */
+    }
+
+    .forSignup {
+        margin-top: 18rem;
+        margin-left: 1rem;
+        margin-right:1rem;
+    }
+    
+    .forSignup h1{
+        font-size: 50px;
+    }
+    
+    .forSignup p{
+        margin-top: 5%;
+        font-size: 18px;
+    }
+    
+    .buttonEffect{
+        margin-top: 10%;
+        font-size: 18px;
+    }
+    
+    .forImage{
+        display: none;
+    }
+    
+    .forLogin {
+        margin-left: 1rem;
+        margin-right:1rem;
+        margin-top: 15rem;
+        margin-bottom: 1rem;
+    }
+    
+    .forLogin h1{
+        font-size: 45px;
+    }
+    
+    .forLogin p{
+        font-size: 18px;
+    }
+    
+    .buttonEffect{
+        font-size: 18px;
+        margin-left: 20%;
+    }
+    
+    .nav_bar{
+        position: relative;
+        right: 7rem;
+        top: 2.5rem;
+    }
+
+    .heading{
+        transition: 0.6s ease-out;
+    }
+
+    .heading.active{
+        transition: 0.6s ease-out;
+        position: relative;
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    footer h1{
+        font-size: 12px;
+    }
+
+    .page{
+        justify-content:flex-start;
+        /* flex-direction: column; */
+    }
+}
+
+ 
