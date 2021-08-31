@@ -1,0 +1,152 @@
+.content1 {
+  width: 100%;
+  height: 100vh;
+  /* background-color: blue; */
+}
+
+.searchBarContent {
+  width: 100%;
+  height: 20vh;
+  /* background-color: pink; */
+}
+
+.searchBar {
+  width: 100%;
+  height: 20%;
+  /* background-color:green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .5%;
+}
+
+.searchBar i {
+  margin-right: 5px;
+}
+
+#search {
+  width: 40%;
+  height: 25px;
+  outline: none;
+  border-radius: 10px;
+  padding-left: 5px;
+  box-shadow: 2px 5px 5px rgb(99, 97, 97);
+  
+}
+
+.selectRole {
+  height: 80%;
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding-left: 15%; */
+}
+
+.mainContent {
+  width: 100%;
+  height: 60vh;
+
+  /* background-color: purple; */
+}
+#img {
+  width: 50%;
+  height: 55vh;
+  /* background-color: aqua; */
+  margin-left: 25%;
+  /* position: absolute; */
+}
+
+#songImage {
+  width: 60%;
+  height: 60vh;
+  float: right;
+  margin-top: 0;
+  z-index: auto;
+}
+.mainContent h3 {
+  margin-left: 15%;
+}
+
+.singers {
+  height: 33.33%;
+
+  /* background-color: blue; */
+}
+
+.songWriters {
+  height: 33.33%;
+  /* background-color: grey; */
+}
+
+.composers {
+  height: 33.33%;
+  /* background-color: blue; */
+}
+.submitDocumentContent {
+  width: 100%;
+  height: 10vh;
+  /* background-color: yellow; */
+  display: flex;
+  flex-direction: row;
+}
+
+.submitDocumentContent i {
+  margin-left: 15px;
+  font-size: 40px;
+}
+.text {
+  height: 100%;
+  width: 50%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+  margin-right: 2%;
+}
+
+.form {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: left;
+
+  /* background-color: aqua; */
+}
+
+#myFile {
+  font-weight: bold;
+  font-size: medium;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#btn {
+  /* margin-top: 30px; */
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#btn:hover {
+  background-color: black;
+  color: white;
+}
