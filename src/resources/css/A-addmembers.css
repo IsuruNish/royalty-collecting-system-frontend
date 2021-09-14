@@ -10,6 +10,9 @@ body{
     
 }
 
+.sec{
+    height: 130vh;
+}
 h1,h2,h3{
     color: black;
 }
@@ -165,7 +168,7 @@ section{
 }
 .mainCard{
     width: 100%;
-    height: 80vh;
+    height: 140vh;
     /* background-color: blue; */
     display: flex;
     flex-direction: row;
@@ -175,10 +178,12 @@ section{
     
 }
 
+
+
 .profileCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 80%;
-    height: 80vh;
+    height: 120vh;
     margin-left: 100px;
     background-color: rgb(11, 175, 175);
     margin-top: 0px;
@@ -187,16 +192,21 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
 
 }
 
 .profileCard h2{
-    margin-bottom: 5%;
+    margin-bottom: 3rem;
+}
+
+h3{
+    margin-bottom: 2rem;
 }
 
 .profileCard input{
     width: 60%;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
     background-color: rgb(11, 175, 175);
     outline: none;
     border: none;
@@ -405,7 +415,7 @@ section{
   
   footer{
     background-color: white;
-    /* margin-top: 10%; */
+    margin-top: 5%;
     padding: 30px;
 }
 
@@ -420,19 +430,42 @@ footer h4{
 
 @media screen and (max-width:1180px){
 
-    section{
-        max-height: 100vh;
+
+    .profileCard{
+        /* height: 1200rem; */
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        margin-bottom: 0rem;
+        /* background-color: #151515; */
     }
+
     .profileCard h2{
-        margin-bottom: 10vh;
+        margin-bottom: 3rem;
+    }
+    
+    h3{
+        margin-bottom: 3rem;
     }
 
 }
 
 @media screen and (max-width:550px){
 
-    section{
-        max-height: 100vh;
+    .sec{
+        height: 135vh;
+    }
+
+    .profileCard{
+        /* height: 1200rem; */
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        /* margin-bottom: 0rem; */
+        /* background-color: #151515; */
+    }
+
+    .content1{
+        /* height: 120vh; */
+        /* background-color: #c51919; */
     }
     .profileCard h2{
         text-align: center;
