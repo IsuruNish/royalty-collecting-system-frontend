@@ -173,7 +173,7 @@ section{
 
 .selectButtons button{
     width: 50%;
-    margin-top: 8%;
+    margin-top: 5%;
     padding-top: 3%;
     padding-bottom: 3%;
 }
@@ -261,7 +261,7 @@ footer h4{
         
         /* background-color: rgb(228, 73, 73); */
         /* right: 0; */
-        right: -50px;
+        right: -20px;
     
       }
       

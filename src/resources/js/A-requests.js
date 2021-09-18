@@ -167,7 +167,7 @@ songOwn.addEventListener("click", ()=>{
         licenseApp.classList.remove("black");
     
         licenseCan.classList.add("btn");
-        licenseCan.classList.remove("blank");
+        licenseCan.classList.remove("black");
     
         songReg.classList.add("btn");
         songReg.classList.remove("black");
