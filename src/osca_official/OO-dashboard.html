@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/OO-dashboard.css">
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+            <li><a href="#"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="#"><i class="fal fa-file-plus"></i>Register songs</a></li>
+            <li><a href="#"><i class="fas fa-user-tag"></i>Change ownership</a></li>
+            <li><a href="#"><i class="fal fa-file-minus"></i>Remove a song</a></li>
+            <li><a href="#"><i class="fas fa-user-plus"></i>Add members</a></li>
+            <li><a href="#"><i class="fal fa-clipboard-list-check"></i>Requests</a></li>
+            <li><a href="#"><i class="far fa-calendar-alt"></i>Upcoming event</a></li>
+            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+            <li><a href="#"><i class="fas fa-user-headset"></i>Help</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+
+ 
+    <section>
+
+        <!-- <div class="all"> -->
+            <div class="header">
+                
+                <div class="first">
+                    <h2>Dashboard</h2>
+                    <h3>Welcome to OSCA!!!</h3>
+                </div>
+
+                <div class="second">
+
+                    <div class="notification">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                        </div>
+                    </div>
+                    <!-- <i class="fas fa-bell" id="bell"></i> -->
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3>Hello Ann,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="#">Home</a>
+                            <a href="#">settings</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <section class="content1">
+            <div class="mainCard">
+                <div class="profileCard">
+                    <div class="image">
+                        <img src="../resources/images/profile.jpg" id="profilePic" alt="Avatar" />
+                    </div>
+                    <div class="userDetals">
+                        <ul>
+                            <li><a href="#"><i class="fas fa-file-signature" id="icons"></i>Ann Octavia</a></li>
+                            <li><a href="#"><i class="fas fa-id-card" id="icons"></i>EID 0001</a></li>
+                            <li><a href="#"><i class="fas fa-city" id="icons"></i>From Melbourne</a></li>
+                            <li><a href="#"><i class="fas fa-envelope-square" id="icons"></i>octaviaann@gmail.com</a></li>
+                            <li><a href="#"><i class="fas fa-phone-square-alt" id="icons"></i>123456789</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="changeInfo">
+                        <button class="btn">Change Info</button>
+                    </div>
+                </div>
+
+                <div class="licenseDetails">
+                    
+                    <div class="up">
+                        <div class="left">
+                            <div class="acceptedLicense">
+                                <ul>
+                                    <li><h1>Number of show organizers</h1></li>
+                                    <h3 class="number">520</h3>
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>
+                                </ul>
+                            </div>
+    
+                            <div class="rejectedLicense">
+                                <ul>
+                                    <li><h1>Number of license related requests</h1></li>
+                                    <h3 class="number">154</h3>
+                                    <!-- <li><a href="#"><i class="fas fa-file-certificate"></i>show 4 license - applied on 03/08/2021</a></li>                        -->
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>
+                                </ul>
+                            </div>
+    
+                            <div class="rejectedLicense">
+                                <ul>
+                                    <li><h1>Member income for this month (Rs.)</h1></li>
+                                    <h3 class="number">140,000</h3>
+                                    <!-- <li><a href="#"><i class="fas fa-file-certificate"></i>show 4 license - applied on 03/08/2021</a></li>                        -->
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="right">
+                            <div class="pendingLicense">
+                                <ul>
+                                    <li><h1>Number of members</h1></li>
+                                    <h3 class="number">412</h3>                 
+                                    
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>
+                                </ul>
+                            </div>
+    
+                            <div class="upcomingLicense">
+                                <ul>
+                                    <li><h1>Number of song related requests</h1></li>
+                                    <h3 class="number">154</h3>
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>    
+                                </ul>
+                            </div>
+    
+                            <div class="upcomingLicense">
+                                <ul>
+                                    <li><h1>Number of concerts this month</h1></li>
+                                    <h3 class="number">99</h3>
+                                    <div class="show-more">
+                                        <button class="btn1">Show more</button>
+                                    </div>    
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="bottom">
+                        <div class="totalIncome">
+                            <ul>
+                                <li><h1>Total income for OSCA this month</h1></li>
+                                <h3 class="number">Rs. 150,000</h3>
+                                <div class="show-more">
+                                    <button class="btn1">Show more</button>
+                                </div>    
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>   
+        </section>
+    </section>
+
+    <!-- <section class="content2">
+        <div class="bottom">
+            <div class="totalIncome">
+                <ul>
+                    <li><h1>Total income for OSCA this month</h1></li>
+                    <h3 class="number">Rs. 150,000</h3>
+                    <div class="show-more">
+                        <button class="btn1">Show more</button>
+                    </div>    
+                </ul>
+            </div>
+        </div>
+    </section> -->
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+
+</body>
+</html>
