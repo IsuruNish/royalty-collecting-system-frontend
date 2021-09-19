@@ -27,16 +27,27 @@ h4 {
   font-size: 1.5em;
 }
 
-.sidebar {
+/* .sidebar {
   position: fixed;
   left: -250px;
   width: 250px;
   height: 100%;
+
+  background: #151515;
+  transition: all 0.5s ease;
+} */
+
+.sidebar{
+  position: fixed;
+  left:-300px;
+  width:300px;
+  height:100%;
   /* background: #042331; */
   /* background: #2c2e43; */
   background: #151515;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
 }
+
 
 .sidebar header {
   font-size: 22px;
@@ -116,7 +127,8 @@ label #cancel {
   pointer-events: none;
 }
 #check:checked ~ label #cancel {
-  left: 195px;
+  /* left: 195px; */
+  left: 250px;
 }
 #check:checked ~ section {
   margin-left: 250px;
