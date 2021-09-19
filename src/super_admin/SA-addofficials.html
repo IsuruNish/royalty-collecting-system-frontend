@@ -7,9 +7,8 @@
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      
+    <link rel="stylesheet" href="../resources/css/A-addofficials.css">
     <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/A-addUsers.css">
-
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
@@ -35,10 +34,12 @@
         <header>OSCA</header>
 
         <ul> 
-            <li><a href="A-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="A-addUsers.html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="A-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="A-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
             <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
             <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
             <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
@@ -46,15 +47,16 @@
     </div>
 
  
-    <section class="sec">
+    <section>
             <div class="header">
                 
                 <div class="first">
-                    <h2>Add users</h2>
+                    <h2>Add officials to OSCA</h2>
                     <!-- <h3>Welcome to OSCA!!!</h3> -->
                 </div>
 
                 <div class="second">
+                    
                     <div class="notification">
                         <i class="fas fa-bell" id="bell"></i>
                         <span class="badge">3</span>
@@ -80,18 +82,31 @@
 
 
         <section class="content1">
-            <div class="selectButtons">
-                <button class="btn" id="cp">Add Members</button>
-                <button class="btn" id="lcd">Add Officials</button>
-            </div>
-        </section>    
+            <div class="mainCard">
+                <div class="profileCard">
+                    <h2>Enter details of the new official</h2>
+                    <input type="text" name="" id="" placeholder="First name">
+                    <input type="text" name="" id="" placeholder="Last name">
+                    <input type="text" name="" id="" placeholder="Email address">
+                    <input type="text" name="" id="" placeholder="Phone number">
+                    <input type="text" name="" id="" placeholder="NIC number">
+
+                    <div class="changeInfo">
+                        <button class="btn">Add official</button>
+                    </div>
+                </div>
+
+                
+            </div>       
+        </section>
+    
     </section>
 
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
 
-    <script src="../resources/js/A-addUsers.js"></script>
+
 
 </body>
 </html>
