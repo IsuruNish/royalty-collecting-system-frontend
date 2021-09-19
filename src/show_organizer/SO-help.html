@@ -7,8 +7,9 @@
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      
-    <link rel="stylesheet" href="../resources/css/SO-help.css">
+
     <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/SO-help.css">
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
@@ -21,14 +22,6 @@
 </head>
 
 <body>
-<!-- 
-    <script>
-        $(document).ready(function(){
-            $("#header").load("../index.html");
-          });
-    </script> -->
-
-
 
     <input type="checkbox" id="check">
 
@@ -53,7 +46,7 @@
     </div>
 
  
-    <section>
+    <section class="sec">
             <div class="header">
                 
                 <div class="first">
@@ -90,18 +83,10 @@
             <div class="main">
                 <div class="top">
                     <div class="right">
-                        <!-- <form>
-                            <input type="text" id="help" placeholder="Type your message here..." name="help"><br>
+                        <form class="form">
+                            <textarea id="help" name="helpMessage" placeholder="Type your message here..." rows="6" cols="50"></textarea>
+                            <br>
                             <div class="changeInfo">
-                                <button class="sendemail">Send email</button>
-                            </div>
-                        </form> -->
-                        <form >
-                            <textarea id="help" name="helpMessage" placeholder="Type your message here..." rows="6" cols="50">
-                            </textarea>
-                            <br><br>
-                            <div class="changeInfo">
-                                <!-- <input type="submit" value="Send email"> -->
                                 <button class="btn">Send email</button>
                             </div>
                         </form>
