@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/OO-changeInfo.css">
+     
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="../resources/js/script.js"></script>
+
+</head>
+
+<body>
+
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+            <li><a href="#"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="#"><i class="fas fa-music"></i>Register songs</a></li>
+            <li><a href="#"><i class="fas fa-user-tag"></i>Change ownership</a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i>Remove a song</a></li>
+            <li><a href="#"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+            <li><a href="#"><i class="fas fa-user-headset"></i>Help</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+
+ 
+    <section class="sec">
+            <div class="header">
+                
+                <div class="first">
+                    <h2>Change information</h2>
+                </div>
+
+                <div class="second">
+                    
+                    <div class="notification">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                        </div>
+                    </div>
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3>Hello Ann,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="#">Home</a>
+                            <a href="#">settings</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        <section class="content1">
+
+            <div class="mainCard">
+
+                <div class="imgCard">
+                    <h2>Profile picture</h2>
+
+                    <div class="insideImgCard">
+                        <input type="file" class="file">
+                    </div>
+
+
+
+                </div>
+
+                
+                <div class="profileCard">
+                    <h2>Presonal information</h2>
+
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label>First name</label> <br>
+                            <input type="text" name="" id="fname" value="Isuru" disabled>
+                        </div> 
+                        <div class="changeButton">
+                            <button class="change" id="fnameBtn">change</button>
+                        </div>
+                    </div>
+
+ 
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >Last name</label> <br>
+                            <input type="text" name="" id="lname" value="Nishadha" disabled>
+                        </div> 
+
+                        <div class="changeButton">
+                            <button class="change" id="lnameBtn">change</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >Email address</label> <br>
+                            <input type="text" name="" id="email" value="Isuru@gmail.com" disabled> 
+                        </div> 
+
+                        <div class="changeButton">
+                            <button class="change" id="emailBtn">change</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >Phone number</label> <br>
+                            <input type="text" value = "Isuru Nish" name="" id="phone" value="Isuru" disabled>
+                        </div> 
+
+                        <div class="changeButton">
+                            <button class="change" id="phoneBtn">change</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >NIC number</label> <br>
+                            <input type="text" name="" id="nic" value="aaaaaaaaaaaa" disabled> 
+                        </div> 
+
+                        <div class="changeButton">
+                            <button class="change" id="nicBtn">change</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="changeInfo">
+                        <button class="btn">Save</button>
+                    </div>
+                </div>
+
+                <div class="pwCard">
+                    <h2>Change password</h2>
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label>Current password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="password" name="" id="oldpass">
+                        </div> 
+                    </div>
+
+ 
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >New password        </label> &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+                            <input type="password" name="" id="newpass1">
+                        </div> 
+                    </div>
+
+
+                    <div class="info">
+                        <div class="insideInfo">
+                            <label >Confirm password</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="password" name="" id="newpass2"> 
+                        </div> 
+                    </div>
+
+                    <div class="changeInfo">
+                        <button class="btn">Save</button>
+                    </div>
+                </div>
+
+            </div>       
+        </section>
+    
+    </section>
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+
+
+    <script src="../resources/js/OO-changeInfo.js"></script>
+
+</body>
+</html>
