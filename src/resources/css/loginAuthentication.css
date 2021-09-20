@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(90deg, #17cfcf 0%, #0bafaf 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  width: 100%;
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: yellow; */
+}
+
+.wrap{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 10%;
+  padding-bottom: 10%;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 80vh;
+  /* height: fit-content; */
+
+}
+
+.content{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: blue; */
+}
+
+.content div{
+  display: flex;
+  justify-content: center;
+}
+
+
+h1{
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+input{
+  width: 90%;
+  margin-top: 8%;
+  /* margin-bottom: 2%; */
+  border: none;
+  outline:none;
+  border-bottom: 3px solid rgb(207, 207, 207);
+}
+
+input:focus{
+  transition: 0.3s;
+  border-bottom: 3px solid rgb(11, 175, 175);
+}
+
+button{
+  cursor: pointer;
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  font-size: 1.3rem;
+  font-weight:bold;
+  outline: none;
+  margin-top: 15%;
+  margin-bottom: 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: rgb(11, 175, 175);
+}
+
+.top a{
+  text-decoration: none;
+  margin-bottom: 2%;
+  color: black;
+}
+
+.home a{
+  text-decoration: none;
+  color: black;
+}
+
+#loginIcon{
+  position: relative;
+  right: 3%;
+  top: 65px;
+}
+
+#resendIcon{
+  position: relative;
+  right: 2%;
+  top: 4px;
+}
+
+#backIcon{
+  position: relative;
+  right: 2%;
+  top: 4px;
+}
+
+
+
+
+@media (max-width: 883px){
+
+  input{
+    width: 60%;
+  }
+
+  h1{
+    text-align: center;
+    font-size: 23px;
+  }
+
+  #loginIcon{
+    position:relative;
+    right: 2%;
+    top: 45px;
+
+  }
+
+}
+
+@media (max-width: 640px){
+
+
+  h1{
+    margin-bottom: 20%;
+  }
+
+  #loginIcon{
+    position:fixed;
+    right: 78%;
+    top: 385px;
+
+  }
+}
