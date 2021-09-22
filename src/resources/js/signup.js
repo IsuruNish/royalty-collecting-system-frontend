@@ -66,6 +66,62 @@ signup.addEventListener("click", () => {
 // });
 
 
+$('#loginButton').on('click', ()=>{
+  var input = $('.loginInput');
+  var filled = true;
+
+  for(var i = 0; i < input.length; i++){
+    if(validateInputs(input[i]) == false){
+      showLoginValidate(input[i], input[i].id);
+      filled = false;
+    }
+  }
+
+  if(filled){
+    loginUser();
+  }
+
+})
+
+
+function loginUser(){
+  var email = $("#loginEmail").val().trim();
+  var pass = $("#loginPass").val().trim();
+
+  $.post("http://localhost:8080/OSCA_war_exploded/signup", {
+      email:email,
+      pw:pass
+      }
+  );
+  
+  // window.location.href ='../show_organizer/SO-dashboard.html';
+  
+}
+
+
+
+function showLoginValidate (input, id) {
+  if($(input).val().trim() == '') {
+    var field = document.getElementById(id);
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "This field is empty";
+    text.style.color = "#ff0000";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $('#signupButton').on('click', ()=>{
@@ -80,13 +136,13 @@ $('#signupButton').on('click', ()=>{
   }
 
   if(filled){
-    loginSO();
+    signupSO();
   }
 
 })
 
 
-function loginSO(){
+function signupSO(){
   var fname = $("#fname").val().trim();
   var lname = $("#lname").val().trim();
   var nic = $("#nic").val().trim();
