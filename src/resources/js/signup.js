@@ -60,45 +60,10 @@ signup.addEventListener("click", () => {
 //   );
   
 
-//   console.log("awa");
-
 //   // window.location.href='index1.html';
 
 
 // });
-
-
-
-
-function validateEmail(){
-  var email = $("#email").val();
-  var text = document.getElementById('formwords');
-  var form = document.getElementById('form');
-
-  var pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/;
-  
-  if(email.match(pattern)){
-    form.classList.add('valid');
-    form.classList.remove('invalid');
-    text.innerHTML = "";
-    text.style.color = "#26b30c";
-  }
-  else{
-    form.classList.remove('valid');
-    form.classList.add('invalid');
-    text.innerHTML = "Your email address is invalid";
-    text.style.color = "#ff0000";
-  }
-
-  if(email == ""){
-    form.classList.remove('valid');
-    form.classList.remove('invalid');
-    text.innerHTML = "";
-    text.style.color = "#27bf0b";
-  }
-}
-
-
 
 
 
@@ -113,7 +78,77 @@ $('#signupButton').on('click', ()=>{
       filled = false;
     }
   }
+
+  if(filled){
+    loginSO();
+  }
+
 })
+
+
+function loginSO(){
+  var fname = $("#fname").val().trim();
+  var lname = $("#lname").val().trim();
+  var nic = $("#nic").val().trim();
+  var email = $("#email").val().trim();
+  var phone = $("#phone").val().trim();
+  var pass = $("#pass").val().trim();
+  var pass2 = $("#pass2").val().trim();
+
+  if(validateEmail() == 0){
+    window.alert("Your email is invalid!");
+  }
+
+  else if(pass != pass2){
+    window.alert("Passwords do not match!");
+  }
+
+  else{
+    $.post("http://localhost:8080/OSCA_war_exploded/signup", {
+        fname:fname,
+        lname:lname,
+        nic:nic,
+        email:email,
+        phone:phone,
+        pw:pass
+        }
+    );
+    
+    window.location.href='../show_organizer/SO-dashboard.html';
+  }
+}
+
+
+function validateEmail(){
+  var email = $("#email").val();
+  var text = document.getElementById('formwords');
+  var form = document.getElementById('form');
+
+  var pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/;
+  
+  if(email.match(pattern)){
+    form.classList.add('valid');
+    form.classList.remove('invalid');
+    text.innerHTML = "";
+    text.style.color = "#26b30c";
+    return 1;
+  }
+  else{
+    form.classList.remove('valid');
+    form.classList.add('invalid');
+    text.innerHTML = "Your email address is invalid";
+    text.style.color = "#ff0000";
+    return 0;
+  }
+
+  if(email == ""){
+    form.classList.remove('valid');
+    form.classList.remove('invalid');
+    text.innerHTML = "";
+    text.style.color = "#27bf0b";
+    return 0;
+  }
+}
 
 
 function showValidate (input, id) {
@@ -146,13 +181,16 @@ function showValidate (input, id) {
       text.style.color = "#ff0000";
     }
 
-    if($(input).attr('name') == 'pass'){
-      text.innerHTML = "Password is required";
-      text.style.color = "#ff0000";
-    }
+    // if($(input).attr('name') == 'pass'){
+    //   text.innerHTML = "Password is required";
+    //   text.style.color = "#ff0000";
+    // }
 
-    if($(input).attr('name') == 'pass2'){
-      text.innerHTML = "Password is required";
+    if($(input).attr('name') == 'pass2' || $(input).attr('name') == 'pass'){
+      var field = document.getElementById('pass2');
+      var text = field.nextElementSibling;
+
+      text.innerHTML = "Password is required 2 times";
       text.style.color = "#ff0000";
     }
   }
@@ -160,11 +198,17 @@ function showValidate (input, id) {
 
 
 function hideValidate (id) {
-
   var field = document.getElementById(id);
   var text = field.nextElementSibling;
 
   if(field == document.activeElement) {
+    text.innerHTML = "";
+    text.style.color = "#ff0000";
+  }
+
+  if(id == 'pass'){
+    var field = document.getElementById('pass2');
+    var text = field.nextElementSibling;
     text.innerHTML = "";
     text.style.color = "#ff0000";
   }
@@ -183,4 +227,72 @@ function validateInputs(input) {
         return false;
     }
   }
+}
+
+
+//password bar
+var pass = document.getElementById('pass');
+pass.addEventListener('keyup',()=>{
+  checkPass(pass.value);
+})
+
+function checkPass(password){
+  var bar = document.getElementById('strength');
+  var s = 0;
+
+  if(password.match(/[a-z0-9][a-z0-9]+/)){
+    s +=1;
+  }
+
+
+  if(password.match(/[A-Z][A-Z]+/)){
+    s +=1;
+  }
+
+  if(password.match(/[!@#$%^?><*()]+/)){
+    s +=1;
+  }
+
+  if(password.length>5){
+    s +=1;
+  }
+
+  switch(s){
+    case 0:
+      bar.value = 0;
+      break;
+
+    case 1:
+      bar.value = 25;
+      bar.classList.add('red');
+      bar.classList.remove('yellow');
+      bar.classList.remove('orange');
+      bar.classList.remove('green');
+      break;
+
+    case 2:
+      bar.value = 50;
+      bar.classList.add('yellow');
+      bar.classList.remove('red');
+      bar.classList.remove('orange');
+      bar.classList.remove('green');
+      break;
+
+    case 3:
+      bar.value = 75;
+      bar.classList.add('orange');
+      bar.classList.remove('red');
+      bar.classList.remove('yellow');
+      bar.classList.remove('green');
+      break;
+
+    case 4:
+      bar.value = 100;
+      bar.classList.add('green');
+      bar.classList.remove('yellow');
+      bar.classList.remove('orange');
+      bar.classList.remove('red');
+      break;
+  }
+
 }

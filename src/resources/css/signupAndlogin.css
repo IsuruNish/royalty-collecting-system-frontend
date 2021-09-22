@@ -359,11 +359,20 @@ input{
 
 .outdiv{
   height: 10vh;
+  width: 30vh;
 }
 
-.nicnic{
-  /* background-color: tomato; */
+#strength{
+  width: 150%;
+  background-color: red;
+  
 }
+
+.red::-webkit-progress-value { background: red; }
+.yellow::-webkit-progress-value { background: rgb(255, 238, 0); }
+.orange::-webkit-progress-value { background: rgb(255, 153, 0); }
+.green::-webkit-progress-value { background: rgb(25, 231, 35); }
+
 /* .col1{
   margin-right: 40%;
 } */
