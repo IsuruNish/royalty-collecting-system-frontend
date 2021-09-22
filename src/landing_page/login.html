@@ -33,13 +33,24 @@
         <div class="home">
           <i class="fas fa-home" id="homeIcon"></i><a href="Home.html">Home</a>
         </div>
-
         <h1>Login</h1>
+        
+        <div >
+          <div class="outlogindiv">
+            <i class="fas fa-envelope" id="loginIcon"></i>
+            <input class="loginInput" type="text" placeholder="Email address" onfocus="hideValidate('loginEmail')" id="loginEmail">
+            <span class="words" id="loginEmailWords"></span>
+          </div>
 
-        <div><i class="fas fa-envelope" id="loginIcon"></i><input type="text" placeholder="Email address"></div>
-        <div><i class="fas fa-unlock-alt" id="loginIcon"></i><input type="password" placeholder="Password"></div>
-        <div><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
-        <button type="submit">Login</button>
+          <div class="outlogindiv">
+            <i class="fas fa-unlock-alt" id="loginIcon"></i>
+            <input class="loginInput"  type="password" placeholder="Password" onfocus="hideValidate('loginPass')" id="loginPass">
+            <span class="words" id="loginPassWords"></span>
+          </div>
+        </div>
+
+        <div class="forgotPASS"><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
+        <button id="loginButton" type="submit">Login</button>
       </div>
 
     </div>
@@ -59,20 +70,69 @@
         <h1>Sign up</h1>
 
         <div class="columns">
-   
-            <div class="col1">
-              <div><i class="fas fa-user" id="signupIcon"></i> <input type="text" placeholder="First name">    </div>
-              <div> <i class="fas fa-user" id="signupIcon"></i><input type="text" placeholder="Last name">   </div>
-              <div><i class="fas fa-envelope" id="signupIcon"></i><input type="text" placeholder="Email address">    </div>
-              <div><i class="fas fa-phone-square-alt" id="signupIcon"></i><input type="text" placeholder="Phone number">    </div>
-              <div><i class="fas fa-id-card" id="signupIcon"></i><input type="text" placeholder="NIC number">   </div>
-              <div><i class="fas fa-unlock-alt" id="signupIcon"></i><input type="password" placeholder="Password">   </div>
-              <div><i class="fas fa-unlock-alt" id="signupIcon"></i><input type="password" placeholder="Confirm password">    </div>
+          <div class="col1">
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-user" id="signupIcon"></i> 
+                <input class="signupInput" onfocus="hideValidate('fname')" type="text" placeholder="First name" name="fname" id="fname">
+                <span class="words" id="firstwords"></span>
+              </div>
             </div>
+
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-user" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('lname') "type="text" placeholder="Last name" name="lname" id="lname">
+                <span class="words" id="lastwords"></span>
+              </div>
+            </div>
+
+            <div class="outdiv">
+              <div  id="form">
+                <i class="fas fa-envelope" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('email')" onkeydown="validateEmail()" type="email" placeholder="Email address" name="email" id="email" >    
+                <span class="words" id="formwords"></span>
+              </div>
+            </div>
+
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-phone-square-alt" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('phone')" type="text" placeholder="Phone number" name="phone" id="phone">
+                <span class="words" id="phonewords"></span>
+              </div>
+            </div>
+
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-id-card" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('nic')" type="text" placeholder="NIC number" name="nic" id="nic">   
+                <span class="words" id="nicwords"></span>
+              </div>
+            </div>
+
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-unlock-alt" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('pass')" type="password" placeholder="Password" name="pass" id="pass">  
+                <progress max="100" value="0" id="strength"></progress>
+                <span class="words" id="passwords"></span> 
+              </div>
+            </div>
+
+            <div class="outdiv">
+              <div>
+                <i class="fas fa-unlock-alt" id="signupIcon"></i>
+                <input class="signupInput" onfocus="hideValidate('pass2')" type="password" placeholder="Confirm password" name="pass2" id="pass2"> 
+                <span class="words" id="pass2words"></span>
+              </div>
+            </div>
+          
+          </div>
 
           </div>
 
-          <button type="submit">Sign up</button>
+          <button id="signupButton">Sign up</button>
       </div>
       
 
@@ -88,6 +148,8 @@
 
       </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="../resources/js/login.js"></script>
 </body>

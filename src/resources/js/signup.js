@@ -86,17 +86,35 @@ $('#loginButton').on('click', ()=>{
 
 function loginUser(){
   var email = $("#loginEmail").val().trim();
-  var pass = $("#loginPass").val().trim();
+  var password = $("#loginPass").val().trim();
 
-  $.post("http://localhost:8080/OSCA_war_exploded/signup", {
+  $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet", {
       email:email,
-      pw:pass
-      }
-  );
-  
-  // window.location.href ='../show_organizer/SO-dashboard.html';
-  
+      pw:password
+      },
+
+      function(data,status){
+        alert("Data: " + data + "\nStatus: " + status);
+        if(parseInt(data)==1){
+                    window.location.href='../super_admin/SA-dashboard.html';
+                  }
+        else if(parseInt(data)==2){
+          window.location.href='../admin/A-dashboard';
+        }else if(parseInt(data)==3){
+          window.location.href='../osca_officail/OO-dashboard';
+        }
+        else if(parseInt(data)==4){
+          window.location.href='../member/M-dashboard';
+        }
+        else if(parseInt(data)==5){
+          window.location.href='../show_organizer/SO-dashboard';
+        }
+        else {
+          alert(data);
+        }
+      });   
 }
+
 
 
 
