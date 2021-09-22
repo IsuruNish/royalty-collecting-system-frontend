@@ -36,11 +36,23 @@
           <i class="fas fa-home" id="homeIcon"></i><a href="Home.html">Home</a>
         </div>
         <h1>Login</h1>
+        
+        <div >
+          <div class="outlogindiv">
+            <i class="fas fa-envelope" id="loginIcon"></i>
+            <input class="loginInput" type="text" placeholder="Email address" onfocus="hideValidate('loginEmail')" id="loginEmail">
+            <span class="words" id="loginEmailWords"></span>
+          </div>
 
-        <div><i class="fas fa-envelope" id="loginIcon"></i><input type="text" placeholder="Email address"></div>
-        <div><i class="fas fa-unlock-alt" id="loginIcon"></i><input type="password" placeholder="Password"></div>
-        <div><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
-        <button type="submit">Login</button>
+          <div class="outlogindiv">
+            <i class="fas fa-unlock-alt" id="loginIcon"></i>
+            <input class="loginInput"  type="password" placeholder="Password" onfocus="hideValidate('loginPass')" id="loginPass">
+            <span class="words" id="loginPassWords"></span>
+          </div>
+        </div>
+
+        <div class="forgotPASS"><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
+        <button id="loginButton" type="submit">Login</button>
       </div>
 
     </div>
@@ -72,7 +84,7 @@
             <div class="outdiv">
               <div>
                 <i class="fas fa-user" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('lname')"type="text" placeholder="Last name" name="lname" id="lname">
+                <input class="signupInput" onfocus="hideValidate('lname') "type="text" placeholder="Last name" name="lname" id="lname">
                 <span class="words" id="lastwords"></span>
               </div>
             </div>
@@ -104,7 +116,7 @@
             <div class="outdiv">
               <div>
                 <i class="fas fa-unlock-alt" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('pass')" type="password" placeholder="Password" name="pass" id="pass" required>  
+                <input class="signupInput" onfocus="hideValidate('pass')" type="password" placeholder="Password" name="pass" id="pass">  
                 <progress max="100" value="0" id="strength"></progress>
                 <span class="words" id="passwords"></span> 
               </div>

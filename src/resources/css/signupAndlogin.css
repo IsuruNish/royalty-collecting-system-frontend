@@ -182,11 +182,12 @@ input{
 
 .formDivLogin h1{
   font-size: 50px;
+  margin-bottom: 1%;
 }
 .formDivLogin input{
   color: black;
   width: 150%;
-  margin-top: 30%;
+  /* margin-bottom: 0%; */
   outline: none;
   border: none;
   border-bottom:3px solid #b8b8b8 ;
@@ -200,6 +201,18 @@ input{
   outline: none;
   border: none;
   border-bottom: 3px solid rgb(11, 175, 175);
+}
+
+/* #loginPass{
+  margin-bottom: 10%;
+} */
+
+.forgotPASS{
+  margin-top: 15%;
+}
+
+.outlogindiv{
+  height: 12vh;
 }
 
 .formDivLogin button{
