@@ -55,18 +55,20 @@ $(document).ready(function(){
       }
     }
 
-    let ut = 0;
 
     if(filled){
+    let ut = 0;
+
       $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet",
       {
         email:email,
         password:password
       },
-      function(data,status){
-        alert("Data: " + data + "\nStatus: " + status);
+      function(data){
+        // alert("Data: " + data);
         if(parseInt(data)==1){
           ut = 1;
+          console.log(ut);
                     // window.location.href='../super_admin/SA-dashboard.html';
         }
         else if(parseInt(data)==2){
@@ -90,8 +92,7 @@ $(document).ready(function(){
         }
       });
 
-
-
+  
 
       $.getJSON('http://localhost:8080/OSCA_war_exploded/LoginServlet',
       {
@@ -102,8 +103,8 @@ $(document).ready(function(){
       ,function(data) {
           Cookies.set('OSCA', data);
           if(ut==1){
-            alert("hello");
-            alert(data);
+            // alert("hello");
+            // alert(data);
             window.location.href='../super_admin/SA-dashboard.html';
           }
           else if(ut==2){
@@ -118,7 +119,7 @@ $(document).ready(function(){
             window.location.href='../show_organizer/SO-dashboard';
           }
           else {
-            alert(data);
+            alert("no no no");
           }
     }
     );
