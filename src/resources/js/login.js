@@ -38,9 +38,6 @@ login.addEventListener("click", () => {
 });
 
 
-
-
-
 $(document).ready(function(){
   $("#loginButton").click(function(){
     var email = $("#loginEmail").val().trim();;
@@ -104,7 +101,7 @@ $(document).ready(function(){
           Cookies.set('OSCA', data);
           if(ut==1){
             // alert("hello");
-            // alert(data);
+            alert(data);
             window.location.href='../super_admin/SA-dashboard.html';
           }
           else if(ut==2){
