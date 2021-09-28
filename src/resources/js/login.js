@@ -63,7 +63,7 @@ $(document).ready(function(){
       },
       function(data){
         alert("Data: " + data);
-        alert(ut);
+        // alert(ut);
         if(parseInt(data)==1){
           ut = 1;
           console.log(ut);
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
       ,function(data) {
           Cookies.set('OSCA', data);
-          alert(ut)
+          // alert(ut)
           if(ut==1){
             // alert("hello");
             // alert(data);
