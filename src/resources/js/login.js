@@ -62,7 +62,8 @@ $(document).ready(function(){
         password:password
       },
       function(data){
-        // alert("Data: " + data);
+        alert("Data: " + data);
+        // alert(ut);
         if(parseInt(data)==1){
           ut = 1;
           console.log(ut);
@@ -85,7 +86,7 @@ $(document).ready(function(){
         }
         else {
           ut = -1;
-          alert(data);
+          alert("Email or Password is wrong");
         }
       });
 
@@ -99,9 +100,10 @@ $(document).ready(function(){
 
       ,function(data) {
           Cookies.set('OSCA', data);
+          // alert(ut)
           if(ut==1){
             // alert("hello");
-            alert(data);
+            // alert(data);
             window.location.href='../super_admin/SA-dashboard.html';
           }
           else if(ut==2){
@@ -116,7 +118,7 @@ $(document).ready(function(){
             window.location.href='../show_organizer/SO-dashboard';
           }
           else {
-            alert("no no no");
+            alert("Error occurred login again");
           }
     }
     );
@@ -247,7 +249,7 @@ function signupSO(){
   }
 
   else{
-    $.post("http://localhost:8080/OSCA_war_exploded/signup", {
+    $.post("http://localhost:8080/OSCA_war_exploded/SignupServlet", {
         fname:fname,
         lname:lname,
         nic:nic,
@@ -255,10 +257,13 @@ function signupSO(){
         phone:phone,
         pw:pass
         }
-    );
-    
-    window.location.href='../show_organizer/SO-dashboard.html';
+    ,function(data) {
+      Cookies.set('OSCA', data);
+      // window.alert(data);
+      window.location.href='../show_organizer/SO-dashboard.html';
   }
+    
+    );}
 }
 
 

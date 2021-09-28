@@ -40,81 +40,152 @@ signup.addEventListener("click", () => {
 
 
 
-
-// $('#signupButton').click(function () {
-//   var fname = $("#fname").val().trim();
-//   var lname = $("#lname").val().trim();
-//   var nic = $("#nic").val().trim();
-//   var email = $("#email").val().trim();
-//   var phone = $("#phone").val().trim();
-//   var pass = $("#pass").val().trim();
-
-//   $.post("http://localhost:8080/OSCA_war_exploded/signup", {
-//       fname:fname,
-//       lname:lname,
-//       nic:nic,
-//       email:email,
-//       phone:phone,
-//       pw:pass
-//       }
-//   );
-  
-
-//   // window.location.href='index1.html';
-
-
-// });
-
-
-$('#loginButton').on('click', ()=>{
-  var input = $('.loginInput');
-  var filled = true;
-
-  for(var i = 0; i < input.length; i++){
-    if(validateInputs(input[i]) == false){
-      showLoginValidate(input[i], input[i].id);
-      filled = false;
+$(document).ready(function(){
+  $("#loginButton").click(function(){
+    var email = $("#loginEmail").val().trim();;
+    var password = $("#loginPass").val().trim();;
+    var input = $('.loginInput');
+    var filled = true;
+    
+    for(var i = 0; i < input.length; i++){
+      if(validateInputs(input[i]) == false){
+        showLoginValidate(input[i], input[i].id);
+        filled = false;
+      }
     }
-  }
-
-  if(filled){
-    loginUser();
-  }
-
-})
 
 
-function loginUser(){
-  var email = $("#loginEmail").val().trim();
-  var password = $("#loginPass").val().trim();
+    if(filled){
+    let ut = 0;
 
-  $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet", {
-      email:email,
-      pw:password
+      $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet",
+      {
+        email:email,
+        password:password
       },
-
-      function(data,status){
-        alert("Data: " + data + "\nStatus: " + status);
+      function(data){
+        // alert("Data: " + data);
         if(parseInt(data)==1){
-                    window.location.href='../super_admin/SA-dashboard.html';
-                  }
+          ut = 1;
+          console.log(ut);
+                    // window.location.href='../super_admin/SA-dashboard.html';
+        }
         else if(parseInt(data)==2){
-          window.location.href='../admin/A-dashboard';
+          ut = 2;
+          // window.location.href='../admin/A-dashboard';
         }else if(parseInt(data)==3){
-          window.location.href='../osca_officail/OO-dashboard';
+          ut = 3;
+          // window.location.href='../osca_officail/OO-dashboard';
         }
         else if(parseInt(data)==4){
-          window.location.href='../member/M-dashboard';
+          ut = 4;
+          // window.location.href='../member/M-dashboard';
         }
         else if(parseInt(data)==5){
-          window.location.href='../show_organizer/SO-dashboard';
+          ut = 5;
+          // window.location.href='../show_organizer/SO-dashboard';
         }
         else {
-          alert(data);
+          ut = -1;
+          alert("Email or Password is wrong");
         }
-      });   
-}
+      });
 
+  
+
+      $.getJSON('http://localhost:8080/OSCA_war_exploded/LoginServlet',
+      {
+        email:email,
+        password:password
+      } 
+
+      ,function(data) {
+          Cookies.set('OSCA', data);
+          if(ut==1){
+            // alert("hello");
+            // alert(data);
+            window.location.href='../super_admin/SA-dashboard.html';
+          }
+          else if(ut==2){
+            window.location.href='../admin/A-dashboard';
+          }else if(ut==3){
+            window.location.href='../osca_officail/OO-dashboard';
+          }
+          else if(ut==4){
+            window.location.href='../member/M-dashboard';
+          }
+          else if(ut==5){
+            window.location.href='../show_organizer/SO-dashboard';
+          }
+          else {
+            alert("Error occurred login again");
+          }
+    }
+    );
+
+
+
+
+
+      
+
+
+      
+    }
+  });
+});
+
+
+
+
+// $('#loginButton').on('click', ()=>{
+//   var input = $('.loginInput');
+//   var filled = true;
+
+//   for(var i = 0; i < input.length; i++){
+//     if(validateInputs(input[i]) == false){
+//       showLoginValidate(input[i], input[i].id);
+//       filled = false;
+//     }
+//   }
+
+//   if(filled){
+//     loginUser();
+//   }
+
+// })
+
+
+// function loginUser(){
+//   var email = $("#loginEmail").val().trim();
+//   var password = $("#loginPass").val().trim();
+
+//   $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet", {
+//       email:email,
+//       pw:password
+//       },
+
+//       function(data,status){
+//         alert("Data: " + data + "\nStatus: " + status);
+//         if(parseInt(data)==1){
+//                     window.location.href='../super_admin/SA-dashboard.html';
+//                   }
+//         else if(parseInt(data)==2){
+//           window.location.href='../admin/A-dashboard';
+//         }else if(parseInt(data)==3){
+//           window.location.href='../osca_officail/OO-dashboard';
+//         }
+//         else if(parseInt(data)==4){
+//           window.location.href='../member/M-dashboard';
+//         }
+//         else if(parseInt(data)==5){
+//           window.location.href='../show_organizer/SO-dashboard';
+//         }
+//         else {
+//           alert(data);
+//         }
+//       });   
+// }
 
 
 
@@ -178,7 +249,7 @@ function signupSO(){
   }
 
   else{
-    $.post("http://localhost:8080/OSCA_war_exploded/signup", {
+    $.post("http://localhost:8080/OSCA_war_exploded/SignupServlet", {
         fname:fname,
         lname:lname,
         nic:nic,
@@ -186,10 +257,13 @@ function signupSO(){
         phone:phone,
         pw:pass
         }
-    );
-    
-    window.location.href='../show_organizer/SO-dashboard.html';
+    ,function(data) {
+      Cookies.set('OSCA', data);
+      // window.alert(data);
+      window.location.href='../show_organizer/SO-dashboard.html';
   }
+    
+    );}
 }
 
 
