@@ -54,85 +54,57 @@ $(document).ready(function(){
       }
     }
 
+    if(filled){  
+      let hashpw = sha256(password);
+      let payload = {
+        "email":email,
+        "password":hashpw
+      }
 
-    if(filled){
-    let ut = 0;
+      let options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload) 
 
-      $.post("http://localhost:8080/OSCA_war_exploded/LoginServlet",
-      {
-        email:email,
-        password:password
-      },
-      function(data){
-        // alert("Data: " + data);
-        if(parseInt(data)==1){
-          ut = 1;
-          console.log(ut);
-                    // window.location.href='../super_admin/SA-dashboard.html';
-        }
-        else if(parseInt(data)==2){
-          ut = 2;
-          // window.location.href='../admin/A-dashboard';
-        }else if(parseInt(data)==3){
-          ut = 3;
-          // window.location.href='../osca_officail/OO-dashboard';
-        }
-        else if(parseInt(data)==4){
-          ut = 4;
-          // window.location.href='../member/M-dashboard';
-        }
-        else if(parseInt(data)==5){
-          ut = 5;
-          // window.location.href='../show_organizer/SO-dashboard';
-        }
-        else {
-          ut = -1;
-          alert("Email or Password is wrong");
-        }
-      });
+      }
 
-  
-
-      $.getJSON('http://localhost:8080/OSCA_war_exploded/LoginServlet',
-      {
-        email:email,
-        password:password
-      } 
-
-      ,function(data) {
-          Cookies.set('OSCA', data);
-          if(ut==1){
-            // alert("hello");
-            // alert(data);
-            window.location.href='../super_admin/SA-dashboard.html';
-          }
-          else if(ut==2){
-            window.location.href='../admin/A-dashboard';
-          }else if(ut==3){
-            window.location.href='../osca_officail/OO-dashboard';
-          }
-          else if(ut==4){
-            window.location.href='../member/M-dashboard';
-          }
-          else if(ut==5){
-            window.location.href='../show_organizer/SO-dashboard';
-          }
-          else {
-            alert("Error occurred login again");
-          }
-    }
-    );
-
-
-
-
-
-      
-
-
-      
-    }
-  });
+      fetch("http://localhost:8080/OSCA_war_exploded/LoginServlet", options)
+          .then(res => res.json())
+          .then(data => {
+            ut = data['userType']
+            Cookies.set('Authorization', 'Bearer '+data['token'])
+            if(ut==1){
+              alert(ut);
+              window.location.href='../super_admin/SA-dashboard.html';
+            }
+            else if(ut==2){
+              ut = 2;
+              window.location.href='../admin/A-dashboard';
+            }else if(ut==3){
+              ut = 3;
+              window.location.href='../osca_officail/OO-dashboard';
+            }
+            else if(ut==4){
+              ut = 4;
+              window.location.href='../member/M-dashboard';
+            }
+            else if(ut==5){
+              window.location.href='../show_organizer/SO-dashboard';
+            }
+            else {
+              ut = -1;
+              alert("Email or Password is wrong");
+            }
+          })
+          .catch(err =>{
+            console.error(err);
+          });
+          
+    };
+  })
 });
 
 
@@ -231,6 +203,10 @@ $('#signupButton').on('click', ()=>{
 })
 
 
+
+
+
+
 function signupSO(){
   var fname = $("#fname").val().trim();
   var lname = $("#lname").val().trim();
@@ -249,21 +225,44 @@ function signupSO(){
   }
 
   else{
-    $.post("http://localhost:8080/OSCA_war_exploded/SignupServlet", {
-        fname:fname,
-        lname:lname,
-        nic:nic,
-        email:email,
-        phone:phone,
-        pw:pass
-        }
-    ,function(data) {
-      Cookies.set('OSCA', data);
-      // window.alert(data);
-      window.location.href='../show_organizer/SO-dashboard.html';
-  }
+
+    let hashpw = sha256(pass);
+    let payload = {
+      "fname":fname,
+      "lname":lname,
+      "nic":nic,
+      "email":email,
+      "phone":phone,
+      "password":hashpw
+    }
     
-    );}
+    // let token = Cookies.get('Authorization');
+    let options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(payload) 
+  
+    }
+
+    fetch("http://localhost:8080/OSCA_war_exploded/SignupServlet", options)
+    .then(res => res.json())
+    .then(data => {
+      ut = data['userType']
+      Cookies.set('Authorization', 'Bearer '+data['token'])
+      console.log(data);
+      if(ut==5){
+        alert(ut);
+        window.location.href='../show_organizer/SO-dashboard.html';
+      }
+      else {
+        alert("Signup unsuccessful");
+      }
+      
+    })
+  }
 }
 
 
