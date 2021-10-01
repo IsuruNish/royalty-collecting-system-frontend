@@ -62,18 +62,17 @@ $(document).ready(function(){
       let options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload) 
-
       }
 
       fetch("http://localhost:8080/OSCA_war_exploded/LoginServlet", options)
           .then(res => res.json())
           .then(data => {
             ut = data['userType']
-            Cookies.set('Authorization', 'Bearer '+data['token'])
+            console.log(ut);
+            Cookies.set('Authorization', data['token'])
             if(ut==1){
               alert(ut);
               window.location.href='../super_admin/SA-dashboard.html';
