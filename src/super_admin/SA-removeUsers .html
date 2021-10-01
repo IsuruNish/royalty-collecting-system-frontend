@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
      
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/SA-removeUsers.css">
@@ -18,83 +19,94 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
 
 </head>
 
 <body>
 
-    <input type="checkbox" id="check">
 
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section class="sec">
-            <div class="header">
-                
-                <div class="first">
-                    <h2>Remove users</h2>
-                    <!-- <h3>Welcome to OSCA!!!</h3> -->
-                </div>
 
-                <div class="second">
-                    <div class="notification">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
+    <div class="notsoLoad hideME" id="notsoLoad">
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+                <div class="header">
                     
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
+                    <div class="first">
+                        <h2>Remove users</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
+
+                    <div class="second">
+                        <div class="notification">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3>Hello Ann,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="#">Home</a>
+                                <a href="#">settings</a>
+                                <a href="#">Log out</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-        <section class="content1">
-            <div class="selectButtons">
-                <button class="btn" id="cp"> Remove Show Organizers</button>
-                <button class="btn" id="lcd">Remove Members</button>
-                <button class="btn" id="lcd">Remove Officials</button>
-                <button class="btn" id="lcd">Remove Admins</button>
+            <section class="content1">
+                <div class="selectButtons">
+                    <button class="btn" id="rso"> Remove Show Organizers</button>
+                    <button class="btn" id="rm">Remove Members</button>
+                    <button class="btn" id="roo">Remove Officials</button>
+                    <button class="btn" id="ra">Remove Admins</button>
 
-            </div>
-        </section>    
-    </section>
+                </div>
+            </section>    
+        </section>
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
 
     <script src="../resources/js/SA-removeUsers.js"></script>
 
