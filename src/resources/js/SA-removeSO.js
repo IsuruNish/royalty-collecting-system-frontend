@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             },
         }
 
-        fetch("http://localhost:8080/OSCA_war_exploded/SAdashboardServlet", options)
+        fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
         .then(res => res.json())
         .then((data) => {
         ut = data['utype']

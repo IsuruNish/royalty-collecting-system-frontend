@@ -67,17 +67,17 @@ const ra = document.getElementById("ra");
 
 
 rso.addEventListener("click", ()=>{
-    window.location = "SA-removeSO.html";
+    window.location = "SA - removeSO.html";
 });
 
 rm.addEventListener("click", ()=>{
-    window.location = "SA-removeM.html";
+    window.location = "SA - removeM.html";
 });
 
 roo.addEventListener("click", ()=>{
-    window.location = "SA-removeOO.html";
+    window.location = "SA - removeOO.html";
 });
 
 ra.addEventListener("click", ()=>{
-    window.location = "SA-removeA.html";
+    window.location = "SA - removeA.html";
 });
