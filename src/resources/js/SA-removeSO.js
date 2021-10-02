@@ -18,14 +18,14 @@ window.addEventListener('DOMContentLoaded',()=>{
         fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
         .then(res => res.json())
         .then((data) => {
-            console.log(data);
 
+            console.log(data);
             ut = data[0]['userType']
-        if(ut!=1){
-            alert("Access denied!");
-            setTimeout(function() {
-                window.location.href='../landing_page/login.html';
-            },1000);
+            if(ut!=1){
+                alert("Access denied!");
+                setTimeout(function() {
+                    window.location.href='../landing_page/login.html';
+                },1000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -37,20 +37,56 @@ window.addEventListener('DOMContentLoaded',()=>{
 
                 for (let i = 1; i < data.length; i++) {
                     var insideDiv = document.createElement("div");
-                    var heading = document.createElement("h2");
+                    var uid = document.createElement("h2");
+                    var name = document.createElement("h2");
+                    var email = document.createElement("h2");
+                    var phone = document.createElement("h2");
                     var button = document.createElement("button");
                     
-                    console.log(data[i]['fname']);
                     theDiv.appendChild(insideDiv);
 
                     insideDiv.classList.add("profileCard");
                     button.classList.add("remove-btn");
+                    button.setAttribute('id', 'deletebtn');
 
-                    heading.innerHTML =  data[i]['fname']+" "+data[i]['lname'];
+                    uid.innerHTML =  data[i]['uid'];
+                    name.innerHTML =  data[i]['fname']+" "+data[i]['lname'];
+                    email.innerHTML =  data[i]['email']
+                    phone.innerHTML =  data[i]['phone']
 
                     button.innerHTML =  "Remove User"
-                    insideDiv.appendChild(heading);
+                    insideDiv.appendChild(uid);
+                    insideDiv.appendChild(name);
+                    insideDiv.appendChild(email);
+                    insideDiv.appendChild(phone);
                     insideDiv.appendChild(button);
+
+                    button.onclick = function () {
+                        var userEmail = this.previousSibling.innerHTML;
+                        var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
+                        var userPhone = this.previousSibling.previousSibling.innerHTML;
+                        
+                        console.log("hi");
+
+                        let payload = {
+                            "email":userEmail,
+                            "fname":userName,
+                            "phone":userPhone
+                        }
+
+                        let options = {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: JSON.stringify(payload) 
+                        }
+                
+                        fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
+                        .then(window.location.href='../super_admin/SA - removeSO.html');
+                        
+                    };
 
                     // theDiv.append('<li><img src="images/' + i + '.jpg"></li>');
   
@@ -62,62 +98,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                 },500);
 
             }
-        
+
         });
     }
 });
-
-    
-    // $.getJSON('http://localhost:8080/OSCA_war_exploded/SAdashboardServlet',
-    // {
-    //     "osca": Cookies.get('OSCA')
-    // },
-    // function(data) {
-
-    //     console.log(data);
-  
-    //     if(data['utype']!=1){
-    //     alert("Access denied!");
-    //     setTimeout(function() {
-    //         window.location.href='../landing_page/login.html';
-    //     },1000);
-    //     }
-
-    //     else{
-    //         const loading = document.getElementById("loader-wrapper");
-    //         const realpage = document.getElementById("notsoLoad");
-
-    //         var name = document.getElementById('name');
-    //         var id = document.getElementById('id');
-    //         var email = document.getElementById('email');
-    //         var phone = document.getElementById('phone');
-    //         var soNo = document.getElementById('showNo');
-    //         var memNo = document.getElementById('memNo');
-    //         var license = document.getElementById('licenseReq');
-    //         var songs = document.getElementById('songReq');
-    //         var memincome = document.getElementById('memIncome');
-    //         var concerts = document.getElementById('concerts');
-    //         var oscaIncome = document.getElementById('oscaIncome');
-    //         var Topname = document.getElementById('Topname');
-
-    //         setTimeout(function() {
-    //             name.innerHTML = data['fname']+" "+data['lname'];
-    //             Topname.innerHTML = "Hello "+ data['fname']+",";
-    //             id.innerHTML = data['id'];
-    //             email.innerHTML = data['email'];
-    //             phone.innerHTML = data['phoneNo'];
-    //             soNo.innerHTML = data['SOnum'];
-    //             memNo.innerHTML = data['Mnum'];
-    //             license.innerHTML = data['LicenseReqnum'];
-    //             songs.innerHTML = data['SongReqnum'];
-    //             memincome.innerHTML = data['memberIncome'];
-    //             concerts.innerHTML = data['concerts'];
-    //             oscaIncome.innerHTML = data['oscaIncome'];
-    //             loading.classList.add("hideME");
-    //             realpage.classList.remove("hideME");
-    //         },500);
-
-    //     }
-    // }
-    // )
-// )

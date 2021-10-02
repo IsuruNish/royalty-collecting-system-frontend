@@ -160,11 +160,22 @@ section{
 .search{
     line-height: 150%;
     font-size: 20px;
-    width: 40%;
+    width: 18%;
     outline: none;
     border:none;
     border-radius: 25px;
     padding-left: 3vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+
+}
+
+.search:focus{
+    width: 40%;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+    /* border: 2px solid rgb(11, 175, 175); */
 }
 
 .remove-btn {
@@ -203,14 +214,14 @@ section{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: fit-content;
     min-width: 50%;
-    min-height: 15vh;
+    min-height: 40vh;
     height: fit-content;
     /* margin-left: 100px; */
     background-color: rgb(11, 175, 175);
     margin-top: 0px;
     border-radius: 25px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin-bottom: 2%;
