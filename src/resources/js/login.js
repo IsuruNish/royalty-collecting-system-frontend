@@ -74,25 +74,20 @@ $(document).ready(function(){
             console.log(ut);
             Cookies.set('Authorization', data['token'])
             if(ut==1){
-              alert(ut);
               window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
-              ut = 2;
               window.location.href='../admin/A-dashboard';
             }else if(ut==3){
-              ut = 3;
               window.location.href='../osca_officail/OO-dashboard';
             }
             else if(ut==4){
-              ut = 4;
               window.location.href='../member/M-dashboard';
             }
             else if(ut==5){
               window.location.href='../show_organizer/SO-dashboard';
             }
             else {
-              ut = -1;
               alert("Email or Password is wrong");
             }
           })
