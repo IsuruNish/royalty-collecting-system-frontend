@@ -206,7 +206,8 @@ section{
     margin-top: 1%;
     align-items: center;
     justify-content: center;
-   
+    min-height: 80vh;
+    height: fit-content;
     
 }
 

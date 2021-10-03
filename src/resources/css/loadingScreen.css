@@ -45,3 +45,8 @@
     transition: 0.5s ease;
     display: none;
 }
+
+
+.notsoLoad{
+  min-height: 100vh;
+}
