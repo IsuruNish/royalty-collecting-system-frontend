@@ -63,30 +63,31 @@ window.addEventListener('DOMContentLoaded',()=>{
                         insideDiv.appendChild(button);
 
                         button.onclick = function () {
-                            var userEmail = this.previousSibling.innerHTML;
-                            var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
-                            var userPhone = this.previousSibling.previousSibling.innerHTML;
-                            
-                            console.log("hi");
+                            if (confirm("Do you want to delete "+ dataset[i]['fname']+" "+dataset[i]['lname']+ " ?")) {
+                                var userEmail = this.previousSibling.innerHTML;
+                                var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
+                                var userPhone = this.previousSibling.previousSibling.innerHTML;
+                                
+                                console.log("hi");
 
-                            let payload = {
-                                "email":userEmail,
-                                "fname":userName,
-                                "phone":userPhone
-                            }
+                                let payload = {
+                                    "email":userEmail,
+                                    "fname":userName,
+                                    "phone":userPhone
+                                }
 
-                            let options = {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${token}`
-                                },
-                                body: JSON.stringify(payload) 
+                                let options = {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Authorization': `Bearer ${token}`
+                                    },
+                                    body: JSON.stringify(payload) 
+                                }
+                        
+                                fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
+                                .then(window.location.href='../super_admin/SA - removeSO.html');
                             }
-                    
-                            fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
-                            .then(window.location.href='../super_admin/SA - removeSO.html');
-                            
                         };
 
                         var searchBar = document.getElementById("search");
@@ -167,37 +168,40 @@ function build(dataset){
         insideDiv.appendChild(button);
 
         button.onclick = function(){
-            let token = Cookies.get('Authorization');
-            if(token == undefined){
-                alert("login to continue")
-                window.location.href='../landing_page/login.html';
-            }
+            var txt;
+            if (confirm("Do you want to delete "+ dataset[i]['fname']+" "+dataset[i]['lname']+ " ?")){
 
-            
-            var userEmail = this.previousSibling.innerHTML;
-            var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
-            var userPhone = this.previousSibling.previousSibling.innerHTML;
-            
-            console.log("hi");
+                let token = Cookies.get('Authorization');
+                if(token == undefined){
+                    alert("login to continue")
+                    window.location.href='../landing_page/login.html';
+                }
 
-            let payload = {
-                "email":userEmail,
-                "fname":userName,
-                "phone":userPhone
-            }
+                
+                var userEmail = this.previousSibling.innerHTML;
+                var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
+                var userPhone = this.previousSibling.previousSibling.innerHTML;
+                
+                console.log("hi");
 
-            let options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(payload) 
+                let payload = {
+                    "email":userEmail,
+                    "fname":userName,
+                    "phone":userPhone
+                }
+
+                let options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(payload) 
+                }
+        
+                fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
+                .then(window.location.href='../super_admin/SA - removeSO.html');
             }
-    
-            fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
-            .then(window.location.href='../super_admin/SA - removeSO.html');
-            
         }
     }
 }
