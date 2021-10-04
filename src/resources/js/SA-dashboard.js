@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
         ut = data['utype']
+        console.log(data);
         if(ut!=1){
             alert("Access denied!");
             setTimeout(function() {
@@ -42,7 +43,12 @@ window.addEventListener('DOMContentLoaded',()=>{
                 var oscaIncome = document.getElementById('oscaIncome');
                 var Topname = document.getElementById('Topname');
 
+                var picSmall = document.getElementById('profilePicSmall');
+                var picLarge = document.getElementById('profilePic');
+                
                 setTimeout(function() {
+                    picLarge.src = data['DPpath'];
+                    picSmall.src = data['DPpath'];
                     name.innerHTML = data['fname']+" "+data['lname'];
                     Topname.innerHTML = "Hello "+ data['fname']+",";
                     id.innerHTML = data['id'];
