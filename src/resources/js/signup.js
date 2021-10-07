@@ -64,42 +64,37 @@ $(document).ready(function(){
       let options = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${token}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(payload) 
-
       }
 
       fetch("http://localhost:8080/OSCA_war_exploded/LoginServlet", options)
           .then(res => res.json())
           .then(data => {
             ut = data['userType']
-            Cookies.set('Authorization', 'Bearer '+data['token'])
+            console.log(ut);
+            Cookies.set('Authorization', data['token'])
             if(ut==1){
-              alert(ut);
               window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
-              ut = 2;
               window.location.href='../admin/A-dashboard';
             }else if(ut==3){
-              ut = 3;
               window.location.href='../osca_officail/OO-dashboard';
             }
             else if(ut==4){
-              ut = 4;
               window.location.href='../member/M-dashboard';
             }
             else if(ut==5){
               window.location.href='../show_organizer/SO-dashboard';
             }
             else {
-              ut = -1;
               alert("Email or Password is wrong");
             }
           })
           .catch(err =>{
+            alert("Email or Password is wrong");
             console.error(err);
           });
           
@@ -241,7 +236,6 @@ function signupSO(){
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(payload) 
   
@@ -256,6 +250,9 @@ function signupSO(){
       if(ut==5){
         alert(ut);
         window.location.href='../show_organizer/SO-dashboard.html';
+      }
+      else if(ut = -1){
+        alert("Email already exist");
       }
       else {
         alert("Signup unsuccessful");

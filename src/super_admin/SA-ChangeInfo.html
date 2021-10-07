@@ -15,6 +15,9 @@
       rel="stylesheet"/>
 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+      <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
@@ -23,6 +26,14 @@
 </head>
 
 <body>
+
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+
+    
+    <div class="notsoLoad hideME" id="notsoLoad">
 
     <input type="checkbox" id="check">
 
@@ -68,7 +79,7 @@
                         </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
+                    <h3 id="Topname"></h3>
                     
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
@@ -91,8 +102,18 @@
                 <div class="imgCard">
                     <h2>Profile picture</h2>
 
-                    <div class="insideImgCard">
-                        <input type="file" class="file">
+                    <div class="insideImgCard" id="insideImgCard">
+                        <input type="file" class="file" id="imageSelect">
+                    </div>
+                    
+                    <div class="updatesButtons">
+                        <div class="changeInfo">
+                            <button class="btn" id="photoChangeBtn">Save Chanages</button>
+                        </div>
+
+                        <div class="changeInfo">
+                            <button class="btn" id="photoDeleteBtn">Save Chanages</button>
+                        </div>
                     </div>
 
 
@@ -107,7 +128,7 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label>First name</label> <br>
-                            <input type="text" name="" id="fname" value="Isuru" disabled>
+                            <input type="text" name="" id="fname" value="" disabled>
                         </div> 
                         <div class="changeButton">
                             <button class="change" id="fnameBtn">change</button>
@@ -118,7 +139,7 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Last name</label> <br>
-                            <input type="text" name="" id="lname" value="Nishadha" disabled>
+                            <input type="text" name="" id="lname" value="" disabled>
                         </div> 
 
                         <div class="changeButton">
@@ -131,7 +152,7 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Email address</label> <br>
-                            <input type="text" name="" id="email" value="Isuru@gmail.com" disabled> 
+                            <input type="text" name="" id="email" value="" disabled> 
                         </div> 
 
                         <div class="changeButton">
@@ -144,7 +165,7 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Phone number</label> <br>
-                            <input type="text" value = "Isuru Nish" name="" id="phone" value="Isuru" disabled>
+                            <input type="text" value = "Isuru Nish" name="" id="phone" value="" disabled>
                         </div> 
 
                         <div class="changeButton">
@@ -157,7 +178,7 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >NIC number</label> <br>
-                            <input type="text" name="" id="nic" value="aaaaaaaaaaaa" disabled> 
+                            <input type="text" name="" id="nic" value="" disabled> 
                         </div> 
 
                         <div class="changeButton">
@@ -168,7 +189,7 @@
 
 
                     <div class="changeInfo">
-                        <button class="btn">Save</button>
+                        <button class="btn" id="personalInfo">Save Chanages</button>
                     </div>
                 </div>
 
@@ -199,7 +220,7 @@
                     </div>
 
                     <div class="changeInfo">
-                        <button class="btn">Save</button>
+                        <button class="btn" id="passChangeBtn">Save Chanages</button>
                     </div>
                 </div>
 
@@ -212,8 +233,9 @@
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
 
+    </div>
 
-    <script src="../resources/js/OO-changeInfo.js"></script>
+    <script src="../resources/js/SA-changeInfo.js"></script>
 
 </body>
 </html>

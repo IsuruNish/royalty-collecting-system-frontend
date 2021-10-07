@@ -92,6 +92,7 @@ $(document).ready(function(){
             }
           })
           .catch(err =>{
+            alert("Email or Password is wrong");
             console.error(err);
           });
           
@@ -233,7 +234,6 @@ function signupSO(){
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-        // 'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(payload) 
   
@@ -248,6 +248,9 @@ function signupSO(){
       if(ut==5){
         alert(ut);
         window.location.href='../show_organizer/SO-dashboard.html';
+      }
+      else if(ut = -1){
+        alert("Email already exist");
       }
       else {
         alert("Signup unsuccessful");

@@ -85,10 +85,20 @@ section{
     margin-bottom: 5%;
 }
 
+.updatesButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.updatesButtons button{
+    margin-right: 5%;
+}
+
 
 .insideImgCard{
     margin-top: 2%;
-    background: url("../images/profile.jpg");
+    /* background: url("../images/profile.jpg"); */
     height: 350px;
     width: 400px;
     position: relative;

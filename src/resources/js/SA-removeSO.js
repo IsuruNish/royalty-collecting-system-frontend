@@ -36,6 +36,9 @@ window.addEventListener('DOMContentLoaded',()=>{
                     var Topname = document.getElementById('Topname');
                     Topname.innerHTML = "Hello "+ data[0]['fname']+",";
 
+                    var picSmall = document.getElementById('profilePicSmall');           
+                    picSmall.src = data[0]['DPpath'];
+
                     for (let i = 1; i < data.length; i++) {
                         var insideDiv = document.createElement("div");
                         var uid = document.createElement("h2");
@@ -63,13 +66,11 @@ window.addEventListener('DOMContentLoaded',()=>{
                         insideDiv.appendChild(button);
 
                         button.onclick = function () {
-                            if (confirm("Do you want to delete "+ dataset[i]['fname']+" "+dataset[i]['lname']+ " ?")) {
+                            if (confirm("Do you want to delete "+ data[i]['fname']+" "+data[i]['lname']+ " ?")) {
                                 var userEmail = this.previousSibling.innerHTML;
                                 var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
                                 var userPhone = this.previousSibling.previousSibling.innerHTML;
                                 
-                                console.log("hi");
-
                                 let payload = {
                                     "email":userEmail,
                                     "fname":userName,
@@ -98,17 +99,17 @@ window.addEventListener('DOMContentLoaded',()=>{
                             var filteredData = [];
                             for (let i = 1; i < data.length; i++) {
                                 value = value.toLowerCase();
+                                console.log(data);
                                 var filterFName = data[i]['fname'].toLowerCase();
                                 var filterLName = data[i]['lname'].toLowerCase();
-                                var filterEmail = data[i]['fname'].toLowerCase();
-                                var filterPhone = data[i]['fname'].toLowerCase();
-                                var filterID = data[i]['fname'].toLowerCase();   
+                                var filterEmail = data[i]['email'].toLowerCase();
+                                var filterPhone = data[i]['phone'].toLowerCase();
+                                var filterID = data[i]['uid'].toString();  
                                 
                                 if(filterFName.includes(value) || filterLName.includes(value) || filterEmail.includes(value) || filterPhone.includes(value) || filterID.includes(value)){
                                     filteredData.push(data[i]);
                                 }  
                             }
-                            console.log(filteredData);
                             const mainDiv = document.getElementById('SODiv');
                             deleteDiv(mainDiv)
                             build(filteredData);

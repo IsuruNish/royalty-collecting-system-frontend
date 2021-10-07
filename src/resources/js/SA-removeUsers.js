@@ -27,6 +27,12 @@ window.addEventListener('DOMContentLoaded',()=>{
             else{
                 const loading = document.getElementById("loader-wrapper");
                 const realpage = document.getElementById("notsoLoad");
+                var Topname = document.getElementById('Topname');
+                var picSmall = document.getElementById('profilePicSmall');
+                
+                console.log(data);
+                picSmall.src = data['DPpath'];
+                Topname.innerHTML = "Hello "+ data['fname']+",";
 
                 setTimeout(function() {
                     loading.classList.add("hideME");
