@@ -91,8 +91,9 @@ section{
     justify-content:space-around;
 }
 
-.updatesButtons button{
-    margin-right: 5%;
+.updatesButtons div{
+    width: 250px;
+
 }
 
 
@@ -204,7 +205,10 @@ section{
 }
 
 .pwCard .info{
+    /* background-color: blue; */
     margin-left: 10%;
+    margin-top: 1.5%;
+    max-height: 7vh ;
 }
 
 
@@ -215,8 +219,8 @@ section{
 }
 
 .profileCard h2{
-    margin-bottom: 5%;
-    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-top: 3%;
 }
 
 .profileCard input{
@@ -258,22 +262,55 @@ section{
     margin-left: 5%;
     flex-direction: column;
     /* background-color: blue; */
+    max-height: 10vh;
 }
 
 .insideInfo label{
-    /* margin-bottom: 5%; */
+    /* background-color: blue; */
+
     font-size: 18px;
     font-weight: 450;
 }
 
 
+#passbuttonDiv{
+    margin-top: 5%;
+}
+
 .profileCard input{
     width: 90%;
     margin-top: 5%;
-
-
 }
 
+.passInput{
+    font-size: 20px;
+}
+
+.input{
+    width: 50%;
+    height: 30vh;
+    /* background-color: yellow; */
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 20%; */
+    /* align-items: center; */
+}
+
+.input input{
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    margin-top: 10%;
+    padding: 10px;
+    /* float: left; */
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: grey 1px 3px 5px ;
+}
 
 .profileCard img{
     height: 1000px;
@@ -490,6 +527,15 @@ footer h4{
     text-align: center;
 }
 
+
+.words{
+    display: block;
+    /* color: white; */
+    /* width: fit-content; */
+    font-weight: 400;
+    font-style: italic;
+    /* padding-right: 50px; */
+  }
 
   
 

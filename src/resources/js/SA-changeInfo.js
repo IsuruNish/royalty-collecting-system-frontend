@@ -77,6 +77,7 @@ $('#imageSelect').change(function () {
 
                 
 var photoChangeBtn = document.getElementById('photoChangeBtn');
+var photoDelBtn = document.getElementById('photoDeleteBtn');
 var personalInfoBtn = document.getElementById('personalInfo');
 var passChangeBtn = document.getElementById('passChangeBtn');
 
@@ -104,23 +105,69 @@ photoChangeBtn.addEventListener('click', function(){
   }
 
   fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
-  .then(res => {
-
-    const loading = document.getElementById("loader-wrapper");
-    const realpage = document.getElementById("notsoLoad");
-    loading.classList.remove("hideME");
-    realpage.classList.add("hideME");
-
-
-      setTimeout(function() {
-        alert("Profile picture chaged successfully");
-        window.location.href='SA-ChangeInfo.html';
-    },1000);
-
-
-  })
+  .then(res => res.json())
+  .then(data => {
+      
+      if(data['userType'] == 1){
+        const loading = document.getElementById("loader-wrapper");
+        const realpage = document.getElementById("notsoLoad");
+        loading.classList.remove("hideME");
+        realpage.classList.add("hideME");
+        setTimeout(function() {
+            alert("Profile picture deleted successfully");
+            window.location.href='SA-ChangeInfo.html';
+        },1000);
+      }
+      else{
+          alert("Current password is incorrect!");
+      }
+    })
 
 })
+
+
+photoDelBtn.addEventListener('click', function(){
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        alert("login to continue")
+        window.location.href='../landing_page/login.html';
+    }
+
+    let payload = {
+        "reqNo" : 1
+    }
+    
+    let options = {
+        method: 'POST',
+        headers: {
+            // 'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+  }
+
+  fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+  .then(res => res.json())
+  .then(data => {
+      
+      if(data['userType'] == 1){
+        const loading = document.getElementById("loader-wrapper");
+        const realpage = document.getElementById("notsoLoad");
+        loading.classList.remove("hideME");
+        realpage.classList.add("hideME");
+        setTimeout(function() {
+            alert("Profile picture deleted successfully");
+            window.location.href='SA-ChangeInfo.html';
+        },1000);
+      }
+      else{
+          alert("Request unsuccessful try again!");
+      }
+    })
+  })
+
+
+
 
 
 
@@ -144,6 +191,7 @@ personalInfoBtn.addEventListener('click', function(){
     console.log(phone);
 
     let payload = {
+        "reqNo" : 2,
         "fname":fname,
         "lname":lname,
         "nic":nic,
@@ -165,21 +213,133 @@ personalInfoBtn.addEventListener('click', function(){
   fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
   .then(res => res.json())
   .then(data => {
+      
+      if(data['userType'] == 1){
+          alert("Details updated!");
+          window.location.href='SA-ChangeInfo.html';
+      }
 
-    alert("Details updated!");
- 
-    window.location.href='SA-ChangeInfo.html';
-  })
+      else{
+          alert("Invalid details!");
+      }
+    })
 
   .catch(err=> {
     alert("Details invalid try again!");
     console.log(err);
     })
-  
-
-
-
 })
+
+
+
+
+
+passChangeBtn.addEventListener('click', function(){
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        alert("login to continue")
+        window.location.href='../landing_page/login.html';
+    }
+    
+    var pass = $("#oldpass").val().trim();
+    var pass1 = $("#newpass1").val().trim();
+    var pass2 = $("#newpass2").val().trim();
+
+    var input = $('.passInput');
+    var filled = true;
+    
+    for(var i = 0; i < input.length; i++){
+      if(validateInputs(input[i]) == false){
+        showLoginValidate(input[i], input[i].id);
+        filled = false;
+      }
+    }
+
+    if(filled){
+
+        if(pass1 != pass2){
+            window.alert("Passwords do not match!");
+          }
+        
+        else{
+    
+            let hashpw1 = sha256(pass);
+            let hashpw2 = sha256(pass1);
+            let payload = {
+                "reqNo" : 3,
+                "pass":hashpw1,
+                "newPass":hashpw2
+            }
+            
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+    
+                body: JSON.stringify(payload) 
+    
+            }
+    
+            fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+            .then(res => res.json())
+            .then(data => {
+                
+                if(data['userType'] == 1){
+                    alert("Details updated!");
+                    window.location.href='SA-ChangeInfo.html';
+                }
+
+                else{
+                    alert("Current password is incorrect!");
+                }
+                
+            })
+    
+            .catch(err=> {
+                alert("Details invalid try again!");
+                console.log(err);
+            })
+        }
+    }
+})
+
+
+
+function validateInputs(input) {  
+    if($(input).val().trim() == ''){
+        return false;
+    } 
+}
+
+
+function showLoginValidate (input, id) {
+    if($(input).val().trim() == '') {
+      var field = document.getElementById(id);
+      var text = field.nextElementSibling;
+  
+      text.innerHTML = "This field is empty";
+      text.style.color = "#ff0000";
+    }
+  }
+
+  function hideValidate (id) {
+    var field = document.getElementById(id);
+    var text = field.nextElementSibling;
+  
+    if(field == document.activeElement) {
+      text.innerHTML = "";
+      text.style.color = "#ff0000";
+    }
+  
+    // if(id == 'pass'){
+    //   var field = document.getElementById('pass2');
+    //   var text = field.nextElementSibling;
+    //   text.innerHTML = "";
+    //   text.style.color = "#ff0000";
+    // }
+  }
 
 
 
