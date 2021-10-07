@@ -561,6 +561,11 @@ footer h4{
 }
 
 @media screen and (max-width:750px){
+
+    .updatesButtons{
+        flex-direction: column;
+    }
+
     .pwCard .info{
         width: 90%;
         margin-left: 40%;
@@ -582,11 +587,23 @@ footer h4{
         font-size: 20px;
     }
 
-    .btn{
+    /* .btn{
         padding-top: 20%;
         padding-bottom: 20%;
         padding-left: 40%;
         padding-right: 40%;
+    } */
+
+    .input{
+        width: 300px;
+    }
+
+    .input .insideInfo{
+        width: 100%;
+    }
+
+    .input input{
+        width: 250px;
     }
 
     .change{
