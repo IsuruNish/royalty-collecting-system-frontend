@@ -77,15 +77,15 @@ $(document).ready(function(){
               window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
-              window.location.href='../admin/A-dashboard';
+              window.location.href='../admin/A-dashboard.html';
             }else if(ut==3){
-              window.location.href='../osca_officail/OO-dashboard';
+              window.location.href='../osca_officail/OO-dashboard.html';
             }
             else if(ut==4){
-              window.location.href='../member/M-dashboard';
+              window.location.href='../member/M-dashboard.html';
             }
             else if(ut==5){
-              window.location.href='../show_organizer/SO-dashboard';
+              window.location.href='../show_organizer/SO-dashboard.html';
             }
             else {
               alert("Email or Password is wrong");
