@@ -190,6 +190,11 @@ section{
     font-weight: bold;
   }
 
+  .remove-btn:hover {
+    background-color: black;
+    color: white;
+  }
+
 .content1{
     width: 100%;
     height: fit-content;
