@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../resources/css/forgotpw.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+
   <title>login</title>
 </head>
 
@@ -22,19 +24,19 @@
               <h1>Forgot password</h1>
 
               <div>
-                <input type="text" placeholder="Enter pin">
+                <input type="text" placeholder="Enter pin" id="pin">
               </div>
 
               <div>
-                <input type="text" placeholder="New password">
+                <input type="text" placeholder="New password" id="pass1">
               </div>
 
               <div>
-                <input type="text" placeholder="Confirm new password">
+                <input type="text" placeholder="Confirm new password" id="pass2">
               </div>
 
               <div class="btn">
-                <button type="submit">Confirm</button>
+                <button type="submit" id="btn">Confirm</button>
 
                 <button type="submit">Resend pin</button>
 
@@ -46,6 +48,9 @@
         </div>
       </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="../resources/js/forgotpw.js"></script>
 </body>
 
 </html>
