@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/A-requests.css">
+     
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="../resources/js/script.js"></script>
+
+</head>
+
+<body>
+
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+            <li><a href="#"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="#"><i class="fas fa-music"></i>Register songs</a></li>
+            <li><a href="#"><i class="fas fa-user-tag"></i>Change ownership</a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i>Remove a song</a></li>
+            <li><a href="#"><i class="fas fa-user-plus"></i>Add Users</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i>Requests</a></li>
+            <li><a href="#"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+
+ 
+    <section class="sec">
+            <div class="header">
+                
+                <div class="first">
+                    <h2>Approve requests</h2>
+                    <!-- <h3>Welcome to OSCA!!!</h3> -->
+                </div>
+
+                <div class="second">
+                    
+                    <div class="notification">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                        </div>
+                    </div>
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3>Hello Ann,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="#">Home</a>
+                            <a href="#">Change Details</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <section class="content1">
+
+            <div class="top">
+                <h2>Choose the requests you want to check</h2>
+            </div>
+
+            <div class="selectButtons">
+                <button class="btn" id="la">License applications</button>
+                <button class="btn" id="lc">License cancellations</button>
+                <button class="btn" id="sr">Song registrations</button>
+                <button class="btn" id="soc">Song ownership changes</button>
+                <button class="btn" id="sre">Song removal</button>
+            </div>
+
+
+            
+            <div class="img" id="img">
+                <img src="../resources/images/request.svg" alt="">
+            </div>
+
+
+            <div class="mainCard">
+                <div class="licenseApplications blank" id="licenseApplications">
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="licenseCancellations blank" id="licenseCancellations">
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+                        
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="songRegistrations blank" id="songRegistrations">
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="songOwnership blank" id="songOwnership">
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="songRemoval blank" id="songRemoval">
+                    <div class="profileCard" id="lApp">
+                        <div class="info">
+                            <h2>License A</h2>
+                            <h2>on 25 Mar 2022</h2>
+                            <h2>@ viharamaha devi</h2>
+                            <h2>Rs.12,000</h2>  
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn" id="accept">Accept</button>
+                            <button class="btn" id="deny">Deny</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>    
+        </section>    
+    </section>
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+    <script src="../resources/js/A-requests.js"></script>
+
+</body>
+</html>
