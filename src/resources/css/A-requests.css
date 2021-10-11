@@ -353,9 +353,7 @@ footer h4{
 
 @media screen and (max-width:1180px){
 
-    section{
-        max-height: 100vh;
-    }
+
 
     .selectButtons{
         flex-direction: column;
@@ -363,6 +361,8 @@ footer h4{
 
     .profileCard h2{
         text-align: center;
+        margin-bottom: 25%;
+
     }
 
     .imput, .datePick{
@@ -371,22 +371,64 @@ footer h4{
 
 
 
-    .mainCard{
+    .img{
         display: none;
     }
 
+    .content1{
+        flex-direction: column;
+        height: fit-content;
+        min-height: 100vh;
+    }
 
-    .profileCard h2{
-        margin-bottom: 10vh;
+    .mainCard{
+        /* background-color: red; */
+        margin-top: 5%;
+    }
+
+    .profileCard{
+        height: fit-content;
+        width: 75%;
+        margin-left: 15%;
+    }
+    .licenseApplications, .licenseCancellations, .songRegistrations, .songOwnership, .songRemoval{
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-content: center; */
+        /* align-self: center; */
+        flex-direction: column;
+        /* background-color: khaki;  */
+        width: 100%;
     }
 
 }
 
+
+@media screen and (max-width:700px){
+
+    .profileCard{
+        flex-direction: column;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .buttons{
+        flex-direction: row;
+        margin-bottom: 3%;
+    }
+
+    #accept{
+        margin-right: 10%;
+
+    }
+
+}
+
+/* 
 @media screen and (max-width:550px){
 
     section{
         max-height: 100vh;
-        /* background-color: black; */
     }
     .profileCard h2{
         text-align: center;
@@ -403,7 +445,7 @@ footer h4{
     }
 
 }
-
+ */
 
 
 
