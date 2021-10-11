@@ -449,6 +449,10 @@ input{
   margin-right: 5%;
 }
 
+#loginIcon{
+  top: 2rem;
+}
+
 
 
 
@@ -797,14 +801,19 @@ padding-right: 15%;
   .sideLogin p{
     width: 15rem;
   }
-
-
-
-
-
-
-
  */
-  
+}
+
+
+@media (max-width: 500px){
+  .formDivSignup input{
+    width: 100%;
+  }
+
+  #strength{
+    width: 100%;
+    background-color: red;
+    
+  }
 
 }
