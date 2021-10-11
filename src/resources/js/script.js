@@ -5,5 +5,14 @@ $(document).ready(function(){
       });
   });
 
+
+
+// document.addEventListener('click', function (event) {
+//     var isClickInsideElement = headerProfile.contains(event.target);
+//     if (!isClickInsideElement) {
+//        removeProfileMenu();
+//     }
+// });
+
  
 

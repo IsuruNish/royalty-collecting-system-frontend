@@ -567,7 +567,8 @@ footer h4{
     }
     section{
         width: 100%;
-        height: 350vh;
+        /* height: 350vh; */
+        height: fit-content;
         box-sizing: border-box;
         overflow: hidden;
         
@@ -629,7 +630,8 @@ footer h4{
     
     .content1{
         width: 100%;
-        height: 350vh;
+        /* height: 350vh; */
+        height: fit-content;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -638,7 +640,7 @@ footer h4{
     }
     .mainCard{
         width: 100%;
-        height: 350vh;
+        height: 200vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -669,6 +671,8 @@ footer h4{
     .left{
         width: 100%;
         height: 50%;
+        margin-top: 4%;
+        margin-bottom: 4%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -683,13 +687,28 @@ footer h4{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 50%;
         
 
     }
 
+    .pendingLicense{
+        margin-top: 5%;
+        padding-bottom: 5%;
+
+    }
+
+    .acceptedLicense{
+        padding-bottom: 5%;
+    }
+
+    .rejectedLicense{
+        padding-bottom: 5%;
+
+    }
     .acceptedLicense, .rejectedLicense,.pendingLicense,.upcomingLicense{
         border-radius: 25px;
-        
+        width: 92%;
     }
     
     
