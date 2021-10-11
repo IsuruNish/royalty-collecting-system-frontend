@@ -137,6 +137,7 @@
 
     .toggle{
       display: flex;
+      margin-right: 3%;
     }
 
     .nav_bar{
@@ -271,6 +272,7 @@
         margin-right: 4rem;
         display: inline-block;
         padding:0;
+        width: 100%;
         margin-bottom: 2rem;
     }
     
@@ -279,7 +281,6 @@
         color: white;
         font-size: 20px;
         padding: 0;    
-
     }
     
     .nav_bar li a:hover{
@@ -288,17 +289,24 @@
         padding-right: 1rem;
         padding-left: 1rem;
         transition: 0.2s;
+        color: white;
+        /* color: white; */
     }
 
     .content{
         margin-top: 8rem;
+    }
+
+
+    .content h1{
+        font-size: 45px;
     }
     .forSignup {
         margin-top: 18rem
     }
     
     .forSignup h1{
-        font-size: 50px;
+        font-size: 5px;
     }
     
     .forSignup p{
