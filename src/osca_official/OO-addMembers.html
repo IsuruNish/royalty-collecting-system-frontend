@@ -7,30 +7,20 @@
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      
+    <link rel="stylesheet" href="../resources/css/A-addmembers.css">
     <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/M-songRemoval.css">
-
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
-    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
     
     <script src="../resources/js/script.js"></script>
 
 </head>
 
-<body>   
-
-    <div class="loader-wrapper" id="loader-wrapper">
-        <span class="loader"><span class="loader-inner"></span></span>
-    </div>
-
-
-    <div class="notsoLoad hideME" id="notsoLoad">
+<body>
 
     <input type="checkbox" id="check">
 
@@ -62,10 +52,12 @@
             <div class="header">
                 
                 <div class="first">
-                    <h2>Remove show organizers</h2>
+                    <h2>Add members to OSCA</h2>
+                    <!-- <h3>Welcome to OSCA!!!</h3> -->
                 </div>
 
                 <div class="second">
+                    
                     <div class="notification">
                         <i class="fas fa-bell" id="bell"></i>
                         <span class="badge">3</span>
@@ -76,7 +68,7 @@
                         </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname"></h3>
+                    <h3>Hello Ann,</h3>
                     
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
@@ -91,81 +83,41 @@
 
 
         <section class="content1">
-            <div class="src">
-            <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a show organizer..." name="search" id="search" class="search">
-            </div>
-            <div class="mainCard" id="SODiv">
+            <div class="mainCard">
                 <div class="profileCard">
-                    <h2>song ID</h2>
-                    <h2>song name</h2>
-                    <h2>song version</h2>
-                    <h2>Who added (mID/ oID)</h2>
-                    <hr>
-                    <h2>Singers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                    <h2>Enter details of the new member</h2>
+                    <h3>Basic information</h3>
+                    <input type="text" name="" id="" placeholder="First name">
+                    <input type="text" name="" id="" placeholder="Last name">
+                    <input type="text" name="" id="" placeholder="Email address">
+                    <input type="text" name="" id="" placeholder="Phone number">
+                    <input type="text" name="" id="" placeholder="NIC number">
 
-                    <hr>
-                    <h2>Composers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                    <h3>Bank information</h3>
+                    <input type="text" name="" id="" placeholder="Bank name">
+                    <input type="text" name="" id="" placeholder="Bank branch">
+                    <input type="text" name="" id="" placeholder="Account number">
 
-                    <hr>
-                    <h2>Song Writers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                    <div class="changeInfo">
+                        <button class="btn">Add member</button>
+                    </div>
+                </div> 
+            </div>     
+            
+            <!-- <footer>
+                <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+            </footer> -->
+        </section>
+        
 
-                    <button class="remove-btn">Remove User</button>
-                </div>
-<!-- 
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div> -->
-
-                
-            </div> 
-        </section>    
+    
     </section>
 
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
-    </div>
-    <script src="../resources/js/M-SongRemoval.js"></script>
+
+
 
 </body>
 </html>
