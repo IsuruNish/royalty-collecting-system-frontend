@@ -254,6 +254,9 @@ section{
 }
 
 .acceptedLicense, .rejectedLicense, .pendingLicense, .upcomingLicense {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* border: solid 2px turquoise; */
     /* width: 93%; */
     width: 93%;
