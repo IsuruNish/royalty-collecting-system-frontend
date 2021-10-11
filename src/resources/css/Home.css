@@ -13,6 +13,7 @@
 
 .forSignup{
     margin-top: 19%;
+    width: 40%;
 }
 
 .forSignup h1{
@@ -88,6 +89,8 @@
 }
 
 
+
+
 /* .page2{
     min-height: 100vh;
     color: white;
@@ -96,11 +99,20 @@
 } */
 
 .forLogin{
-    margin-top: 11%;
+    margin-top: 16%;
+    /* margin-left: 3%; */
+    width: 40%;
 }
 
 .forLogin h1{
-    font-size: 80px;
+    font-size: 70px;
+}
+
+
+.forLogin p{
+    margin-top: 3%;
+    font-size: 25px;
+    font-weight: 500;
 }
 
 
