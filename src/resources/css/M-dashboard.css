@@ -226,7 +226,7 @@ section{
 }
 
 .number{
-    font-size: 100px;
+    font-size: 80px;
     margin-top: 6%;
     text-align: center;
     /* text-shadow: 2px 2px 5px red; */
@@ -516,7 +516,8 @@ footer h4{
     }
     section{
         width: 100%;
-        height: 300vh;
+        /* height: 300vh; */
+        height: fit-content;
         box-sizing: border-box;
         overflow: hidden;
         
@@ -578,7 +579,8 @@ footer h4{
     
     .content1{
         width: 100%;
-        height: 300vh;
+        /* height: 300vh; */
+        height: fit-content;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -587,7 +589,9 @@ footer h4{
     }
     .mainCard{
         width: 100%;
-        height: 300vh;
+        /* height: 300vh; */
+        height: fit-content;
+        margin-bottom: 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -598,7 +602,7 @@ footer h4{
     }
     
     .profileCard{
-        margin-top: 0;
+        margin-top: 10%;
         width: 90%;
         height: 80vh;
         margin-left: 0;
@@ -607,7 +611,8 @@ footer h4{
     
     .licenseDetails{
         width: 98%;
-        height: 200vh;
+        /* height: 200vh; */
+        height: fit-content;
         /* background-color: purple; */
         display: flex;
         flex-direction: column;
@@ -617,7 +622,8 @@ footer h4{
     }
     .left{
         width: 100%;
-        height: 50%;
+        max-height: 50%;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -638,7 +644,8 @@ footer h4{
 
     .acceptedLicense, .rejectedLicense,.pendingLicense,.upcomingLicense{
         border-radius: 25px;
-        
+        padding-bottom: 5%;
+        margin-top: 10%;
     }
     
     
