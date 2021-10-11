@@ -18,13 +18,13 @@
     /* background: #063146; 
     background: #151515;
     user-select: none;
-}
+}*/
 
 .sidebar ul a{
     display: block;
     height: 100%;
     width: 100%;
-    line-height: 65px;
+    /* line-height: 55px; */
     font-size: 20px;
     color: white;
     padding-left: 40px;
@@ -34,7 +34,7 @@
     transition: .4s;
 }
 
-.sidebar ul li:hover a{
+/*.sidebar ul li:hover a{
     padding-left: 50px;
     background-color: teal;
 
@@ -233,6 +233,10 @@ section{
     font-size: 65px;
     margin-top: 6%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
     /* text-shadow: 2px 2px 5px red; */
     /* text-shadow: 2px 2px 4px white; */
 
@@ -258,10 +262,14 @@ section{
 }
 
 .acceptedLicense, .rejectedLicense, .pendingLicense, .upcomingLicense {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* border: solid 2px turquoise; */
     width: 93%;
     height: 48%;
-    margin-top: 3%;
+    /* margin-top: 3%; */
+    margin-bottom: 4%;
     background-color:  rgb(11, 175, 175);
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -269,6 +277,9 @@ section{
 }
 
 .totalIncome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     /* border: solid 2px turquoise; */
     width: 93%;
     height: 97%;
@@ -291,6 +302,7 @@ section{
     justify-content: center;
     font-size: 25px;
 }
+
 
 .acceptedLicense i, .rejectedLicense i, .pendingLicense i, .upcomingLicense i, .totalIncome i{
     margin-right: 10px;
@@ -419,8 +431,8 @@ section{
     border-radius: 60%;
     margin-top: 20px;
     margin-bottom: 40px;
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 225px;
    border: solid white;
 
   }
@@ -665,7 +677,10 @@ footer h4{
     }
     section{
         width: 100%;
-        height: 480vh;
+        /* height: 480vh;
+         */
+        height: fit-content;
+
         box-sizing: border-box;
         overflow: hidden;
         
@@ -727,7 +742,9 @@ footer h4{
     
     .content1{
         width: 100%;
-        height: 470vh;
+        /* height: 470vh; */
+        height: fit-content;
+
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -773,6 +790,8 @@ footer h4{
     }
     .left{
         width: 100%;
+        margin-left: 0vh;
+
         height: 50%;
         display: flex;
         flex-direction: column;
