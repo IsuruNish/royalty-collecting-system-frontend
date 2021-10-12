@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/A-checkStat.css">
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
+
+      <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
+     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body >
+
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+
+ 
+    <section class="sec">
+
+        <!-- <div class="all"> -->
+            <div class="header">
+                
+                <div class="first">
+                    <h2>System report</h2>
+                    
+                </div>
+
+                <div class="second">
+
+                    <div class="notification">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                        </div>
+                    </div>
+                    <!-- <i class="fas fa-bell" id="bell"></i> -->
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3 id="Topname">,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="#">Home</a>
+                            <a href="#">settings</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="content">
+                <div class="main">
+                    <div class="top">
+                        <div class="div-dropdown">
+                            <div class="left-dropdown">
+                                    <input type="text" list="browse" placeholder="Select monthly or annually" name="browse">
+                                    <datalist id="browse">
+                                      <option value="Monthly">
+                                      <option value="Annually">
+                                    </datalist>
+                            </div>
+        
+                            <div class="right-dropdown">
+                                <input type="text" list="report" placeholder="Select a report type" name="report">
+                                    <datalist id="report">
+                                        <option value="Payment history of show organizers">
+                                        <option value="Income of members">
+                                        <option value="Income of OSCA"></option>
+                                        <option value="Distribution"></option>
+                                    </datalist>
+                            </div>
+                        </div>
+    
+                        <div class="searchBar">
+                            <i class="fas fa-search"></i><input type="text" placeholder="Enter month or year" id="search">
+                            
+                        </div>
+                        <button class="btn">Generate report</button>
+                        
+                    </div>
+    
+                    <div class="bottom">
+                        <!-- profilecard ekak danna -->
+                        <div class="graph">
+    
+                        </div>
+                        <button class="btn">Download PDF</button>
+                    </div>
+                </div>
+            </section>
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+</div>
+
+    <script src="../resources/js/script.js"></script>
+
+    <!-- <script type="module" async src="../resources/js/test.js"></script> -->
+
+</body>
+</html>
