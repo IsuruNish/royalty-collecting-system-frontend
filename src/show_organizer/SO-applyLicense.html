@@ -43,153 +43,186 @@
     </div>
 
  
-    <section style="height: 110vh;">
+    <section class="sec">
+        <div class="header">
+            
+            <div class="first">
+                <h2>Get a license</h2>
+            </div>
 
-        
-            <div class="header">
+            <div class="second">
                 
-                <div class="first">
-                    
-                    <h2>Get a license</h2>
-                </div>
-
-                <div class="second">
-                    
-                    <div class="notification">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div>
+                <div class="notification">
+                    <i class="fas fa-bell" id="bell"></i>
+                    <span class="badge">3</span>
+                    <div class="notification-content">
+                        <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                        <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                        <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
                     </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
-                        </div>
+                </div>
+                <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                <h3>Hello Ann,</h3>
+                
+                <div class="dropdown">
+                    <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                    <div class="dropdown-content">
+                        <a href="#">Home</a>
+                        <a href="#">settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        
+        <div class="content">
+            <div class="firstContent">
+                <div class="head">
+                    <h2>Choose the license type you wish to get</h2>
+                </div>
+                <div class="content2">
+                    <div class="selectButtons">
+                        <button onclick="myFun1()" class="btn " id="btn1">Open concert</button>
+                        <button onclick="myFun2()" class="btn " id="btn2">Close concert</button>  
                     </div>
                 </div>
             </div>
 
-        
-            
-             <div class="content">
-             <div class="firstContent">
-                 <div class="head">
-                    <h2>Choose the license type you wish to get</h2>
-                 </div>
-                 <div class="content2">
-                    <div class="selectButtons">
-                        <button onclick="myFun1()" class="btn select" id="btn1">Open license</button>
-                        <button onclick="myFun2()" class="btn" id="btn2">Close license</button>
-                        
-                    </div>
-                 </div>
-                 
 
-             </div>
-             <div class="secondContent" id="openLicense" >
-                 <div class="inputDetails">
-                    <input type="text" placeholder="Enter the concert name">
-                    <input type="text" placeholder="Enter the venue">
-                    <span id="calendar">Pick the date of the concert<input type="date" style="margin-left:5%; width: 30%;"></span>
-                    
-                 </div>
-                 <div class="calculateTotal">
-                     <div class="one">
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fab fa-cc-amex"></i>
-                        <!-- <i class="fab fa-google-pay"></i> -->
-                        <i class="fab fa-cc-amazon-pay"></i>
-                     </div>
-                    </i><a href="#">Pay online</a>
-                     <h2>or</h2>
-                 </div>
-                 
+            <div class="images" id="images">
+                <img src="../resources/images/applyLicense.svg" alt="">
+            </div>
 
-             </div>
-             
-                <div class="secondContent close" id="closeLicense" >
-                    <div class="inputDetails">
-                       <input type="text" placeholder="Enter the concert name">
-                       <input type="text" placeholder="Enter the venue">
-                       <span id="calendar">Pick the date of the concert<input type="date" style="margin-left:5%; width: 30%;"></span>
-                       <div class="box">
-                        <a class="button" href="#popup1" style="color: black;">Add songs</a>
-                    </div>
-                    
-                    <div id="popup1" class="overlay">
-                        <div class="popup">
-                            
-                            <a class="close1" href="#" style="color: black;">&times;</i></a>
-                            <div class="content1">
-                               
-                                <div id="myDIV" class="header1" style="width: 90%;">
-                                   
-                                    <input type="text" id="myInput" placeholder="Add the song">
-                                    <span onclick="newElement()" class="addBtn">Add</span>
-                                  </div>
-                                  
-                                  <ul id="myUL">
-                                    <li id="li" name="li">Hit the gym</li>
-                                    
-                                    <li id="li" name="li">Meet George</li>
-                                    <li id="li"name="li">Buy eggs</li>
-                                    <li id="li" name="li">Read a book</li>
-                                    <li id="li" name="li">Organize office</li>
-                                  </ul>
-                            </div>
-                        </div>
-                    </div>
-                       <!-- <a href="./SO-addSongs.html" style="margin-left: 30%; font-size: 20px;color: black; margin-top: 5px;font-family: 'Poppins', sans-serif; font-weight: bold;">Click here to add songs... </a> -->
-                       
-                    </div>
-                    <div class="calculateTotal">
-                        <div class="one">
-                            
-                           <i class="fab fa-cc-visa"></i>
-                           <i class="fab fa-cc-mastercard"></i>
-                           <i class="fab fa-cc-amex"></i>
-                           <!-- <i class="fab fa-google-pay"></i> -->
-                           <i class="fab fa-cc-amazon-pay"></i>
-                        </div>
-                       </i><a href="#">Pay online</a>
-                        <h2>or</h2>
-                    </div>
-                    
-    
+            <div class="secondContent close" id="openLicense" >
+                <div class="inputDetails">
+                    <h2 id="topic">Concert Details</h2>
+                    <input type="text" id="imput" placeholder="Enter the concert name">
+                    <input type="text" id="imput" placeholder="Enter the venue">
+                    <h3 id="topic">Pick the date of the concert</h3>
+                    <input type="date" id="calendar"> 
+
+                    <button class="btn " id="btnSubmit">Apply</button>  
+            </div>
+
+            <!-- <div class="calculateTotal">
+                <div class="one">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
                 </div>
-            
-            
-             <div class="thirdContent">
+                </i><a href="#">Pay online</a>
+                <h2>or</h2>
+            </div>
+
+
+            <div class="thirdContent">
                 <div class="submitDocumentContent">
                     <div class="text">
-                        <p>Submit the payment slip</p><i class="far fa-arrow-alt-right"></i>  
+                        <p>Submit the payment slip</p><i class="fas fa-arrow-alt-down"></i>
                     </div>
-                  
-                  <div class="submit" >
+                    
+                    <div class="submit" >
+                        <form action="#">
+                            <input type="file" id="myFile" name="filename" >
+                            <input type="submit" id="btn">
+                        </form>
+                    </div>    
+                </div>
+            </div>  -->
+                
+        </div>
+            
+        <div class="secondContent close" id="closeLicense" >
+            <div class="inputDetails">
+                <h2 id="topic">Concert Details</h2>
+                <input type="text" id="imput" placeholder="Enter the concert name">
+                <input type="text" id="imput" placeholder="Enter the venue">
+                <h3 id="topic">Pick the date of the concert</h3>
+                <input type="date" id="calendar"> 
+
+                <div class="box">
+                    <a class="button" id="calendar" href="#popup1" style="color: black;">Click here to add songs</a>
+                </div>
+                
+                <div id="popup1" class="overlay">
+                    <div class="popup">
+                        <a class="close1" href="#" style="color: black;">&times;</i></a>
+                        <div class="content1">
+                            <div id="myDIV" class="header1" style="width: 90%;"> 
+                                <input type="text" id="myInput" placeholder="Add the song">
+                                <span onclick="newElement()" class="addBtn">Add</span>
+                            </div>
+                                
+                            <ul id="myUL">
+                                <!-- <li id="li" name="li">Hit the gym</li>    
+                                <li id="li" name="li">Meet George</li>
+                                <li id="li"name="li">Buy eggs</li>
+                                <li id="li" name="li">Read a book</li>
+                                <li id="li" name="li">Organize office</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn " id="btnSubmit">Apply</button>  
+
+            </div>
+
+                    <!-- <a href="./SO-addSongs.html" style="margin-left: 30%; font-size: 20px;color: black; margin-top: 5px;font-family: 'Poppins', sans-serif; font-weight: bold;">Click here to add songs... </a> -->        
+        </div>
+                
+        <!-- <div class="calculateTotal">
+            <div class="one">        
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-amazon-pay"></i>
+            </div>
+            
+            </i><a href="#">Pay online</a>
+            <h2>or</h2>
+        </div>
+
+
+        <div class="thirdContent">
+            <div class="submitDocumentContent">
+                <div class="text">
+                    <p>Submit the payment slip</p><i class="far fa-arrow-alt-right"></i>  
+                </div>
+                
+                <div class="submit" >
                     <form action="#">
                         <input type="file" id="myFile" name="filename" >
                         <input type="submit" id="btn">
                     </form>
-                  </div>
-                  
-                </div>
-
-             </div>
-
-                 
-              
+                </div>    
             </div>
-             
+        </div>  -->
+                
+
+        <!-- </div> -->
+            
+            
+            <!-- <div class="thirdContent">
+                <div class="submitDocumentContent">
+                    <div class="text">
+                        <p>Submit the payment slip</p><i class="far fa-arrow-alt-right"></i>  
+                    </div>
+                    
+                    <div class="submit" >
+                        <form action="#">
+                            <input type="file" id="myFile" name="filename" >
+                            <input type="submit" id="btn">
+                        </form>
+                    </div>    
+                </div>
+            </div>  -->
+            
+        <!-- </div> -->
+            
             
         
     

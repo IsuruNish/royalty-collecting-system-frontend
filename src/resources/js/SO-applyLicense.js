@@ -1,48 +1,43 @@
-function myFun1(){
-     
-   
+var images = document.getElementById('images');
+
+function myFun1(){   
     if(document.getElementById("openLicense").classList.contains("close")){
- 
        document.getElementById("openLicense").classList.toggle("close");
        document.getElementById("closeLicense").classList.add("close");
-    //    document.getElementById("tbl3").classList.add("close");
-       
+         
        document.getElementById("btn1").classList.add("select");
        document.getElementById("btn2").classList.remove("select");
-    //    document.getElementById("btn3").classList.remove("select");
-       
-    //    document.getElementById("svg").classList.add("close");
- 
+       images.classList.add('hide');
+
     }
- 
-    
-   
-   
-  }
+
+    else if(!document.getElementById("openLicense").classList.contains("close")){
+      document.getElementById("openLicense").classList.toggle("close");
+      document.getElementById("btn1").classList.remove("select");
+      images.classList.remove('hide');
+
+   }
+}
  
   function myFun2(){
       
     
     if(document.getElementById("closeLicense").classList.contains("close")){
- 
        document.getElementById("closeLicense").classList.toggle("close");
        document.getElementById("openLicense").classList.add("close");
-    //    document.getElementById("tbl3").classList.add("close");
- 
  
        document.getElementById("btn2").classList.add("select");
        document.getElementById("btn1").classList.remove("select");
-    //    document.getElementById("btn3").classList.remove("select");
- 
-    //    document.getElementById("svg").classList.add("close");
- 
+       images.classList.add('hide');
     }
- 
-    
-   
-   
-  }
 
+    else if(!document.getElementById("closeLicense").classList.contains("close")){
+      document.getElementById("closeLicense").classList.toggle("close");
+      document.getElementById("btn2").classList.remove("select");
+      images.classList.remove('hide');
+
+   }
+}
 
 
   // Create a "close" button and append it to each list item
