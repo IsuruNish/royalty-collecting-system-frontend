@@ -17,6 +17,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" href="../resources/css/loadingScreen.css">
     
     <script src="../resources/js/script.js"></script>
@@ -91,35 +92,125 @@
 
         <section class="content1">
             <div class="src">
-            <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a show organizer..." name="search" id="search" class="search">
+            <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a song..." name="search" id="search" class="search">
             </div>
             <div class="mainCard" id="SODiv">
-                <div class="profileCard">
+                <div class="profileCard"  id="profileCard" onclick= "expand('profileCard')">
                     <h2>song ID</h2>
                     <h2>song name</h2>
                     <h2>song version</h2>
                     <h2>Who added (mID/ oID)</h2>
-                    <hr>
-                    <h2>Singers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                    <div class="showHide hideMe" id="showHide">
+                        <hr>
+                        <h2 class="topicName">Singers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
 
-                    <hr>
-                    <h2>Composers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                        <hr>
+                        <h2 class="topicName">Composers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
 
-                    <hr>
-                    <h2>Song Writers</h2>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
-                    <h3>abcd</h3>
+                        <hr>
+                        <h2 class="topicName">Song Writers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                    </div>
+
+                    <button class="remove-btn">Remove song</button>
+                </div>
+
+
+                <div class="profileCard"  id="profileCard" onclick= "expand('profileCard')">
+                    <h2>song ID</h2>
+                    <h2>song name</h2>
+                    <h2>song version</h2>
+                    <h2>Who added (mID/ oID)</h2>
+                    <div class="showHide hideMe" id="showHide">
+                        <hr>
+                        <h2 class="topicName">Singers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Composers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Song Writers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                    </div>
+
+                    <button class="remove-btn">Remove song</button>
+                </div>
+
+
+                <div class="profileCard"  id="profileCard" onclick= "expand('profileCard')">
+                    <h2>song ID</h2>
+                    <h2>song name</h2>
+                    <h2>song version</h2>
+                    <h2>Who added (mID/ oID)</h2>
+                    <div class="showHide hideMe" id="showHide">
+                        <hr>
+                        <h2 class="topicName">Singers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Composers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Song Writers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                    </div>
+
+                    <button class="remove-btn">Remove song</button>
+                </div>
+
+
+                <div class="profileCard"  id="profileCard" onclick= "expand('profileCard')">
+                    <h2>song ID</h2>
+                    <h2>song name</h2>
+                    <h2>song version</h2>
+                    <h2>Who added (mID/ oID)</h2>
+                    <div class="showHide hideMe" id="showHide">
+                        <hr>
+                        <h2 class="topicName">Singers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Composers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+
+                        <hr>
+                        <h2 class="topicName">Song Writers</h2>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                        <h3 class="name">abcd</h3>
+                    </div>
 
                     <button class="remove-btn">Remove song</button>
                 </div>
 <!-- 
+
                 <div class="profileCard">
                     <h2>Name A</h2>
                     <button class="remove-btn">Remove User</button>
