@@ -1,3 +1,9 @@
+let fnameVal = null;
+let lnameVal = null;
+let emailVal = null;
+let phoneVal = null;
+let nicVal = null;
+
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
@@ -49,7 +55,13 @@ window.addEventListener('DOMContentLoaded',()=>{
                     email.value = data['email'];
                     phone.value = data['phoneNo'];
                     nic.value = data['nic'];
-                  
+
+                    fnameVal = fname.value;
+                    lnameVal = lname.value;
+                    emailVal = email.value;
+                    phoneVal = phone.value;
+                    nicVal = nic.value;
+    
                     loading.classList.add("hideME");
                     realpage.classList.remove("hideME");
                 },500);
@@ -349,95 +361,128 @@ function showLoginValidate (input, id) {
 
 
 
+  
 
 const fname = document.getElementById('fname');
-const fnameBtn = document.getElementById('fnameBtn');
-
 const lname = document.getElementById('lname');
-const lnameBtn = document.getElementById('lnameBtn');
-
 const email = document.getElementById('email');
-const emailBtn = document.getElementById('emailBtn');
-
 const phone = document.getElementById('phone');
-const phoneBtn = document.getElementById('phoneBtn');
-
 const nic = document.getElementById('nic');
-const nicBtn = document.getElementById('nicBtn');
 
-fnameBtn.addEventListener('click', ()=>{
-    fname.disabled = !fname.disabled
 
-    if(!fname.disabled){
-        fnameBtn.style = "background-color: red; color: white;";
-        fnameBtn.innerHTML = "Done";
+fname.addEventListener('focusout', function(){
+    if(fnameVal !=  fname.value.trim()) {
+        fname.classList.add('greenBorder');
+        fname.classList.remove('NoBorder');
     }
-
     else{
-        fnameBtn.style = "background-color: rgb(1, 201, 201); color: black;";
-        fnameBtn.innerHTML = "Change";
+        fname.classList.remove('greenBorder');
+        fname.classList.add('NoBorder');
     }
 })
 
-
-lnameBtn.addEventListener('click', ()=>{
-    lname.disabled = !lname.disabled
-
-    if(!lname.disabled){
-        lnameBtn.style = "background-color: red; color: white;";
-        lnameBtn.innerHTML = "Done";
-
+phone.addEventListener('focusout', function(){
+    if(phoneVal !=  phone.value.trim()) {
+        phone.classList.add('greenBorder');
+        phone.classList.remove('NoBorder');
     }
-
     else{
-        lnameBtn.style = "background-color: rgb(1, 201, 201); color: black;";
-        lnameBtn.innerHTML = "Change";
+        phone.classList.remove('greenBorder');
+        phone.classList.add('NoBorder');
     }
 })
 
-
-emailBtn.addEventListener('click', ()=>{
-    email.disabled = !email.disabled
-
-    if(!email.disabled){
-        emailBtn.style = "background-color: red; color: white;";
-        emailBtn.innerHTML = "Done";
+lname.addEventListener('focusout', function(){
+    if(lnameVal !=  lname.value.trim()) {
+        lname.classList.add('greenBorder');
+        lname.classList.remove('NoBorder');
     }
-
     else{
-        emailBtn.style = "background-color: rgb(1, 201, 201); color: black;";
-        emailBtn.innerHTML = "Change";
+        lname.classList.remove('greenBorder');
+        lname.classList.add('NoBorder');
     }
 })
 
-
-phoneBtn.addEventListener('click', ()=>{
-    phone.disabled = !phone.disabled
-
-    if(!phone.disabled){
-        phoneBtn.style = "background-color: red; color: white;";
-        phoneBtn.innerHTML = "Done";
+email.addEventListener('focusout', function(){
+    if(emailVal !=  email.value.trim()) {
+        email.classList.add('greenBorder');
+        email.classList.remove('NoBorder');
     }
-
     else{
-        phoneBtn.style = "background-color: rgb(1, 201, 201); color: black;";
-        phoneBtn.innerHTML = "Change";
+        email.classList.remove('greenBorder');
+        email.classList.add('NoBorder');
     }
 })
 
-
-nicBtn.addEventListener('click', ()=>{
-    nic.disabled = !nic.disabled
-
-    if(!nic.disabled){
-        nicBtn.style = "background-color: red; color: white;";
-        nicBtn.innerHTML = "Done";
+nic.addEventListener('focusout', function(){
+    if(nicVal !=  nic.value.trim()) {
+        nic.classList.add('greenBorder');
+        nic.classList.remove('NoBorder');
     }
-
     else{
-        nicBtn.style = "background-color: rgb(1, 201, 201); color: black;";
-        nicBtn.innerHTML = "Change";
+        nic.classList.remove('greenBorder');
+        nic.classList.add('NoBorder');
     }
 })
+
+// lnameBtn.addEventListener('click', ()=>{
+//     lname.disabled = !lname.disabled
+
+//     if(!lname.disabled){
+//         lnameBtn.style = "background-color: red; color: white;";
+//         lnameBtn.innerHTML = "Done";
+
+//     }
+
+//     else{
+//         lnameBtn.style = "background-color: rgb(1, 201, 201); color: black;";
+//         lnameBtn.innerHTML = "Change";
+//     }
+// })
+
+
+// emailBtn.addEventListener('click', ()=>{
+//     email.disabled = !email.disabled
+
+//     if(!email.disabled){
+//         emailBtn.style = "background-color: red; color: white;";
+//         emailBtn.innerHTML = "Done";
+//     }
+
+//     else{
+//         emailBtn.style = "background-color: rgb(1, 201, 201); color: black;";
+//         emailBtn.innerHTML = "Change";
+//     }
+// })
+
+
+// phoneBtn.addEventListener('click', ()=>{
+//     phone.disabled = !phone.disabled
+
+//     if(!phone.disabled){
+//         phoneBtn.style = "background-color: red; color: white;";
+//         phoneBtn.innerHTML = "Done";
+//     }
+
+//     else{
+//         phoneBtn.style = "background-color: rgb(1, 201, 201); color: black;";
+//         phoneBtn.innerHTML = "Change";
+//     }
+// })
+
+
+// nicBtn.addEventListener('click', ()=>{
+//     nic.disabled = !nic.disabled
+
+//     if(!nic.disabled){
+//         nicBtn.style = "background-color: red; color: white;";
+//         nicBtn.innerHTML = "Done";
+//     }
+
+//     else{
+//         nicBtn.style = "background-color: rgb(1, 201, 201); color: black;";
+//         nicBtn.innerHTML = "Change";
+//     }
+// })
 
 
