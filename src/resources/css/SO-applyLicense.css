@@ -125,6 +125,13 @@
   font-size: 18px;
 }
 
+#imput:focus {
+  transition: 0.3s;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+
 #calendar{
   border: none;
   width: 30%;
