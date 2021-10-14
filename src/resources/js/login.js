@@ -3,6 +3,30 @@ const login = document.querySelector("#loginBtn");
 const containerLogin = document.querySelector(".containerLogin");
 const containerSignup = document.querySelector(".visuallyhidden");
 
+function popUp(text){
+  document.getElementsByClassName("popup")[0].classList.add("active");
+  var list = document.getElementById("notsoLoad");
+  var h3 = document.getElementById("poUptext");
+  
+  h3.innerHTML = text;
+  list.classList.add('blur');
+
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+
+  window.onscroll = function() {
+      window.scrollTo(scrollLeft, scrollTop);
+  };
+};
+ 
+document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+  document.getElementsByClassName("popup")[0].classList.remove("active");
+  var list = document.getElementById("notsoLoad");
+  list.classList.remove('blur');
+  window.onscroll = function() {};
+});
+
+
 signup.addEventListener("click", () => {
     containerLogin.classList.add("visuallyhidden");
     setTimeout(function () {
@@ -88,11 +112,13 @@ $(document).ready(function(){
               window.location.href='../show_organizer/SO-dashboard.html';
             }
             else {
-              alert("Email or Password is wrong");
+              // alert("Email or Password is wrong");
+              popUp("Email or Password is wrong");
             }
           })
           .catch(err =>{
-            alert("Email or Password is wrong");
+            // alert("Email or Password is wrong");
+            popUp("Email or Password is wrong");
             console.error(err);
           });
           
@@ -210,11 +236,11 @@ function signupSO(){
   var pass2 = $("#pass2").val().trim();
 
   if(validateEmail() == 0){
-    window.alert("Your email is invalid!");
+    popUp("Your email is invalid!");
   }
 
   else if(pass != pass2){
-    window.alert("Passwords do not match!");
+    popUp("Passwords do not match!");
   }
 
   else{
@@ -246,14 +272,15 @@ function signupSO(){
       Cookies.set('Authorization', 'Bearer '+data['token'])
       console.log(data);
       if(ut==5){
-        alert(ut);
+        // alert(ut);
         window.location.href='../show_organizer/SO-dashboard.html';
       }
       else if(ut = -1){
-        alert("Email already exist");
+        popUp("Email already exist");
+
       }
       else {
-        alert("Signup unsuccessful");
+        popUp("Signup unsuccessful");
       }
       
     })
