@@ -43,14 +43,12 @@
     </div>
 
  
-    <section style="height: 200vh;">
+    <section class="sec">
 
-        
             <div class="header">
                 
                 <div class="first">
-                    
-                    <h2>Change Song Ownership</h2>
+                    <h2>Song Registrations</h2>
                 </div>
 
                 <div class="second">
@@ -70,8 +68,8 @@
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                         <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
+                            <a href="#">My profile</a>
+                            <!-- <a href="#">settings</a> -->
                             <a href="#">Log out</a>
                         </div>
                     </div>
@@ -80,58 +78,45 @@
 
         
             
-             <div class="content">
-                 <form action="#" method="post" id="form1">
-                     <div class="input">
-                        <input type="text" name="name" placeholder="Enter the song name" id="input" required>
-                        <input type="text" name="version" placeholder="Enter the song version" id="input" required>
-                        <input type="text" name="singers" placeholder="Enter the number of singers" id="input" required>
-    
-                     </div>
-                   
-                     <div class="formContent2">
-                        <div id="myDIV" class="header">
-                            <h4>Add singers of the song</h4>
-                            <input type="text" id="myInput" placeholder="Type here">
-                            <span onclick="newElement()" class="addBtn">Add</span>
-                          </div>
-                          
-                          <ul id="myUL"></ul>
-
-                          <div id="myDIV" class="header">
-                            <h4>Add composers</h4>
-                            <input type="text" id="myInput" placeholder="Type here">
-                            <span onclick="newElement()" class="addBtn">Add</span>
-                          </div>
-                          
-                          <ul id="myUL"></ul>
-
-                          <div id="myDIV" class="header">
-                            <h4>Add song writers</h4>
-                            <input type="text" id="myInput" placeholder="Type here">
-                            <span onclick="newElement()" class="addBtn">Add</span>
-                          </div>
-                          
-                          <ul id="myUL"></ul>
-                     </div>
-                       
-                    
-                    
-                 </form>
-                 
-                 
-
-             </div>
-             <div class="submitDocumentContent">
-                <div class="text">
-                    <p>Submit the confirmation documents</p><i class="far fa-arrow-alt-right"></i>  
+            <div class="content">
+                <h2 class="topic">Enter song details</h2>
+                <div class="input">
+                    <input type="text" name="name" placeholder="Song name" id="input" required>
+                    <input type="text" name="version" placeholder="Song version" id="input" required>
+                    <input type="text" name="singers" placeholder="Published year" id="input" required>
                 </div>
+                
+                <div class="formContent2">
+                    <div id="myDIV" class="header">
+                        <h4>Add singers of the song</h4>
+                        <input type="text" id="myInput" placeholder="Type here...">
+                        <button class="addBtn" id="singer" >Add</button>
+                        <ul id="myUL"></ul>
+                    </div>
+                        
+                    <div id="myDIV" class="header">
+                        <h4>Add composers</h4>
+                        <input type="text" id="myInput" placeholder="Type here...">
+                        <button class="addBtn" id="composer">Add</button>
+                        <ul id="myUL"></ul>
+                    </div>
+                        
+                    <div id="myDIV" class="header">
+                        <h4>Add song writers</h4>
+                        <input type="text" id="myInput" placeholder="Type here...">
+                        <button class="addBtn" id="writer">Add</button>
+                        <ul id="myUL"></ul>
+                    </div>
+                </div>
+            </div>
+
+             <div class="submitDocumentContent">
+                    <h4>Submit the confirmation documents</h4>
+                    <!-- <i class="fas fa-arrow-alt-down"></i> -->
               
               <div class="submit">
-                <form action="#">
                     <input type="file" id="myFile" name="filename">
-                    <input type="submit" id="btn">
-                </form>
+                    <button id="btn">Submit</button>
               </div>
               
             </div>
