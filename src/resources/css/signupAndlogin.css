@@ -540,7 +540,7 @@ input{
   .containerLogin {
     /* background-color: chartreuse; */
     width: 100%;
-    max-height: 100vh;
+    max-height: 150vh;
     flex-direction: column;
     /* justify-content: center; */
     /* z-index: 1; */
@@ -763,7 +763,7 @@ padding-right: 15%;
 
 
   .formDivSignup input{
-    margin-bottom: 10%;
+    /* margin-bottom: 10%; */
     width: 120%;
   }
 
@@ -811,6 +811,10 @@ padding-right: 15%;
 @media (max-width: 500px){
   .formDivSignup input{
     width: 100%;
+  }
+
+  .words{
+    width: 150%;
   }
 
   #strength{
