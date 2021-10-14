@@ -246,7 +246,8 @@ section{
 
 
 .greenBorder{
-    border: solid 2px rgb(0, 255, 13) ;
+    /* border: solid 3.5px  ; */
+    background-color: rgb(126, 240, 215);
 }
 
 .NoBorder {

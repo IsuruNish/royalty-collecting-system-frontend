@@ -118,10 +118,10 @@
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
-    background-color: rgb(19, 0, 124);
+    background-color: #c4c4c4c9;
     opacity: 0.9;
     font-size: 18px;
-    color: white;
+    color: black;;
     transition: 0.2s;
     width: 72%;
     /* height: 5vh; */
@@ -132,11 +132,13 @@
     user-select: none;
     border-radius: 5px;
     margin-bottom: 1px;
+    font-weight: 550;
   }
   
   /* Set all odd list items to a different color (zebra-stripes) */
   #myUL li:nth-child(odd) {
-    background: rgb(30, 61, 199);
+    background: #c4c4c4c9;
+    color: black;
   }
   
   /* Darker background-color on hover */
