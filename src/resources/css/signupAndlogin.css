@@ -63,7 +63,10 @@ input{
 
 
 
-
+#pass2words{
+  /* background-color: slateblue; */
+  width: 200%;
+}
 
 
 .words{
