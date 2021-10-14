@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="../resources/css/signupAndlogin.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="../resources/css/popUp.css">
+  <link rel="stylesheet" href="../resources/css/alertFromDown.css">
   <script src="https://kit.fontawesome.com/0f3db243e3.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
@@ -16,140 +18,146 @@
 
   <body>
 
-    <div class="visuallyhidden hidden">
-
-      <div class="sideLogin">
-        <h1>New here ?</h1>
-        <p>If you want to get an OSCA license then join with us</p>
-
-        <div class="forButtonLogin">
-          <button class="buttonEffect" id="signupBtn">Sign up</button>
-        </div>
-
-        <img src="../resources/images/login.svg" alt="">
-
-      </div>
-
-
-
-      <div class="formDivLogin">
-
-        <div class="home">
-          <i class="fas fa-home" id="homeIcon"></i><a href="Home.html">Home</a>
-        </div>
-        <h1>Login</h1>
-        
-        <div >
-          <div class="outlogindiv">
-            <i class="fas fa-envelope" id="loginIcon"></i>
-            <input class="loginInput" type="text" placeholder="Email address" onfocus="hideValidate('loginEmail')" id="loginEmail">
-            <span class="words" id="loginEmailWords"></span>
-          </div>
-
-          <div class="outlogindiv">
-            <i class="fas fa-unlock-alt" id="loginIcon"></i>
-            <input class="loginInput"  type="password" placeholder="Password" onfocus="hideValidate('loginPass')" id="loginPass">
-            <span class="words" id="loginPassWords"></span>
-          </div>
-        </div>
-
-        <div class="forgotPASS"><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
-        <button id="loginButton" type="submit">Login</button>
-      </div>
-
+    <div id="toast">
+      <div id="desc"></div>
     </div>
 
+    <div class="notsoLoad" id="notsoLoad">
+      <div class="visuallyhidden hidden">
 
+        <div class="sideLogin">
+          <h1>New here ?</h1>
+          <p>If you want to get an OSCA license then join with us</p>
 
+          <div class="forButtonLogin">
+            <button class="buttonEffect" id="signupBtn">Sign up</button>
+          </div>
 
+          <img src="../resources/images/login.svg" alt="">
 
-    <div class="containerSignup">
-
-      <div class="formDivSignup">
-
-        <div class="homeSignup">
-          <i class="fas fa-home" id="homeSignupIcon"></i><a href="Home.html">Home</a>
         </div>
 
-        <h1>Sign up</h1>
 
-        <div class="columns">
-          <div class="col1">
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-user" id="signupIcon"></i> 
-                <input class="signupInput" onfocus="hideValidate('fname')" type="text" placeholder="First name" name="fname" id="fname">
-                <span class="words" id="firstwords"></span>
-              </div>
-            </div>
 
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-user" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('lname') "type="text" placeholder="Last name" name="lname" id="lname">
-                <span class="words" id="lastwords"></span>
-              </div>
-            </div>
+        <div class="formDivLogin">
 
-            <div class="outdiv">
-              <div  id="form">
-                <i class="fas fa-envelope" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('email')" onkeydown="validateEmail()" type="email" placeholder="Email address" name="email" id="email" >    
-                <span class="words" id="formwords"></span>
-              </div>
-            </div>
-
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-phone-square-alt" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('phone')" type="text" placeholder="Phone number" name="phone" id="phone">
-                <span class="words" id="phonewords"></span>
-              </div>
-            </div>
-
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-id-card" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('nic')" type="text" placeholder="NIC number" name="nic" id="nic">   
-                <span class="words" id="nicwords"></span>
-              </div>
-            </div>
-
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-unlock-alt" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('pass')" type="password" placeholder="Password" name="pass" id="pass">  
-                <progress max="100" value="0" id="strength"></progress>
-                <span class="words" id="passwords"></span> 
-              </div>
-            </div>
-
-            <div class="outdiv">
-              <div>
-                <i class="fas fa-unlock-alt" id="signupIcon"></i>
-                <input class="signupInput" onfocus="hideValidate('pass2')" type="password" placeholder="Confirm password" name="pass2" id="pass2"> 
-                <span class="words" id="pass2words"></span>
-              </div>
-            </div>
+          <div class="home">
+            <i class="fas fa-home" id="homeIcon"></i><a href="Home.html">Home</a>
+          </div>
+          <h1>Login</h1>
           
+          <div >
+            <div class="outlogindiv">
+              <i class="fas fa-envelope" id="loginIcon"></i>
+              <input class="loginInput" type="text" placeholder="Email address" onfocus="hideValidate('loginEmail')" id="loginEmail">
+              <span class="words" id="loginEmailWords"></span>
+            </div>
+
+            <div class="outlogindiv">
+              <i class="fas fa-unlock-alt" id="loginIcon"></i>
+              <input class="loginInput"  type="password" placeholder="Password" onfocus="hideValidate('loginPass')" id="loginPass">
+              <span class="words" id="loginPassWords"></span>
+            </div>
           </div>
 
-          </div>
-
-          <button id="signupButton">Sign up</button>
-      </div>
-      
-
-      <div class="sideSignup">
-        <h1>Already have an account ?</h1>
-        <p>Let's get in !</p>
-
-        <div class="forButtonSignup">
-          <button class="buttonEffect" id="loginBtn">Login</button>
+          <div class="forgotPASS"><p><a href="forgotpwUI.html">Forgot password?</a></p></div>
+          <button id="loginButton" type="submit">Login</button>
         </div>
 
-        <img src="../resources/images/signup.svg" alt="">
+      </div>
 
+
+
+
+
+      <div class="containerSignup">
+
+        <div class="formDivSignup">
+
+          <div class="homeSignup">
+            <i class="fas fa-home" id="homeSignupIcon"></i><a href="Home.html">Home</a>
+          </div>
+
+          <h1>Sign up</h1>
+
+          <div class="columns">
+            <div class="col1">
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-user" id="signupIcon"></i> 
+                  <input class="signupInput" onfocus="hideValidate('fname')" type="text" placeholder="First name" name="fname" id="fname">
+                  <span class="words" id="firstwords"></span>
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-user" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('lname') "type="text" placeholder="Last name" name="lname" id="lname">
+                  <span class="words" id="lastwords"></span>
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div  id="form">
+                  <i class="fas fa-envelope" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('email')" onkeydown="validateEmail()" type="email" placeholder="Email address" name="email" id="email" >    
+                  <span class="words" id="formwords"></span>
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-phone-square-alt" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('phone')" type="text" placeholder="Phone number" name="phone" id="phone">
+                  <span class="words" id="phonewords"></span>
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-id-card" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('nic')" type="text" placeholder="NIC number" name="nic" id="nic">   
+                  <span class="words" id="nicwords"></span>
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-unlock-alt" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('pass')" type="password" placeholder="Password" name="pass" id="pass">  
+                  <progress max="100" value="0" id="strength"></progress>
+                  <span class="words" id="passwords"></span> 
+                </div>
+              </div>
+
+              <div class="outdiv">
+                <div>
+                  <i class="fas fa-unlock-alt" id="signupIcon"></i>
+                  <input class="signupInput" onfocus="hideValidate('pass2')" type="password" placeholder="Confirm password" name="pass2" id="pass2"> 
+                  <span class="words" id="pass2words"></span>
+                </div>
+              </div>
+            
+            </div>
+
+            </div>
+
+            <button id="signupButton">Sign up</button>
+        </div>
+        
+
+        <div class="sideSignup">
+          <h1>Already have an account ?</h1>
+          <p>Let's get in !</p>
+
+          <div class="forButtonSignup">
+            <button class="buttonEffect" id="loginBtn">Login</button>
+          </div>
+
+          <img src="../resources/images/signup.svg" alt="">
+
+        </div>
       </div>
     </div>
 

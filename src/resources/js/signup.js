@@ -3,6 +3,51 @@ const login = document.querySelector("#loginBtn");
 const containerLogin = document.querySelector(".visuallyhidden");
 const containerSignup = document.querySelector(".containerSignup");
 
+
+// function popUp(text){
+//   document.getElementsByClassName("popup")[0].classList.add("active");
+//   var list = document.getElementById("notsoLoad");
+//   var h3 = document.getElementById("poUptext");
+  
+//   h3.innerHTML = text;
+//   list.classList.add('blur');
+
+//   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//   scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+
+//   window.onscroll = function() {
+//       window.scrollTo(scrollLeft, scrollTop);
+//   };
+// };
+ 
+// document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+//   document.getElementsByClassName("popup")[0].classList.remove("active");
+//   var list = document.getElementById("notsoLoad");
+//   list.classList.remove('blur');
+//   window.onscroll = function() {};
+// });
+
+
+function popUpFromDown(text) {
+  var x = document.getElementById("toast");
+  var y = document.getElementById("desc");
+  x.className = "show";
+
+  setTimeout(function(){
+    y.innerHTML = text;
+    }, 500);
+
+  setTimeout(function(){
+    y.innerHTML = "";
+    }, 4000);
+
+  setTimeout(function(){
+     x.className = x.className.replace("show", ""); 
+    }, 5000);
+}
+
+
+
 login.addEventListener("click", () => {
   containerSignup.classList.add("visuallyhidden");
     setTimeout(function () {
@@ -79,22 +124,27 @@ $(document).ready(function(){
               window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
-              window.location.href='../admin/A-dashboard';
+              window.location.href='../admin/A-dashboard.html';
             }else if(ut==3){
-              window.location.href='../osca_officail/OO-dashboard';
+              window.location.href='../osca_officail/OO-dashboard.html';
             }
             else if(ut==4){
-              window.location.href='../member/M-dashboard';
+              window.location.href='../member/M-dashboard.html';
             }
             else if(ut==5){
-              window.location.href='../show_organizer/SO-dashboard';
+              window.location.href='../show_organizer/SO-dashboard.html';
             }
             else {
-              alert("Email or Password is wrong");
+              // alert("Email or Password is wrong");
+              popUpFromDown("Email or Password is wrong")
+              // popUp("Email or Password is wrong");
             }
           })
           .catch(err =>{
-            alert("Email or Password is wrong");
+            // alert("Email or Password is wrong");
+            popUpFromDown("Email or Password is wrong")
+
+            // popUp("Email or Password is wrong");
             console.error(err);
           });
           
@@ -210,13 +260,94 @@ function signupSO(){
   var phone = $("#phone").val().trim();
   var pass = $("#pass").val().trim();
   var pass2 = $("#pass2").val().trim();
+  var phoneno1 = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  var phoneno2 = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  var nic1 = /[0-9]{9}v{1}$/i
 
-  if(validateEmail() == 0){
-    window.alert("Your email is invalid!");
+  var nic2 = /^[0-9]{12}$/
+  console.log(nic.match(nic1))
+  console.log(nic.match(nic2))
+
+  var num = validatePassword(pass)
+
+  if(fname.length < 4){
+
+    var field = document.getElementById('fname');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "At least 4 letters required";
+    text.style.color = "#ff0000";
+  }
+
+  else if(lname.length < 4){
+
+    var field = document.getElementById('lname');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "At least 4 letters required";
+    text.style.color = "#ff0000";
+  }
+
+  else if(validateEmail() == 0){
+    // popUp("Your email is invalid!");
+    // popUpFromDown("Your email is invalid!")
+    var field = document.getElementById('email');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Your email address is invalid";
+    text.style.color = "#ff0000";
+  }
+
+  else if(!phone.match(phoneno1) && !phone.match(phoneno2)){
+    var field = document.getElementById('phone');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Invalid phone number";
+    text.style.color = "#ff0000";
+  }
+
+  else if(!nic.match(nic1) && !nic.match(nic2)){
+    var field = document.getElementById('nic');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Invalid NIC number";
+    text.style.color = "#ff0000";
   }
 
   else if(pass != pass2){
-    window.alert("Passwords do not match!");
+    // popUpFromDown("Passwords do not match!")
+    var field = document.getElementById('pass2');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Passwords do not match!";
+    text.style.color = "#ff0000";
+    
+    // popUp("Passwords do not match!");
+  }
+
+  else if(num != 0){
+    var field = document.getElementById('pass2');
+    var text = field.nextElementSibling;
+
+    if (num == 1) {
+      text.innerHTML = "Passwords must contain at least 4 lower case letters";
+    }
+
+    else if (num == 2) {
+      text.innerHTML = "Passwords must contain at least 1 upper case letter";
+    }
+
+    else if (num == 3) {
+      text.innerHTML = "Passwords must contain at least 2 digit";
+    }
+
+    else if (num == 4) {
+      text.innerHTML = "Passwords must be at 1 special character.";
+    }
+
+    text.style.color = "#ff0000";
+    
+    // popUp("Passwords do not match!");
   }
 
   else{
@@ -248,18 +379,46 @@ function signupSO(){
       Cookies.set('Authorization', 'Bearer '+data['token'])
       console.log(data);
       if(ut==5){
-        alert(ut);
+        // alert(ut);
         window.location.href='../show_organizer/SO-dashboard.html';
       }
       else if(ut = -1){
-        alert("Email already exist");
+        // popUp("Email already exist");
+        popUpFromDown("Email already exist")
+
+
       }
       else {
-        alert("Signup unsuccessful");
+        // popUp("Signup unsuccessful");
+        popUpFromDown("Signup unsuccessful")
+
       }
       
     })
   }
+}
+
+
+function validatePassword(pass) {
+
+  if (pass.match(/[a-z]/g) < 4) {
+    return 1    
+  }
+  else if (pass.match(/[A-Z]/g) < 1) {
+    return 2
+  }
+  else if (pass.match(/[0-9]/g) < 2) {
+    return 3
+  }
+  else if (pass.match(/[@#$%^&*]/g) < 1) {
+    return 4
+  }
+
+  else{
+    return 0;
+  }
+
+  // return true;
 }
 
 
@@ -384,22 +543,25 @@ function checkPass(password){
   var bar = document.getElementById('strength');
   var s = 0;
 
-  if(password.match(/[a-z0-9][a-z0-9]+/)){
+  if(password.match(/(.+)?[a-z](.+)?[a-z](.+)?[a-z](.+)?[a-z](.+)?/)){
     s +=1;
   }
 
-
-  if(password.match(/[A-Z][A-Z]+/)){
+  if(password.match(/(.+)?[0-9](.+)?[0-9](.+)?/)){
     s +=1;
   }
 
-  if(password.match(/[!@#$%^?><*()]+/)){
+  if(password.match(/(.+)?[A-Z](.+)?/)){
     s +=1;
   }
 
-  if(password.length>5){
+  if(password.match(/(.+)?[!@#$%^?><*()](.+)?/)){
     s +=1;
   }
+
+  // if(password.length>5){
+  //   s +=1;
+  // }
 
   switch(s){
     case 0:
@@ -440,3 +602,5 @@ function checkPass(password){
   }
 
 }
+
+
