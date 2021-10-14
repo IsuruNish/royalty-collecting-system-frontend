@@ -98,6 +98,10 @@ $(document).ready(function(){
         filled = false;
       }
     }
+    if(validateLoginEmail() == 0){
+      // showLoginValidate(input[i], input[i].id);
+      filled = false;
+    }
 
     if(filled){  
       let hashpw = sha256(password);
@@ -454,6 +458,35 @@ function validateEmail(){
 }
 
 
+
+function validateLoginEmail(){
+  var email = $("#loginEmail").val();
+  var field = document.getElementById('loginEmail');
+  // var form = document.getElementById('form');    
+  var text = field.nextElementSibling;
+
+
+
+  var pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/;
+  
+  if(email.match(pattern)){
+    text.innerHTML = "";
+    text.style.color = "#26b30c";
+    return 1;
+  }
+  else{
+    // form.classList.remove('valid');
+    // form.classList.add('invalid');
+    text.innerHTML = "Your email address is invalid";
+    text.style.color = "#ff0000";
+    
+    return 0;
+  }
+
+}
+
+
+
 function showValidate (input, id) {
   if($(input).val().trim() == '') {
     var field = document.getElementById(id);
@@ -602,5 +635,6 @@ function checkPass(password){
   }
 
 }
+
 
 
