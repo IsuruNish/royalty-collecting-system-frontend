@@ -278,6 +278,15 @@ function signupSO(){
     text.innerHTML = "At least 4 letters required";
     text.style.color = "#ff0000";
   }
+  
+  else if(fname.match(/(.+)?[0-9](.+)?/)){
+
+    var field = document.getElementById('fname');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Numbersd aren't allowed";
+    text.style.color = "#ff0000";
+  }
 
   else if(lname.length < 4){
 
@@ -285,6 +294,15 @@ function signupSO(){
     var text = field.nextElementSibling;
 
     text.innerHTML = "At least 4 letters required";
+    text.style.color = "#ff0000";
+  }
+
+  else if(lname.match(/(.+)?[0-9](.+)?/)){
+
+    var field = document.getElementById('lname');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Numbersd aren't allowed";
     text.style.color = "#ff0000";
   }
 
