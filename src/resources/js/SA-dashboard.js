@@ -1,25 +1,3 @@
-
-function popUpFromDown(text, className) {
-    var x = document.getElementById("toast");
-    var y = document.getElementById("desc");
-    x.className = "show";
-  
-    setTimeout(function(){
-        x.classList.add(className);
-      y.innerHTML = text;
-      }, 500);
-  
-    setTimeout(function(){
-      y.innerHTML = "";
-      }, 4000);
-  
-    setTimeout(function(){
-       x.className = x.className.replace("show", ""); 
-       x.classList.remove(className);
-      }, 5000);
-  }
-  
-
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
@@ -27,7 +5,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         // alert("login to continue")
         setTimeout(function() {
             window.location.href='../landing_page/login.html';
-        },6000);
+        },5000);
         // window.location.href='../landing_page/login.html';
     }
 
@@ -49,7 +27,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },6000);
+            },5000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -99,7 +77,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             popUpFromDown("Login again",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },6000);
+            },5000);
             // popUp("Email or Password is wrong");
             console.error(err);
           });

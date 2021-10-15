@@ -21,12 +21,13 @@
 //     window.onscroll = function() {};
 // });
 
-function popUpFromDown(text) {
+function popUpFromDown(text, className) {
     var x = document.getElementById("toast");
     var y = document.getElementById("desc");
     x.className = "show";
   
     setTimeout(function(){
+      x.classList.add(className);
       y.innerHTML = text;
       }, 500);
   
@@ -35,16 +36,7 @@ function popUpFromDown(text) {
       }, 4000);
   
     setTimeout(function(){
+      x.classList.remove(className);
        x.className = x.className.replace("show", ""); 
       }, 5000);
   }
-  
-
-// function launch_toast(text) {
-//     var x = document.getElementById("toast");
-//     var y = document.getElementById("desc");
-//     y.innerHTML  = text;
-//     x.className = "show";
-//     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-// }
-

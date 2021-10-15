@@ -1,8 +1,11 @@
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        // alert("login to continue")
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
 
     else{
@@ -18,11 +21,13 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
         ut = data['utype']
+        console.log(data['utype']);
         if(ut!=2){
-            alert("Access denied!");
+            // alert("Access denied!");
+            popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },1000);
+            },5000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -43,6 +48,8 @@ window.addEventListener('DOMContentLoaded',()=>{
 
                 var picSmall = document.getElementById('profilePicSmall');
                 var picLarge = document.getElementById('profilePic');
+
+                popUpFromDown("Welcome back "+data['fname'], 'default');
 
                 setTimeout(function() {
                     picLarge.src = data['DPpath'];
@@ -65,7 +72,16 @@ window.addEventListener('DOMContentLoaded',()=>{
 
             }
         
-        });
+        })
+        .catch(err =>{
+            // alert("Email or Password is wrong");
+            popUpFromDown("Login again",'red');
+            setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },5000);
+            // popUp("Email or Password is wrong");
+            console.error(err);
+          });
     }
 });
 
