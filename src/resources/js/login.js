@@ -271,6 +271,7 @@ function signupSO(){
   console.log(nic.match(nic2))
 
   var num = validatePassword(pass)
+  filled = true;
 
   if(fname.length < 4){
 
@@ -279,6 +280,7 @@ function signupSO(){
 
     text.innerHTML = "At least 4 letters required";
     text.style.color = "#ff0000";
+    filled = false;
   }
   
   else if(fname.match(/(.+)?[0-9](.+)?/)){
@@ -288,15 +290,17 @@ function signupSO(){
 
     text.innerHTML = "Numbersd aren't allowed";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
-  else if(lname.length < 4){
+  if(lname.length < 4){
 
     var field = document.getElementById('lname');
     var text = field.nextElementSibling;
 
     text.innerHTML = "At least 4 letters required";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
   else if(lname.match(/(.+)?[0-9](.+)?/)){
@@ -306,9 +310,10 @@ function signupSO(){
 
     text.innerHTML = "Numbersd aren't allowed";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
-  else if(validateEmail() == 0){
+  if(validateEmail() == 0){
     // popUp("Your email is invalid!");
     // popUpFromDown("Your email is invalid!")
     var field = document.getElementById('email');
@@ -316,25 +321,28 @@ function signupSO(){
 
     text.innerHTML = "Your email address is invalid";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
-  else if(!phone.match(phoneno1) && !phone.match(phoneno2)){
+  if(!phone.match(phoneno1) && !phone.match(phoneno2)){
     var field = document.getElementById('phone');
     var text = field.nextElementSibling;
 
     text.innerHTML = "Invalid phone number";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
-  else if(!nic.match(nic1) && !nic.match(nic2)){
+  if(!nic.match(nic1) && !nic.match(nic2)){
     var field = document.getElementById('nic');
     var text = field.nextElementSibling;
 
     text.innerHTML = "Invalid NIC number";
     text.style.color = "#ff0000";
+    filled = false;
   }
 
-  else if(pass != pass2){
+  if(pass != pass2){
     // popUpFromDown("Passwords do not match!")
     var field = document.getElementById('pass2');
     var text = field.nextElementSibling;
@@ -343,6 +351,7 @@ function signupSO(){
     text.style.color = "#ff0000";
     
     // popUp("Passwords do not match!");
+    filled = false;
   }
 
   else if(num != 0){
@@ -366,11 +375,11 @@ function signupSO(){
     }
 
     text.style.color = "#ff0000";
-    
+    filled = false;
     // popUp("Passwords do not match!");
   }
 
-  else{
+  if(filled){
 
     let hashpw = sha256(pass);
     let payload = {
@@ -421,16 +430,16 @@ function signupSO(){
 
 function validatePassword(pass) {
 
-  if (pass.match(/[a-z]/g) < 4) {
+  if (!pass.match(/(.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?/)) {
     return 1    
   }
-  else if (pass.match(/[A-Z]/g) < 1) {
+  else if (!pass.match(/(.*)?[A-Z](.*)?/)) {
     return 2
   }
-  else if (pass.match(/[0-9]/g) < 2) {
+  else if (!pass.match(/(.*)?[0-9](.*)?/)) {
     return 3
   }
-  else if (pass.match(/[@#$%^&*]/g) < 1) {
+  else if (!pass.match(/(.*)?[@#$%^&*](.*)?/)) {
     return 4
   }
 

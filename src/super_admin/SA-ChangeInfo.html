@@ -61,7 +61,7 @@
             <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
             <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
             <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
@@ -134,7 +134,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label>First name</label> <br>
-                            <input type="text" name="" id="fname" value="" class="NoBorder">
+                            <input type="text" name="" id="fname" value="" class="NoBorder" onfocus="hideValidate('fname')">
+                            <span class="words" id="fnameWord"></span>
                         </div> 
                         <!-- <div class="changeButton">
                             <button class="change" id="fnameBtn">change</button>
@@ -145,7 +146,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Last name</label> <br>
-                            <input type="text" name="" id="lname" value="" class="NoBorder">
+                            <input type="text" name="" id="lname" value="" class="NoBorder" onfocus="hideValidate('lname')">
+                            <span class="words" id="lnameWord"></span>
                         </div> 
 
                         <!-- <div class="changeButton">
@@ -158,7 +160,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Email address</label> <br>
-                            <input type="text" name="" id="email" value="" class="NoBorder"> 
+                            <input type="text" name="" id="email" value="" class="NoBorder" onfocus="hideValidate('email')" onkeydown="validateEmail()"> 
+                            <span class="words" id="emailWord"></span>
                         </div> 
 
                         <!-- <div class="changeButton">
@@ -171,7 +174,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Phone number</label> <br>
-                            <input type="text" value = "Isuru Nish" name="" id="phone" value="" class="NoBorder">
+                            <input type="text" name="" id="phone" value="" class="NoBorder" onfocus="hideValidate('phone')">
+                            <span class="words" id="phoneWord"></span>
                         </div> 
 
                         <!-- <div class="changeButton">
@@ -184,7 +188,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >NIC number</label> <br>
-                            <input type="text" name="" id="nic" value="" class="NoBorder" > 
+                            <input type="text" name="" id="nic" value="" class="NoBorder" onfocus="hideValidate('nic')"> 
+                            <span class="words" id="nicWord"></span>
                         </div> 
 
                         <!-- <div class="changeButton">
@@ -204,17 +209,18 @@
 
                     <div class="input">
                         <div class="insideInfo">
-                            <input type="password" name="" class="passInput" placeholder="Current password" onfocus="hideValidate('oldpass')" id="oldpass">
+                            <input type="password" name="" class="passInput" placeholder="Current password" onfocus="hideValidate('oldpass')" id="oldpass" onfocus="hideValidate('oldpass')">
                             <span class="words" id="oldPassWord"></span>
                         </div>
 
                         <div class="insideInfo">
-                            <input type="password" name="" class="passInput" placeholder="New password " onfocus="hideValidate('newpass1')" id="newpass1">
+                            <input type="password" name="" class="passInput" placeholder="New password " onfocus="hideValidate('newpass1')" id="newpass1" >
+                            <progress max="100" value="0" id="strength"></progress>
                             <span class="words" id="newPassWord1"></span>
                         </div>
 
                         <div class="insideInfo">
-                            <input type="password" name="" class="passInput" placeholder="Confirm new password" onfocus="hideValidate('newpass2')" id="newpass2">
+                            <input type="password" name="" class="passInput" placeholder="Confirm new password" onfocus="hideValidate('newpass2')" id="newpass2" onfocus="hideValidate('newpass2')">
                             <span class="words" id="newPassWord2"></span>
                         </div>
                      </div>
@@ -263,6 +269,7 @@
 
     <script src="../resources/js/SA-changeInfo.js"></script>
     <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/logout.js"></script>
 
 </body>
 </html>

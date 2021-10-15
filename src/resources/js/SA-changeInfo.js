@@ -128,31 +128,44 @@ photoChangeBtn.addEventListener('click', function(){
         body: formData
 
   }
+  const loading = document.getElementById("loader-wrapper");
+  const realpage = document.getElementById("notsoLoad");
+  loading.classList.remove("hideME");
+  realpage.classList.add("hideME");
 
   fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
   .then(res => res.json())
   .then(data => {
       
       if(data['userType'] == 1){
-        const loading = document.getElementById("loader-wrapper");
-        const realpage = document.getElementById("notsoLoad");
-        loading.classList.remove("hideME");
-        realpage.classList.add("hideME");
+        // const loading = document.getElementById("loader-wrapper");
+        // const realpage = document.getElementById("notsoLoad");
+        // loading.classList.remove("hideME");
+        // realpage.classList.add("hideME");
+        popUpFromDown("Profile picture changed successfully",'greenColour');
         setTimeout(function() {
-            popUpFromDown("Profile picture changed successfully",'greenColour');
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
+            // loading.classList.add("hideME");
+            // realpage.classList.remove("hideME");
 
             // alert("Profile picture deleted successfully");
-            // window.location.href='SA-ChangeInfo.html';
-        },1000);
+            window.location.href='SA-ChangeInfo.html';
+        },3000);
       }
       else{
         popUpFromDown("Error try again",'red');
-
+        loading.classList.add("hideME");
+        realpage.classList.remove("hideME");
         //   alert("Current password is incorrect!");
       }
     })
+
+    .catch(err=> {
+        loading.classList.add("hideME");
+        realpage.classList.remove("hideME");
+        // alert("Details invalid try again!");
+        popUpFromDown("Select a picture!",'red');
+        console.log(err);
+        })
 
 })
 
@@ -188,13 +201,14 @@ photoDelBtn.addEventListener('click', function(){
         const realpage = document.getElementById("notsoLoad");
         loading.classList.remove("hideME");
         realpage.classList.add("hideME");
+        popUpFromDown("Profile picture deleted successfully",'greenColour');
+
         setTimeout(function() {
             // alert("Profile picture deleted successfully");
-            popUpFromDown("Profile picture deleted successfully",'greenColour');
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
-            // window.location.href='SA-ChangeInfo.html';
-        },1000);
+            // loading.classList.add("hideME");
+            // realpage.classList.remove("hideME");
+            window.location.href='SA-ChangeInfo.html';
+        },3000);
       }
       else{
         popUpFromDown("Error try again!",'red');
@@ -202,6 +216,13 @@ photoDelBtn.addEventListener('click', function(){
         //   alert("Request unsuccessful try again!");
       }
     })
+    .catch(err=> {
+        loading.classList.add("hideME");
+        realpage.classList.remove("hideME");
+        // alert("Details invalid try again!");
+        popUpFromDown("Error try again!",'red');
+        console.log(err);
+        })
   })
 
 
@@ -218,61 +239,163 @@ personalInfoBtn.addEventListener('click', function(){
         },5000);
     }
 
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
-    var nic = document.getElementById('nic').value;
-    var email = document.getElementById('email').value;
-    var phoneNo = document.getElementById('phone').value;
+    // var fname = document.getElementById('fname').value;
+    // var lname = document.getElementById('lname').value;
+    // var nic = document.getElementById('nic').value;
+    // var email = document.getElementById('email').value;
+    // var phoneNo = document.getElementById('phone').value;
 
-    console.log(fname);
-    console.log(lname);
-    console.log(nic);
-    console.log(email);
-    console.log(phone);
+    var fname = $("#fname").val().trim();
+    var lname = $("#lname").val().trim();
+    var nic = $("#nic").val().trim();
+    var email = $("#email").val().trim();
+    var phoneNo = $("#phone").val().trim();
 
-    let payload = {
-        "reqNo" : 2,
-        "fname":fname,
-        "lname":lname,
-        "nic":nic,
-        "email":email,
-        "phoneNo":phoneNo
+    let filled = true;
+    if (fnameVal != fname) {
+        if(fname.length < 4){
+
+            var field = document.getElementById('fname');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "At least 4 letters required";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
+
+        else if(fname.match(/(.+)?[0-9](.+)?/)){
+
+            var field = document.getElementById('fname');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "Numbersd aren't allowed";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
     }
-    
-    let options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
 
-        body: JSON.stringify(payload) 
+    if (lnameVal != lname) {
+        if(lname.length < 4){
 
-  }
+            var field = document.getElementById('lname');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "At least 4 letters required";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
 
-  fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
-  .then(res => res.json())
-  .then(data => {
-      
-      if(data['userType'] == 1){
-          alert("Details updated!");
+        else if(lname.match(/(.+)?[0-9](.+)?/)){
+
+            var field = document.getElementById('lname');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "Numbersd aren't allowed";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
+    }
+
+
+
+    if (nicVal != nic) {
+        var nic1 = /[0-9]{9}v{1}$/i
+        var nic2 = /^[0-9]{12}$/
+
+        if(!nic.match(nic1) && !nic.match(nic2)){
+            var field = document.getElementById('nic');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "Invalid NIC number";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
+    }
+
+    if (emailVal != email) {
+        if(validateEmail() == 0){
+            var field = document.getElementById('email');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "Your email address is invalid";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
+    }
+
+    if (phoneVal != phoneNo) {
+        var phoneno1 = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        var phoneno2 = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+        if(!phoneNo.match(phoneno1) && !phoneNo.match(phoneno2)){
+            var field = document.getElementById('phone');
+            var text = field.nextElementSibling;
+        
+            text.innerHTML = "Invalid phone number";
+            text.style.color = "#fa1a0a";
+            filled = false;
+          }
+    }
+
+
+    if(filled){
+        let payload = {
+            "reqNo" : 2,
+            "fname":fname,
+            "lname":lname,
+            "nic":nic,
+            "email":email,
+            "phoneNo":phoneNo
+        }
+        
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify(payload) 
+
+    }
+
+    fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data['utype'] == 1){
+            document.getElementById('fname').value = data['fname'];
+            document.getElementById('lname').value = data['lname'];
+            document.getElementById('nic').value = data['nic'];
+            document.getElementById('email').value = data['email'];
+            document.getElementById('phone').value = data['phoneNo'];
+
+            fnameVal = data['fname'];
+            lnameVal = data['lname'];
+            emailVal = data['nic'];
+            nicVal = data['email'];
+            phoneVal = data['phoneNo'];
+            makeTextBoxDefault();
+            // alert("Details updated!");
             popUpFromDown("Details updated!",'greenColour');
-          
-          window.location.href='SA-ChangeInfo.html';
-      }
+            // setTimeout(function() {
+            //     window.location.href='SA-ChangeInfo.html';
+            // },5000);
+            
+        }
 
-      else{
-        popUpFromDown("Error try again!",'red');
+        else{
+            popUpFromDown("Error try again!",'red');
 
-        //   alert("Invalid details!");
-      }
-    })
+            //   alert("Invalid details!");
+        }
+        })
 
-  .catch(err=> {
-    // alert("Details invalid try again!");
-    popUpFromDown("Details invalid try again!",'red');
-    console.log(err);
-    })
+    .catch(err=> {
+        // alert("Details invalid try again!");
+        popUpFromDown("Details invalid try again!",'red');
+        console.log(err);
+        })
+    }
 })
 
 
@@ -302,62 +425,121 @@ passChangeBtn.addEventListener('click', function(){
       }
     }
 
+    num = validatePassword(pass1);
+
+    if(pass1 != pass2){
+        // popUpFromDown("Passwords do not match!")
+        var field = document.getElementById('newpass2');
+        var text = field.nextElementSibling;
+    
+        text.innerHTML = "Passwords do not match!";
+        text.style.color = "#ff0000";
+        filled = false;
+        
+        // popUp("Passwords do not match!");
+    }
+    
+    else if(num != 0){
+    var field = document.getElementById('newpass2');
+    var text = field.nextElementSibling;
+
+        if (num == 1) {
+            text.innerHTML = "Passwords must contain at least 4 lower case letters";
+            filled = false;
+        }
+
+        else if (num == 2) {
+            text.innerHTML = "Passwords must contain at least 1 upper case letter";
+            filled = false;
+        }
+
+        else if (num == 3) {
+            text.innerHTML = "Passwords must contain at least 2 digit";
+            filled = false;
+        }
+
+        else if (num == 4) {
+            text.innerHTML = "Passwords must be at 1 special character.";
+            filled = false;
+        }
+
+        text.style.color = "#ff0000";
+    
+    }
+
     if(filled){
 
-        if(pass1 != pass2){
-            window.alert("Passwords do not match!");
-          }
+        let hashpw1 = sha256(pass);
+        let hashpw2 = sha256(pass1);
+        let payload = {
+            "reqNo" : 3,
+            "pass":hashpw1,
+            "newPass":hashpw2
+        }
         
-        else{
-    
-            let hashpw1 = sha256(pass);
-            let hashpw2 = sha256(pass1);
-            let payload = {
-                "reqNo" : 3,
-                "pass":hashpw1,
-                "newPass":hashpw2
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify(payload) 
+
+        }
+
+        fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+        .then(res => res.json())
+        .then(data => {
+            
+            if(data['userType'] == 1){
+                // alert("Details updated!");
+                
+                popUpFromDown("Details updated!",'greenColour');
+                document.getElementById('oldpass').value = "";
+                document.getElementById('newpass1').value = "";
+                document.getElementById('newpass2').value = "";
+                // setTimeout(function() {
+                //     window.location.href='SA-ChangeInfo.html';
+                // },5000);
+            }
+
+            else{
+                // alert("Current password is incorrect!");
+                popUpFromDown("Current password is incorrect!",'red');
             }
             
-            let options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-    
-                body: JSON.stringify(payload) 
-    
-            }
-    
-            fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
-            .then(res => res.json())
-            .then(data => {
-                
-                if(data['userType'] == 1){
-                    // alert("Details updated!");
-                    
-                    popUpFromDown("Details updated!",'greenColour');
-                    setTimeout(function() {
-                        window.location.href='SA-ChangeInfo.html';
-                    },5000);
-                }
+        })
 
-                else{
-                    // alert("Current password is incorrect!");
-                    popUpFromDown("Current password is incorrect!",'red');
-                }
-                
-            })
-    
-            .catch(err=> {
-                // alert("Details invalid try again!");
-                popUpFromDown("Details invalid try again!",'red');
-                console.log(err);
-            })
-        }
+        .catch(err=> {
+            // alert("Details invalid try again!");
+            popUpFromDown("Details invalid try again!",'red');
+            console.log(err);
+        })
     }
 })
 
+function validatePassword(pass) {
+
+    if (!pass.match(/(.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?/)) {
+        return 1    
+      }
+      else if (!pass.match(/(.*)?[A-Z](.*)?/)) {
+        return 2
+      }
+      else if (!pass.match(/(.*)?[0-9](.*)?/)) {
+        return 3
+      }
+      else if (!pass.match(/(.*)?[@#$%^&*](.*)?/)) {
+        return 4
+      }
+  
+    else{
+      return 0;
+    }
+  
+    // return true;
+  }
 
 
 function validateInputs(input) {  
@@ -395,6 +577,22 @@ function showLoginValidate (input, id) {
   }
 
 
+function makeTextBoxDefault(){
+    document.getElementById('fname').classList.remove('greenBorder');
+    document.getElementById('fname').classList.add('NoBorder');
+
+    document.getElementById('lname').classList.remove('greenBorder');
+    document.getElementById('lname').classList.add('NoBorder');
+
+    document.getElementById('nic').classList.remove('greenBorder');
+    document.getElementById('nic').classList.add('NoBorder');
+
+    document.getElementById('email').classList.remove('greenBorder');
+    document.getElementById('email').classList.add('NoBorder');
+
+    document.getElementById('phone').classList.remove('greenBorder');
+    document.getElementById('phone').classList.add('NoBorder');
+}
 
 
 
@@ -466,6 +664,218 @@ nic.addEventListener('focusout', function(){
     }
 })
 
+
+
+// var passButton = document.getElementById('passChangeBtn');
+// passButton.addEventListener('click',()=>{
+
+
+// }) 
+
+
+
+
+
+var passInput = document.getElementById('newpass1');
+passInput.addEventListener('keyup',()=>{
+  checkPass(passInput.value);
+})
+
+function checkPass(password){
+    var bar = document.getElementById('strength');
+    var s = 0;
+  
+    if(password.match(/(.+)?[a-z](.+)?[a-z](.+)?[a-z](.+)?[a-z](.+)?/)){
+      s +=1;
+    }
+  
+    if(password.match(/(.+)?[0-9](.+)?[0-9](.+)?/)){
+      s +=1;
+    }
+  
+    if(password.match(/(.+)?[A-Z](.+)?/)){
+      s +=1;
+    }
+  
+    if(password.match(/(.+)?[!@#$%^?><*()](.+)?/)){
+      s +=1;
+    }
+  
+    // if(password.length>5){
+    //   s +=1;
+    // }
+  
+    switch(s){
+      case 0:
+        bar.value = 0;
+        break;
+  
+      case 1:
+        bar.value = 25;
+        bar.classList.add('red');
+        bar.classList.remove('yellow');
+        bar.classList.remove('orange');
+        bar.classList.remove('green');
+        break;
+  
+      case 2:
+        bar.value = 50;
+        bar.classList.add('yellow');
+        bar.classList.remove('red');
+        bar.classList.remove('orange');
+        bar.classList.remove('green');
+        break;
+  
+      case 3:
+        bar.value = 75;
+        bar.classList.add('orange');
+        bar.classList.remove('red');
+        bar.classList.remove('yellow');
+        bar.classList.remove('green');
+        break;
+  
+      case 4:
+        bar.value = 100;
+        bar.classList.add('green');
+        bar.classList.remove('yellow');
+        bar.classList.remove('orange');
+        bar.classList.remove('red');
+        break;
+    }
+  
+  }
+
+
+
+// $('#personalInfo').on('click', ()=>{
+//     var input = $('.NoBorder');
+//     var filled = true;
+
+//     var fname = $("#fname").val().trim();
+//     var lname = $("#lname").val().trim();
+//     var nic = $("#nic").val().trim();
+//     var email = $("#email").val().trim();
+//     var phone = $("#phone").val().trim();
+
+
+//     if (fnameVal != fname) {
+//         if(fname.length < 4){
+
+//             var field = document.getElementById('fname');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "At least 4 letters required";
+//             text.style.color = "#ff0000";
+//           }
+
+//         else if(fname.match(/(.+)?[0-9](.+)?/)){
+
+//             var field = document.getElementById('fname');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "Numbersd aren't allowed";
+//             text.style.color = "#ff0000";
+//           }
+//     }
+
+//     if (lnameVal != lname) {
+//         if(lname.length < 4){
+
+//             var field = document.getElementById('lname');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "At least 4 letters required";
+//             text.style.color = "#ff0000";
+//           }
+
+//         else if(lname.match(/(.+)?[0-9](.+)?/)){
+
+//             var field = document.getElementById('lname');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "Numbersd aren't allowed";
+//             text.style.color = "#ff0000";
+//           }
+//     }
+
+
+
+//     if (nicVal != nic) {
+//         var nic1 = /[0-9]{9}v{1}$/i
+//         if(!nic.match(nic1) && !nic.match(nic2)){
+//             var field = document.getElementById('nic');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "Invalid NIC number";
+//             text.style.color = "#ff0000";
+//           }
+//     }
+
+//     if (emailVal != email) {
+//         if(validateEmail() == 0){
+//             var field = document.getElementById('email');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "Your email address is invalid";
+//             text.style.color = "#ff0000";
+//           }
+//     }
+
+//     if (phoneVal != phone) {
+//         var phoneno1 = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+//         var phoneno2 = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+//         if(!phone.match(phoneno1) && !phone.match(phoneno2)){
+//             var field = document.getElementById('phone');
+//             var text = field.nextElementSibling;
+        
+//             text.innerHTML = "Invalid phone number";
+//             text.style.color = "#ff0000";
+//           }
+//     }
+// })
+
+function validateEmail(){
+    var email = $("#email").val();
+    var field = document.getElementById('email');
+    var text = field.nextElementSibling;
+
+    // var text = document.getElementById('formwords');
+    // var form = document.getElementById('form');
+  
+    var pattern = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/;
+    
+    if(email.match(pattern)){
+    //   form.classList.add('valid');
+    //   form.classList.remove('invalid');
+      text.innerHTML = "";
+      text.style.color = "#26b30c";
+      return 1;
+    }
+    else{
+    //   form.classList.remove('valid');
+    //   form.classList.add('invalid');
+      text.innerHTML = "Your email address is invalid";
+      text.style.color = "#ff0000";
+      return 0;
+    }
+}
+
+function hideValidate (id) {
+    var field = document.getElementById(id);
+    var text = field.nextElementSibling;
+  
+    if(field == document.activeElement) {
+      text.innerHTML = "";
+      text.style.color = "#ff0000";
+    }
+  
+    // if(id == 'pass'){
+    //   var field = document.getElementById('pass2');
+    //   var text = field.nextElementSibling;
+    //   text.innerHTML = "";
+    //   text.style.color = "#ff0000";
+    // }
+  }
 // lnameBtn.addEventListener('click', ()=>{
 //     lname.disabled = !lname.disabled
 

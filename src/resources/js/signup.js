@@ -271,7 +271,7 @@ function signupSO(){
     text.style.color = "#ff0000";
   }
 
-  else if(lname.length < 4){
+  if(lname.length < 4){
 
     var field = document.getElementById('lname');
     var text = field.nextElementSibling;
@@ -289,7 +289,7 @@ function signupSO(){
     text.style.color = "#ff0000";
   }
 
-  else if(validateEmail() == 0){
+  if(validateEmail() == 0){
     // popUp("Your email is invalid!");
     // popUpFromDown("Your email is invalid!")
     var field = document.getElementById('email');
@@ -299,7 +299,7 @@ function signupSO(){
     text.style.color = "#ff0000";
   }
 
-  else if(!phone.match(phoneno1) && !phone.match(phoneno2)){
+  if(!phone.match(phoneno1) && !phone.match(phoneno2)){
     var field = document.getElementById('phone');
     var text = field.nextElementSibling;
 
@@ -307,7 +307,7 @@ function signupSO(){
     text.style.color = "#ff0000";
   }
 
-  else if(!nic.match(nic1) && !nic.match(nic2)){
+  if(!nic.match(nic1) && !nic.match(nic2)){
     var field = document.getElementById('nic');
     var text = field.nextElementSibling;
 
@@ -315,7 +315,7 @@ function signupSO(){
     text.style.color = "#ff0000";
   }
 
-  else if(pass != pass2){
+  if(pass != pass2){
     // popUpFromDown("Passwords do not match!")
     var field = document.getElementById('pass2');
     var text = field.nextElementSibling;
@@ -410,16 +410,16 @@ function signupSO(){
 
 function validatePassword(pass) {
 
-  if (pass.match(/[a-z]/g) < 4) {
+  if (!pass.match(/(.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?[a-z](.*)?/)) {
     return 1    
   }
-  else if (pass.match(/[A-Z]/g) < 1) {
+  else if (!pass.match(/(.*)?[A-Z](.*)?/)) {
     return 2
   }
-  else if (pass.match(/[0-9]/g) < 2) {
+  else if (!pass.match(/(.*)?[0-9](.*)?/)) {
     return 3
   }
-  else if (pass.match(/[@#$%^&*]/g) < 1) {
+  else if (!pass.match(/(.*)?[@#$%^&*](.*)?/)) {
     return 4
   }
 
