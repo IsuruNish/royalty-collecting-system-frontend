@@ -16,6 +16,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
     <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
@@ -26,6 +28,10 @@
 </head>
 
 <body>
+
+    <div id="toast">
+        <div id="desc"></div>
+      </div>
 
     <div class="loader-wrapper" id="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
@@ -256,6 +262,7 @@
     </div>
 
     <script src="../resources/js/SA-changeInfo.js"></script>
+    <script src="../resources/js/alertFromDown.js"></script>
 
 </body>
 </html>

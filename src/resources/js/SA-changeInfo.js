@@ -7,8 +7,10 @@ let nicVal = null;
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
 
     else{
@@ -26,10 +28,10 @@ window.addEventListener('DOMContentLoaded',()=>{
         ut = data['utype']
         console.log(data);
         if(ut!=1){
-            alert("Access denied!");
+            popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },1000);
+            },5000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -68,7 +70,16 @@ window.addEventListener('DOMContentLoaded',()=>{
 
             }
         
-        });
+        })
+        .catch(err =>{
+            // alert("Email or Password is wrong");
+            popUpFromDown("Login again",'red');
+            setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },5000);
+            // popUp("Email or Password is wrong");
+            console.error(err);
+          });
     }
 });
 
@@ -97,8 +108,10 @@ var passChangeBtn = document.getElementById('passChangeBtn');
 photoChangeBtn.addEventListener('click', function(){
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
 
     let file = document.getElementById('imageSelect').files[0];
@@ -126,12 +139,18 @@ photoChangeBtn.addEventListener('click', function(){
         loading.classList.remove("hideME");
         realpage.classList.add("hideME");
         setTimeout(function() {
-            alert("Profile picture deleted successfully");
-            window.location.href='SA-ChangeInfo.html';
+            popUpFromDown("Profile picture changed successfully",'greenColour');
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+
+            // alert("Profile picture deleted successfully");
+            // window.location.href='SA-ChangeInfo.html';
         },1000);
       }
       else{
-          alert("Current password is incorrect!");
+        popUpFromDown("Error try again",'red');
+
+        //   alert("Current password is incorrect!");
       }
     })
 
@@ -141,8 +160,10 @@ photoChangeBtn.addEventListener('click', function(){
 photoDelBtn.addEventListener('click', function(){
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
 
     let payload = {
@@ -168,12 +189,17 @@ photoDelBtn.addEventListener('click', function(){
         loading.classList.remove("hideME");
         realpage.classList.add("hideME");
         setTimeout(function() {
-            alert("Profile picture deleted successfully");
-            window.location.href='SA-ChangeInfo.html';
+            // alert("Profile picture deleted successfully");
+            popUpFromDown("Profile picture deleted successfully",'greenColour');
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+            // window.location.href='SA-ChangeInfo.html';
         },1000);
       }
       else{
-          alert("Request unsuccessful try again!");
+        popUpFromDown("Error try again!",'red');
+
+        //   alert("Request unsuccessful try again!");
       }
     })
   })
@@ -186,8 +212,10 @@ photoDelBtn.addEventListener('click', function(){
 personalInfoBtn.addEventListener('click', function(){
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
 
     var fname = document.getElementById('fname').value;
@@ -228,16 +256,21 @@ personalInfoBtn.addEventListener('click', function(){
       
       if(data['userType'] == 1){
           alert("Details updated!");
+            popUpFromDown("Details updated!",'greenColour');
+          
           window.location.href='SA-ChangeInfo.html';
       }
 
       else{
-          alert("Invalid details!");
+        popUpFromDown("Error try again!",'red');
+
+        //   alert("Invalid details!");
       }
     })
 
   .catch(err=> {
-    alert("Details invalid try again!");
+    // alert("Details invalid try again!");
+    popUpFromDown("Details invalid try again!",'red');
     console.log(err);
     })
 })
@@ -249,8 +282,10 @@ personalInfoBtn.addEventListener('click', function(){
 passChangeBtn.addEventListener('click', function(){
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
     }
     
     var pass = $("#oldpass").val().trim();
@@ -299,18 +334,24 @@ passChangeBtn.addEventListener('click', function(){
             .then(data => {
                 
                 if(data['userType'] == 1){
-                    alert("Details updated!");
-                    window.location.href='SA-ChangeInfo.html';
+                    // alert("Details updated!");
+                    
+                    popUpFromDown("Details updated!",'greenColour');
+                    setTimeout(function() {
+                        window.location.href='SA-ChangeInfo.html';
+                    },5000);
                 }
 
                 else{
-                    alert("Current password is incorrect!");
+                    // alert("Current password is incorrect!");
+                    popUpFromDown("Current password is incorrect!",'red');
                 }
                 
             })
     
             .catch(err=> {
-                alert("Details invalid try again!");
+                // alert("Details invalid try again!");
+                popUpFromDown("Details invalid try again!",'red');
                 console.log(err);
             })
         }
