@@ -21,13 +21,30 @@
 //     window.onscroll = function() {};
 // });
 
-
-
-function launch_toast(text) {
+function popUpFromDown(text) {
     var x = document.getElementById("toast");
     var y = document.getElementById("desc");
-    y.innerHTML  = text;
     x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
-}
+  
+    setTimeout(function(){
+      y.innerHTML = text;
+      }, 500);
+  
+    setTimeout(function(){
+      y.innerHTML = "";
+      }, 4000);
+  
+    setTimeout(function(){
+       x.className = x.className.replace("show", ""); 
+      }, 5000);
+  }
+  
+
+// function launch_toast(text) {
+//     var x = document.getElementById("toast");
+//     var y = document.getElementById("desc");
+//     y.innerHTML  = text;
+//     x.className = "show";
+//     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+// }
 

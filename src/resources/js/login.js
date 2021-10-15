@@ -27,12 +27,13 @@ document.getElementById("dismiss-popup-btn").addEventListener("click",function()
 });
 
 
-function popUpFromDown(text) {
+function popUpFromDown(text, className) {
   var x = document.getElementById("toast");
   var y = document.getElementById("desc");
   x.className = "show";
 
   setTimeout(function(){
+    x.classList.add(className);
     y.innerHTML = text;
     }, 500);
 
@@ -41,6 +42,7 @@ function popUpFromDown(text) {
     }, 4000);
 
   setTimeout(function(){
+     x.classList.remove(className);
      x.className = x.className.replace("show", ""); 
     }, 5000);
 }
@@ -136,13 +138,13 @@ $(document).ready(function(){
             }
             else {
               // alert("Email or Password is wrong");
-              popUpFromDown("Email or Password is wrong")
+              popUpFromDown("Email or Password is wrong",'red')
               // popUp("Email or Password is wrong");
             }
           })
           .catch(err =>{
             // alert("Email or Password is wrong");
-            popUpFromDown("Email or Password is wrong")
+            popUpFromDown("Email or Password is wrong",'red')
 
             // popUp("Email or Password is wrong");
             console.error(err);
@@ -402,13 +404,13 @@ function signupSO(){
       }
       else if(ut = -1){
         // popUp("Email already exist");
-        popUpFromDown("Email already exist")
+        popUpFromDown("Email already exist",'red')
 
 
       }
       else {
         // popUp("Signup unsuccessful");
-        popUpFromDown("Signup unsuccessful")
+        popUpFromDown("Signup unsuccessful",'red')
 
       }
       

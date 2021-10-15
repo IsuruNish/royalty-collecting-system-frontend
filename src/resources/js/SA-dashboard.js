@@ -1,9 +1,34 @@
 
+function popUpFromDown(text, className) {
+    var x = document.getElementById("toast");
+    var y = document.getElementById("desc");
+    x.className = "show";
+  
+    setTimeout(function(){
+        x.classList.add(className);
+      y.innerHTML = text;
+      }, 500);
+  
+    setTimeout(function(){
+      y.innerHTML = "";
+      }, 4000);
+  
+    setTimeout(function(){
+       x.className = x.className.replace("show", ""); 
+       x.classList.remove(className);
+      }, 5000);
+  }
+  
+
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
-        alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        // alert("login to continue")
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },6000);
+        // window.location.href='../landing_page/login.html';
     }
 
     else{
@@ -21,10 +46,10 @@ window.addEventListener('DOMContentLoaded',()=>{
         ut = data['utype']
         console.log(data);
         if(ut!=1){
-            alert("Access denied!");
+            popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },1000);
+            },6000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -46,6 +71,8 @@ window.addEventListener('DOMContentLoaded',()=>{
                 var picSmall = document.getElementById('profilePicSmall');
                 var picLarge = document.getElementById('profilePic');
                 
+                popUpFromDown("Welcome back "+data['fname'], 'default');
+
                 setTimeout(function() {
                     picLarge.src = data['DPpath'];
                     picSmall.src = data['DPpath'];
@@ -65,9 +92,17 @@ window.addEventListener('DOMContentLoaded',()=>{
                     realpage.classList.remove("hideME");
                 },500);
 
-            }
-        
-        });
+            }        
+        })
+        .catch(err =>{
+            // alert("Email or Password is wrong");
+            popUpFromDown("Login again",'red');
+            setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },6000);
+            // popUp("Email or Password is wrong");
+            console.error(err);
+          });
     }
 });
 

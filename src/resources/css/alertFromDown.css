@@ -5,7 +5,7 @@
   height: 50px;
   margin: auto;
   /* background-color: #333; */
-  background-color: rgb(245, 1, 1);
+  /* background-color: rgb(245, 1, 1); */
   color: #fff;
   text-align: center;
   border-radius: 2px;
@@ -17,6 +17,14 @@
   top: 40px;
   font-size: 17px;
   white-space: nowrap;
+}
+
+.red{
+  background-color: rgb(245, 1, 1);
+}
+
+.default{
+  background-color: #333;
 }
 /* #toast #img{
 width: 50px;
