@@ -87,7 +87,7 @@
   outline:none;
   border-radius:10px;
   cursor:pointer;
-  transition: all 300ms ease-in-out;
+  /* transition: all 100ms ease-in-out; */
 }
 .popup .dismiss-btn button:hover {
   color:#111;
@@ -118,6 +118,7 @@
 .poUptext{
   /* margin-top: 1%; */
   margin-bottom: 5%;
+  font-size:18px ;
 }
 
 

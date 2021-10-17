@@ -97,37 +97,51 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 
                       DivCol1I.onclick = function(){
-                        var txt;
-                        // if (confirm("Do you want to delete "+ dataset[i]['fname']+" "+dataset[i]['lname']+ " ?")){
+                        popUp("Do you want to delete "+ data[i]['fname']+" "+data[i]['lname']+ " ?")
+                        userID = this.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML;
+
+                        document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+                          hdiePopUp();
+                          console.log(data[i]['fname']+" "+data[i]['lname']);
+                        
             
-                            let token = Cookies.get('Authorization');
-                            if(token == undefined){
-                                alert("login to continue")
-                                window.location.href='../landing_page/login.html';
-                            }
-            
+                          let token = Cookies.get('Authorization');
+                          if(token == undefined){
+                              alert("login to continue")
+                              window.location.href='../landing_page/login.html';
+                          }
+                          
+                          let payload = {
+                              "uid":userID
+                          }
+          
+                          let options = {
+                              method: 'POST',
+                              headers: {
+                                  'Content-Type': 'application/json',
+                                  'Authorization': `Bearer ${token}`
+                              },
+                              body: JSON.stringify(payload) 
+                          }
+                  
+                          fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
+                          .then( data => {
                             
-                            var userID = this.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML;
-                            
-                            console.log("hi");
-            
-                            let payload = {
-                                "uid":userID
-                            }
-            
-                            let options = {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${token}`
-                                },
-                                body: JSON.stringify(payload) 
-                            }
-                    
-                            fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
-                            .then(window.location.href='../super_admin/SA - removeSONew.html');
-                        }
-                    // }
+                            popUpFromDown("Successfully deleted the user", 'greenColour');
+                            setTimeout(function() {
+                              window.location.href='../super_admin/SA - removeSO.html';
+                          },5000);
+                          })
+
+                          .catch(err =>{
+                            popUpFromDown("SError try again", 'red');
+                            setTimeout(function() {
+                                window.location.href='../super_admin/SA - removeSO.html';
+                            },5000);
+                            console.error(err);
+                          });
+                        });
+                    }
                   }
               
                   setTimeout(function() {
@@ -146,94 +160,19 @@ window.addEventListener('DOMContentLoaded',()=>{
 
       })
       .catch(err =>{
-        // alert("Email or Password is wrong");
-        // popUpFromDown("Login again",'red');
+        popUpFromDown("Login again",'red');
         setTimeout(function() {
             window.location.href='../landing_page/login.html';
         },5000);
-        // popUp("Email or Password is wrong");
         console.error(err);
       });
   }
 });
 
 
-// function build(dataset){
-//   const theDiv = document.getElementById("SODiv");
-  
-//   for (let i = 0; i < dataset.length; i++) {
-//       var insideDiv = document.createElement("div");
-//       var uid = document.createElement("h2");
-//       var name = document.createElement("h2");
-//       var email = document.createElement("h2");
-//       var phone = document.createElement("h2");
-//       var button = document.createElement("button");
-      
-//       theDiv.appendChild(insideDiv);
-
-//       insideDiv.classList.add("profileCard");
-//       button.classList.add("remove-btn");
-//       button.setAttribute('id', 'deletebtn');
-
-//       uid.innerHTML =  dataset[i]['uid'];
-//       name.innerHTML =  dataset[i]['fname']+" "+dataset[i]['lname'];
-//       email.innerHTML =  dataset[i]['email']
-//       phone.innerHTML =  dataset[i]['phone']
-
-//       button.innerHTML =  "Remove User"
-//       insideDiv.appendChild(uid);
-//       insideDiv.appendChild(name);
-//       insideDiv.appendChild(email);
-//       insideDiv.appendChild(phone);
-//       insideDiv.appendChild(button);
-
-//       button.onclick = function(){
-//           var txt;
-//           if (confirm("Do you want to delete "+ dataset[i]['fname']+" "+dataset[i]['lname']+ " ?")){
-
-//               let token = Cookies.get('Authorization');
-//               if(token == undefined){
-//                   alert("login to continue")
-//                   window.location.href='../landing_page/login.html';
-//               }
-
-              
-//               var userEmail = this.previousSibling.innerHTML;
-//               var userName = this.previousSibling.previousSibling.previousSibling.innerHTML;
-//               var userPhone = this.previousSibling.previousSibling.innerHTML;
-              
-//               console.log("hi");
-
-//               let payload = {
-//                   "email":userEmail,
-//                   "fname":userName,
-//                   "phone":userPhone
-//               }
-
-//               let options = {
-//                   method: 'POST',
-//                   headers: {
-//                       'Content-Type': 'application/json',
-//                       'Authorization': `Bearer ${token}`
-//                   },
-//                   body: JSON.stringify(payload) 
-//               }
-      
-//               fetch("http://localhost:8080/OSCA_war_exploded/SARemoveSOServlet", options)
-//               .then(window.location.href='../super_admin/SA - removeSO.html');
-//           }
-//       }
-//   }
-// }
-
-
-// function deleteDiv(parent) {
-//   if(parent.hasChildNodes()){
-//       while (parent.firstChild) {
-//           parent.removeChild(parent.firstChild);
-//       }
-//   }
-// }
+document.getElementById("denyBTN").addEventListener("click",function(){
+  hdiePopUp();
+});
 
 
 
