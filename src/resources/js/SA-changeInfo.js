@@ -499,6 +499,7 @@ passChangeBtn.addEventListener('click', function(){
                 document.getElementById('oldpass').value = "";
                 document.getElementById('newpass1').value = "";
                 document.getElementById('newpass2').value = "";
+                document.getElementById('strength').value = 0;
                 // setTimeout(function() {
                 //     window.location.href='SA-ChangeInfo.html';
                 // },5000);
