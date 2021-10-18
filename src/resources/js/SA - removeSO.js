@@ -152,7 +152,7 @@ window.addEventListener('DOMContentLoaded',()=>{
               }
           }
           else{
-              alert("Login again!");
+            popUpFromDown("Login again!",'red');
               setTimeout(function() {
                   window.location.href='../landing_page/login.html';
               },1000);
