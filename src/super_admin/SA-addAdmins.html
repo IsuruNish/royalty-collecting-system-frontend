@@ -7,8 +7,11 @@
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      
-    <link rel="stylesheet" href="../resources/css/A-addofficials.css">
     <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="../resources/css/A-addofficials.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
@@ -21,92 +24,126 @@
 </head>
 
 <body>
-
-    <input type="checkbox" id="check">
-
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section>
-            <div class="header">
-                
-                <div class="first">
-                    <h2>Add admins to OSCA</h2>
-                    <!-- <h3>Welcome to OSCA!!!</h3> -->
-                </div>
 
-                <div class="second">
-                    
-                    <div class="notification">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="notsoLoad hideME" id="notsoLoad">
 
+        <input type="checkbox" id="check">
 
-        <section class="content1">
-            <div class="mainCard">
-                <div class="profileCard">
-                    <h2>Enter details of the new Admin</h2>
-                    <input type="text" name="" id="" placeholder="First name">
-                    <input type="text" name="" id="" placeholder="Last name">
-                    <input type="text" name="" id="" placeholder="Email address">
-                    <input type="text" name="" id="" placeholder="Phone number">
-                    <input type="text" name="" id="" placeholder="NIC number">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
 
-                    <div class="changeInfo">
-                        <button class="btn">Add official</button>
-                    </div>
-                </div>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
 
-                
-            </div>       
-        </section>
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
     
-    </section>
+        <section class="sec">
+                <div class="header">
+                    
+                    <div class="first">
+                        <h2>Add directors to OSCA</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
+
+                    <div class="second">
+                        
+                        <div class="notification">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname"></h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="#">Home</a>
+                                <a href="#">settings</a>
+                                <a href="#">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <section class="content1">
+                <div class="mainCard">
+                    <div class="profileCard">
+                        <h2>Enter details of the new director</h2>
+                        <div class="info">
+                            <input class="newInputs" type="text" name="fname" id="fname" placeholder="First name" onfocus="hideValidate('fname')">
+                            <span class="words" id="firstwords"></span>
+                        </div>
+
+                        <div class="info">
+                            <input class="newInputs" type="text" name="lname" id="lname" placeholder="Last name" onfocus="hideValidate('lname')">
+                            <span class="words" id="lastwords"></span>
+                        </div>
+
+                        <div class="info">
+                            <input class="newInputs" type="text" name="email" id="email" placeholder="Email address" onfocus="hideValidate('email')" onkeydown="validateEmail()">
+                            <span class="words" id="formwords"></span>
+                        </div>
+
+                        <div class="info">
+                            <input class="newInputs" type="text" name="phone" id="phone" placeholder="Phone number" onfocus="hideValidate('phone')">
+                            <span class="words" id="phonewords"></span>
+                        </div>
+                        
+                        <div class="info">
+                            <input class="newInputs" type="text" name="nic" id="nic" placeholder="NIC number" onfocus="hideValidate('nic')">
+                            <span class="words" id="nicwords"></span>
+                        </div>
+
+    
+                        <div class="changeInfo">
+                            <button class="btn" id="add">Add director</button>
+                        </div>
+                    </div>
+
+                    
+                </div>       
+            </section>
+        
+        </section>
+    </div>
 
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
 
-
+<script src="../resources/js/SA-addAdmins.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<script src="../resources/js/alertFromDown.js"></script>
+<script src="../resources/js/validation.js"></script>
 
 </body>
 </html>

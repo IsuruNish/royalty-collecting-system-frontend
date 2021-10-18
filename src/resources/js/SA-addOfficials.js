@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       .then(res => res.json())
       .then((data) => {
       ut = data['utype'];
-      if(ut!=2){
+      if(ut!=1){
           popUpFromDown("Access denied!",'red');
           setTimeout(function() {
             // alert("not admin")
@@ -36,8 +36,6 @@ window.addEventListener('DOMContentLoaded',()=>{
         Topname.innerHTML = "Hello "+ data['fname']+",";
         picSmall.src = data['DPpath'];
 
-        console.log(data);
-
         const loading = document.getElementById("loader-wrapper");
         const realpage = document.getElementById("notsoLoad");
         loading.classList.add("hideME");
@@ -47,7 +45,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       .catch(err =>{
           popUpFromDown("Login again",'red');
           setTimeout(function() {
-            alert("iinside catch")
+            // alert("iinside catch")
 
               window.location.href='../landing_page/login.html';
           },3000);
@@ -79,7 +77,7 @@ $('#add').on('click', ()=>{
         "nic":nic,
         "email":email,
         "phone":phone,
-        "forWhom":"official",
+        "forWhom":"official"
       }
         
       let token = Cookies.get('Authorization');
@@ -96,6 +94,7 @@ $('#add').on('click', ()=>{
       .then(res => res.json())
       .then(data => {
         console.log(data);
+
         if(data['ok'] == 1){
           popUpFromDown("User added successfully",'greenColour');
           setTimeout(function() {
@@ -111,16 +110,18 @@ $('#add').on('click', ()=>{
               window.location.href='SA-addofficials.html';
           },3000);
         }
+
         else if(data['ok'] == -1){
           popUpFromDown("Email already exist",'red');
           loading.classList.add("hideME");
           realpage.classList.remove("hideME");
         }
+
       })
       .catch(err =>{
         popUpFromDown("Error",'red');
         setTimeout(function() {
-            window.location.href='A-addofficials.html';
+            window.location.href='SA-addofficials.html';
         },3000);
         console.error(err);
       });
