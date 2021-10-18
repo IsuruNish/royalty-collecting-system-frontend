@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       .then((data) => {
       ut = data['utype'];
       console.log(data);
-      if(ut!=1){
+      if(ut!=2){
           popUpFromDown("Access denied!",'red');
           setTimeout(function() {
         alert("cookie undefined")
