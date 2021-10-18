@@ -117,7 +117,7 @@ function validateEmail(){
       var field = document.getElementById('fname');
       var text = field.nextElementSibling;
   
-      text.innerHTML = "Numbersd aren't allowed";
+      text.innerHTML = "Numbers aren't allowed";
       text.style.color = "#ff0000";
       filled = false;
     }
@@ -137,7 +137,7 @@ function validateEmail(){
       var field = document.getElementById('lname');
       var text = field.nextElementSibling;
   
-      text.innerHTML = "Numbersd aren't allowed";
+      text.innerHTML = "Numbers aren't allowed";
       text.style.color = "#ff0000";
       filled = false;
     }
@@ -170,4 +170,82 @@ function validateEmail(){
     }
 
     return filled;
+}
+
+function validateIBankFields(){
+  var input = $('.BankInputs');
+  var filled = true;
+
+  for(var i = 0; i < input.length; i++){
+    if(validateInputs(input[i]) == false){
+      showBankValidate(input[i], input[i].id);
+      filled = false;
+    }
+  }
+
+  return filled;
+}
+
+
+
+function showBankValidate (input, id) {
+  if($(input).val().trim() == '') {
+    var field = document.getElementById(id);
+    var text = field.nextElementSibling;
+
+    if($(input).attr('name') == 'bankName'){
+      text.innerHTML = "Bank name is required";
+      text.style.color = "#ff0000";
+    }
+
+    if($(input).attr('name') == 'bankBranch'){
+      text.innerHTML = "Bank branch is required";
+      text.style.color = "#ff0000";
+    }
+
+    if($(input).attr('name') == 'accNo'){
+      text.innerHTML = "Account number is required";
+      text.style.color = "#ff0000";
+    }
+  }
+}
+
+
+function lastValidationOfBank(){
+  var bankName = $("#bankName").val().trim();
+  var bankBranch = $("#bankBranch").val().trim();
+  var accNo = $("#accNo").val().trim();
+
+  let filled = true;
+  if(bankName.match(/(.+)?[0-9](.+)?/)){
+
+    var field = document.getElementById('bankName');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Numbers aren't allowed";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+
+   if(bankBranch.match(/(.+)?[0-9](.+)?/)){
+
+    var field = document.getElementById('bankBranch');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Numbers aren't allowed";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+
+  if(accNo.match(/(.+)?[a-zA-Z](.+)?/)){
+
+    var field = document.getElementById('accNo');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Letters aren't allowed";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+
+  return filled;
 }
