@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         // alert("login to continue")
         setTimeout(function() {
             window.location.href='../landing_page/login.html';
-        },5000);
+        },3000);
         // window.location.href='../landing_page/login.html';
     }
 
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },5000);
+            },3000);
             }
             else{
                 const loading = document.getElementById("loader-wrapper");
@@ -49,7 +49,9 @@ window.addEventListener('DOMContentLoaded',()=>{
                 var picSmall = document.getElementById('profilePicSmall');
                 var picLarge = document.getElementById('profilePic');
                 
-                popUpFromDown("Welcome back "+data['fname'], 'default');
+                if(document.referrer == "http://127.0.0.1:5500/landing_page/login.html" || document.referrer == "http://127.0.0.1:5500/landing_page/signup.html"){
+                    popUpFromDown("Welcome back "+data['fname'], 'default');
+                }
 
                 setTimeout(function() {
                     picLarge.src = data['DPpath'];
@@ -77,7 +79,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             popUpFromDown("Login again",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
-            },5000);
+            },3000);
             // popUp("Email or Password is wrong");
             console.error(err);
           });

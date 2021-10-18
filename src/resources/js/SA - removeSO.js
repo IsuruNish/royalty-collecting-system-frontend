@@ -102,8 +102,13 @@ window.addEventListener('DOMContentLoaded',()=>{
 
                         document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
                           hdiePopUp();
-                          console.log(data[i]['fname']+" "+data[i]['lname']);
-                        
+                          // console.log(data[i]['fname']+" "+data[i]['lname']);
+                          
+                          const loading = document.getElementById("loader-wrapper");
+                          const realpage = document.getElementById("notsoLoad");
+
+                          loading.classList.remove("hideME");
+                          realpage.classList.add("hideME");
             
                           let token = Cookies.get('Authorization');
                           if(token == undefined){
@@ -130,7 +135,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                             popUpFromDown("Successfully deleted the user", 'greenColour');
                             setTimeout(function() {
                               window.location.href='../super_admin/SA - removeSO.html';
-                          },5000);
+                          },3000);
                           })
 
                           .catch(err =>{
