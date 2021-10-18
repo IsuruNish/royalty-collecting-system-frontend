@@ -107,7 +107,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             
                           let token = Cookies.get('Authorization');
                           if(token == undefined){
-                              alert("login to continue")
+                              popUpFromDown("login to continue",'red');
                               window.location.href='../landing_page/login.html';
                           }
                           
