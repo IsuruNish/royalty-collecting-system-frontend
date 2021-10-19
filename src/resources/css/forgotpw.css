@@ -15,6 +15,7 @@ body{
 
 .container{
   width: 100%;
+  height: fit-content;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
@@ -50,6 +51,8 @@ body{
 }
 
 h1{
+  align-self: center;
+  width: 150%;
   margin-bottom: 10%;
   text-align: center;
 }
@@ -73,22 +76,29 @@ button{
   border: none;
   border-radius: 3rem;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight:bold;
   outline: none;
   margin-top: 15%;
   margin-bottom: 10%;
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 4%;
+  padding-bottom: 4%;
   background-color: rgb(11, 175, 175);
   margin-right: 5%;
+}
+
+button:hover{
+  transition: 0.5s ease;
+  background-color: rgb(34, 196, 196);
+
 }
 
 .home a{
   text-decoration: none;
   color: black;
+  margin-right: 8%;
 }
 
 #loginIcon{
@@ -103,8 +113,31 @@ button{
   top: 4px;
 }
 
+.passwordDIV{
+  display: flex;
+  flex-direction: column;
+}
+
+#strength{
+  margin-top: 2%;
+  width: 90%;
+  background-color: red;
+  
+}
+
+.red::-webkit-progress-value { background: red; }
+.yellow::-webkit-progress-value { background: rgb(255, 238, 0); }
+.orange::-webkit-progress-value { background: rgb(255, 153, 0); }
+.green::-webkit-progress-value { background: rgb(25, 231, 35); }
 
 
+span{
+    font-weight: 500;
+    font-style: italic;
+    font-size: 12px;
+    height: 0.1vh;
+    width: 110%;
+}
 
 @media (max-width: 1111px){
 

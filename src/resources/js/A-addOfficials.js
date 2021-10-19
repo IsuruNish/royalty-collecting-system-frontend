@@ -101,14 +101,14 @@ $('#add').on('click', ()=>{
           setTimeout(function() {
             // alert("iinside catch")
   
-              window.location.href='SA-addofficials.html';
+              window.location.href='A-addofficials.html';
           },3000);
         }
 
         else if(data['ok'] == 0){
           popUpFromDown("Error try again",'red');
           setTimeout(function() {
-              window.location.href='SA-addofficials.html';
+              window.location.href='A-addofficials.html';
           },3000);
         }
         else if(data['ok'] == -1){

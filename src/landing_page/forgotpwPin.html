@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../resources/css/forgotpwUI.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+  <title>login</title>
+</head>
+
+<body>
+
+    <div id="toast">
+      <div id="desc"></div>
+    </div>
+
+    <div class="container">
+
+      <div class="wrap">
+        <div class="sideLogin">
+          <img src="../resources/images/forgotpass.svg" alt="">
+        </div>
+
+        <div class="content">
+              <h1>Forgot password?</h1>
+
+              <div class="emailDiv">
+                <i class="fas fa-envelope" id="loginIcon"><input type="text" name="email" placeholder="Email address" id="email" class="newInputs" onfocus="hideValidate()" onkeydown="validateEmail()"></i>      
+                <span class="words" id="formwords"></span>
+              </div>
+
+              <div class="btn">
+                <button type="submit" id="btn">Send Verification</button>
+              </div>
+
+              <div class="home">
+                <!-- <div id="redoButton">
+                  <i class="fas fa-redo" id="redoIcon"></i>Resend Pin</a>
+                </div> -->
+
+                <div>
+                  <i class="fas fa-long-arrow-alt-left" id="backIcon"></i><a href="login.html">Back to login</a>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../resources/js/forgetpwPin.js"></script>
+    <script src="../resources/js/alertFromDown.js"></script>
+    <!-- <script src="../resources/js/validation.js"></script> -->
+
+
+
+</body>
+
+</html>
