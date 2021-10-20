@@ -16,7 +16,9 @@ function newElement() {
       var li = document.createElement("li");
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
-      var t = document.createTextNode(input);
+      // var t = document.createTextNode(input);
+      var t = document.createElement("h5");
+      t.innerHTML = input
 
       li.appendChild(t);
       ul.appendChild(li);
