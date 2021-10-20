@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/M-songModification.css">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="../resources/js/script.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+            <li><a href="#"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="#"><i class="fas fa-music"></i>Register songs</a></li>
+            <li><a href="#"><i class="fas fa-user-tag"></i>Change ownership</a></li>
+            <li><a href="#"><i class="fas fa-trash-alt"></i>Remove a song</a></li>
+            <li><a href="#"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+            <li><a href="#"><i class="fas fa-user-headset"></i>Help</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+
+ 
+    <section class="sec">
+
+            <div class="header">
+                
+                <div class="first">
+                    <h2>Song Registrations</h2>
+                </div>
+
+                <div class="second">
+                    
+                    <div class="notification">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                        </div>
+                    </div>
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3>Hello Ann,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="#">My profile</a>
+                            <!-- <a href="#">settings</a> -->
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+            
+            <div class="content">
+                <h2 class="topic">Song details</h2>
+                <div class="input">
+                    <div>
+                        <label for="">Song name </label>
+                        <input type="text" name="name" value="ABC" id="input" disabled>
+                    </div>
+
+                    <div>
+                        <label for="">Song name </label>
+                        <input type="text" name="version" value="1" id="input" disabled>
+                    </div>
+
+                    <div>
+                        <label for="">Song name </label>
+                        <input type="text" name="singers" value="2019" id="input" disabled>
+                    </div>
+                </div>
+                
+                <div class="formContent2">
+                    <div id="myDIV" class="header">
+                        <h4>Singers of the song</h4>
+                        <ul id="myUL" class="singer">
+                            <li class="normalCol"> 
+                                <h5>Mr.Aa</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+
+                            <li class="normalCol"> 
+                                <h5>Mr.Ab</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+                        </ul>
+                    </div>
+                        
+                    <div id="myDIV" class="header">
+                        <h4 class="">Add composers</h4>
+                        <ul id="myUL" class="composer">
+                            <li class="normalCol"> 
+                                <h5>Mr.bA</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+
+                            <li class="normalCol"> 
+                                <h5>Mr.bbA</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+
+                            <li class="normalCol"> 
+                                <h5>Mr.bbbA</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+                        </ul>
+                    </div>
+                        
+                    <div id="myDIV" class="header">
+                        <h4>Add song writers</h4>
+                        <ul id="myUL" class="writer">
+                            <li class="normalCol"> 
+                                <h5>Mr.cA</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div class="submitDocumentContent">
+                    <h4 id="role">Select your role(s) in this song</h4>
+
+                    <div class="newDiv" >
+                        <div id="myDIVnew" class="header">
+                            <h4>Add song writers</h4>
+                            <input type="text" id="myInput" placeholder="Type here...">
+                            <button class="addBtn" id="singer">Add</button>
+                            <ul id="myUL">
+                      
+                            </ul>
+                        </div>
+
+                        <div id="myDIVnew" class="header">
+                            <h4>Add song writers</h4>
+                            <input type="text" id="myInput" placeholder="Type here...">
+                            <button class="addBtn" id="composer">Add</button>
+                            <ul id="myUL">
+        
+                            </ul>
+                        </div>
+
+                        <div id="myDIVnew" class="header">
+                            <h4>Add song writers</h4>
+                            <input type="text" id="myInput" placeholder="Type here...">
+                            <button class="addBtn" id="writer">Add</button>
+                            <ul id="myUL">
+        
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="removedPpl hideTheTopic" id="removedPpl">
+                        <h4 id="role">These artists will be no longer belong to this song</h4>
+
+                        <ul id="myUL" class="newUL">
+                            <!-- <li class="normalCol"> 
+                                <h5>Mr.aaaaacA</h5>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4>Submit the confirmation documents</h4>
+                        <div class="submit">
+                            <input type="file" id="myFile" name="filename">
+                            <button id="btn">Submit</button>
+                        </div>
+                    </div>
+              
+            </div>
+             
+            
+        
+    
+    </section>
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+<script src="../resources/js/M-songModification.js"></script>
+</body>
+</html>
