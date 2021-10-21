@@ -38,12 +38,12 @@
         <ul> 
             <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
             <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
-            <li><a href="#"><i class="far fa-window-close"></i>Cancel License</a></li>
+            <li><a href="SO-CancelLicence.html"><i class="far fa-window-close"></i>Cancel License</a></li>
             <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="#"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
             <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
             <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
@@ -57,13 +57,11 @@
 
                 <div class="second">
                     
-                    <div class="notification">
+                    <div class="notification" onclick="window.location.href='SO-notificationUI.html'">
                         <i class="fas fa-bell" id="bell"></i>
                         <span class="badge">3</span>
                         <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                
                         </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
@@ -72,9 +70,8 @@
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                         <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
+                            <a href="SO-dashboard.html">Dashboard</a>
+                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
                         </div>
                     </div>
                 </div>
