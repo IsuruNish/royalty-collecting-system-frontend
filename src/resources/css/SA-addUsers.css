@@ -28,8 +28,8 @@ img {
 
 .sidebar{
     position: fixed;
-    left:-250px;
-    width:250px;
+    left:-300px;
+    width:300px;
     height:100%;
     /* background: #042331; */
     /* background: #2c2e43; */
@@ -118,7 +118,7 @@ label #cancel{
 
 }
 #check:checked ~ label #cancel{
-    left: 195px;
+    left: 250px;
 
 }
 #check:checked ~ section{
