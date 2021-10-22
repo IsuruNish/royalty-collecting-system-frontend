@@ -377,8 +377,9 @@ function signupSO(){
     .then(res => res.json())
     .then(data => {
       ut = data['userType']
-      Cookies.set('Authorization', 'Bearer '+data['token'])
-      console.log(data);
+      let token =  data['token']
+      Cookies.set('Authorization', data['token'])
+
       if(ut==5){
         // alert(ut);
         window.location.href='../show_organizer/SO-dashboard.html';

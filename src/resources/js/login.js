@@ -405,7 +405,8 @@ function signupSO(){
     .then(res => res.json())
     .then(data => {
       ut = data['userType']
-      Cookies.set('Authorization', 'Bearer '+data['token'])
+      let token =  data['token']
+      Cookies.set('Authorization', data['token'])
       console.log(data);
       if(ut==5){
         // alert(ut);

@@ -10,154 +10,147 @@
     <link rel="stylesheet" href="../resources/css/style.css">
 
     <link rel="stylesheet" href="../resources/css/SO-dashboard.css">
-     
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
+      <link rel="stylesheet" href="../resources/css/loadingScreen.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="../resources/js/script.js"></script>
 
 </head>
 
 <body>
 
-    <input type="checkbox" id="check">
-
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
-            <li><a href="SO-CancelLicence.html"><i class="far fa-window-close"></i>Cancel License</a></li>
-            <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
-            <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section>
-            <div class="header">
-                
-                <div class="first">
-                    <h2>Dashboard</h2>
-                    <h3>Welcome to OSCA!!!</h3>
-                </div>
 
-                <div class="second">
-                    
-                    <div class="notification" onclick="window.location.href='SO-notificationUI.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
-             
-                        </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="SO-dashboard.html">Dashboard</a>
-                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="notsoLoad hideME" id="notsoLoad">
 
-        <section class="content1">
-            <div class="mainCard">
-                <div class="profileCard">
-                    <div class="image">
-                        <img src="../resources/images/profile.jpg" id="profilePic" alt="Avatar" />
-                    </div>
-                    <div class="userDetals">
-                        <ul>
-                            <li><a href="#"><i class="fas fa-file-signature" id="icons"></i>Ann Octavia</a></li>
-                            <li><a href="#"><i class="fas fa-id-card" id="icons"></i>EID 0001</a></li>
-                            <li><a href="#"><i class="fas fa-city" id="icons"></i>From Melbourne</a></li>
-                            <li><a href="#"><i class="fas fa-envelope-square" id="icons"></i>octaviaann@gmail.com</a></li>
-                            <li><a href="#"><i class="fas fa-phone-square-alt" id="icons"></i>123456789</a></li>
-                        </ul>
-                    </div>
+        <input type="checkbox" id="check">
 
-                    <div class="changeInfo">
-                        <button class="btn" id="changeiinfo">Change Info</button>
-                    </div>
-                </div>
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
 
-                <div class="licenseDetails">
-                    <div class="left">
-                        <div class="acceptedLicense">
-                            <ul>
-                                <li><h1>Accepted licenses</h1></li>
-                                <h3 class="number">25</h3>
-                                <!-- <div class="show-more">
-                                    <button class="btn1">Show more</button>
-                                </div> -->
-                            </ul>
-                        </div>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
 
-                        <div class="pendingLicense">
-                            <ul>
-                                <li><h1>Pending licenses</h1></li>
-                                <h3 class="number">25</h3>                 
-                                
-                                <!-- <div class="show-more">
-                                    <button class="btn1">Show more</button>
-                                </div> -->
-                            </ul>
-                        </div>
-                    </div>
+        <div class="sidebar">
+            <header>OSCA</header>
 
-                    <div class="right">
-                        <div class="rejectedLicense">
-                            <ul>
-                                <li><h1>Next upcoming Event</h1></li>
-                                <h3 class="number">Mar 25 2021</h3>
-                                <!-- <li><a href="#"><i class="fas fa-file-certificate"></i>show 4 license - applied on 03/08/2021</a></li>                        -->
-                                <!-- <div class="show-more">
-                                    <button class="btn1">Show more</button>
-                                </div> -->
-                            </ul>
-                        </div>
+            <ul> 
+                <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
+                <li><a href="SO-CancelLicence.html"><i class="far fa-window-close"></i>Cancel License</a></li>
+                <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="#"><i class="fas fa-search"></i>Search</a></li>
+                <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+                <li><a href="../landing_page/Home.html"  id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
 
-                        <!-- <div class="upcomingLicense">
-                            <ul>
-                                <li><h1>Accepted licenses</h1></li>
-                                <h3 class="number">0</h3>
-                                <div class="show-more">
-                                    <button class="btn1">Show more</button>
-                                </div>    
-                            </ul>
-                        </div> -->
-                    </div> 
-                </div>
-            </div>       
-        </section>
     
-    </section>
+        <section>
+                <div class="header">
+                    
+                    <div class="first">
+                        <h2>Dashboard</h2>
+                        <h3>Welcome to OSCA!!!</h3>
+                    </div>
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
+                    <div class="second">
+                        
+                        <div class="notification" onclick="window.location.href='SO-notificationUI.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+                
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SO-dashboard.html">Dashboard</a>
+                                <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            <section class="content1">
+                <div class="mainCard">
+                    <div class="profileCard">
+                        <div class="image">
+                            <img src="../resources/images/profile.jpg" id="profilePic" alt="Avatar" />
+                        </div>
+                        <div class="userDetals">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-file-signature" id="icons"></i><span id="name"></span></a></li>
+                                <li><a href="#"><i class="fas fa-id-card" id="icons"></i><span id="id"></span></a></li>
+                                <li><a href="#"><i class="fas fa-envelope-square" id="icons"></i><span id="email"></span></a></li>
+                                <li><a href="#"><i class="fas fa-phone-square-alt" id="icons"></i><span id="phone"></span></a></li>
+                            </ul>
+                        </div>
 
+                        <div class="changeInfo">
+                            <button class="btn" id="changeiinfo">Change Info</button>
+                        </div>
+                    </div>
+
+                    <div class="licenseDetails">
+                        <div class="left">
+                            <div class="acceptedLicense">
+                                <ul>
+                                    <li><h1>Accepted licenses</h1></li>
+                                    <h3 class="number" id="aLicense"></h3>
+            
+                                </ul>
+                            </div>
+
+                            <div class="pendingLicense">
+                                <ul>
+                                    <li><h1>Pending licenses</h1></li>
+                                    <h3 class="number" id="rLicense"></h3>                 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="rejectedLicense">
+                                <ul>
+                                    <li><h1>Next upcoming Event</h1></li>
+                                    <h3 class="number" id="nextLicense"></h3>
+                                
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>       
+            </section>
+        
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
+
+    <script src="../resources/js/alertFromDown.js"></script>
     <script src="../resources/js/SO-dashboard.js"></script>
     <script src="../resources/js/script.js"></script>
-
-
+    <script src="../resources/js/logout.js"></script>
 </body>
 </html>
