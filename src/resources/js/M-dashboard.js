@@ -1,21 +1,14 @@
 window.addEventListener('DOMContentLoaded',()=>{
-    // console.log(data['token']);
     let token = Cookies.get('Authorization');
-    console.log(token);
 
     if(token == undefined){
         popUpFromDown("login to continue",'red');
         setTimeout(function() {
-            alert("no token")
-            // window.location.href='../landing_page/login.html';
+            window.location.href='../landing_page/login.html';
         },5000);
-
-        console.log(token);
     }
 
-
     else{
-        console.log(token);
         let options = {
             method: 'GET',
             headers: {
@@ -29,12 +22,10 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
         ut = data['userType']
-        console.log(data);
         if(ut!=4){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
-                alert("not show organizer")
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },5000);
             }
         else{
@@ -78,8 +69,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .catch(err =>{
             popUpFromDown("Login again",'red');
             setTimeout(function() {
-                alert("catch")
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },5000);
             console.error(err);
           });
