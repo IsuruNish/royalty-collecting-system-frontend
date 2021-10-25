@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/ztestReg.css">
+      <link rel="stylesheet" href="../style.css">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+  <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+  <link rel="stylesheet" href="../resources/css/popUp.css">
+  <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    
+    <script src="../resources/js/script.js"></script>
+</head>
+
+<body>
+
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+
+    <div class="notsoLoad hideME" id="notsoLoad">
+
+
+
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+                <li><a href="M-SongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+                <li><a href="M-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+                <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+
+                <div class="header">
+                    
+                    <div class="first">
+                        <h2>Song Registrations</h2>
+                    </div>
+
+                    <div class="second">
+                        
+                        <div class="notification" onclick="window.location.href='M-notificationUI.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+                            
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3>Hello Ann,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="M-dashboard.html">Dashboard</a>
+                                <a href="../landing_page/Home.html" id="logoutBtn">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            
+                
+                <div class="content">
+                    <h2 class="topic">Enter song details</h2>
+                    <div class="input">
+                        <input type="text" name="name" placeholder="Song name" id="input1" required>
+                        <input type="text" name="version" placeholder="Song version" id="input2" required>
+                        <input type="year" name="singers" placeholder="Published year" id="input3" required>
+                    </div>
+                    
+                    <div class="formContent2">
+                        <div id="myDIV" class="headDiv1">
+                            <h4>Add singers of the song</h4>
+                            <div class="wrapper1">
+                                <div class="search-input" id="search-input">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL">
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                            
+                        <div id="myDIV" class="headDiv2">
+                            <h4>Add composers</h4>
+                            <div class="wrapper2">
+                                <div class="search-input1" id="search-input1">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box1">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL1">
+                                </ul>
+
+                            </div>
+                        </div>
+                            
+
+
+
+                        <div id="myDIV" class="headDiv3">
+                            <h4>Add song writers</h4>
+                            <div class="wrapper3">
+                                <div class="search-input2" id="search-input2">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box2">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL2">
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="submitDocumentContent">
+                        <h4>Submit the confirmation documents</h4>
+                        <!-- <i class="fas fa-arrow-alt-down"></i> -->
+                
+                <div class="submit">
+                        <input type="file" id="myFile" name="filename">
+                        <button id="btn" class="submitBTN">Submit</button>
+                </div>
+                
+                </div>
+                
+                
+            
+        
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
+
+    <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/ztestReg.js"></script>
+    <script src="../script.js"></script>
+    <script src="../suggestions.js"></script>
+    <script src="../resources/js/logout.js"></script>
+</body>
+</html>
