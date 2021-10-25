@@ -99,9 +99,26 @@
                 <div class="content">
                     <h2 class="topic">Enter song details</h2>
                     <div class="input">
-                        <input type="text" name="name" placeholder="Song name" id="input1" required>
-                        <input type="text" name="version" placeholder="Song version" id="input2" required>
-                        <input type="year" name="singers" placeholder="Published year" id="input3" required>
+                        <div class="info">
+                            <input type="text" name="name" placeholder="Song name" id="input1" onfocus="hideValidate('input1')">
+
+                            <!-- <input class="newInputs" type="text" name="fname" id="fname" placeholder="First name" onfocus="hideValidate('fname')"> -->
+                            <span class="words" id="firstwords"></span>
+                        </div>
+
+                        <div class="info">
+                            <input type="text" name="version" placeholder="Song version" id="input2" onfocus="hideValidate('input2')">
+
+                            <!-- <input class="newInputs" type="text" name="fname" id="fname" placeholder="First name" onfocus="hideValidate('fname')"> -->
+                            <span class="words" id="firstwords"></span>
+                        </div>
+
+                        <div class="info">
+                            <input type="year" name="singers" placeholder="Published year" id="input3" onfocus="hideValidate('input3')">
+
+                            <!-- <input class="newInputs" type="text" name="fname" id="fname" placeholder="First name" onfocus="hideValidate('fname')"> -->
+                            <span class="words" id="firstwords"></span>
+                        </div>
                     </div>
                     
                     <div class="formContent2">
@@ -195,5 +212,6 @@
     <script src="../resources/js/M-songRegistration.js"></script>
     <script src="../resources/js/M-songRegistrationDropDown.js"></script>
     <script src="../resources/js/logout.js"></script>
+    <script src="../resources/js/validation.js"></script>
 </body>
 </html>

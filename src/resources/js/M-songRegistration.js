@@ -54,145 +54,149 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 document.querySelector(".submitBTN").addEventListener('click', function(){
 
-//form validation
+  let filled1 = validateInputFields();
+  let filled2 = lastValidation2();
 
-  let token = Cookies.get('Authorization');
-  if(token == undefined){
-      popUpFromDown("login to continue",'red');
-      setTimeout(function() {
-          window.location.href='../landing_page/login.html';
-      },5000);
-  }
-  else{
-    const loading = document.getElementById("loader-wrapper");
-    const realpage = document.getElementById("notsoLoad");
-  
-    loading.classList.remove("hideME");
-    realpage.classList.add("hideME");
-  
-    let singers = document.querySelector(".myUL");
-    let composers = document.querySelector(".myUL1");
-    let writters = document.querySelector(".myUL2");
-  
-  
-    let s = singers.childNodes;
-    let c = composers.childNodes;
-    let w = writters.childNodes;
-  
-    let memSingers = []
-    let NOmemSingers = []
-    let memComposers = []
-    let NOmemComposers = []
-    let memWritters = []
-    let NOmemWritters = []
-  
-    let count1 = 0
-    let count2 = 0
-    for (let index = 0; index < singers.childElementCount; index++) {
-      let name = s[index].nextSibling.firstChild.innerHTML;
-      let mORnot = s[index].nextSibling.firstChild.nextSibling.innerHTML;
-  
-      if (mORnot == "Member"){
-        memSingers[count1] = name
-        count1 +=1
-      }
-      else{
-        NOmemSingers[count2] = name
-        count2 +=1
-      }
-    }
-  
-    count1 = 0
-    count2 = 0
-    for (let index = 0; index < composers.childElementCount; index++) {
-      let name = c[index].nextSibling.firstChild.innerHTML;
-      let mORnot = c[index].nextSibling.firstChild.nextSibling.innerHTML;
-  
-      if (mORnot == "Member"){
-        memComposers[count1] = name
-        count1 +=1
-      }
-      else{
-        NOmemComposers[count2] = name
-        count2 +=1
-      }
-    }
-  
-    count1 = 0
-    count2 = 0
-    for (let index = 0; index < writters.childElementCount; index++) {
-      let name = w[index].nextSibling.firstChild.innerHTML;
-      let mORnot = w[index].nextSibling.firstChild.nextSibling.innerHTML;
-  
-      if (mORnot == "Member"){
-        memWritters[count1] = name
-        count1 +=1
-      }
-      else{
-        NOmemWritters[count2] = name
-        count2 +=1
-      }
-    }
-  
-    let memSingersIDs = getID(memSingers)
-    let memComposersIDs = getID(memComposers)
-    let memWrittersIDs = getID(memWritters)
-  
-    let song = document.getElementById("input1").value;
-    let version = document.getElementById("input2").value;
-    let year = document.getElementById("input3").value;
-  
-    let info = [song, version, year]
-  
-    let file = document.getElementById('myFile').files[0];
-    let formData = new FormData();
-    formData.append("file", file);
-    formData.append("info", JSON.stringify(info));
-    formData.append('memSingers', JSON.stringify(memSingersIDs));
-    formData.append('memComposers', JSON.stringify(memComposersIDs));
-    formData.append('memWritters', JSON.stringify(memWrittersIDs));
-    formData.append('NOmemSingers', JSON.stringify(NOmemSingers));
-    formData.append('NOmemComposers', JSON.stringify(NOmemComposers));
-    formData.append('NOmemWritters', JSON.stringify(NOmemWritters));
-    let options = {
-        method: 'POST',
-        headers: {
-            // 'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-  
-        body: formData
-  
-    }
-   
-    fetch("http://localhost:8080/OSCA_war_exploded/SongRegistrationServlet", options)
-    .then( res => res.json())
-    .then(data =>{
-      console.log(data);
-      if(data['ok'] == 1){
-        popUpFromDown("New song request sent",'greenColour');
+  if(filled1 && filled2){
+
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
         setTimeout(function() {
-            window.location.href='M-songRegistration.html';
-        },3000);
+            window.location.href='../landing_page/login.html';
+        },5000);
+    }
+    else{
+      const loading = document.getElementById("loader-wrapper");
+      const realpage = document.getElementById("notsoLoad");
+    
+      loading.classList.remove("hideME");
+      realpage.classList.add("hideME");
+    
+      let singers = document.querySelector(".myUL");
+      let composers = document.querySelector(".myUL1");
+      let writters = document.querySelector(".myUL2");
+    
+    
+      let s = singers.childNodes;
+      let c = composers.childNodes;
+      let w = writters.childNodes;
+    
+      let memSingers = []
+      let NOmemSingers = []
+      let memComposers = []
+      let NOmemComposers = []
+      let memWritters = []
+      let NOmemWritters = []
+    
+      let count1 = 0
+      let count2 = 0
+      for (let index = 0; index < singers.childElementCount; index++) {
+        let name = s[index].nextSibling.firstChild.innerHTML;
+        let mORnot = s[index].nextSibling.firstChild.nextSibling.innerHTML;
+    
+        if (mORnot == "Member"){
+          memSingers[count1] = name
+          count1 +=1
+        }
+        else{
+          NOmemSingers[count2] = name
+          count2 +=1
+        }
       }
-      else{
+    
+      count1 = 0
+      count2 = 0
+      for (let index = 0; index < composers.childElementCount; index++) {
+        let name = c[index].nextSibling.firstChild.innerHTML;
+        let mORnot = c[index].nextSibling.firstChild.nextSibling.innerHTML;
+    
+        if (mORnot == "Member"){
+          memComposers[count1] = name
+          count1 +=1
+        }
+        else{
+          NOmemComposers[count2] = name
+          count2 +=1
+        }
+      }
+    
+      count1 = 0
+      count2 = 0
+      for (let index = 0; index < writters.childElementCount; index++) {
+        let name = w[index].nextSibling.firstChild.innerHTML;
+        let mORnot = w[index].nextSibling.firstChild.nextSibling.innerHTML;
+    
+        if (mORnot == "Member"){
+          memWritters[count1] = name
+          count1 +=1
+        }
+        else{
+          NOmemWritters[count2] = name
+          count2 +=1
+        }
+      }
+    
+      let memSingersIDs = getID(memSingers)
+      let memComposersIDs = getID(memComposers)
+      let memWrittersIDs = getID(memWritters)
+    
+      let song = document.getElementById("input1").value;
+      let version = document.getElementById("input2").value;
+      let year = document.getElementById("input3").value;
+    
+      let info = [song, version, year]
+    
+      let file = document.getElementById('myFile').files[0];
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("info", JSON.stringify(info));
+      formData.append('memSingers', JSON.stringify(memSingersIDs));
+      formData.append('memComposers', JSON.stringify(memComposersIDs));
+      formData.append('memWritters', JSON.stringify(memWrittersIDs));
+      formData.append('NOmemSingers', JSON.stringify(NOmemSingers));
+      formData.append('NOmemComposers', JSON.stringify(NOmemComposers));
+      formData.append('NOmemWritters', JSON.stringify(NOmemWritters));
+      let options = {
+          method: 'POST',
+          headers: {
+              // 'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          },
+    
+          body: formData
+    
+      }
+    
+      fetch("http://localhost:8080/OSCA_war_exploded/SongRegistrationServlet", options)
+      .then( res => res.json())
+      .then(data =>{
+        console.log(data);
+        if(data['ok'] == 1){
+          popUpFromDown("New song request sent",'greenColour');
+          setTimeout(function() {
+              window.location.href='M-songRegistration.html';
+          },3000);
+        }
+        else{
+          popUpFromDown("Error try again",'red');
+          setTimeout(function() {
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+              // window.location.href='../landing_page/login.html';
+          },3000);
+        }
+      })
+      .catch(err =>{
         popUpFromDown("Error try again",'red');
         setTimeout(function() {
           loading.classList.add("hideME");
           realpage.classList.remove("hideME");
             // window.location.href='../landing_page/login.html';
         },3000);
-      }
-    })
-    .catch(err =>{
-      popUpFromDown("Error try again",'red');
-      setTimeout(function() {
-        loading.classList.add("hideME");
-        realpage.classList.remove("hideME");
-          // window.location.href='../landing_page/login.html';
-      },3000);
-      console.error(err);
-    });
+        console.error(err);
+      });
+    }
   }
 })
 
@@ -312,3 +316,47 @@ function isNamePresent(val, ul){
   return 0;
 }
 
+
+
+
+
+
+function lastValidation2(){
+  var song = $("#input1").val().trim();
+  var version = $("#input2").val().trim();
+  var year = $("#input3").val().trim();
+
+  let filled = true;
+  if(song.length < 4){
+
+    var field = document.getElementById('input1');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "At least 4 letters required";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+  
+  if(version.match((/(.+)?[a-zA-Z](.+)?/)) || version == ""){
+
+    var field = document.getElementById('input2');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Version not valid";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+
+
+  if(!year.match(/[0-9]{4}/)){
+
+    var field = document.getElementById('input3');
+    var text = field.nextElementSibling;
+
+    text.innerHTML = "Year not valid";
+    text.style.color = "#ff0000";
+    filled = false;
+  }
+
+  return filled;
+}
