@@ -1,0 +1,260 @@
+// .content1 {
+    //   margin-top: 0;
+    //   width: 100%;
+    //   height: 300vh;
+    //   /* background-color: blue; */
+    //   background-color: red;
+    // }
+    
+    .searchBarContent {
+      margin-top: 0;
+      width: 100%;
+      height: 5vh;
+      /* background-color: pink; */
+      // background-color: royalblue;
+    }
+    
+    .searchBar {
+      width: 100%;
+      height: 20%;
+      /* background-color:green; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .5%;
+    }
+    
+    .searchBar i {
+      margin-right: 5px;
+    }
+    
+    #search {
+      width: 40%;
+      height: 25px;
+      outline: none;
+      border-radius: 10px;
+      padding-left: 5px;
+      box-shadow: 2px 5px 5px rgb(99, 97, 97);
+      
+    }
+    
+    .selectRole {
+      height: 80%;
+      /* background-color: white; */
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      /* padding-left: 15%; */
+    }
+    
+    .mainContent {
+      width: 100%;
+      height: 90vh;
+    
+      // background-color: purple;
+    }
+    #img {
+      width: 50%;
+      height: 55vh;
+      /* background-color: aqua; */
+      margin-left: 25%;
+      /* position: absolute; */
+    }
+    
+    #songImage {
+      width: 60%;
+      height: 60vh;
+      float: right;
+      margin-top: 0;
+      z-index: auto;
+    }
+    .mainContent h3 {
+      margin-left: 15%;
+    }
+    
+    .singers {
+      height: 33.33%;
+    
+      /* background-color: blue; */
+    }
+    
+    .songWriters {
+      height: 33.33%;
+      /* background-color: grey; */
+    }
+    
+    .composers {
+      height: 33.33%;
+      /* background-color: blue; */
+    }
+    .submitDocumentContent {
+      width: 100%;
+      height: 10vh;
+      /* background-color: yellow; */
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .submitDocumentContent i {
+      margin-left: 15px;
+      font-size: 40px;
+    }
+    .text {
+      height: 100%;
+      width: 50%;
+      /* background-color: aqua; */
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      font-weight: bold;
+      margin-right: 2%;
+    }
+    
+    .form {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      float: left;
+    
+      /* background-color: aqua; */
+    }
+    
+    #myFile {
+      font-weight: bold;
+      font-size: medium;
+      background-color: #f1f1f1;
+      color: black;
+      font-size: 16px;
+      padding: 16px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    #btn {
+      /* margin-top: 30px; */
+      background-color: #f1f1f1;
+      color: black;
+      font-size: 16px;
+      padding: 16px 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    #btn:hover {
+      background-color: black;
+      color: white;
+    }
+    
+    .tableContainer {
+      max-width: 1500px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    
+    h2 {
+      font-size: 26px;
+      margin: 20px 0;
+      text-align: center;
+      small {
+        font-size: 0.5em;
+      }
+    }
+    
+    .responsive-table {
+      li {
+        border-radius: 3px;
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      }
+      .table-header {
+        // background-color: #95A5A6;
+        background-color: rgb(11, 175, 175);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .table-row {
+        background-color: #ffffff;
+        box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+      }
+      .col-1 {
+        flex-basis: 10%;
+      }
+      .col-2 {
+        flex-basis: 10%;
+      }
+      .col-3 {
+        flex-basis: 10%;
+      }
+     
+      .col-7 {
+        flex-basis: 5%;
+        &:hover{
+          color: green;
+          cursor: pointer;
+          
+        }
+      }
+    
+      .col-8 {
+        flex-basis: 5%;
+        &:hover{
+          color: red;
+          cursor: pointer;
+        }
+      }
+      
+      @media all and (max-width: 767px) {
+        .table-header {
+          display: none;
+        }
+        .first{
+          display: none;
+        }
+        // .table-row{
+          
+        // }
+        li {
+          display: block;
+        }
+        .col {
+          
+          flex-basis: 100%;
+          
+        }
+        
+        // .content1{
+        //   height: 200vh;
+        //   background-color: red;
+        // }
+        // .mainContent{
+        //   height: 100vh;
+        // }
+        .col {
+          display: flex;
+          padding: 10px 0;
+          &:before {
+            color: #6C7A89;
+            padding-right: 10px;
+            content: attr(data-label);
+            flex-basis: 50%;
+            text-align: right;
+          }
+        }
+      }
+    }

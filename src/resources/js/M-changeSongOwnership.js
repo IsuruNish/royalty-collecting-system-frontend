@@ -1,3 +1,51 @@
+
+$(document).ready(function(){
+  $("#search").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#ul li").not(":eq(0)").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+
+
+$('#update').on('click', ()=>{
+  
+  myFunction();
+
+})
+
+
+function myFunction() {
+  
+  
+  // window.location.href='../landing_page/forgotpw.html';
+  window.location.href='../member/M-EditSongOwnership.html';
+
+
+
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var checkBox1 = document.getElementById("myCheck1");
     // Get the output text
 var text1 = document.getElementById("text1");
