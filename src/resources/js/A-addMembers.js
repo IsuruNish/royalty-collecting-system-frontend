@@ -25,8 +25,6 @@ window.addEventListener('DOMContentLoaded',()=>{
       if(ut!=2){
           popUpFromDown("Access denied!",'red');
           setTimeout(function() {
-        alert("cookie undefined")
-
               window.location.href='../landing_page/login.html';
           },3000);
           }  
@@ -46,8 +44,6 @@ window.addEventListener('DOMContentLoaded',()=>{
       .catch(err =>{
           popUpFromDown("Login again",'red');
           setTimeout(function() {
-        alert("cookie ")
-
               window.location.href='../landing_page/login.html';
           },3000);
           console.error(err);
