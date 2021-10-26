@@ -1,3 +1,298 @@
+window.addEventListener('DOMContentLoaded',()=>{
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
+    }
+
+    else{
+        let options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+        }
+
+        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+        .then(res => res.json())
+        .then((data) => {
+        ut = data['utype']
+        console.log(data);
+        if(ut!=1){
+            popUpFromDown("Access denied!",'red');
+            setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },3000);
+            }
+            else{
+                const loading = document.getElementById("loader-wrapper");
+                const realpage = document.getElementById("notsoLoad");
+                
+
+                var topic1 = document.getElementById('topicValue1');
+                var topic2 = document.getElementById('topicValue2');
+                var topic3 = document.getElementById('topicValue3');
+
+                var Topname = document.getElementById('Topname');
+                var picSmall = document.getElementById('profilePicSmall');
+
+
+                setTimeout(function() {
+                    picSmall.src = data['DPpath'];
+                    Topname.innerHTML = "Hello "+ data['fname']+",";
+
+                    topic1.innerHTML = "Current commission percentage - "+ 100*data['commision'] +"%";
+                    topic2.innerHTML = "Current cancellation date - "+data['cancellationDuration']+ " days";
+                    topic3.innerHTML = "Current cancellation fee - Rs."+data['cancellationFee'];
+
+                    loading.classList.add("hideME");
+                    realpage.classList.remove("hideME");
+                },500);
+
+            }        
+        })
+        .catch(err =>{
+            popUpFromDown("Login again",'red');
+            setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },3000);
+            console.error(err);
+          });
+    }
+});
+
+
+
+
+var button1 = document.getElementById('submitButtonForm1');
+var button2 = document.getElementById('submitButtonForm2');
+var button3 = document.getElementById('submitButtonForm3');
+
+
+
+button1.addEventListener('click', ()=>{
+    const loading = document.getElementById("loader-wrapper");
+    const realpage = document.getElementById("notsoLoad");
+    let token = Cookies.get('Authorization');
+
+    
+    loading.classList.remove("hideME");
+    realpage.classList.add("hideME");
+
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
+    }
+
+    else{
+        let inputValue = document.getElementById('inputField1').value/100;
+        var date1 = document.getElementById('birthday1').value;
+
+        let payload = {
+            "commision":inputValue,
+            "commisionDate":date1,
+            "systemDetailType":1,
+          }
+            
+          let options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(payload) 
+          }
+
+        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+        .then(res => res.json())
+        .then((data) => {
+        console.log(data);
+        if(data['ok']!=1){
+            popUpFromDown("Error try again",'red');
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+            }
+            else{
+                popUpFromDown("Changed successfully",'greenColour');
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+                setTimeout(function() {
+                    window.location.href='SA-systemConf.html';
+                },3000);
+
+            }        
+        })
+        .catch(err =>{
+            popUpFromDown("Error try again",'red');
+            setTimeout(function() {
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+            },3000);
+            console.error(err);
+          });
+    }
+})
+
+
+
+
+button2.addEventListener('click', ()=>{
+    const loading = document.getElementById("loader-wrapper");
+    const realpage = document.getElementById("notsoLoad");
+    let token = Cookies.get('Authorization');
+
+    
+    loading.classList.remove("hideME");
+    realpage.classList.add("hideME");
+
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
+    }
+
+    else{
+        let inputValue = document.getElementById('inputField2').value;
+        var date1 = document.getElementById('birthday2').value;
+
+        let payload = {
+            "cancellationDuration":inputValue,
+            "cancellationDurationDate":date1,
+            "systemDetailType":2,
+          }
+            
+          let options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(payload) 
+          }
+
+        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+        .then(res => res.json())
+        .then((data) => {
+        console.log(data);
+        if(data['ok']!=1){
+            popUpFromDown("Error try again",'red');
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+            }
+            else{
+                popUpFromDown("Changed successfully",'greenColour');
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+                setTimeout(function() {
+                    window.location.href='SA-systemConf.html';
+                },3000);
+
+            }        
+        })
+        .catch(err =>{
+            popUpFromDown("Error try again",'red');
+            setTimeout(function() {
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+            },3000);
+            console.error(err);
+          });
+    }
+
+})
+
+
+
+
+
+button3.addEventListener('click', ()=>{
+    const loading = document.getElementById("loader-wrapper");
+    const realpage = document.getElementById("notsoLoad");
+    let token = Cookies.get('Authorization');
+
+    
+    loading.classList.remove("hideME");
+    realpage.classList.add("hideME");
+
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
+    }
+
+    else{
+        let inputValue = document.getElementById('inputField3').value;
+        var date1 = document.getElementById('birthday3').value;
+
+        let payload = {
+            "cancellationFee":inputValue,
+            "cancellationFeeDate":date1,
+            "systemDetailType":3,
+          }
+            
+          let options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(payload) 
+          }
+
+        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+        .then(res => res.json())
+        .then((data) => {
+        console.log(data);
+        if(data['ok']!=1){
+            popUpFromDown("Error try again",'red');
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+            }
+            else{
+                popUpFromDown("Changed successfully",'greenColour');
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+                setTimeout(function() {
+                    window.location.href='SA-systemConf.html';
+                },3000);
+
+            }        
+        })
+        .catch(err =>{
+            popUpFromDown("Error try again",'red');
+            setTimeout(function() {
+                loading.classList.add("hideME");
+                realpage.classList.remove("hideME");
+            },3000);
+            console.error(err);
+          });
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const ComPercentage = document.getElementById("cp");
 const licenseCanDate = document.getElementById("lcd");
 const licenseCanFee = document.getElementById("lcf");
