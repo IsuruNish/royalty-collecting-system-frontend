@@ -9,12 +9,16 @@
      
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/SA-systemConf.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
 
@@ -22,114 +26,130 @@
 
 <body>
 
-    <input type="checkbox" id="check">
 
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <!-- <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section>
-            <div class="header">
-                
-                <div class="first">
-                    <h2>System details</h2>
-                    <!-- <h3>Welcome to OSCA!!!</h3> -->
-                </div>
 
-                <div class="second">
+    <div class="notsoLoad hideME" id="notsoLoad"> -->
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section>
+                <div class="header">
                     
-                    <div class="notification" onclick="window.location.href='SA-notificationUI.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
+                    <div class="first">
+                        <h2>System details</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
 
+                    <div class="second">
+                        
+                        <div class="notification" onclick="window.location.href='SA-notificationUI.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname"></h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SA-dashboard.html">Dashboard</a>
+                                <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                            </div>
                         </div>
                     </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname">,</h3>
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="SA-dashboard.html">Dashboard</a>
-                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
-                        </div>
+                </div>
+
+
+            <section class="content1">
+
+                <div class="top">
+                    <h2>Choose the one you want to change</h2>
+                </div>
+
+                <div class="selectButtons">
+                    <button class="btn" id="cp">Commission percentage</button>
+                    <button class="btn" id="lcd">License cancellation date</button>
+                    <button class="btn" id="lcf">License cancellation fee</button>
+                </div>
+
+
+                                    
+                <div class="img" id="img">
+                    <img src="../resources/images/request.svg" alt="">
+                </div>
+
+
+                <div class="mainCard">
+
+                    <div class="profileCard blank" id="com">
+                        <h2 id="topicValue1">Current commission percentage - </h2>
+                        <input type="text" name="" id="inputField1" placeholder="Enter the new commission percentage" class="imput">
+                        <input type="date" id="birthday1" name="birthday" class="datePick">
+
+                        <button class="btn" id="submitButtonForm1">Update changes</button>
                     </div>
-                </div>
-            </div>
+
+                    <div class="profileCard blank" id="canDate">
+                        <h2 id="topicValue2">Current cancellation date - 7 days</h2>
+                        <input type="text" name="" id="inputField2" placeholder="Enter the new cancellation date" class="imput">
+                        <input type="date" id="birthday2" name="birthday" class="datePick">
+
+                        <button class="btn" id="submitButtonForm2">Update changes</button>
+                    </div>
+
+                    <div class="profileCard blank" id="canFee">
+                        <h2 id="topicValue3">Current cancellation fee - Rs.1000</h2>
+                        <input type="text" name="" id="inputField3" placeholder="Enter the new cancellation fee" class="imput">
+                        <input type="date" id="birthday3" name="birthday" class="datePick">
+
+                        <button class="btn" id="submitButtonForm3">Update changes</button>
+                    </div>
+                </div>    
+            </section>    
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
 
 
-        <section class="content1">
-
-            <div class="top">
-                <h2>Choose the one you want to change</h2>
-            </div>
-
-            <div class="selectButtons">
-                <button class="btn" id="cp">Commission percentage</button>
-                <button class="btn" id="lcd">License cancellation date</button>
-                <button class="btn" id="lcf">License cancellation fee</button>
-            </div>
-
-
-                                  
-            <div class="img" id="img">
-                <img src="../resources/images/request.svg" alt="">
-            </div>
-
-
-            <div class="mainCard">
-
-                <div class="profileCard blank" id="com">
-                    <h2>Current commission percentage - 10%</h2>
-                    <input type="text" name="" id="" placeholder="Enter the new commission percentage" class="imput">
-                    <input type="date" id="birthday" name="birthday" class="datePick">
-
-                    <button class="btn">Update changes</button>
-                </div>
-
-                <div class="profileCard blank" id="canDate">
-                    <h2>Current cancellation date - 7 days</h2>
-                    <input type="text" name="" id="" placeholder="Enter the new cancellation date" class="imput">
-                    <input type="date" id="birthday" name="birthday" class="datePick">
-
-                    <button class="btn">Update changes</button>
-                </div>
-
-                <div class="profileCard blank" id="canFee">
-                    <h2>Current cancellation fee - Rs.1000</h2>
-                    <input type="text" name="" id="" placeholder="Enter the new cancellation fee" class="imput">
-                    <input type="date" id="birthday" name="birthday" class="datePick">
-
-                    <button class="btn">Update changes</button>
-                </div>
-            </div>    
-        </section>    
-    </section>
-
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
-
+    <script src="../resources/js/alertFromDown.js"></script>
     <script src="../resources/js/SA-systemConf.js"></script>
-
+    <script src="../resources/js/script.js"></script>
+    <script src="../resources/js/logout.js"></script>
 </body>
 </html>
