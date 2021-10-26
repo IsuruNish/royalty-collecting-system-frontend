@@ -116,24 +116,52 @@
 
                     <div class="profileCard blank" id="com">
                         <h2 id="topicValue1">Current commission percentage - </h2>
-                        <input type="text" name="" id="inputField1" placeholder="Enter the new commission percentage" class="imput">
-                        <input type="date" id="birthday1" name="birthday" class="datePick">
+                        <div class="info">
+                            <!-- <input type="text" name="name" placeholder="Song name" id="input1" > -->
+                            <input type="text" name="inputField1" id="inputField1" placeholder="Enter the new commission percentage" class="imput" onfocus="hideValidate('inputField1')">
+                            <span class="words" id="firstTOP1"></span>
+                        </div>
+
+                        <div class="info">
+                            <input type="date" id="birthday1" name="birthday1" class="datePick" onfocus="hideValidate('birthday1')">
+                            <span class="words" id="firstTOP2"></span>
+                        </div>
+                
 
                         <button class="btn" id="submitButtonForm1">Update changes</button>
                     </div>
 
                     <div class="profileCard blank" id="canDate">
                         <h2 id="topicValue2">Current cancellation date - 7 days</h2>
-                        <input type="text" name="" id="inputField2" placeholder="Enter the new cancellation date" class="imput">
-                        <input type="date" id="birthday2" name="birthday" class="datePick">
+
+                        <div class="info">
+                            <input type="number" name="inputField2" id="inputField2" placeholder="Enter the new cancellation date" class="imput" onfocus="hideValidate('inputField2')">
+                            <span class="words" id="secondTOP1"></span>
+                        </div>
+
+                        <div class="info">
+                            <input type="date" id="birthday2" name="birthday2" class="datePick" onfocus="hideValidate('birthday2')">
+                            <span class="words" id="secondTOP2"></span>
+                        </div>
+
+                        
 
                         <button class="btn" id="submitButtonForm2">Update changes</button>
                     </div>
 
                     <div class="profileCard blank" id="canFee">
                         <h2 id="topicValue3">Current cancellation fee - Rs.1000</h2>
-                        <input type="text" name="" id="inputField3" placeholder="Enter the new cancellation fee" class="imput">
-                        <input type="date" id="birthday3" name="birthday" class="datePick">
+                        <div class="info">
+                            <input type="text" name="inputField3" id="inputField3" placeholder="Enter the new cancellation fee" class="imput" onfocus="hideValidate('inputField3')">
+                            <span class="words" id="thirdTOP1"></span>
+                        </div>
+
+                        <div class="info">
+                            <input type="date" id="birthday3" name="birthday3" class="datePick" onfocus="hideValidate('birthday3')">
+                            <span class="words" id="thirdTOP3"></span>
+                        </div>
+
+                        
 
                         <button class="btn" id="submitButtonForm3">Update changes</button>
                     </div>
@@ -151,5 +179,6 @@
     <script src="../resources/js/SA-systemConf.js"></script>
     <script src="../resources/js/script.js"></script>
     <script src="../resources/js/logout.js"></script>
+    <script src="../resources/js/validation.js"></script>
 </body>
 </html>

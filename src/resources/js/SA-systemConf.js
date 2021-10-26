@@ -78,63 +78,69 @@ button1.addEventListener('click', ()=>{
     const realpage = document.getElementById("notsoLoad");
     let token = Cookies.get('Authorization');
 
+    let filled1 = validateJustDates("inputField1");
+    let filled2 = validateJustDates("birthday1");
+    let filled3 = validateJustInputWithValues("inputField1");
     
-    loading.classList.remove("hideME");
-    realpage.classList.add("hideME");
 
-    if(token == undefined){
-        popUpFromDown("login to continue",'red');
-        setTimeout(function() {
-            window.location.href='../landing_page/login.html';
-        },3000);
-    }
+    if (filled1 && filled2 && filled3) {
+        loading.classList.remove("hideME");
+        realpage.classList.add("hideME");
 
-    else{
-        let inputValue = document.getElementById('inputField1').value/100;
-        var date1 = document.getElementById('birthday1').value;
-
-        let payload = {
-            "commision":inputValue,
-            "commisionDate":date1,
-            "systemDetailType":1,
-          }
-            
-          let options = {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(payload) 
-          }
-
-        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
-        .then(res => res.json())
-        .then((data) => {
-        console.log(data);
-        if(data['ok']!=1){
-            popUpFromDown("Error try again",'red');
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
-            }
-            else{
-                popUpFromDown("Changed successfully",'greenColour');
-                loading.classList.add("hideME");
-                realpage.classList.remove("hideME");
-                setTimeout(function() {
-                    window.location.href='SA-systemConf.html';
-                },3000);
-
-            }        
-        })
-        .catch(err =>{
-            popUpFromDown("Error try again",'red');
+        if(token == undefined){
+            popUpFromDown("login to continue",'red');
             setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },3000);
+        }
+
+        else{
+            let inputValue = document.getElementById('inputField1').value/100;
+            var date1 = document.getElementById('birthday1').value;
+
+            let payload = {
+                "commision":inputValue,
+                "commisionDate":date1,
+                "systemDetailType":1,
+            }
+                
+            let options = {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload) 
+            }
+
+            fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+            .then(res => res.json())
+            .then((data) => {
+            console.log(data);
+            if(data['ok']!=1){
+                popUpFromDown("Error try again",'red');
                 loading.classList.add("hideME");
                 realpage.classList.remove("hideME");
-            },3000);
-            console.error(err);
-          });
+                }
+                else{
+                    popUpFromDown("Changed successfully",'greenColour');
+            
+                    setTimeout(function() {
+                        
+                        window.location.href='SA-systemConf.html';
+                    },3000);
+
+                }        
+            })
+            .catch(err =>{
+                popUpFromDown("Error try again",'red');
+                setTimeout(function() {
+                    loading.classList.add("hideME");
+                    realpage.classList.remove("hideME");
+                },3000);
+                console.error(err);
+            });
+        }
     }
 })
 
@@ -146,63 +152,72 @@ button2.addEventListener('click', ()=>{
     const realpage = document.getElementById("notsoLoad");
     let token = Cookies.get('Authorization');
 
+
+    let filled1 = validateJustDates("inputField2");
+    let filled2 = validateJustDates("birthday2");
+    let filled3 = validateJustInputWithValues("inputField2");
     
-    loading.classList.remove("hideME");
-    realpage.classList.add("hideME");
+    console.log(filled1);
+    console.log(filled2);
+    console.log(filled3);
+    if (filled1 && filled2) {
+        loading.classList.remove("hideME");
+        realpage.classList.add("hideME");
 
-    if(token == undefined){
-        popUpFromDown("login to continue",'red');
-        setTimeout(function() {
-            window.location.href='../landing_page/login.html';
-        },3000);
-    }
-
-    else{
-        let inputValue = document.getElementById('inputField2').value;
-        var date1 = document.getElementById('birthday2').value;
-
-        let payload = {
-            "cancellationDuration":inputValue,
-            "cancellationDurationDate":date1,
-            "systemDetailType":2,
-          }
-            
-          let options = {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(payload) 
-          }
-
-        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
-        .then(res => res.json())
-        .then((data) => {
-        console.log(data);
-        if(data['ok']!=1){
-            popUpFromDown("Error try again",'red');
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
-            }
-            else{
-                popUpFromDown("Changed successfully",'greenColour');
-                loading.classList.add("hideME");
-                realpage.classList.remove("hideME");
-                setTimeout(function() {
-                    window.location.href='SA-systemConf.html';
-                },3000);
-
-            }        
-        })
-        .catch(err =>{
-            popUpFromDown("Error try again",'red');
+        if(token == undefined){
+            popUpFromDown("login to continue",'red');
             setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },3000);
+        }
+
+        else{
+            let inputValue = document.getElementById('inputField2').value;
+            var date1 = document.getElementById('birthday2').value;
+
+            let payload = {
+                "cancellationDuration":inputValue,
+                "cancellationDurationDate":date1,
+                "systemDetailType":2,
+            }
+                
+            let options = {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload) 
+            }
+
+            fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+            .then(res => res.json())
+            .then((data) => {
+            console.log(data);
+            if(data['ok']!=1){
+                popUpFromDown("Error try again",'red');
                 loading.classList.add("hideME");
                 realpage.classList.remove("hideME");
-            },3000);
-            console.error(err);
-          });
+                }
+                else{
+                    popUpFromDown("Changed successfully",'greenColour');
+            
+                    setTimeout(function() {
+                        window.location.href='SA-systemConf.html';
+                        
+                    },3000);
+
+                }        
+            })
+            .catch(err =>{
+                popUpFromDown("Error try again",'red');
+                setTimeout(function() {
+                    loading.classList.add("hideME");
+                    realpage.classList.remove("hideME");
+                },3000);
+                console.error(err);
+            });
+        }
     }
 
 })
@@ -216,63 +231,70 @@ button3.addEventListener('click', ()=>{
     const realpage = document.getElementById("notsoLoad");
     let token = Cookies.get('Authorization');
 
+    let filled1 = validateJustDates("inputField3");
+    let filled2 = validateJustDates("birthday3");
+    let filled3 = validateJustInputWithValues("inputField3");
     
-    loading.classList.remove("hideME");
-    realpage.classList.add("hideME");
 
-    if(token == undefined){
-        popUpFromDown("login to continue",'red');
-        setTimeout(function() {
-            window.location.href='../landing_page/login.html';
-        },3000);
-    }
-
-    else{
-        let inputValue = document.getElementById('inputField3').value;
-        var date1 = document.getElementById('birthday3').value;
-
-        let payload = {
-            "cancellationFee":inputValue,
-            "cancellationFeeDate":date1,
-            "systemDetailType":3,
-          }
+    if (filled1 && filled2 && filled3) {
             
-          let options = {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(payload) 
-          }
+        loading.classList.remove("hideME");
+        realpage.classList.add("hideME");
 
-        fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
-        .then(res => res.json())
-        .then((data) => {
-        console.log(data);
-        if(data['ok']!=1){
-            popUpFromDown("Error try again",'red');
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
-            }
-            else{
-                popUpFromDown("Changed successfully",'greenColour');
-                loading.classList.add("hideME");
-                realpage.classList.remove("hideME");
-                setTimeout(function() {
-                    window.location.href='SA-systemConf.html';
-                },3000);
-
-            }        
-        })
-        .catch(err =>{
-            popUpFromDown("Error try again",'red');
+        if(token == undefined){
+            popUpFromDown("login to continue",'red');
             setTimeout(function() {
+                window.location.href='../landing_page/login.html';
+            },3000);
+        }
+
+        else{
+            let inputValue = document.getElementById('inputField3').value;
+            var date1 = document.getElementById('birthday3').value;
+
+            let payload = {
+                "cancellationFee":inputValue,
+                "cancellationFeeDate":date1,
+                "systemDetailType":3,
+            }
+                
+            let options = {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(payload) 
+            }
+
+            fetch("http://localhost:8080/OSCA_war_exploded/SystemDetailsServlet", options)
+            .then(res => res.json())
+            .then((data) => {
+            console.log(data);
+            if(data['ok']!=1){
+                popUpFromDown("Error try again",'red');
                 loading.classList.add("hideME");
                 realpage.classList.remove("hideME");
-            },3000);
-            console.error(err);
-          });
+                }
+                else{
+                    popUpFromDown("Changed successfully",'greenColour');
+            
+                    setTimeout(function() {
+                    
+                        window.location.href='SA-systemConf.html';
+                    },3000);
+
+                }        
+            })
+            .catch(err =>{
+                popUpFromDown("Error try again",'red');
+                setTimeout(function() {
+                    loading.classList.add("hideME");
+                    realpage.classList.remove("hideME");
+                },3000);
+                console.error(err);
+            });
+        }
     }
 
 })
@@ -402,3 +424,132 @@ licenseCanFee.addEventListener('click', ()=>{
 });
 
 
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+   
+    var maxDate = year + '-' + month + '-' + day;
+
+    $('#birthday1').attr('min', maxDate);
+    $('#birthday2').attr('min', maxDate);
+    $('#birthday3').attr('min', maxDate);
+});
+
+
+
+// function validateJustInput(){
+//     var input = $('.imput');
+//     var filled = true;
+  
+//     for(var i = 0; i < input.length; i++){
+//       if(validateVI(input[i]) == false){
+//         showValidateVI(input[i], input[i].id);
+//         filled = false;
+//       }
+//     }
+
+//     return filled;
+// }
+
+function validateJustDates(inputName){
+    var input = document.getElementById(inputName)
+    var filled = true;
+  
+
+    if(validateVI(input) == false){
+    showValidateVI(input, input.id);
+    filled = false;
+    }
+    
+    return filled;
+}
+
+function validateVI(input) {
+    if($(input).attr('type') != 'email' | $(input).attr('name') != 'email') {
+      if($(input).val().trim() == ''){
+          return false;
+      }
+    }
+  
+    if($(input).attr('type') == 'email' | $(input).attr('name') == 'email') {
+      if($(input).val().trim() == ''){
+          return false;
+      }
+    }
+}
+
+
+function showValidateVI (input, id) {
+    if($(input).val().trim() == '') {
+      var field = document.getElementById(id);
+      var text = field.nextElementSibling;
+  
+      if($(input).attr('name') == 'birthday3'){
+        text.innerHTML = "Starting date is required";
+        text.style.color = "#ff0000";
+      }
+  
+      if($(input).attr('name') == 'birthday2'){
+        text.innerHTML = "Starting date is required";
+        text.style.color = "#ff0000";
+      }
+  
+      if($(input).attr('name') == 'birthday1'){
+        text.innerHTML = "Starting date is required";
+        text.style.color = "#ff0000";
+      }
+  
+      if($(input).attr('name') == 'inputField3'){
+        text.innerHTML = "New value is required";
+        text.style.color = "#ff0000";
+      }
+  
+      if($(input).attr('name') == 'inputField2'){
+        text.innerHTML = "New value is required";
+        text.style.color = "#ff0000";
+      }
+
+      if($(input).attr('name') == 'inputField1'){
+        text.innerHTML = "New value is required";
+        text.style.color = "#ff0000";
+      }
+  }
+}
+
+
+function validateJustInputWithValues(name){
+    let i = document.getElementById(name).value;
+
+    if(name == "inputField1" && i.match((/(.+)?[a-zA-Z](.+)?/))){
+
+        var field = document.getElementById(name);
+        var text = field.nextElementSibling;
+    
+        text.innerHTML = "Letters not allowed";
+        text.style.color = "#ff0000";
+        filled = false;
+    }
+
+    else if(name == "inputField3" && i.match((/(.+)?[a-zA-Z](.+)?/))){
+
+        var field = document.getElementById(name);
+        var text = field.nextElementSibling;
+    
+        text.innerHTML = "Letters not allowed";
+        text.style.color = "#ff0000";
+        filled = false;
+    }
+
+    // else if(name == "inputField2" && Number.isInteger(i) && i != ""){
+
+    //     var field = document.getElementById(name);
+    //     var text = field.nextElementSibling;
+    
+    //     text.innerHTML = "Letters not allowed";
+    //     text.style.color = "#ff0000";
+    //     filled = false;
+    // }
+}
