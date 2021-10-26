@@ -81,7 +81,6 @@ button1.addEventListener('click', ()=>{
     let filled1 = validateJustDates("inputField1");
     let filled2 = validateJustDates("birthday1");
     let filled3 = validateJustInputWithValues("inputField1");
-    
 
     if (filled1 && filled2 && filled3) {
         loading.classList.remove("hideME");
@@ -543,6 +542,7 @@ function validateJustInputWithValues(name){
         filled = false;
     }
 
+    return true;
     // else if(name == "inputField2" && Number.isInteger(i) && i != ""){
 
     //     var field = document.getElementById(name);

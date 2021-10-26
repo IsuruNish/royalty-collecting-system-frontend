@@ -24,6 +24,9 @@ h1,h2,h3{
     width: 45%;
 }
 
+input::placeholder{
+    color: rgb(92, 92, 92);
+}
 .info span{
     /* margin-top: 1000px; */
     /* background-color: rgb(45, 15, 151); */

@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   loading.classList.remove("hideME");
   realpage.classList.add("hideME");
   if(document.referrer != ""){
-    popUpFromDown("Invalid URl", 'red')
+    popUpFromDown("Invalid URL", 'red')
     setTimeout(function() {
       window.location.href='../landing_page/login.html';
     },3000);
@@ -24,7 +24,7 @@ $('#btn').on('click', ()=>{
 
   if($("#pass1").val().trim() == '' || $("#pass2").val().trim() == '' ){
     filled =  false;
-    text.innerHTML = "Email is required";
+    text.innerHTML = "Password is required";
     text.style.color = "#ff0000";
   }
   else if($("#pass1").val().trim() != $("#pass2").val().trim()){
