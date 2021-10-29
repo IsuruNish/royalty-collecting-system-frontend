@@ -12,142 +12,164 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
 </head>
 
 <body>
-    <input type="checkbox" id="check">
 
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
-            <li><a href="SO-cancelLicense.html"><i class="far fa-window-close"></i>Cancel License</a></li>
-            <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper hideME" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section class="sec">
-        <div class="header">
-            
-            <div class="first">
-                <h2>Get a license</h2>
-            </div>
 
-            <div class="second">
-                
-                <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
-                    <i class="fas fa-bell" id="bell"></i>
-                    <span class="badge">3</span>
-                    <div class="notification-content">
-                    
-                    </div>
-                </div>
-                <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                <h3>Hello Ann,</h3>
-                
-                <div class="dropdown">
-                    <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                    <div class="dropdown-content">
-                        <a href="SO-dashboard.html">Dashboard</a>
-                        <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
-                    </div>
-                </div>
-            </div>
+    <div class="notsoLoad " id="notsoLoad">
+
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
+                <li><a href="SO-cancelLicense.html"><i class="far fa-window-close"></i>Cancel License</a></li>
+                <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+                <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
         </div>
 
     
-        
-        <div class="content">
-            <div class="firstContent">
-                <div class="head">
-                    <h2>Choose the license type you wish to get</h2>
+        <section class="sec">
+            <div class="header">
+                
+                <div class="first">
+                    <h2>Get a license</h2>
                 </div>
-                <div class="content2">
-                    <div class="selectButtons">
-                        <button onclick="myFun1()" class="btn " id="btn1">Open concert</button>
-                        <button onclick="myFun2()" class="btn " id="btn2">Close concert</button>  
+
+                <div class="second">
+                    
+                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge">3</span>
+                        <div class="notification-content">
+                        
+                        </div>
+                    </div>
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3>Hello Ann,</h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                            <a href="SO-dashboard.html">Dashboard</a>
+                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+        
+            
+            <div class="content">
+                <div class="firstContent">
+                    <div class="head">
+                        <h2>Choose the license type you wish to get</h2>
+                    </div>
+                    <div class="content2">
+                        <div class="selectButtons">
+                            <button onclick="myFun1()" class="btn " id="btn1">Open concert</button>
+                            <button onclick="myFun2()" class="btn " id="btn2">Close concert</button>  
+                        </div>
+                    </div>
+                </div>
 
-            <div class="images" id="images">
-                <img src="../resources/images/applyLicense.svg" alt="">
+
+                <div class="images" id="images">
+                    <img src="../resources/images/applyLicense.svg" alt="">
+                </div>
+
+                <div class="secondContent close" id="openLicense" >
+                    <div class="inputDetails">
+                        <h2 id="topic">Concert Details</h2>
+                        <input type="text" id="imput" placeholder="Enter the concert name">
+                        <input type="text" id="imput" placeholder="Enter the venue">
+                        <h3 id="topic">Pick the date of the concert</h3>
+                        <input type="date" id="calendar1"> 
+
+                        <button class="btn " id="btnSubmit1">Apply</button>  
+                </div>
+                    
             </div>
-
-            <div class="secondContent close" id="openLicense" >
+                
+            <div class="secondContent close" id="closeLicense" >
                 <div class="inputDetails">
                     <h2 id="topic">Concert Details</h2>
                     <input type="text" id="imput" placeholder="Enter the concert name">
                     <input type="text" id="imput" placeholder="Enter the venue">
                     <h3 id="topic">Pick the date of the concert</h3>
-                    <input type="date" id="calendar"> 
+                    <input type="date" id="calendar2"> 
 
-                    <button class="btn " id="btnSubmit">Apply</button>  
-            </div>
-                
-        </div>
-            
-        <div class="secondContent close" id="closeLicense" >
-            <div class="inputDetails">
-                <h2 id="topic">Concert Details</h2>
-                <input type="text" id="imput" placeholder="Enter the concert name">
-                <input type="text" id="imput" placeholder="Enter the venue">
-                <h3 id="topic">Pick the date of the concert</h3>
-                <input type="date" id="calendar"> 
 
-                <div class="box">
-                    <a class="button" id="calendar" href="#popup1" style="color: black;">Click here to add songs</a>
-                </div>
+                    <div id="myDIV" class="headDiv1">
+                        <h3 class="insideTopic">Add singers of the song</h3>
+                        <div class="wrapper1">
+                            <div class="search-input" id="search-input">
+                                <!-- <a href="" target="_blank" hidden></a> -->
+                                <input type="text" id="myInput" placeholder="Type to search..">
                 
-                <div id="popup1" class="overlay">
-                    <div class="popup">
-                        <a class="close1" href="#" style="color: black;">&times;</i></a>
-                        <div class="content1">
-                            <div id="myDIV" class="header1" style="width: 90%;"> 
-                                <input type="text" id="myInput" placeholder="Add the song">
-                                <span onclick="newElement()" class="addBtn">Add</span>
+                                <div class="autocom-box" id="autocom-box">
+                        
+                                </div>
+                                                
                             </div>
+
+                            <ul id="myUL" class="myUL">
                                 
-                            <ul id="myUL">
-                                <!-- <li id="li" name="li">Hit the gym</li>    
-                                <li id="li" name="li">Meet George</li>
-                                <li id="li"name="li">Buy eggs</li>
-                                <li id="li" name="li">Read a book</li>
-                                <li id="li" name="li">Organize office</li> -->
                             </ul>
+
                         </div>
                     </div>
+
+        
+                    <button class="btn " id="btnSubmit2">Apply</button>  
+
                 </div>
 
-                <button class="btn " id="btnSubmit">Apply</button>  
-
+                        <!-- <a href="./SO-addSongs.html" style="margin-left: 30%; font-size: 20px;color: black; margin-top: 5px;font-family: 'Poppins', sans-serif; font-weight: bold;">Click here to add songs... </a> -->        
             </div>
+                        
+        </section>
 
-                    <!-- <a href="./SO-addSongs.html" style="margin-left: 30%; font-size: 20px;color: black; margin-top: 5px;font-family: 'Poppins', sans-serif; font-weight: bold;">Click here to add songs... </a> -->        
-        </div>
-                     
-    </section>
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
+
+
+<script src="../resources/js/alertFromDown.js"></script>
 <script src="../resources/js/SO-applyLicense.js"></script>
+<script src="../resources/js/suggestions.js"></script>
+<script src="../resources/js/logout.js"></script>
 </body>
 </html>
