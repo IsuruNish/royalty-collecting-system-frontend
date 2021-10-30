@@ -16,12 +16,12 @@ window.addEventListener('DOMContentLoaded',()=>{
           },
       }
 
-      fetch("http://localhost:8080/OSCA_war_exploded/SongRegistrationServlet", options)
+      fetch("http://localhost:8080/OSCA_war_exploded/ApplyLicenseServlet", options)
       .then(res => res.json())
       .then((data) => {
-      ut = data['userType']
+      ut = data['utype']
       console.log(data);
-      if(ut!=4){
+      if(ut!=5){
           popUpFromDown("Access denied!",'red');
           setTimeout(function() {
               // window.location.href='../landing_page/login.html';
@@ -38,12 +38,10 @@ window.addEventListener('DOMContentLoaded',()=>{
             loading.classList.add("hideME");
             realpage.classList.remove("hideME");
 
-            //songnames
-            //songIDs
-            //singers
             makeArray(data['songNames']);
-            makeArray2(data['songIDs']);
-            makeArray3(data['singers']);
+            makeArray2(data['songIds']);
+            makeArray3(data['fNames'],  data['lNames'], data['songYears']);
+
           }        
       })
       .catch(err =>{
@@ -293,31 +291,32 @@ for (i = 0; i < close.length; i++) {
 // }, false);
 
 // Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
 
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close2";
-  span.appendChild(txt);
-  li.appendChild(span);
+// function newElement() {
+//   var li = document.createElement("li");
+//   var inputValue = document.getElementById("myInput").value;
+//   var t = document.createTextNode(inputValue);
+//   li.appendChild(t);
+//   if (inputValue === '') {
+//     alert("You must write something!");
+//   } else {
+//     document.getElementById("myUL").appendChild(li);
+//   }
+//   document.getElementById("myInput").value = "";
+//   console.log("awa");
+//   var span = document.createElement("SPAN");
+//   var txt = document.createTextNode("\u00D7");
+//   span.className = "close2";
+//   span.appendChild(txt);
+//   li.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
-}
+//   for (i = 0; i < close.length; i++) {
+//     close[i].onclick = function() {
+//       var div = this.parentElement;
+//       div.style.display = "none";
+//     }
+//   }
+// }
  
 
 
@@ -346,8 +345,8 @@ inputBox.onkeyup = (e)=>{
     let userData = e.target.value;
     let isMember = checkInputFromUser(e.target.value);
     let emptyArray = [];
-    if(userData && isMember == 1){
-
+   
+    if(userData != "" && isMember != -1){
         emptyArray = suggestions.filter((data)=>{
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
         });
@@ -399,9 +398,11 @@ function showSuggestions(list, ele, inp){
 
 
 
-// let suggestions = [];
+let suggestions = [];
 let songIDs = [];
-let singers = [];
+let singersFnames = [];
+let singersLnames = [];
+let year = [];
 
 function makeArray(data){
   for (let i = 0; i < data.length; i++) {
@@ -411,13 +412,15 @@ function makeArray(data){
 
 function makeArray2(data){
   for (let i = 0; i < data.length; i++) {
-    memIDs[i] = data[i];
+    songIDs[i] = data[i];
   }
 }
 
-function makeArray3(data){
-  for (let i = 0; i < data.length; i++) {
-    singers[i] = data[i];
+function makeArray3(data1, data2,data3){
+  for (let i = 0; i < data1.length; i++) {
+    singersFnames[i] = data1[i];
+    singersLnames[i] = data2[i];
+    year[i] = data3[i];
   }
 }
 
@@ -435,21 +438,29 @@ function newElement(inp, val) {
       
       if (input != '') {
 
+        let idFTW = getID(val);
+        let fnamesFTW = getSingersFNames(val);
+        let lnamesFTW = getSingersLNames(val);
+        let yearFTW = getYear(val);
+
         var li = document.createElement("li");
         var span = document.createElement("SPAN");
         var txt = document.createTextNode("\u00D7");
         var t = document.createElement("h5");
         var t1 = document.createElement("h8");
-        t.innerHTML = isMember + "  " +input;
+        t.innerHTML = input + " <i style = 'font-size:10px;'>in " + yearFTW + '</i>';
 
+        t1.innerHTML = "By "
+        for (let index = 0; index < fnamesFTW.length - 1; index++) {
+          t1.innerHTML = t1.innerHTML + fnamesFTW[index] + " " +lnamesFTW[index] + " | " ;
+          
+        }
         
-        //getSingers function
-        // if (isMember == 1) {
-        //   t1.innerHTML = "Member";
-        // }
-        // else{
-        //   t1.innerHTML = "Non-member";
-        // }
+        t1.innerHTML = t1.innerHTML + fnamesFTW[fnamesFTW.length - 1] + " " +lnamesFTW[fnamesFTW.length - 1];
+        // console.log(fnamesFTW);
+        // console.log(lnamesFTW);
+        // console.log(yearFTW);
+
 
         li.appendChild(t);
         li.appendChild(t1);
@@ -486,7 +497,6 @@ function getID(names){
 
   for (let i = 0; i < names.length; i++) {
     for (let j = 0; j < suggestions.length; j++) {
-      console.log(suggestions[j]);
       if (suggestions[j] == names[i]) {
         id[count] = memIDs[j];
         count +=1;
@@ -500,7 +510,6 @@ function getID(names){
 
 function isNamePresent(val, ul){
 
-  console.log(ul.childElementCount);
   let nodes = ul.childNodes
 
   for (let index = 0; index < ul.childElementCount; index++) {
@@ -518,8 +527,43 @@ function checkInputFromUser(name){
 
   for (let i = 0; i < suggestions.length; i++) {
     if (suggestions[i].startsWith(name)) {
-      console.log(suggestions[i]);
       return i;
+    }
+  }
+  return -1; 
+}
+
+function getID(data){
+  for (let i = 0; i < suggestions.length; i++) {
+    if (suggestions[i] == data) {
+      return songIDs[i];
+    }
+  }
+  return -1; 
+}
+
+function getSingersFNames(data){
+  for (let i = 0; i < suggestions.length; i++) {
+    if (suggestions[i] == data) {
+      return singersFnames[i];
+    }
+  }
+  return -1; 
+}
+
+function getSingersLNames(data){
+  for (let i = 0; i < suggestions.length; i++) {
+    if (suggestions[i] == data) {
+      return singersLnames[i];
+    }
+  }
+  return -1; 
+}
+
+function getYear(data){
+  for (let i = 0; i < suggestions.length; i++) {
+    if (suggestions[i] == data) {
+      return year[i];
     }
   }
   return -1; 
