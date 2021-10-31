@@ -111,10 +111,26 @@
                 <div class="secondContent close" id="openLicense" >
                     <div class="inputDetails">
                         <h2 id="topic">Concert Details</h2>
-                        <input type="text" id="imput" placeholder="Enter the concert name">
-                        <input type="text" id="imput" placeholder="Enter the venue">
+
+                        <div class="info">
+                            <input type="text" name="concert" class="imput" id="imput3" placeholder="Enter the concert name" onfocus="hideValidate('imput3')" >
+                            <span class="words" id="secondwords"></span>
+                        </div>
+
+
+                        <div class="info">
+                            <input type="text" class="imput" id="imput4" name="venue" placeholder="Enter the venue" onfocus="hideValidate('imput4')">
+                            <span class="words" id="secondwords"></span>
+                        </div>
+
+
+
                         <h3 id="topic">Pick the date of the concert</h3>
-                        <input type="date" id="calendar1"> 
+                        
+                        <div class="info" id="dateINFO">
+                            <input type="date" name="date2" id="calendar1" onfocus="hideValidate('calendar1')"> 
+                            <span class="words" id="secondwords"></span>
+                        </div>
 
                         <button class="btn " id="btnSubmit1">Apply</button>  
                 </div>
@@ -124,10 +140,24 @@
             <div class="secondContent close" id="closeLicense" >
                 <div class="inputDetails">
                     <h2 id="topic">Concert Details</h2>
-                    <input type="text" id="imput" placeholder="Enter the concert name">
-                    <input type="text" id="imput" placeholder="Enter the venue">
-                    <h3 id="topic">Pick the date of the concert</h3>
-                    <input type="date" id="calendar2"> 
+
+                    <div class="info">
+                        <input type="text" name="concert" class="imput" id="imput1" placeholder="Enter the concert name" onfocus="hideValidate('imput1')">
+                        <span class="words" id="firstwords"></span>
+                    </div>
+
+                    <div class="info">
+                        <input type="text" name="venue" class="imput" id="imput2" placeholder="Enter the venue" onfocus="hideValidate('imput2')">
+                        <span class="words" id="secondwords"></span>
+                    </div>
+
+                    <h3 id="topic">Select the date of the concert</h3>
+                    
+                    <div class="info" id="dateINFO">
+                        <input type="date" name="date2" class="three" id="calendar2" onfocus="hideValidate('calendar2')"> 
+                        <span class="words" id="datewords"></span>
+                    </div>
+                
 
 
                     <div id="myDIV" class="headDiv1">
@@ -169,7 +199,6 @@
 
 <script src="../resources/js/alertFromDown.js"></script>
 <script src="../resources/js/SO-applyLicense.js"></script>
-<script src="../resources/js/suggestions.js"></script>
 <script src="../resources/js/logout.js"></script>
 </body>
 </html>

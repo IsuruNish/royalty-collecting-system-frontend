@@ -58,11 +58,10 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 document.getElementById('btnSubmit2').addEventListener('click', function(){
 
-  // let filled1 = validateInputFields();
+  let filled1 = validateInputFields1();
   // let filled2 = lastValidation2();
 
-  // if(filled1 && filled2){
-
+  if(filled1){
     let token = Cookies.get('Authorization');
     if(token == undefined){
         popUpFromDown("login to continue",'red');
@@ -71,134 +70,123 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
         },5000);
     }
     else{
-      const loading = document.getElementById("loader-wrapper");
-      const realpage = document.getElementById("notsoLoad");
+      // const loading = document.getElementById("loader-wrapper");
+      // const realpage = document.getElementById("notsoLoad");
     
-      loading.classList.remove("hideME");
-      realpage.classList.add("hideME");
+      // loading.classList.remove("hideME");
+      // realpage.classList.add("hideME");
     
-      let songs = document.querySelector(".myUL");   
-    
-      let s = singers.childNodes;
-      let c = composers.childNodes;
-      let w = writters.childNodes;
-    
-      let memSingers = []
-      let NOmemSingers = []
-      let memComposers = []
-      let NOmemComposers = []
-      let memWritters = []
-      let NOmemWritters = []
-    
-      let count1 = 0
-      let count2 = 0
-      for (let index = 0; index < singers.childElementCount; index++) {
+      let myUL = document.getElementById("myUL");   
+      let s = myUL.childNodes;
+  
+      let firstNames = []
+      let lastNames = []
+      let songDetails = []
+      let finalIDs = []
+
+      let count = 0;
+
+      for (let index = 0; index < myUL.childElementCount; index++) {
         let name = s[index].nextSibling.firstChild.innerHTML;
-        let mORnot = s[index].nextSibling.firstChild.nextSibling.innerHTML;
-    
-        if (mORnot == "Member"){
-          memSingers[count1] = name
-          count1 +=1
+        let singers = s[index].nextSibling.firstChild.nextSibling.innerHTML;
+
+        let tempF = []
+        let tempL = []
+        let temp = name.split("<i");
+        temp[1] = temp[1].split(" ")[2];
+        temp = temp.map(Function.prototype.call, String.prototype.trim)
+        songDetails[count] = temp;
+
+        let singerNameArr = singers.split("|");
+        singerNameArr[0] = singerNameArr[0].substring(2) 
+        singerNameArr = singerNameArr.map(Function.prototype.call, String.prototype.trim)
+
+        for (let j = 0; j < singerNameArr.length; j++) {
+          let tempArr = singerNameArr[j].split(" ");
+          tempF[j] = tempArr[0];
+          tempL[j] = tempArr[1];
         }
-        else{
-          NOmemSingers[count2] = name
-          count2 +=1
+
+        firstNames[count] = tempF;
+        lastNames[count] = tempL;
+        count = count + 1;
+      }
+
+      for (let index = 0; index < songDetails.length; index++) {
+        
+        let found = true;
+        for (let i = 0; i < suggestions.length; i++) {
+          if(suggestions[i] == songDetails[index][0]){
+            
+            if (songDetails[index][1] != year[i]){
+              found = false;
+            }
+
+            if (checkSingerNames(firstNames[index], lastNames[index], i) == false){
+              found = false;
+            }
+
+            if (found == true){
+              finalIDs[index] = songIDs[i];
+              break;
+            }
+          }
         }
       }
-    
-      count1 = 0
-      count2 = 0
-      for (let index = 0; index < composers.childElementCount; index++) {
-        let name = c[index].nextSibling.firstChild.innerHTML;
-        let mORnot = c[index].nextSibling.firstChild.nextSibling.innerHTML;
-    
-        if (mORnot == "Member"){
-          memComposers[count1] = name
-          count1 +=1
-        }
-        else{
-          NOmemComposers[count2] = name
-          count2 +=1
-        }
-      }
-    
-      count1 = 0
-      count2 = 0
-      for (let index = 0; index < writters.childElementCount; index++) {
-        let name = w[index].nextSibling.firstChild.innerHTML;
-        let mORnot = w[index].nextSibling.firstChild.nextSibling.innerHTML;
-    
-        if (mORnot == "Member"){
-          memWritters[count1] = name
-          count1 +=1
-        }
-        else{
-          NOmemWritters[count2] = name
-          count2 +=1
-        }
-      }
-    
-      let memSingersIDs = getID(memSingers)
-      let memComposersIDs = getID(memComposers)
-      let memWrittersIDs = getID(memWritters)
-    
-      let song = document.getElementById("input1").value;
-      let version = document.getElementById("input2").value;
-      let year = document.getElementById("input3").value;
-    
-      let info = [song, version, year]
-    
-      let file = document.getElementById('myFile').files[0];
-      let formData = new FormData();
-      formData.append("file", file);
-      formData.append("info", JSON.stringify(info));
-      formData.append('memSingers', JSON.stringify(memSingersIDs));
-      formData.append('memComposers', JSON.stringify(memComposersIDs));
-      formData.append('memWritters', JSON.stringify(memWrittersIDs));
-      formData.append('NOmemSingers', JSON.stringify(NOmemSingers));
-      formData.append('NOmemComposers', JSON.stringify(NOmemComposers));
-      formData.append('NOmemWritters', JSON.stringify(NOmemWritters));
-      let options = {
-          method: 'POST',
-          headers: {
-              // 'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-          },
-    
-          body: formData
-    
-      }
-    
-      fetch("http://localhost:8080/OSCA_war_exploded/SongRegistrationServlet", options)
-      .then( res => res.json())
-      .then(data =>{
-        console.log(data);
-        if(data['ok'] == 1){
-          popUpFromDown("New song request sent",'greenColour');
-          setTimeout(function() {
-              // window.location.href='M-songRegistration.html';
-          },3000);
-        }
-        else{
-          popUpFromDown("Error try again",'red');
-          setTimeout(function() {
-            loading.classList.add("hideME");
-            realpage.classList.remove("hideME");
-              // window.location.href='../landing_page/login.html';
-          },3000);
-        }
-      })
-      .catch(err =>{
-        popUpFromDown("Error try again",'red');
-        setTimeout(function() {
-          loading.classList.add("hideME");
-          realpage.classList.remove("hideME");
-            // window.location.href='../landing_page/login.html';
-        },3000);
-        console.error(err);
-      });
+
+      let inputBox1 = document.getElementById("imput1").value;
+      let inputBox2 = document.getElementById("imput2").value;
+      let inputBox3 = document.getElementById("calendar2").value;
+
+      let payload = {
+        "songIds":finalIDs,
+        "concertName":inputBox1,
+        "venue":inputBox2,
+        "date":inputBox3,
+        "requestType":2
     }
-  // }
+        
+    let options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload) 
+    }
+   
+
+    
+      fetch("http://localhost:8080/OSCA_war_exploded/ApplyLicenseServlet", options)
+      // .then( res => res.json())
+      // .then(data =>{
+      //   console.log(data);
+      //   if(data['ok'] == 1){
+      //     popUpFromDown("New song request sent",'greenColour');
+      //     setTimeout(function() {
+      //         // window.location.href='M-songRegistration.html';
+      //     },3000);
+      //   }
+      //   else{
+      //     popUpFromDown("Error try again",'red');
+      //     setTimeout(function() {
+      //       loading.classList.add("hideME");
+      //       realpage.classList.remove("hideME");
+      //         // window.location.href='../landing_page/login.html';
+      //     },3000);
+      //   }
+      // })
+      // .catch(err =>{
+      //   popUpFromDown("Error try again",'red');
+      //   setTimeout(function() {
+      //     loading.classList.add("hideME");
+      //     realpage.classList.remove("hideME");
+      //       // window.location.href='../landing_page/login.html';
+      //   },3000);
+      //   console.error(err);
+      // });
+    }
+  }
 })
 
 
@@ -207,7 +195,29 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
 
 
 
+document.getElementById('btnSubmit1').addEventListener('click', function(){
 
+  let filled1 = validateInputFields2();
+
+  if(filled1){
+    console.log("keb ");
+  }
+})
+
+function checkSingerNames(fnamesArr, lnamesArr, indexPassed){
+
+  for (let index = 0; index < fnamesArr.length; index++) {
+    if (singersFnames[indexPassed][index] != fnamesArr[index]){
+      return false;
+    }
+
+    if (singersLnames[indexPassed][index] != lnamesArr[index]){
+      return false;
+    }    
+  }
+
+  return true;
+}
 
 
 
@@ -346,6 +356,7 @@ inputBox.onkeyup = (e)=>{
     let isMember = checkInputFromUser(e.target.value);
     let emptyArray = [];
    
+    console.log(isMember);
     if(userData != "" && isMember != -1){
         emptyArray = suggestions.filter((data)=>{
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -354,7 +365,7 @@ inputBox.onkeyup = (e)=>{
         emptyArray = emptyArray.map((data)=>{
             return data = `<li>${data}</li>`;
         });
-
+        
         searchWrapper.classList.add("active"); 
         showSuggestions(emptyArray, suggBox, inputBox);
         let allList = suggBox.querySelectorAll("li");
@@ -390,9 +401,6 @@ function showSuggestions(list, ele, inp){
     }
     ele.innerHTML = listData;
 }
-
-
-
 
 
 
@@ -448,7 +456,7 @@ function newElement(inp, val) {
         var txt = document.createTextNode("\u00D7");
         var t = document.createElement("h5");
         var t1 = document.createElement("h8");
-        t.innerHTML = input + " <i style = 'font-size:10px;'>in " + yearFTW + '</i>';
+        t.innerHTML = input + " <i style = 'font-size:10px;'>in " + yearFTW + ' </i>';
 
         t1.innerHTML = "By "
         for (let index = 0; index < fnamesFTW.length - 1; index++) {
@@ -511,11 +519,11 @@ function getID(names){
 function isNamePresent(val, ul){
 
   let nodes = ul.childNodes
-
   for (let index = 0; index < ul.childElementCount; index++) {
-
     let name = nodes[index].nextSibling.firstChild.innerHTML;
-    if (name == val){
+    let temp = name.split("<i");
+
+    if (temp[0].trim() == val){
       return 1;
     }
   }
@@ -524,9 +532,8 @@ function isNamePresent(val, ul){
 
 
 function checkInputFromUser(name){
-
   for (let i = 0; i < suggestions.length; i++) {
-    if (suggestions[i].startsWith(name)) {
+    if (suggestions[i].toLocaleLowerCase().startsWith(name.toLocaleLowerCase())) {
       return i;
     }
   }
@@ -567,4 +574,95 @@ function getYear(data){
     }
   }
   return -1; 
+}
+
+
+
+//validation
+
+function validateInputFields1(){
+  var input1 = document.getElementById("imput1");
+  var input2 = document.getElementById("imput2");
+  var input3 = document.getElementById("calendar2");
+  var filled = true;
+
+
+  if(input1.value == ""){
+    showValidate(input1, "imput1");
+    filled = false;
+  }
+
+  if(input2.value == ""){
+    showValidate(input2, "imput2");
+    filled = false;
+  }
+
+  if(input3.value == ""){
+    showValidate(input3, "calendar2");
+    filled = false;
+  }
+
+  return filled;
+}
+
+
+function validateInputFields2(){
+  var input1 = document.getElementById("imput3");
+  var input2 = document.getElementById("imput4");
+  var input3 = document.getElementById("calendar1");
+  var filled = true;
+
+
+  if(input1.value == ""){
+    showValidate(input1, "imput3");
+    filled = false;
+  }
+
+  if(input2.value == ""){
+    showValidate(input2, "imput4");
+    filled = false;
+  }
+
+  if(input3.value == ""){
+    showValidate(input3, "calendar1");
+    filled = false;
+  }
+
+  return filled;
+}
+
+
+
+function showValidate (input, id) {
+  if($(input).val().trim() == '') {
+    var field = document.getElementById(id);
+    var text = field.nextElementSibling;
+
+    if($(input).attr('name') == 'concert'){
+      text.innerHTML = "Concert name is required";
+      text.style.color = "#ff0000";
+    }
+
+    if($(input).attr('name') == 'venue'){
+      text.innerHTML = "Concert venue is required";
+      text.style.color = "#ff0000";
+    }
+
+ 
+    if($(input).attr('name') == 'date2'){
+      text.innerHTML = "Concert date is required";
+      text.style.color = "#ff0000";
+    }
+  }
+}
+
+
+function hideValidate (id) {
+  var field = document.getElementById(id);
+  var text = field.nextElementSibling;
+
+  if(field == document.activeElement) {
+    text.innerHTML = "";
+    text.style.color = "#ff0000";
+  }
 }
