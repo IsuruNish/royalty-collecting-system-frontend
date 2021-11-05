@@ -165,8 +165,9 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
           console.log(data);
           if(data['ok'] == 1){
             popUpFromDown("License request sent",'greenColour');
+            
             setTimeout(function() {
-                window.location.href='SO-applyLicense.html';
+                window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
             },3000);
           }
           else{
@@ -251,7 +252,7 @@ document.getElementById('btnSubmit1').addEventListener('click', function(){
         if(data['ok'] == 1){
           popUpFromDown("License request sent",'greenColour');
           setTimeout(function() {
-              window.location.href='SO-applyLicense.html';
+            window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
           },3000);
         }
         else{
