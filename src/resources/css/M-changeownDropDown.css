@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* ::selection{
+  color: #fff;
+  background: #664AFF;
+}
+
+.wrapper{
+  max-width: 450px;
+  margin: 150px auto;
+} */
+
+.headDiv1, .headDiv2, .headDiv3{
+    margin-bottom: 10%;
+}
+/* 
+#myDIV2{
+    background-color: blueviolet;
+} */
+
+.headDiv1 h4, .headDiv2 h4, .headDiv3 h4{
+    margin-bottom: 2%;
+}
+.search-input{
+    background: #fff;
+    /* width: 133.5%; */
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+    z-index: 3;
+    height: 5vh;
+    margin-bottom: -4%;
+
+}
+
+  .search-input1{
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    height: 5vh;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+    z-index: 2;
+    margin-bottom: -4%;
+  }
+
+  .search-input2{
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    height: 5vh;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+    z-index: 1;
+    margin-bottom: -4%;
+  }
+  
+  .search-input input, .search-input1 input, .search-input2 input{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  }
+
+  .search-input.active input, .search-input1.active input, .search-input2.active input{
+    border-radius: 5px 5px 0 0;
+  }
+  
+  /* .search-input, .search-input1, .search-input2 {
+    height:40px;
+  } */
+  
+  .autocom-box{
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 150px;
+    overflow-y:scroll;
+    background-color: rgb(224, 224, 224);
+  }
+
+  .search-input.active .autocom-box, .search-input1.active .autocom-box, .search-input2.active .autocom-box{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto
+  }
+  
+  .autocom-box li{
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    text-align: left;
+    cursor: default;
+    border-radius: 3px;
+  
+  }
+
+  
+
+.search-input.active .autocom-box li, .search-input1.active .autocom-box li, .search-input2.active .autocom-box li{
+    display: block;
+  }
+  .autocom-box li:hover{
+    background: #2b2b2b;
+    color: #fff;
+  }
+
+
+
+
+.hideThis{
+  display: none;
+}
+
+
+h5{
+    font-size: 1rem;
+  }
+  
+  h8{
+    font-size: 0.8rem;
+    font-style: italic;
+  }

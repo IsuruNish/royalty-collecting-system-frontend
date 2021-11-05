@@ -3,6 +3,30 @@
     box-sizing: border-box;
   } */
 
+  .formContent2 {
+    /* background-color: #f44336; */
+    padding-top: 0px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    /* padding: 30px 40px; */
+    /* padding-top: 0px ; */
+    color: black;
+    text-align: center;
+    max-height: 10%;
+  }
+
+  .formContent2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.formContent2{
+    width: 80%;
+    height: fit-content;
+    
+}
 .content{
     /* background-color: aqua; */
     align-items: center;
@@ -163,6 +187,28 @@
     opacity: 0.9;
     font-size: 18px;
     color: black;;
+    /* background-color: #c4c4c4c9; */
+    transition: 0.2s;
+    /* width: 72%; */
+    /* height: 5vh; */
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 5px;
+    margin-bottom: 1px;
+    font-weight: 550;
+  }
+
+  .myUL li, .myUL2 li, .myUL1 li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    opacity: 0.9;
+    font-size: 18px;
+    color: black;;
+    background-color: #c4c4c4c9;
     transition: 0.2s;
     /* width: 72%; */
     /* height: 5vh; */
@@ -233,6 +279,21 @@
     background-color: #f44336;
     color: white;
   }
+
+
+  .close2 {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 24px 21px 24px 20px;
+  }
+  
+  .close2:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
   
   /* Style the header */
   .formContent2 {
@@ -268,7 +329,7 @@
     margin: 0;
     border: none;
     border-radius: 0;
-    width: 75%;
+    /* width: 75%; */
     padding: 10px;
     float: left;
     font-size: 16px;

@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      <link rel="stylesheet" href="../resources/css/style.css">
       <link rel="stylesheet" href="../resources/css/M-songModification.css">
+      <link rel="stylesheet" href="../resources/css/M-changeownDropDown.css">
+
      <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
+    
+  <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+  <link rel="stylesheet" href="../resources/css/popUp.css">
+  <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
@@ -78,17 +86,17 @@
                 <h2 class="topic">Song details</h2>
                 <div class="input">
                     <div>
-                        <label for="">Song name </label>
+                        <label for="">Song name &nbsp; &nbsp; &nbsp; </label>
                         <input type="text" name="name" value="ABC" id="input" disabled>
                     </div>
 
                     <div>
-                        <label for="">Song name </label>
+                        <label for="">Song version &nbsp; &nbsp; </label>
                         <input type="text" name="version" value="1" id="input" disabled>
                     </div>
 
                     <div>
-                        <label for="">Song name </label>
+                        <label for="">Published year </label>
                         <input type="text" name="singers" value="2019" id="input" disabled>
                     </div>
                 </div>
@@ -110,7 +118,7 @@
                     </div>
                         
                     <div id="myDIV" class="header">
-                        <h4 class="">Add composers</h4>
+                        <h4 class="">Composers of the song</h4>
                         <ul id="myUL" class="composer">
                             <li class="normalCol"> 
                                 <h5>Mr.bA</h5>
@@ -130,8 +138,12 @@
                     </div>
                         
                     <div id="myDIV" class="header">
-                        <h4>Add song writers</h4>
+                        <h4>Song writers of the song</h4>
                         <ul id="myUL" class="writer">
+                            <li class="normalCol"> 
+                                <h5>Mr.cA</h5>
+                                <span id="spanME" class="close" onclick="take(this)">×</span>
+                            </li>
                             <li class="normalCol"> 
                                 <h5>Mr.cA</h5>
                                 <span id="spanME" class="close" onclick="take(this)">×</span>
@@ -144,7 +156,7 @@
              <div class="submitDocumentContent">
                     <h4 id="role">Select your role(s) in this song</h4>
 
-                    <div class="newDiv" >
+                    <!-- <div class="newDiv" >
                         <div id="myDIVnew" class="header">
                             <h4>Add song writers</h4>
                             <input type="text" id="myInput" placeholder="Type here...">
@@ -171,6 +183,71 @@
         
                             </ul>
                         </div>
+                    </div> -->
+
+                    <div class="formContent2" id="thisisSeparate">
+                        <div id="myDIV2" class="headDiv1">
+                            <h4>Add singers of the song</h4>
+                            <div class="wrapper1">
+                                <div class="search-input" id="search-input">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL">
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                            
+                        <div id="myDIV2" class="headDiv2">
+                            <h4>Add composers</h4>
+                            <div class="wrapper2">
+                                <div class="search-input1" id="search-input1">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box1">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL1">
+                                </ul>
+
+                            </div>
+                        </div>
+                            
+
+
+
+                        <div id="myDIV2" class="headDiv3">
+                            <h4>Add song writers</h4>
+                            <div class="wrapper3">
+                                <div class="search-input2" id="search-input2">
+                                    <a href="" target="_blank" hidden></a>
+                                    <input type="text" id="myInput" placeholder="Type to search..">
+                    
+                                    <div class="autocom-box" id="autocom-box2">
+                            
+                                    </div>
+                                                    
+                                </div>
+
+                                <ul id="myUL" class="myUL2">
+                                </ul>
+
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="removedPpl hideTheTopic" id="removedPpl">
@@ -201,6 +278,12 @@
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
+
+
+<script src="../resources/js/alertFromDown.js"></script>
 <script src="../resources/js/M-songModification.js"></script>
+<script src="../resources/js/M-changeownDropdown.js"></script>
+<script src="../resources/js/logout.js"></script>
+<script src="../resources/js/validation.js"></script>
 </body>
 </html>

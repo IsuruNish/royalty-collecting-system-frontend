@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   if(token == undefined){
       popUpFromDown("login to continue",'red');
       setTimeout(function() {
-          // window.location.href='../landing_page/login.html';
+          window.location.href='../landing_page/login.html';
       },3000);
   }
 
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       if(ut!=5){
           popUpFromDown("Access denied!",'red');
           setTimeout(function() {
-              // window.location.href='../landing_page/login.html';
+              window.location.href='../landing_page/login.html';
           },3000);
           }
           else{
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded',()=>{
       .catch(err =>{
           popUpFromDown("Login again",'red');
           setTimeout(function() {
-              // window.location.href='../landing_page/login.html';
+              window.location.href='../landing_page/login.html';
           },3000);
           console.error(err);
         });
@@ -66,15 +66,15 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
     if(token == undefined){
         popUpFromDown("login to continue",'red');
         setTimeout(function() {
-            // window.location.href='../landing_page/login.html';
+            window.location.href='../landing_page/login.html';
         },5000);
     }
     else{
-      // const loading = document.getElementById("loader-wrapper");
-      // const realpage = document.getElementById("notsoLoad");
+      const loading = document.getElementById("loader-wrapper");
+      const realpage = document.getElementById("notsoLoad");
     
-      // loading.classList.remove("hideME");
-      // realpage.classList.add("hideME");
+      loading.classList.remove("hideME");
+      realpage.classList.add("hideME");
     
       let myUL = document.getElementById("myUL");   
       let s = myUL.childNodes;
@@ -138,53 +138,61 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
       let inputBox2 = document.getElementById("imput2").value;
       let inputBox3 = document.getElementById("calendar2").value;
 
-      let payload = {
-        "songIds":finalIDs,
-        "concertName":inputBox1,
-        "venue":inputBox2,
-        "date":inputBox3,
-        "requestType":2
-    }
+      if (finalIDs.length != 0) {
         
-    let options = {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(payload) 
-    }
-   
-
+        let payload = {
+          "songIds":finalIDs,
+          "concertName":inputBox1,
+          "venue":inputBox2,
+          "date":inputBox3,
+          "requestType":2
+      }
+          
+      let options = {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(payload) 
+      }
     
-      fetch("http://localhost:8080/OSCA_war_exploded/ApplyLicenseServlet", options)
-      // .then( res => res.json())
-      // .then(data =>{
-      //   console.log(data);
-      //   if(data['ok'] == 1){
-      //     popUpFromDown("New song request sent",'greenColour');
-      //     setTimeout(function() {
-      //         // window.location.href='M-songRegistration.html';
-      //     },3000);
-      //   }
-      //   else{
-      //     popUpFromDown("Error try again",'red');
-      //     setTimeout(function() {
-      //       loading.classList.add("hideME");
-      //       realpage.classList.remove("hideME");
-      //         // window.location.href='../landing_page/login.html';
-      //     },3000);
-      //   }
-      // })
-      // .catch(err =>{
-      //   popUpFromDown("Error try again",'red');
-      //   setTimeout(function() {
-      //     loading.classList.add("hideME");
-      //     realpage.classList.remove("hideME");
-      //       // window.location.href='../landing_page/login.html';
-      //   },3000);
-      //   console.error(err);
-      // });
+
+      
+        fetch("http://localhost:8080/OSCA_war_exploded/ApplyLicenseServlet", options)
+        .then( res => res.json())
+        .then(data =>{
+          console.log(data);
+          if(data['ok'] == 1){
+            popUpFromDown("License request sent",'greenColour');
+            setTimeout(function() {
+                window.location.href='SO-applyLicense.html';
+            },3000);
+          }
+          else{
+            popUpFromDown("Error try again",'red');
+            setTimeout(function() {
+              loading.classList.add("hideME");
+              realpage.classList.remove("hideME");
+            },3000);
+          }
+        })
+        .catch(err =>{
+          popUpFromDown("Error try again",'red');
+          setTimeout(function() {
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+            // window.location.href='../landing_page/login.html';
+          },3000);
+          console.error(err);
+        });
+      }
+
+      else{
+        popUpFromDown("Add songs",'red');
+        loading.classList.add("hideME");
+        realpage.classList.remove("hideME");
+      }
     }
   }
 })
@@ -200,7 +208,71 @@ document.getElementById('btnSubmit1').addEventListener('click', function(){
   let filled1 = validateInputFields2();
 
   if(filled1){
-    console.log("keb ");
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
+    }
+    else{
+      const loading = document.getElementById("loader-wrapper");
+      const realpage = document.getElementById("notsoLoad");
+    
+      loading.classList.remove("hideME");
+      realpage.classList.add("hideME");
+
+      let inputBox1 = document.getElementById("imput3").value;
+      let inputBox2 = document.getElementById("imput4").value;
+      let inputBox3 = document.getElementById("calendar1").value;
+
+      let payload = {
+        "concertName":inputBox1,
+        "venue":inputBox2,
+        "date":inputBox3,
+        "requestType":1
+    }
+        
+    let options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload) 
+    }
+   
+
+    
+      fetch("http://localhost:8080/OSCA_war_exploded/ApplyLicenseServlet", options)
+      .then( res => res.json())
+      .then(data =>{
+        console.log(data);
+        if(data['ok'] == 1){
+          popUpFromDown("License request sent",'greenColour');
+          setTimeout(function() {
+              window.location.href='SO-applyLicense.html';
+          },3000);
+        }
+        else{
+          popUpFromDown("Error try again",'red');
+          setTimeout(function() {
+            loading.classList.add("hideME");
+            realpage.classList.remove("hideME");
+          },3000);
+        }
+      })
+      .catch(err =>{
+        popUpFromDown("Error try again",'red');
+        setTimeout(function() {
+          loading.classList.add("hideME");
+          realpage.classList.remove("hideME");
+          // window.location.href='../landing_page/login.html';
+        },3000);
+        console.error(err);
+      });
+    }
+
   }
 })
 
@@ -333,16 +405,14 @@ for (i = 0; i < close.length; i++) {
 
 
 $(function(){
-  var dtToday = new Date();
-  
-  var month = dtToday.getMonth() + 1;
-  var day = dtToday.getDate();
-  var year = dtToday.getFullYear();
- 
-  var maxDate = year + '-' + month + '-' + day;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
 
-  $('#calendar1').attr('min', maxDate);
-  $('#calendar2').attr('min', maxDate);
+  today = yyyy + '-' + mm + '-' + dd;
+  $('#calendar1').attr('min',today);
+  $('#calendar2').attr('min',today);
 });
 
 
