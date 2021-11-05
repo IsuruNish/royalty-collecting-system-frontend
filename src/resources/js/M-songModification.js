@@ -395,10 +395,10 @@ function isNamePresent(val, ul){
 // }
 
 
-function take(is){
+function take1(is){
   console.log(is.previousSibling.previousSibling.innerHTML)
 
-  let newUl = document.querySelector(".newUL");
+  let newUl = document.querySelector(".newUL1");
   let child = newUl.children;
   let numberOfLi = newUl.childElementCount;
   
@@ -416,7 +416,7 @@ function take(is){
     child[theChild].remove();
 
     if(newUl.childElementCount == 0){
-      document.getElementById('removedPpl').classList.add("hideTheTopic");
+      document.getElementById('removedPpl1').classList.add("hideTheTopic");
     }
 
   }
@@ -424,7 +424,98 @@ function take(is){
     console.log(newUl.childElementCount);
     if(newUl.childElementCount == 0){
       console.log("howdy");
-      document.getElementById('removedPpl').classList.remove("hideTheTopic");
+      document.getElementById('removedPpl1').classList.remove("hideTheTopic");
+    }
+    is.parentElement.classList.add('redCol');
+
+    var li = document.createElement("li")
+    li.classList.add('normalCol');
+    var t = document.createElement('h5');
+    t.innerHTML = is.previousSibling.previousSibling.innerHTML;
+
+    li.appendChild(t);
+    newUl.appendChild(li);
+
+  }
+}
+
+
+
+function take2(is){
+  console.log(is.previousSibling.previousSibling.innerHTML)
+
+  let newUl = document.querySelector(".newUL2");
+  let child = newUl.children;
+  let numberOfLi = newUl.childElementCount;
+  
+  let theChild = 0;
+  for (let i = 0; i < numberOfLi; i++){
+    if(child[i].firstChild.innerHTML == is.previousSibling.previousSibling.innerHTML){
+        theChild = i;
+        break;
+    }
+  }
+
+  if (is.parentElement.classList.contains('redCol')){
+    is.parentElement.classList.remove('redCol');
+    is.parentElement.classList.add('normalCol');
+    child[theChild].remove();
+
+    if(newUl.childElementCount == 0){
+      document.getElementById('removedPpl2').classList.add("hideTheTopic");
+    }
+
+  }
+  else{
+    console.log(newUl.childElementCount);
+    if(newUl.childElementCount == 0){
+      console.log("howdy");
+      document.getElementById('removedPpl2').classList.remove("hideTheTopic");
+    }
+    is.parentElement.classList.add('redCol');
+
+    var li = document.createElement("li")
+    li.classList.add('normalCol');
+    var t = document.createElement('h5');
+    t.innerHTML = is.previousSibling.previousSibling.innerHTML;
+
+    li.appendChild(t);
+    newUl.appendChild(li);
+
+  }
+}
+
+
+function take3(is){
+  console.log(is.previousSibling.previousSibling.innerHTML)
+
+  let newUl = document.querySelector(".newUL3");
+  let child = newUl.children;
+  let numberOfLi = newUl.childElementCount;
+  
+  let theChild = 0;
+  for (let i = 0; i < numberOfLi; i++){
+    if(child[i].firstChild.innerHTML == is.previousSibling.previousSibling.innerHTML){
+        theChild = i;
+        break;
+    }
+  }
+
+  if (is.parentElement.classList.contains('redCol')){
+    is.parentElement.classList.remove('redCol');
+    is.parentElement.classList.add('normalCol');
+    child[theChild].remove();
+
+    if(newUl.childElementCount == 0){
+      document.getElementById('removedPpl3').classList.add("hideTheTopic");
+    }
+
+  }
+  else{
+    console.log(newUl.childElementCount);
+    if(newUl.childElementCount == 0){
+      console.log("howdy");
+      document.getElementById('removedPpl3').classList.remove("hideTheTopic");
     }
     is.parentElement.classList.add('redCol');
 
