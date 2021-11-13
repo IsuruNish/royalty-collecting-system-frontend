@@ -5,6 +5,10 @@ logout.addEventListener('click', function(){
     window.location.href='../landing_page/Home.html';
 })
 
+function logMeOut(){
+  Cookies.set('Authorization', undefined);
+  window.location.href='../landing_page/Home.html';
+}
 
 window.addEventListener( "pageshow", function ( event ) {
     var historyTraversal = event.persisted || ( typeof window.performance != "undefined" && window.performance.navigation.type === 2 );

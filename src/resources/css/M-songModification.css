@@ -186,7 +186,8 @@
     padding: 12px 8px 12px 40px;
     opacity: 0.9;
     font-size: 18px;
-    color: black;;
+    color: black;
+    /* text-align: center; */
     /* background-color: #c4c4c4c9; */
     transition: 0.2s;
     /* width: 72%; */
@@ -505,7 +506,7 @@
   }
   
   input[type=checkbox]:checked ~ div {
-    background-color: #13ca4a;
+    /* background-color: #13ca4a; */
   }
   
   .blue-color {
