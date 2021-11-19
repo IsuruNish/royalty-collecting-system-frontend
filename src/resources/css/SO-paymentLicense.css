@@ -33,7 +33,12 @@
 }
 
 #payment{
-  margin-top: 1%;
+  margin-top: 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgb(7, 7, 206);
 }
 
 .number{
@@ -196,6 +201,23 @@
   }
   
   #btn:hover {
+    background-color: black;
+    color: white;
+  }
+
+  #btn101{
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #btn101:hover {
     background-color: black;
     color: white;
   }

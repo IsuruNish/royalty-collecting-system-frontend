@@ -1,3 +1,33 @@
+<!-- <html>
+<body>
+<form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
+    <input type="hidden" name="merchant_id" value="1218935">
+    <input type="hidden" name="return_url" value="http://youtube.com">
+    <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
+    <input type="hidden" name="notify_url" value="https://www.google.com">  
+
+    <input type="hidden" name="order_id" value="ItemNo12345">
+    <input type="hidden" name="items" value="Door bell wireless"><br>
+    <input type="hidden" name="currency" value="LKR" >
+    <input type="hidden" name="amount" value="14800" id="l">  
+   
+    <input type="hidden" name="first_name" value="Saman">
+    <input type="hidden" name="last_name" value="Perera"><br>
+    <input type="hidden" name="email" value="samanp@gmail.com">
+    <input type="hidden" name="phone" value="0771234567"><br>
+    <input type="hidden" name="address" value="No.1, Galle Road">
+    <input type="hidden" name="city" value="Colombo">
+    <input type="hidden" name="country" value="Sri Lanka"><br><br> 
+    <input type="submit" value="Buy Now">   
+</form> 
+
+<script src="../resources/js/SO-paymentUI.js"></script>
+
+</body>
+</html> -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +49,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
     
     <script src="../resources/js/script.js"></script>
-    <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
 </head>
 
 <body>
@@ -108,25 +136,26 @@
                             </div>
                             <!-- </i><a href="#" id="payment">Pay online</a> -->
 
-                            <!-- <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
+                            <form method="post" action="https://sandbox.payhere.lk/pay/checkout">   
                                 <input type="hidden" name="merchant_id" value="1218935">
-                                <input type="hidden" name="merchant_secret" value="48aTHj6X4yb8bURiup5KI14TtsI98WZqp8gdw56u11HO">
                                 <input type="hidden" name="return_url" value="http://youtube.com">
-                                <input type="hidden" name="cancel_url" value="http://youtube.com">
+                                <input type="hidden" name="cancel_url" value="http://sample.com/cancel">
                                 <input type="hidden" name="notify_url" value="https://www.google.com">  
+                                <!-- <br><br>Item Details<br> -->
                                 <input type="hidden" name="order_id" value="ItemNo12345">
                                 <input type="hidden" name="items" value="Concert license">
                                 <input type="hidden" name="currency" value="LKR" >
                                 <input type="hidden" name="amount" value="14800" id="paymentValue">  
+                                <!-- <br><br>Customer Details<br> -->
                                 <input type="hidden" name="first_name" value="Saman">
                                 <input type="hidden" name="last_name" value="Perera">
                                 <input type="hidden" name="email" value="samanp@gmail.com">
                                 <input type="hidden" name="phone" value="0771234567">
                                 <input type="hidden" name="address" value="No.1, Galle Road">
                                 <input type="hidden" name="city" value="Colombo">
-                                <input type="hidden" name="country" value="Sri Lanka"> -->
+                                <input type="hidden" name="country" value="Sri Lanka">
                                 <input type="submit" value="Pay online" id="payment">   
-                            <!-- </form>  -->
+                            </form> 
                             
                             <h2 id="or">or</h2>
                         </div>
