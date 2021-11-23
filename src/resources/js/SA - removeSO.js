@@ -139,7 +139,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                           })
 
                           .catch(err =>{
-                            popUpFromDown("SError try again", 'red');
+                            popUpFromDown("Error try again", 'red');
                             setTimeout(function() {
                                 window.location.href='../super_admin/SA - removeSO.html';
                             },5000);

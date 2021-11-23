@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/A-requests.css">
     <link rel="stylesheet" href="../resources/css/SA-requests.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
@@ -23,278 +27,276 @@
 
 <body>
 
-    <input type="checkbox" id="check">
-
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div class="popup c" id="popUPBox">
+        <!-- <div class="icon">
+          <i class="fa fa-check"></i>
+        </div> -->
+        <div class="icon2">
+            <i class="far fa-times"></i>
+        </div>
+        <div class="title">
+            <h3 class="poUptext" id="poUptext"></h3>
+        </div>
+        <div class="dismiss-btn">
+            <button id="dismiss-popup-btn">Confirm</button>
+            <button id="denyBTN">Cancel</button>
+        </div>
+      </div>
+  
+    <div id="toast">
+      <div id="desc"></div>
     </div>
 
- 
-    <section class="sec">
-            <div class="header">
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+    <div class="notsoLoad hideME" id="notsoLoad">
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+                <div class="header">
+                    
+                    <div class="first">
+                        <h2>Approve requests</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
+
+                    <div class="second">
+                        
+                        <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">3</span>
+                            <div class="notification-content">
+
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SA-dashboard.html">Dashboard</a>
+                                <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <section class="content1">
+
+                <div class="top">
+                    <h2>Choose the requests you want to check</h2>
+                </div>
+
+                <div class="selectButtons">
+                    <button class="btn" id="la">License applications</button>
+                    <button class="btn" id="sr">Song registrations</button>
+                    <button class="btn" id="soc">Song ownership changes</button>
+                    <button class="btn" id="sre">Song removal</button>
+                </div>
+
+
                 
-                <div class="first">
-                    <h2>Approve requests</h2>
-                    <!-- <h3>Welcome to OSCA!!!</h3> -->
+                <div class="img" id="img">
+                    <img src="../resources/images/request.svg" alt="">
                 </div>
 
-                <div class="second">
-                    
-                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
 
+                <div class="mainCard">
+                    <div class="licenseApplications blank" id="licenseApplications">
+                        <div class="mainContent">    
+                            <div class="tableContainer" id="table1">
+                                <ul class="responsive-table" id="ul">
+                                    <li class="table-header">
+                                        <div class="col col-1">License ID</div>
+                                        <div class="col col-2">Concert name</div>
+                                        <div class="col col-3">Show organizer</div>
+                                        <div class="col col-4">Concert date</div>
+                                        <div class="col col-5">Venue</div>
+                                        <div class="col col-6">License type</div>
+                                        <div class="col col-7">payment status</div>
+                                        <div class="col col-8" id="col8Topic">Accept</div>
+                                        <div class="col col-9" id="col8Topic">Reject</div>
+                                    </li>
+                                    <!-- 
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="License ID">42235</div>
+                                        <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
+                                        <div class="col col-4" data-label="Concert Date">2021/10/12</div>
+                                        <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
+                                        <div class="col col-6" data-label="License Type">close</div>
+                                        <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
+                                    </li>
+
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="License ID">42235</div>
+                                        <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
+                                        <div class="col col-4" data-label="Concert Date">2021/10/12</div>
+                                        <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
+                                        <div class="col col-6" data-label="License Type">close</div>
+                                        <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
+                                    </li>
+
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="License ID">42235</div>
+                                        <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
+                                        <div class="col col-4" data-label="Concert Date">2021/10/12</div>
+                                        <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
+                                        <div class="col col-6" data-label="License Type">close</div>
+                                        <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
+                                    </li> -->
+                                    
+                                </ul>
+                            </div>    
                         </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname">,</h3>
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="SA-dashboard.html">Dashboard</a>
-                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-        <section class="content1">
-
-            <div class="top">
-                <h2>Choose the requests you want to check</h2>
-            </div>
-
-            <div class="selectButtons">
-                <button class="btn" id="la">License applications</button>
-                <button class="btn" id="lc">License cancellations</button>
-                <button class="btn" id="sr">Song registrations</button>
-                <button class="btn" id="soc">Song ownership changes</button>
-                <button class="btn" id="sre">Song removal</button>
-            </div>
-
-
-            
-            <div class="img" id="img">
-                <img src="../resources/images/request.svg" alt="">
-            </div>
-
-
-            <div class="mainCard">
-                <div class="licenseApplications blank" id="licenseApplications">
-                    <div class="mainContent">    
-                        <div class="tableContainer">
-                            <ul class="responsive-table" id="ul">
-                                <li class="table-header">
-                                    <div class="col col-1">License ID</div>
-                                    <div class="col col-2">Concert name</div>
-                                    <div class="col col-3">Show organizer</div>
-                                    <div class="col col-4">Concert date</div>
-                                    <div class="col col-5">Venue</div>
-                                    <div class="col col-6">License type</div>
-                                    <div class="col col-7">payment Slip</div>
-                                    <div class="col col-8" id="col8Topic">Accept</div>
-                                    <div class="col col-9" id="col8Topic">Reject</div>
-                                </li>
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="License ID">42235</div>
-                                    <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
-                                    <div class="col col-4" data-label="Concert Date">2021/10/12</div>
-                                    <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
-                                    <div class="col col-6" data-label="License Type">close</div>
-                                    <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="License ID">42235</div>
-                                    <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
-                                    <div class="col col-4" data-label="Concert Date">2021/10/12</div>
-                                    <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
-                                    <div class="col col-6" data-label="License Type">close</div>
-                                    <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="License ID">42235</div>
-                                    <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Show Organizer">Isuru Nishadha</div>
-                                    <div class="col col-4" data-label="Concert Date">2021/10/12</div>
-                                    <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
-                                    <div class="col col-6" data-label="License Type">close</div>
-                                    <div class="col col-7" data-label="Payment Slip"><i class="fas fa-money-check-alt" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-                                
-                            </ul>
-                        </div>    
                     </div>
 
-                </div>
-
-
-                <div class="licenseCancellations blank" id="licenseCancellations">
-                    <div class="mainContent">    
-                        <div class="tableContainer">
-                            <ul class="responsive-table" id="ul">
-                                <li class="table-header">
-                                    <div class="col col-1">License ID</div>
-                                    <div class="col col-2">Concert name</div>
-                                    <div class="col col-3">Show organizer</div>
-                                    <div class="col col-4">Concert date</div>
-                                    <div class="col col-5">Venue</div>
-                                    <div class="col col-6">License type</div>
-                                    <div class="col col-8" id="col8Topic">Accept</div>
-                                    <div class="col col-9" id="col8Topic">Reject</div>
-                                </li>
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="License ID">42235</div>
-                                    <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Show organizer">Isuru Nishadha</div>
-                                    <div class="col col-4" data-label="Concert Date">2021/10/12</div>
-                                    <div class="col col-5" data-label="Venue">viharamaghjadevi colombo 10</div>
-                                    <div class="col col-6" data-label="License Type">close</div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="songRegistrations blank" id="songRegistrations">
-                     <div class="mainContent">    
-                        <div class="tableContainer">
-                            <ul class="responsive-table2" id="ul">
-                                <li class="table-header">
-                                    <div class="col col-1">Song ID</div>
-                                    <div class="col col-2">Song name</div>
-                                    <div class="col col-3">Version</div>
-                                    <div class="col col-4">Published year</div>
-                                    <div class="col col-5">Requested by</div>
-                                    <div class="col col-7">Confirmation document</div>
-                                    <div class="col col-8" id="col8Topic">Accept</div>
-                                    <div class="col col-9" id="col8Topic">Reject</div>
-                                </li>
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="Song ID">42235</div>
-                                    <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Version">1</div>
-                                    <div class="col col-4" data-label="Published year">2021</div>
-                                    <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
-                                    <div class="col col-7" data-label="Confirmation document"><i class="fas fa-file" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="songOwnership blank" id="songOwnership">
-                    <div class="mainContent">    
-                        <div class="tableContainer">
-                            <ul class="responsive-table2" id="ul">
-                                <li class="table-header">
-                                    <div class="col col-1">Song ID</div>
-                                    <div class="col col-2">Song name</div>
-                                    <div class="col col-3">Version</div>
-                                    <div class="col col-4">Published year</div>
-                                    <div class="col col-5">Requested by</div>
-                                    <div class="col col-7">Confirmation document</div>
-                                    <div class="col col-8" id="col8Topic">Accept</div>
-                                    <div class="col col-9" id="col8Topic">Reject</div>
-                                </li>
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="Song ID">42235</div>
-                                    <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Version">1</div>
-                                    <div class="col col-4" data-label="Published year">2021</div>
-                                    <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
-                                    <div class="col col-7" data-label="Confirmation document"><i class="fas fa-file" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="songRemoval blank" id="songRemoval">
-                    <div class="mainContent">    
-                        <div class="tableContainer">
-                            <ul class="responsive-table2" id="ul">
-                                <li class="table-header">
-                                    <div class="col col-1">Song ID</div>
-                                    <div class="col col-2">Song name</div>
-                                    <div class="col col-3">Version</div>
-                                    <div class="col col-4">Published year</div>
-                                    <div class="col col-5">Requested by</div>
-                                    <div class="col col-7">Confirmation document</div>
-                                    <div class="col col-8" id="col8Topic">Accept</div>
-                                    <div class="col col-9" id="col8Topic">Reject</div>
-                                </li>
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="Song ID">42235</div>
-                                    <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
-                                    <div class="col col-3" data-label="Version">1</div>
-                                    <div class="col col-4" data-label="Published year">2021</div>
-                                    <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
-                                    <div class="col col-7" data-label="Confirmation document"><i class="fas fa-file" id="icons"></i></div>
-                                    <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
-                                    <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
-                                </li>
-                            </ul>
+                    <div class="songRegistrations blank" id="songRegistrations">
+                        <div class="mainContent">    
+                            <div class="tableContainer" id="table3">
+                                <ul class="responsive-table2" id="ul">
+                                    <li class="table-header">
+                                        <div class="col col-1">Song ID</div>
+                                        <div class="col col-2">Song name</div>
+                                        <div class="col col-3">Version</div>
+                                        <div class="col col-4">Published year</div>
+                                        <div class="col col-5">Requested by</div>
+                                        <div class="col col-7">Confirmation document</div>
+                                        <div class="col col-8" id="col8Topic">Accept</div>
+                                        <div class="col col-9" id="col8Topic">Reject</div>
+                                    </li>
+                                    <!-- <li class="table-row">
+                                        <div class="col col-1" data-label="Song ID">42235</div>
+                                        <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Version">1</div>
+                                        <div class="col col-4" data-label="Published year">2021</div>
+                                        <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
+                                        <div class="col col-7" data-label="Confirmation document"><i class="fas fa-file" id="icons"></i></div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div> 
+                                    </li>-->
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                </div>
 
 
 
 
-            </div>    
-        </section>    
-    </section>
+                    <div class="songOwnership blank" id="songOwnership">
+                        <div class="mainContent">    
+                            <div class="tableContainer" id="table4">
+                                <ul class="responsive-table2" id="ul">
+                                    <li class="table-header">
+                                        <div class="col col-1">Song ID</div>
+                                        <div class="col col-2">Song name</div>
+                                        <div class="col col-3">Version</div>
+                                        <div class="col col-4">Published year</div>
+                                        <div class="col col-5">Requested by</div>
+                                        <div class="col col-7">Confirmation document</div>
+                                        <div class="col col-8" id="col8Topic">Accept</div>
+                                        <div class="col col-9" id="col8Topic">Reject</div>
+                                    </li>
+                                    <!-- <li class="table-row">
+                                        <div class="col col-1" data-label="Song ID">42235</div>
+                                        <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Version">1</div>
+                                        <div class="col col-4" data-label="Published year">2021</div>
+                                        <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
+                                        <div class="col col-7" data-label="Confirmation document"><i class="fas fa-file" id="icons"></i></div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
-    <script src="../resources/js/A-requests.js"></script>
+
+
+
+                    <div class="songRemoval blank" id="songRemoval">
+                        <div class="mainContent">    
+                            <div class="tableContainer" id="table5">
+                                <ul class="responsive-table2" id="ul">
+                                    <li class="table-header">
+                                        <div class="col col-1">Song ID</div>
+                                        <div class="col col-2">Song name</div>
+                                        <div class="col col-3">Version</div>
+                                        <div class="col col-4">Published year</div>
+                                        <div class="col col-5">Requested by</div>
+                                        <!-- <div class="col col-7">Confirmation document</div> -->
+                                        <div class="col col-8" id="col8Topic">Accept</div>
+                                        <div class="col col-9" id="col8Topic">Reject</div>
+                                    </li>
+                                    <!-- <li class="table-row">
+                                        <div class="col col-1" data-label="Song ID">42235</div>
+                                        <div class="col col-2" data-label="Song Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Version">1</div>
+                                        <div class="col col-4" data-label="Published year">2021</div>
+                                        <div class="col col-5" data-label="Requested by">Isuru Nishadha</div>
+                                        <div class="col col-8" data-label="Accept"><i class="fas fa-check-circle" id="icons"></i></div>
+                                        <div class="col col-9" data-label="Reject"><i class="fas fa-times-circle" id="icons"></i></div>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>    
+            </section>    
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
+
+    <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/ALL-requests.js"></script>
+    <script src="../resources/js/SA-requests.js"></script>
+    <script src="../resources/js/popUp.js"></script>
 
 </body>
 </html>
