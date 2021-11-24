@@ -7,7 +7,7 @@
   overflow: hidden;
 } */
 #notification{
-    width: 40%;
+    width: 35%;
     height: 50%;
     margin-top: 10%;
     /* background: burlywood; */
@@ -188,6 +188,24 @@
 .panel .notifications .notification p b {
   font-weight: 600;
 }
+
+#notiDIV{
+  display: flex;
+  /* flex-direction: row; */
+  justify-content:first baseline;
+}
+
+#left{
+  /* background-color: rgb(255, 0, 221); */
+  max-width: 100vh;
+  /* margin-left: 5%; */
+}
+
+#right{
+  /* background-color: blue; */
+  margin-left: 10rem;
+}
+
 @-webkit-keyframes here-am-i {
   from {
     -webkit-transform: translate3d(0, 50px, 0);

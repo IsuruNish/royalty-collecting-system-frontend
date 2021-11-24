@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Bar</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/M-changeSongOwnership.css">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+  <link rel="stylesheet" href="../resources/css/popUp.css">
+  <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
+    <link rel="stylesheet" href="../resources/css/NotificationUI.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+    
+    <script src="../resources/js/script.js"></script>
+</head>
+
+<body>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+
+    <div class="notsoLoad hideME" id="notsoLoad">
+
+        <input type="checkbox" id="check">
+
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section>
+
+            <!-- <div class="all"> -->
+                <div class="header">
+                    
+                    <div class="first">
+                        
+                        <!-- <h2>Notifications</h2> -->
+                    </div>
+
+                    <div class="second">
+                        
+                        <div class="notification">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge">30</span>
+                            <!-- <div class="notification-content">
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                                <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
+                            </div> -->
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname"></h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SA-dashboard.html">Dashboard</a>
+                                <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+                
+                <div class="mainContent">
+
+                    <div class="panel">
+                    
+                        <div class="header">
+                        
+                            <div class="menu-icon4">
+                                <div class="dash-top"></div>
+                                <div class="dash-bottom"></div>
+                                <div class="circle"></div>
+                            </div><span class="title">Notifications</span>
+                        </div>
+                        <div class="content4">
+                            <img src="../resources/images/notification.svg" alt="" id="notification">
+                        <div class="notifications clearfix" id="notifyME">
+                            <div class="line"></div>
+                            <div class="notification" id="line1">
+                                <div class="circle active"></div><span class="time">9:24 AM</span>
+                                <div id="notiDIV">
+                                    <div id="left">
+                                        <p><b>0000David Walsh and Paul Irish liked a photo from angela sebastiana</b></p>
+                                    </div>
+                                    <div id="right">
+                                        <i class="fas fa-trash"  onclick="Delete(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+    
+                            <div class="notification" id="line1">
+                                <div class="circle active"></div><span class="time">8:15 AM</span>
+                                <div id="notiDIV">
+                                    <div id="left">
+                                        <p><b>1111David Walsh and Paul Irish liked a photo from angela sebastiana</b></p>
+                                    </div>
+                                    <div id="right">
+                                        <i class="fas fa-trash"  onclick="Delete(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="notification" id="line1">
+                                <div class="circle active"></div><span class="time">8:10 AM</span>
+                                <div id="notiDIV">
+                                    <div id="left">
+                                        <p><b>22222David Walsh and Paul Irish liked a photo from angela sebastiana</b></p>
+                                    </div>
+                                    <div id="right">
+                                        <i class="fas fa-trash"  onclick="Delete(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="notification" id="line1">
+                                <div class="circle active"></div><span class="time">8:10 AM</span>
+                                <div id="notiDIV">
+                                    <div id="left">
+                                        <p><b>3333David Walsh and Paul Irish liked a photo from angela sebastiana</b></p>
+                                    </div>
+                                    <div id="right">
+                                        <i class="fas fa-trash"  onclick="Delete(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="notification" id="line1">
+                                <div class="circle active"></div><span class="time">8:10 AM</span>
+                                <div id="notiDIV">
+                                    <div id="left">
+                                        <p><b>4444David Walsh and Paul Irish liked a photo from angela sebastiana</b></p>
+                                    </div>
+                                    <div id="right">
+                                        <i class="fas fa-trash"  onclick="Delete(this)"></i>
+                                    </div>
+                                </div>
+                            </div>
+ 
+                            <!-- <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div>
+                            <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div>
+                            <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div>
+                            <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div>
+                            <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div>
+                            <div class="notification" id="line1">
+                                <div class="circle"></div><span class="time">8:00 AM</span>
+                                <p><b>David Walsh</b> and <b>Paul Irish</b> liked a photo from angela sebastiana</p>Click here move to trash <i class="fas fa-trash"  onclick="Delete()"></i>
+                            </div> -->
+                            
+                            <!-- <div class="notification">
+                                <div class="circle"></div><span class="time">Yesterday</span>
+                                <p><b>Elon Musk</b> tweeted after a while</p>
+                            </div> -->
+                        
+                        
+                        </div>
+
+                        </div>
+                        
+                    </div>
+                    
+
+    
+                
+                
+                    
+
+                </div>
+
+                <!-- <div class="submitDocumentContent">
+                    <div class="text">
+                        <p>Submit the confirmation documents</p><i class="far fa-arrow-alt-right"></i>  
+                    </div>
+                
+                <div class="form">
+                    <form action="#">
+                        <input type="file" id="myFile" name="filename">
+                        <input type="submit" id="btn">
+                    </form>
+                </div>
+                
+                </div> -->
+
+                
+        
+        
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
+<!-- <script src="../resources/js/M-changeSongOwnership.js"></script> -->
+
+<script src="../resources/js/alertFromDown.js"></script>
+<script src="../resources/js/SA-notifications.js"></script>
+<script src="../resources/js/script.js"></script>
+<script src="../resources/js/logout.js"></script>
+</body>
+</html>
