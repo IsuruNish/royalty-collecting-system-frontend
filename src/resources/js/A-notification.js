@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then((data) => {
         ut = data['ut']
         console.log(data);
-        if(ut!=1){
+        if(ut!=2){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
@@ -287,7 +287,7 @@ function getUnreadNotificationIDs(data){
           popUpFromDown("Error, try again",'red');
           
           setTimeout(function() {
-              window.location.href='SA-notification.html';
+              window.location.href='A-notification.html';
           },3000);
         }
       })

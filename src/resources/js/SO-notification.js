@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then((data) => {
         ut = data['ut']
         console.log(data);
-        if(ut!=1){
+        if(ut!=5){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
@@ -67,17 +67,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             }
         
               fetch("http://localhost:8080/OSCA_war_exploded/NotificationServlet", options)
-            //   .then( res => res.json())
-            //   .then(data =>{
-            //     console.log(data);
-            //     if(data['ok'] != 1){
-            //       popUpFromDown("Error, try again",'red');
-                  
-            //       setTimeout(function() {
-            //           window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
-            //       },3000);
-            //     }
-            //   })
+
               .catch(err =>{
                 popUpFromDown("Error try again",'red');
                 setTimeout(function() {
@@ -197,53 +187,6 @@ function getUnreadNotificationIDs(data){
     }
     return unreadIDs;
 }  
-
-// function makeNotificationsREAD(data){
-//     console.log(data);
-//     let notificationDiv = document.getElementById("notifyME");
-//     for (let i = 0; i < data[0].length; i++) {
-//       console.log(data[3][i].substring(0,data[3][i].length-3))
-//       notiID.push(data[i]);
-
-//     var parentDiv = document.createElement("div");
-//     var div = document.createElement("div");
-//     var div2 = document.createElement("div");
-//     var div3 = document.createElement("div");
-//     var div4 = document.createElement("div");
-//     var span = document.createElement("span");
-//     var pTag = document.createElement("p");
-//     var iTag = document.createElement("i");
-
-//     parentDiv.setAttribute("class", "notification");
-//     parentDiv.setAttribute("id", "line1");
-//     // parentDiv.setAttribute("name", data[0][i]);
-    
-//     div2.setAttribute("id", "notiDIV");
-//     div3.setAttribute("id", "left");
-//     div4.setAttribute("id", "right");
-//     span.setAttribute("class", "time");
-//     iTag.setAttribute("onclick", "Delete(this,"+data[0][i]+")");
-
-//     div.classList.add("circle");
-//     div.classList.add("active");
-
-//     iTag.classList.add("fas");
-//     iTag.classList.add("fa-trash");
-
-//     parentDiv.appendChild(div);
-//     parentDiv.appendChild(span);
-//     div3.appendChild(pTag);
-//     div4.appendChild(iTag);
-//     div2.appendChild(div3);
-//     div2.appendChild(div4);
-//     parentDiv.appendChild(div2);
-//     notificationDiv.appendChild(parentDiv);
-
-//     span.innerHTML = timeConvert(data[3][i].substring(0,data[3][i].length-3))+ " on "+  data[2][i] ;
-//     pTag.innerHTML = data[1][i];
-
-//   }
-// }
   
   function timeConvert (time) {
     time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
@@ -287,7 +230,7 @@ function getUnreadNotificationIDs(data){
           popUpFromDown("Error, try again",'red');
           
           setTimeout(function() {
-              window.location.href='SA-notification.html';
+              window.location.href='SO-notification.html';
           },3000);
         }
       })

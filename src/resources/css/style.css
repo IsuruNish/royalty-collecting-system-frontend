@@ -218,6 +218,7 @@ section {
   margin-right: 20px;
   color: black;
   font-size: 30px;
+  cursor: pointer;
 }
 
 #copyright {
@@ -426,6 +427,10 @@ footer h4 {
   border-radius: 20px;
 }
 
+
+.letsHideForAwhile{
+  display: none;
+}
 /* 1180 */
 
 @media screen and (max-width: 1180px) {

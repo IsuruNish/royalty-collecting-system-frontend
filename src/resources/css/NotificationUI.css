@@ -151,10 +151,16 @@
     -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
   }
-.panel .notifications .notification:hover {
+/* .panel .notifications .notification:hover {
   color: #1B95E0;
   cursor: pointer;
+} */
+
+.notifications i:hover {
+  color: #ff0000;
+  cursor: pointer;
 }
+
 .panel .notifications .notification .circle {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
