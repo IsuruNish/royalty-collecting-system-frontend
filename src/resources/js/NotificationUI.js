@@ -1,3 +1,7 @@
+window.addEventListener('DOMContentLoaded',()=>{
+    getNotificationNumber();
+})
+
 function getNotificationNumber(){
     let token = Cookies.get('Authorization');
 
