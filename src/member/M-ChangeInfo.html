@@ -56,9 +56,9 @@
 
                 <div class="second">
                     
-                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
+                    <div class="notification" onclick="window.location.href='M-notification.html'">
                         <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
+                        <span class="badge" id="notifyNumber"></span>
                         <div class="notification-content">
         
                         </div>
@@ -70,7 +70,7 @@
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                         <div class="dropdown-content">
                             <a href="M-dashboard.html">Dashboard</a>
-                            <a href="../landing_page/Home.html">Log out</a>
+                            <a href="../landing_page/Home.html" id="logoutBtn">Log out</a>
                         </div>
                     </div>
                 </div>
@@ -248,6 +248,7 @@
 
 
     <script src="../resources/js/M-changeInfo.js"></script>
-
+    <script src="../resources/js/NotificationUI.js"></script>
+    <script src="../resources/js/logout.js"></script>
 </body>
 </html>
