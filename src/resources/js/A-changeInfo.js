@@ -137,7 +137,7 @@ photoChangeBtn.addEventListener('click', function(){
   .then(res => res.json())
   .then(data => {
       
-      if(data['userType'] == 1){
+      if(data['userType'] == 2){
         // const loading = document.getElementById("loader-wrapper");
         // const realpage = document.getElementById("notsoLoad");
         // loading.classList.remove("hideME");
@@ -148,7 +148,7 @@ photoChangeBtn.addEventListener('click', function(){
             // realpage.classList.remove("hideME");
 
             // alert("Profile picture deleted successfully");
-            window.location.href='SA-ChangeInfo.html';
+            window.location.href='A-ChangeInfo.html';
         },3000);
       }
       else{
@@ -196,7 +196,7 @@ photoDelBtn.addEventListener('click', function(){
   .then(res => res.json())
   .then(data => {
       
-      if(data['userType'] == 1){
+      if(data['userType'] == 2){
         const loading = document.getElementById("loader-wrapper");
         const realpage = document.getElementById("notsoLoad");
         loading.classList.remove("hideME");
@@ -207,7 +207,7 @@ photoDelBtn.addEventListener('click', function(){
             // alert("Profile picture deleted successfully");
             // loading.classList.add("hideME");
             // realpage.classList.remove("hideME");
-            window.location.href='SA-ChangeInfo.html';
+            window.location.href='A-ChangeInfo.html';
         },3000);
       }
       else{
@@ -358,11 +358,11 @@ personalInfoBtn.addEventListener('click', function(){
 
     }
 
-    fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
+    fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        if(data['utype'] == 1){
+        if(data['utype'] == 2){
             document.getElementById('fname').value = data['fname'];
             document.getElementById('lname').value = data['lname'];
             document.getElementById('nic').value = data['nic'];
@@ -377,9 +377,9 @@ personalInfoBtn.addEventListener('click', function(){
             makeTextBoxDefault();
             // alert("Details updated!");
             popUpFromDown("Details updated!",'greenColour');
-            setTimeout(function() {
-                window.location.href='A-ChangeInfo.html';
-            },5000);
+            // setTimeout(function() {
+            //     window.location.href='SA-ChangeInfo.html';
+            // },5000);
             
         }
 
@@ -492,7 +492,7 @@ passChangeBtn.addEventListener('click', function(){
         .then(res => res.json())
         .then(data => {
             
-            if(data['userType'] == 1){
+            if(data['userType'] == 2){
                 // alert("Details updated!");
                 
                 popUpFromDown("Details updated!",'greenColour');
