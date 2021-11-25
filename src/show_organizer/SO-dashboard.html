@@ -54,7 +54,7 @@
                 <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
                 <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
                 <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-                <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
             </ul>
         </div>
 
@@ -71,7 +71,7 @@
                         
                         <div class="notification" onclick="window.location.href='SO-notification.html'">
                             <i class="fas fa-bell" id="bell"></i>
-                            <span class="badge">3</span>
+                            <span class="badge" id="notifyNumber"></span>
                             <div class="notification-content">
                 
                             </div>
@@ -151,5 +151,6 @@
     <script src="../resources/js/SO-dashboard.js"></script>
     <script src="../resources/js/script.js"></script>
     <script src="../resources/js/logout.js"></script>
+    <script src="../resources/js/NotificationUI.js"></script>
 </body>
 </html>
