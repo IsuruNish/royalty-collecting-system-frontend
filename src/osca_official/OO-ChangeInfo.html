@@ -43,7 +43,7 @@
             <li><a href="OO-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
             <li><a href="OO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
             <li><a href="OO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
@@ -57,9 +57,9 @@
 
                 <div class="second">
                     
-                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
+                    <div class="notification" onclick="window.location.href='OO-notification.html'">
                         <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
+                        <span class="badge" id="notifyNumber"></span>
                         <div class="notification-content">
 
                         </div>
@@ -210,6 +210,8 @@
 
 
     <script src="../resources/js/OO-changeInfo.js"></script>
+    <script src="../resources/js/NotificationUI.js"></script>
+    <script src="../resources/js/logout.js"></script>
 
 </body>
 </html>
