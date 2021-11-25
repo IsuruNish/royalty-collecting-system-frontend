@@ -14,7 +14,12 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
@@ -23,6 +28,18 @@
 </head>
 
 <body>
+
+    <div id="toast">
+        <div id="desc"></div>
+      </div>
+
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+
+    
+    <div class="notsoLoad hideME" id="notsoLoad">
 
     <input type="checkbox" id="check">
 
@@ -55,7 +72,7 @@
 
                 <div class="second">
                     
-                    <div class="notification" onclick="window.location.href='A-notification.html'">
+                    <div class="notification" onclick="window.location.href='SA-notification.html'">
                         <i class="fas fa-bell" id="bell"></i>
                         <span class="badge" id="notifyNumber"></span>
                         <div class="notification-content">
@@ -85,8 +102,18 @@
                 <div class="imgCard">
                     <h2>Profile picture</h2>
 
-                    <div class="insideImgCard">
-                        <input type="file" class="file">
+                    <div class="insideImgCard" id="insideImgCard">
+                        <input type="file" class="file" id="imageSelect">
+                    </div>
+                    
+                    <div class="updatesButtons">
+                        <div class="changeInfo">
+                            <button class="btn" id="photoChangeBtn">Save new photo</button>
+                        </div>
+
+                        <div class="changeInfo">
+                            <button class="btn" id="photoDeleteBtn">Remove Photo</button>
+                        </div>
                     </div>
 
 
@@ -101,23 +128,25 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label>First name</label> <br>
-                            <input type="text" name="" id="fname" value="Isuru" disabled>
+                            <input type="text" name="" id="fname" value="" class="NoBorder" onfocus="hideValidate('fname')">
+                            <span class="words" id="fnameWord"></span>
                         </div> 
-                        <div class="changeButton">
+                        <!-- <div class="changeButton">
                             <button class="change" id="fnameBtn">change</button>
-                        </div>
+                        </div> -->
                     </div>
 
  
                     <div class="info">
                         <div class="insideInfo">
                             <label >Last name</label> <br>
-                            <input type="text" name="" id="lname" value="Nishadha" disabled>
+                            <input type="text" name="" id="lname" value="" class="NoBorder" onfocus="hideValidate('lname')">
+                            <span class="words" id="lnameWord"></span>
                         </div> 
 
-                        <div class="changeButton">
+                        <!-- <div class="changeButton">
                             <button class="change" id="lnameBtn">change</button>
-                        </div>
+                        </div> -->
                     </div>
 
 
@@ -125,12 +154,13 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Email address</label> <br>
-                            <input type="text" name="" id="email" value="Isuru@gmail.com" disabled> 
+                            <input type="text" name="" id="email" value="" class="NoBorder" onfocus="hideValidate('email')" onkeydown="validateEmail()"> 
+                            <span class="words" id="emailWord"></span>
                         </div> 
 
-                        <div class="changeButton">
+                        <!-- <div class="changeButton">
                             <button class="change" id="emailBtn">change</button>
-                        </div>
+                        </div> -->
                     </div>
 
 
@@ -138,12 +168,13 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Phone number</label> <br>
-                            <input type="text" value = "Isuru Nish" name="" id="phone" value="Isuru" disabled>
+                            <input type="text" name="" id="phone" value="" class="NoBorder" onfocus="hideValidate('phone')">
+                            <span class="words" id="phoneWord"></span>
                         </div> 
 
-                        <div class="changeButton">
+                        <!-- <div class="changeButton">
                             <button class="change" id="phoneBtn">change</button>
-                        </div>
+                        </div> -->
                     </div>
 
 
@@ -151,28 +182,48 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >NIC number</label> <br>
-                            <input type="text" name="" id="nic" value="aaaaaaaaaaaa" disabled> 
+                            <input type="text" name="" id="nic" value="" class="NoBorder" onfocus="hideValidate('nic')" > 
+                            <span class="words" id="nicWord"></span>
                         </div> 
 
-                        <div class="changeButton">
+                        <!-- <div class="changeButton">
                             <button class="change" id="nicBtn">change</button>
-                        </div>
+                        </div> -->
                     </div>
 
 
 
                     <div class="changeInfo">
-                        <button class="btn">Save</button>
+                        <button class="btn" id="personalInfo">Save Chanages</button>
                     </div>
                 </div>
 
                 <div class="pwCard">
                     <h2>Change password</h2>
 
-                    <div class="info">
+                    <div class="input">
+                        <div class="insideInfo">
+                            <input type="password" name="" class="passInput" placeholder="Current password" onfocus="hideValidate('oldpass')" id="oldpass" onfocus="hideValidate('oldpass')">
+                            <span class="words" id="oldPassWord"></span>
+                        </div>
+
+                        <div class="insideInfo">
+                            <input type="password" name="" class="passInput" placeholder="New password " onfocus="hideValidate('newpass1')" id="newpass1" >
+                            <progress max="100" value="0" id="strength"></progress>
+                            <span class="words" id="newPassWord1"></span>
+                        </div>
+
+                        <div class="insideInfo">
+                            <input type="password" name="" class="passInput" placeholder="Confirm new password" onfocus="hideValidate('newpass2')" id="newpass2" onfocus="hideValidate('newpass2')">
+                            <span class="words" id="newPassWord2"></span>
+                        </div>
+                     </div>
+
+                    <!-- <div class="info">
                         <div class="insideInfo">
                             <label>Current password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="password" name="" id="oldpass">
+                            <input type="password" name="" id="oldpass" onfocus="hideValidate('oldpass')" class="passInput">
+                            <span class="words" id="oldPassWord"></span>
                         </div> 
                     </div>
 
@@ -180,7 +231,8 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >New password        </label> &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
-                            <input type="password" name="" id="newpass1">
+                            <input type="password" name="" id="newpass1" onfocus="hideValidate('newpass1')" class="passInput">
+                            <span class="words" id="newPassWord1"></span>
                         </div> 
                     </div>
 
@@ -188,12 +240,13 @@
                     <div class="info">
                         <div class="insideInfo">
                             <label >Confirm password</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="password" name="" id="newpass2"> 
+                            <input type="password" name="" id="newpass2" onfocus="hideValidate('newpass2')" class="passInput"> 
+                            <span class="words" id="newPassWord2"></span>
                         </div> 
-                    </div>
+                    </div> -->
 
-                    <div class="changeInfo">
-                        <button class="btn">Save</button>
+                    <div class="changeInfo" id="passbuttonDiv">
+                        <button class="btn" id="passChangeBtn">Save Chanages</button>
                     </div>
                 </div>
 
@@ -206,9 +259,11 @@
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
 
+    </div>
 
-    <script src="../resources/js/OO-changeInfo.js"></script>
+    <script src="../resources/js/A-changeInfo.js"></script>
+    <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/logout.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
-
 </body>
 </html>

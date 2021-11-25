@@ -235,7 +235,7 @@ input[type="text"]:disabled {
     border-bottom: solid 2px rgb(189, 189, 189) ;
     font-size: 18px; */
 
-    /* border: none; */
+    border: none;
     border-radius: 0;
     width: 100%;
     margin-top: 1%;
