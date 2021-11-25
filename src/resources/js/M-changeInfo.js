@@ -242,7 +242,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             // alert("Email or Password is wrong");
             popUpFromDown("Login again",'red');
             setTimeout(function() {
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },5000);
             // popUp("Email or Password is wrong");
             console.error(err);
@@ -300,11 +300,11 @@ photoChangeBtn.addEventListener('click', function(){
   loading.classList.remove("hideME");
   realpage.classList.add("hideME");
 
-  fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+  fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
   .then(res => res.json())
   .then(data => {
       
-      if(data['userType'] == 1){
+      if(data['userType'] == 4){
         // const loading = document.getElementById("loader-wrapper");
         // const realpage = document.getElementById("notsoLoad");
         // loading.classList.remove("hideME");
@@ -315,7 +315,7 @@ photoChangeBtn.addEventListener('click', function(){
             // realpage.classList.remove("hideME");
 
             // alert("Profile picture deleted successfully");
-            window.location.href='SA-ChangeInfo.html';
+            window.location.href='M-ChangeInfo.html';
         },3000);
       }
       else{
@@ -359,11 +359,11 @@ photoDelBtn.addEventListener('click', function(){
         body: JSON.stringify(payload)
   }
 
-  fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+  fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
   .then(res => res.json())
   .then(data => {
       
-      if(data['userType'] == 1){
+      if(data['userType'] == 4){
         const loading = document.getElementById("loader-wrapper");
         const realpage = document.getElementById("notsoLoad");
         loading.classList.remove("hideME");
@@ -374,7 +374,7 @@ photoDelBtn.addEventListener('click', function(){
             // alert("Profile picture deleted successfully");
             // loading.classList.add("hideME");
             // realpage.classList.remove("hideME");
-            window.location.href='SA-ChangeInfo.html';
+            window.location.href='M-ChangeInfo.html';
         },3000);
       }
       else{
@@ -395,7 +395,87 @@ photoDelBtn.addEventListener('click', function(){
 
 
 
+document.getElementById('bankBTN').addEventListener('click', function(){
+    let token = Cookies.get('Authorization');
+    if(token == undefined){
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },5000);
+    }
 
+    filled = lastValidationOfBank();
+
+    if(filled){
+        var bankName = $("#bname").val().trim();
+        var bankBranch = $("#braname").val().trim();
+        var accNo = $("#accno").val().trim();
+
+        let payload = {
+            "reqNo" : 9,
+            "bankName":bankName,
+            "bankBranch":bankBranch,
+            "accNo":accNo
+        }
+        
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+
+            body: JSON.stringify(payload) 
+
+    }
+
+    fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
+    .then(res => res.json())
+    .then(data => {
+        console.log("data");
+        console.log(data);
+        if(data['utype'] == 4){
+
+            //change this
+            //change this
+            //change this
+            //change this
+            //change this
+
+            document.getElementById('accno').value = data['accNo'];
+            document.getElementById('braname').value = data['bankBranch'];
+            document.getElementById('bname').value = data['bankName'];
+
+            bankNameVal = data['bankName'];
+            bankBranchVal = data['bankBranch'];
+            accNoVal = data['accNo'];
+
+            makeTextBoxDefault();
+            // alert("Details updated!");
+            popUpFromDown("Details updated!",'greenColour');
+            setTimeout(function() {
+                window.location.href='M-ChangeInfo.html';
+            },5000);
+            
+        }
+
+        else{
+            popUpFromDown("Error try again!",'red');
+
+            //   alert("Invalid details!");
+        }
+        })
+
+    .catch(err=> {
+        // alert("Details invalid try again!");
+        popUpFromDown("Details invalid try again!",'red');
+        console.log(err);
+        })
+    }
+
+
+
+})
 
 personalInfoBtn.addEventListener('click', function(){
     let token = Cookies.get('Authorization');
@@ -505,6 +585,10 @@ personalInfoBtn.addEventListener('click', function(){
 
 
     if(filled){
+        var bankName = $("#bname").val().trim();
+        var bankBranch = $("#braname").val().trim();
+        var accNo = $("#accno").val().trim();
+
         let payload = {
             "reqNo" : 2,
             "fname":fname,
@@ -525,11 +609,11 @@ personalInfoBtn.addEventListener('click', function(){
 
     }
 
-    fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+    fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
     .then(res => res.json())
     .then(data => {
         console.log(data);
-        if(data['utype'] == 1){
+        if(data['utype'] == 4){
             document.getElementById('fname').value = data['fname'];
             document.getElementById('lname').value = data['lname'];
             document.getElementById('nic').value = data['nic'];
@@ -544,9 +628,9 @@ personalInfoBtn.addEventListener('click', function(){
             makeTextBoxDefault();
             // alert("Details updated!");
             popUpFromDown("Details updated!",'greenColour');
-            // setTimeout(function() {
-            //     window.location.href='SA-ChangeInfo.html';
-            // },5000);
+            setTimeout(function() {
+                window.location.href='M-ChangeInfo.html';
+            },5000);
             
         }
 
@@ -655,11 +739,11 @@ passChangeBtn.addEventListener('click', function(){
 
         }
 
-        fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+        fetch("http://localhost:8080/OSCA_war_exploded/AllUsersChangeInfoServlet", options)
         .then(res => res.json())
         .then(data => {
             
-            if(data['userType'] == 1){
+            if(data['userType'] == 4){
                 // alert("Details updated!");
                 
                 popUpFromDown("Details updated!",'greenColour');
@@ -775,6 +859,43 @@ const lname = document.getElementById('lname');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const nic = document.getElementById('nic');
+const bname = document.getElementById('bname');
+const braname = document.getElementById('braname');
+const accno = document.getElementById('accno');
+
+bname.addEventListener('focusout', function(){
+    if(bankNameVal !=  bname.value.trim()) {
+        bname.classList.add('greenBorder');
+        bname.classList.remove('NoBorder');
+    }
+    else{
+        bname.classList.remove('greenBorder');
+        bname.classList.add('NoBorder');
+    }
+})
+
+braname.addEventListener('focusout', function(){
+    if(bankBranchVal !=  braname.value.trim()) {
+        braname.classList.add('greenBorder');
+        braname.classList.remove('NoBorder');
+    }
+    else{
+        braname.classList.remove('greenBorder');
+        braname.classList.add('NoBorder');
+    }
+})
+
+accno.addEventListener('focusout', function(){
+    if(accNoVal !=  accno.value.trim()) {
+        accno.classList.add('greenBorder');
+        accno.classList.remove('NoBorder');
+    }
+    else{
+        accno.classList.remove('greenBorder');
+        accno.classList.add('NoBorder');
+    }
+})
+
 
 
 fname.addEventListener('focusout', function(){
@@ -1043,6 +1164,46 @@ function hideValidate (id) {
     //   text.innerHTML = "";
     //   text.style.color = "#ff0000";
     // }
+  }
+
+
+  function lastValidationOfBank(){
+    var bankName = $("#bname").val().trim();
+    var bankBranch = $("#braname").val().trim();
+    var accNo = $("#accno").val().trim();
+  
+    let filled = true;
+    if(bankName.match(/(.+)?[0-9](.+)?/)){
+  
+      var field = document.getElementById('bname');
+      var text = field.nextElementSibling;
+  
+      text.innerHTML = "Numbers aren't allowed";
+      text.style.color = "#ff0000";
+      filled = false;
+    }
+  
+     if(bankBranch.match(/(.+)?[0-9](.+)?/)){
+  
+      var field = document.getElementById('braname');
+      var text = field.nextElementSibling;
+  
+      text.innerHTML = "Numbers aren't allowed";
+      text.style.color = "#ff0000";
+      filled = false;
+    }
+  
+    if(accNo.match(/(.+)?[a-zA-Z](.+)?/)){
+  
+      var field = document.getElementById('accno');
+      var text = field.nextElementSibling;
+  
+      text.innerHTML = "Letters aren't allowed";
+      text.style.color = "#ff0000";
+      filled = false;
+    }
+  
+    return filled;
   }
 // lnameBtn.addEventListener('click', ()=>{
 //     lname.disabled = !lname.disabled

@@ -51,15 +51,13 @@
 
     <div class="sidebar">
         <header>OSCA</header>
-
         <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+            <li><a href="M-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+            <li><a href="M-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+            <li><a href="M-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
             <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
@@ -209,6 +207,7 @@
                         <div class="insideInfo">
                             <label>Bank name</label> <br>
                             <input type="text" name="" id="bname" value="BOC">
+                            <span class="words" id="bnameWord"></span>
                         </div> 
                         <!-- <div class="changeButton">
                             <button class="change" id="bnameBtn">change</button>
@@ -219,6 +218,7 @@
                         <div class="insideInfo">
                             <label>Branch name</label> <br>
                             <input type="text" name="" id="braname" value="Maradana">
+                            <span class="words" id="branameWord"></span>
                         </div> 
                         <!-- <div class="changeButton">
                             <button class="change" id="branameBtn">change</button>
@@ -229,6 +229,7 @@
                         <div class="insideInfo">
                             <label>Account number</label> <br>
                             <input type="text" name="" id="accno" value="4815162342">
+                            <span class="words" id="accnoWord"></span>
                         </div> 
                         <!-- <div class="changeButton">
                             <button class="change" id="accnoBtn">change</button>
@@ -236,7 +237,7 @@
                     </div>
 
                     <div class="changeInfo">
-                        <button class="btn">Save Chanages</button>
+                        <button class="btn" id="bankBTN">Save Chanages</button>
                     </div>
                 </div>
 
