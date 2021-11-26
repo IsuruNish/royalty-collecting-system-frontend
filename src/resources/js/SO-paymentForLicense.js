@@ -1,9 +1,17 @@
+let amountToPAy = 0;
+let firstNameSO = "";
+let lastNameSO = "";
+let emailSO = "";
+let phoneSO = "";
+let orderIDyes = Math.floor(100000 + Math.random() * 900000);
+let idSO = 0;
+
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
     if(token == undefined){
         popUpFromDown("login to continue",'red');
         setTimeout(function() {
-            // window.location.href='../landing_page/login.html';
+            window.location.href='../landing_page/login.html';
         },3000);
     }
   
@@ -20,12 +28,14 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
         ut = data['utype']
-        console.log(data);
+        lastNameSO = data['lname'];
+        emailSO = data['email'];
+        PhoneSO = data['phone'];
         uid = data['uid'];
         if(ut!=5){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },3000);
             }
             else{
@@ -38,6 +48,8 @@ window.addEventListener('DOMContentLoaded',()=>{
               pic.src = data['DPpath'];
               loading.classList.add("hideME");
               realpage.classList.remove("hideME");
+
+              firstNameSO = data['fname'];
   
 
               let id = document.URL.split("?")[1];
@@ -60,13 +72,16 @@ window.addEventListener('DOMContentLoaded',()=>{
               .then((data) => {
                 let amount = document.getElementById("amount");
 
+                console.log("data");
+                console.log(data);
                 amount.innerHTML =  data['totalFee'];
+                amountToPAy = data['totalFee'];
                 // document.getElementById("paymentValue").value =  data['totalFee'];
               })
               .catch(err =>{
                 popUpFromDown("Login again",'red');
                 setTimeout(function() {
-                    // window.location.href='../landing_page/login.html';
+                    window.location.href='../landing_page/login.html';
                 },3000);
                 console.error(err);
               });
@@ -78,7 +93,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .catch(err =>{
             popUpFromDown("Login again",'red');
             setTimeout(function() {
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },3000);
             console.error(err);
           });
@@ -110,6 +125,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         realpage.classList.add("hideME");
         
         let concertID = document.URL.split("?")[1];
+        idSO = document.URL.split("?")[1];
         let concertIDArr = [concertID];
         console.log(concertIDArr);
 
@@ -151,7 +167,7 @@ window.addEventListener('DOMContentLoaded',()=>{
           setTimeout(function() {
             loading.classList.add("hideME");
             realpage.classList.remove("hideME");
-            // window.location.href='../landing_page/login.html';
+            window.location.href='../landing_page/login.html';
           },3000);
           console.error(err);
         });
@@ -162,65 +178,84 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 
 
-  
-  // let button2 = document.getElementById("payment");
- 
-  
+function paymentDONE(){
+    let id = document.URL.split("?")[1];
+    let token = Cookies.get('Authorization');
 
-  // button2.addEventListener('click', function(){
-  //   window.location.href='SO-paymentUI.html?'+uid;
-  // })
+    let payload = {
+      "requestType":2,
+      "concertID":id
+    }
+    let options = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload) 
+    }
+      fetch("http://localhost:8080/OSCA_war_exploded/LicensePaymentServlet", options)
+      .then(res => res.json())
+      .then((data) => {
+        if (data['ok'] != 1) {
+            popUpFromDown("Error try again",'red');
+            window.location.href='SO-dashboard.html';
+        }
+        else{
+          popUpFromDown("Payment successful",'greenColour');
+        }
+      })
+      .catch(err =>{
+        popUpFromDown("Login again",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
+        console.error(err);
+      });
+}
 
 
 
-
-
-
-
-  // Called when user completed the payment. It can be a successful payment or failure
-  payhere.onCompleted = function onCompleted(orderId) {
-    console.log("Payment completed. OrderID:" + orderId);
-    //Note: validate the payment and show success or failure page to the customer
-};
-
-// Called when user closes the payment without completing
-payhere.onDismissed = function onDismissed() {
-    //Note: Prompt user to pay again or show an error page
-    console.log("Payment dismissed");
-};
-
-// Called when error happens when initializing payment such as invalid parameters
-payhere.onError = function onError(error) {
-    // Note: show an error page
-    console.log("Error:"  + error);
-};
-
-// Put the payment variables here
-var payment = {
-    "sandbox": true,
-    "merchant_id": "1218935",    
-    "return_url": "https://www.youtube.com/watch?v=dPW5kUKjmR4",     // Important
-    "cancel_url": "https://www.youtube.com",
-    "notify_url": "http://google.com",
-    "order_id": "ItemNo12345",
-    "items": "Licenses",
-    "amount": "1000.00",
-    "currency": "LKR",
-    "first_name": "Saman",
-    "last_name": "Perera",
-    "email": "samanp@gmail.com",
-    "phone": "0771234567",
-    "address": "No.1, Galle Road",
-    "city": "Colombo",
-    "country": "Sri Lanka",
-    "delivery_address": "No. 46, Galle road, Kalutara South",
-    "delivery_city": "Kalutara",
-    "delivery_country": "Sri Lanka",
-    "custom_1": "",
-    "custom_2": ""
-};
-
-// Show the payhere.js popup, when "PayHere Pay" is clicked
 document.getElementById('payment').onclick = function (e) {
-    payhere.startPayment(payment);
+  payhere.onCompleted = function onCompleted(orderId) {
+    paymentDONE()
+    console.log(orderId);
+  };
+
+  payhere.onDismissed = function onDismissed() {
+    popUpFromDown("Payment dismissed",'red');
+      console.log(("Payment dismissed"));
+  };
+
+  payhere.onError = function onError(error) {
+    popUpFromDown("Error try again",'red');
+    console.log(("Error"));
+  };
+
+  var payment = {
+      "sandbox": true,
+      "merchant_id": "1219328",
+      "return_url": undefined,
+      "cancel_url": undefined,
+      "notify_url": "http://localhost:8080/OSCA_war_exploded/testServlet",
+      "order_id": orderIDyes,
+      "items": "License payment",
+      "amount": amountToPAy,
+      "currency": "LKR",
+      "first_name": firstNameSO,
+      "last_name": lastNameSO,
+      "email": emailSO,
+      "phone": phoneSO,
+      "address": "-",
+      "city": "-",
+      "country": "-",
+      "delivery_country": "-",
+  };
+
+  payhere.startPayment(payment);
+
 };
+
+
+
+

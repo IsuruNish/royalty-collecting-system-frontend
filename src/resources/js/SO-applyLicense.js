@@ -250,7 +250,7 @@ document.getElementById('btnSubmit1').addEventListener('click', function(){
       .then(data =>{
         console.log(data);
         if(data['ok'] == 1){
-          popUpFromDown("License request sent",'greenColour');
+          // popUpFromDown("License request sent",'greenColour');
           setTimeout(function() {
             window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
           },3000);
