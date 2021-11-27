@@ -286,14 +286,14 @@ function makeLicenseAppReqArr(data){
               .then( data => {
                 popUpFromDown("License application accepted", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -336,14 +336,14 @@ function makeLicenseAppReqArr(data){
               .then( data => {
                 popUpFromDown("License application rejected", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -484,14 +484,14 @@ function makeSongRegReqArr(data){
               .then( data => {
                 popUpFromDown("song registration accepted", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -534,14 +534,14 @@ function makeSongRegReqArr(data){
               .then( data => {
                 popUpFromDown("song registration rejected", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -680,14 +680,14 @@ function makeSongOwnReqArr(data){
               .then( data => {
                 popUpFromDown("song ownership changes accepted", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -730,14 +730,14 @@ function makeSongOwnReqArr(data){
               .then( data => {
                 popUpFromDown("song ownership change rejected", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -874,14 +874,14 @@ function makeSongDelReqArr(data){
               .then( data => {
                 popUpFromDown("song removal accepted", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
@@ -926,14 +926,14 @@ function makeSongDelReqArr(data){
               .then( data => {
                 popUpFromDown("song removal rejected", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-requests.html';
+                  window.location.href='A-requests.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-requests.html';
+                    window.location.href='A-requests.html';
                 },5000);
                 console.error(err);
               });
