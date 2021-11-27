@@ -139,7 +139,8 @@ window.addEventListener('DOMContentLoaded',()=>{
   
   
   
-let licenseAppReq = []
+let Concert_licenseAppReqIDs = []
+let SO_licenseAppReqIDs = []
 let songRegReq = []
 let SongOwnReq = []
 let songCanReq = []
@@ -149,7 +150,8 @@ function makeLicenseAppReqArr(data){
     var ul = document.getElementById('table1').firstChild.nextSibling;
 
     for (let i = 0; i < data.length; i++) {
-        licenseAppReq.push(data[i]);
+        Concert_licenseAppReqIDs.push(data[i][0]);
+        SO_licenseAppReqIDs.push(data[i][8]);
 
         var li = document.createElement("li");
         var DivCol1 = document.createElement("div");
@@ -250,6 +252,7 @@ function makeLicenseAppReqArr(data){
         ul.appendChild(li);
 
 
+        let nameOfConcert = data[i][1];
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the license application request ?")
             licenseID = this.parentElement.parentElement.firstChild.innerHTML;
@@ -267,10 +270,14 @@ function makeLicenseAppReqArr(data){
                   window.location.href='../landing_page/login.html';
               }
               
+              let showOrganizerID = findSOid(licenseID);
               let payload = {
                   "licenseID":licenseID,
                   "reqType":1,
-                  "isAccepted":1
+                  "isAccepted":1,
+                  "showOrganizerID":showOrganizerID,
+                  "concertName":nameOfConcert
+
               }
 
               let options = {
@@ -317,10 +324,14 @@ function makeLicenseAppReqArr(data){
                   window.location.href='../landing_page/login.html';
               }
               
+              let showOrganizerID = findSOid(licenseID);
               let payload = {
                   "licenseID":licenseID,
                   "reqType":1,
-                  "isAccepted":0
+                  "isAccepted":0,
+                  "showOrganizerID":showOrganizerID,
+                  "concertName":nameOfConcert
+
               }
 
               let options = {
@@ -351,6 +362,15 @@ function makeLicenseAppReqArr(data){
         }
     }
 }
+
+function findSOid(id){
+    for (let i = 0; i < Concert_licenseAppReqIDs.length; i++) {
+        if (Concert_licenseAppReqIDs[i] == id) {
+            return SO_licenseAppReqIDs[i];
+        }
+    }
+}
+
 
 function makeSongRegReqArr(data){
     var ul = document.getElementById('table3').firstChild.nextSibling;
@@ -428,7 +448,7 @@ function makeSongRegReqArr(data){
         DivCol5.innerHTML = data[i][5] + " " + data[i][6];
 
 
-        if (data[i][7] == null) {
+        if (data[i][4] == null) {
             DivCol7.innerHTML = "Not Provided"
         }
         else{
@@ -446,7 +466,8 @@ function makeSongRegReqArr(data){
         li.appendChild(DivCol9);
         ul.appendChild(li);
 
-
+        let theID = data[i][7];
+        let theNameofSong = data[i][1];
 
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the song registration request ?")
@@ -468,7 +489,9 @@ function makeSongRegReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":2,
-                  "isAccepted":1
+                  "isAccepted":1,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
@@ -502,13 +525,13 @@ function makeSongRegReqArr(data){
         DivColTag_i3.onclick = function(){
             popUp("Do you want to reject the song registration request ?")
             licenseID = this.parentElement.parentElement.firstChild.innerHTML;
-            loading.classList.remove("hideME");
-            realpage.classList.add("hideME");
+      
             document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
               hdiePopUp();
               const loading = document.getElementById("loader-wrapper");
               const realpage = document.getElementById("notsoLoad");
-
+              loading.classList.remove("hideME");
+              realpage.classList.add("hideME");
               let token = Cookies.get('Authorization');
               if(token == undefined){
                   popUpFromDown("login to continue",'red');
@@ -518,7 +541,9 @@ function makeSongRegReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":2,
-                  "isAccepted":0
+                  "isAccepted":0,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
@@ -626,7 +651,7 @@ function makeSongOwnReqArr(data){
         DivCol5.innerHTML = data[i][5] + " " + data[i][6];
 
 
-        if (data[i][7] == null) {
+        if (data[i][4] == null) {
             DivCol7.innerHTML = "Not Provided"
         }
         else{
@@ -643,6 +668,9 @@ function makeSongOwnReqArr(data){
         li.appendChild(DivCol8);
         li.appendChild(DivCol9);
         ul.appendChild(li);
+
+        let theID = data[i][7];
+        let theNameofSong = data[i][1];
 
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the song ownership change request ?")
@@ -664,7 +692,9 @@ function makeSongOwnReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":3,
-                  "isAccepted":1
+                  "isAccepted":1,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
@@ -714,7 +744,9 @@ function makeSongOwnReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":3,
-                  "isAccepted":0
+                  "isAccepted":0,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
@@ -838,6 +870,9 @@ function makeSongDelReqArr(data){
         li.appendChild(DivCol9);
         ul.appendChild(li);
 
+        let theID = data[i][7];
+        let theNameofSong = data[i][1];
+
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the song removal request ?")
             licenseID = this.parentElement.parentElement.firstChild.innerHTML;
@@ -858,7 +893,9 @@ function makeSongDelReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":4,
-                  "isAccepted":1
+                  "isAccepted":1,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
@@ -910,7 +947,9 @@ function makeSongDelReqArr(data){
               let payload = {
                   "songID":licenseID,
                   "reqType":4,
-                  "isAccepted":0
+                  "isAccepted":0,
+                  "memberID":theID,
+                  "songName":theNameofSong
               }
 
               let options = {
