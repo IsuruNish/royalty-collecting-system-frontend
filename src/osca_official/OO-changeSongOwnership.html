@@ -12,13 +12,49 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../resources/css/M-songModification.css">
+    <link rel="stylesheet" href="../resources/css/M-changeownDropDown.css">
 
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
 </head>
 
 <body>
+
+  <div class="popup c" id="popUPBox">
+    <!-- <div class="icon">
+      <i class="fa fa-check"></i>
+    </div> -->
+
+    <div class="icon2">
+      <i class="far fa-times"></i>
+    </div>
+    <div class="title">
+       <h3 class="poUptext" id="poUptext"></h3>
+    </div>
+    <div class="dismiss-btn">
+      <button id="dismiss-popup-btn">Confirm</button>
+      <button id="denyBTN">Cancel</button>
+    </div>
+  </div>
+
+  <div id="toast">
+    <div id="desc"></div>
+</div>
+
+<div class="loader-wrapper" id="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+
+<div class="notsoLoad hideME" id="notsoLoad">
+
     <input type="checkbox" id="check">
 
     <label for="check">
@@ -38,12 +74,12 @@
             <li><a href="OO-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
             <li><a href="OO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
             <li><a href="OO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
  
-    <section>
+    <section class="sec">
 
         <!-- <div class="all"> -->
             <div class="header">
@@ -58,22 +94,21 @@
                     <div class="notification" onclick="window.location.href='OO-notification.html'">
                         <i class="fas fa-bell" id="bell"></i>
                         <span class="badge" id="notifyNumber"></span>
-                        <!-- <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                        <div class="notification-content">
+                            <!-- <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
                             <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div> -->
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a> -->
+                        </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
+                    <h3 id="Topname"></h3>
                     
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                         <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
-                        </div>
+                          <a href="M-dashboard.html">Dashboard</a>
+                          <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -84,28 +119,8 @@
                 
                 <div class="searchBarContent">
                     <div class="searchBar">
-                        <i class="fas fa-search"></i><input type="text" placeholder="Search and select the song" id="search">
+                        <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a show organizer..." name="search" id="search" class="search">
                     </div>
-    
-                    <!-- <div class="selectRole"> -->
-                        <!-- <h3>Select your role in the song</h3> -->
-                        <!-- <ul>
-                            
-                            <li><input type="checkbox" id="myCheck1" onclick="myFunction1()"> Singer</li>
-    
-                            <li><input type="checkbox" id="myCheck2" onclick="myFunction2()"> Song writer</li>
-    
-                            <li><input type="checkbox" id="myCheck3" onclick="myFunction3()"> Composer</li>
-                            
-    
-                            
-                        </ul> -->
-                        
-    
-    
-                    <!-- </div> -->
-                    
-    
                 </div>
                 <!-- <div class="singers" id="text1" style="display: none;">
                     <h3>Singers in this song</h3>
@@ -120,59 +135,35 @@
                 <img src="../resources/images/songs.svg" id="songImage" style="display: none;"> -->
 
                 <div class="tableContainer">
-                    <h2>Song Ownersip Details <small>OSCA</small></h2>
+                    <h2>Song Details</h2>
                     <ul class="responsive-table" id="ul">
                       <li class="table-header">
                         <div class="col col-1">Song ID</div>
                         <div class="col col-2">Song Name</div>
                         <div class="col col-3">Song Version</div>
-                        <!-- <div class="col col-4">Singers</div>
-                        <div class="col col-5">Song Writers</div>
-                        <div class="col col-6">Composers</div> -->
-                        <div class="col col-7">Update Ownership</div>
-                        <div class="col col-8">Remove Ownership</div>
+                        <div class="col col-4">Published Year</div>
+                        <div class="col col-6">More Details</div>
+                        <div class="col col-7">Change Ownership</div>
+                        <div class="col col-8">Remove Song</div>
+                      </li>
+                      <!-- <li class="table-row">
+                        <div class="col col-1" data-label="Song ID">123</div>
+                        <div class="col col-2" data-label="Song Name">Sunflower</div>
+                        <div class="col col-3" data-label="Song Version">1</div>
+                        <div class="col col-4" data-label="Published Year">2019</div>
+                        <div class="col col-6" data-label="More Details"><i class="fas fa-info-circle" id="moreInfo"></i></div>
+                        <div class="col col-7" data-label="Change Ownership"><i class="fad fa-pencil" id="update" onclick="myFunction()"></i></div>
+                        <div class="col col-8" data-label="Remove Song"><i class="fas fa-trash" id="deleteMe"></i></div>
                       </li>
                       <li class="table-row">
-                        <div class="col col-1" data-label="Song ID">42235</div>
-                        <div class="col col-2" data-label="Song Name">John Doe</div>
-                        <div class="col col-3" data-label="Song Version">$350</div>
-                        <!-- <div class="col col-4" data-label="Payment Status">Pending</div>
-                        <div class="col col-5" data-label="Job Id">42235</div>
-                        <div class="col col-6" data-label="Customer Name">John Doe</div> -->
-                        <div class="col col-7" data-label="Update Ownership"><i class="fad fa-pencil" id="update" onclick="myFunction()"></i></div>
-                        <div class="col col-8" data-label="Remove Ownership"><i class="fas fa-trash"></i></div>
-                      </li>
-                      <li class="table-row">
-                        <div class="col col-1" data-label="Song ID">42442</div>
-                        <div class="col col-2" data-label="Song Name">Jennifer Smith</div>
-                        <div class="col col-3" data-label="Song Version">$220</div>
-                        <!-- <div class="col col-4" data-label="Payment Status">Pending</div>
-                        <div class="col col-5" data-label="Job Id">42235</div>
-                        <div class="col col-6" data-label="Customer Name">John Doe</div> -->
-                        <div class="col col-7" data-label="Update Ownership"><i class="fad fa-pencil"></i></div>
-                        <div class="col col-8" data-label="Remove Ownership"><i class="fas fa-trash"></i></div>
-                      </li>
-                      <li class="table-row">
-                        <div class="col col-1" data-label="Song ID">42257</div>
-                        <div class="col col-2" data-label="Song Name">John Smith</div>
-                        <div class="col col-3" data-label="Song Version">$341</div>
-                        <!-- <div class="col col-4" data-label="Payment Status">Pending</div>
-                        <div class="col col-5" data-label="Job Id">42235</div>
-                        <div class="col col-6" data-label="Customer Name">John Doe</div> -->
-                        <div class="col col-7" data-label="Update Ownership"><i class="fad fa-pencil"></i></div>
-                        <div class="col col-8" data-label="Remove Ownership"><i class="fas fa-trash"></i></div>
-                      </li>
-                      <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">42311</div>
-                        <div class="col col-2" data-label="Customer Name">John Carpenter</div>
-                        <div class="col col-3" data-label="Amount">$115</div>
-                        <!-- <div class="col col-4" data-label="Payment Status">Pending</div>
-                        <div class="col col-5" data-label="Job Id">42235</div>
-                        <div class="col col-6" data-label="Customer Name">John Doe</div> -->
-                        <div class="col col-7" data-label="Amount"><i class="fad fa-pencil"></i></div>
-                        <div class="col col-8" data-label="Payment Status"><i class="fas fa-trash"></i></div>
-                      </li>
-                      
+                        <div class="col col-1" data-label="Song ID">123</div>
+                        <div class="col col-2" data-label="Song Name">Sunflower</div>
+                        <div class="col col-3" data-label="Song Version">1</div>
+                        <div class="col col-4" data-label="Published Year">2019</div>
+                        <div class="col col-6" data-label="More Details"><i class="fas fa-info-circle" id="moreInfo"></i></div>
+                        <div class="col col-7" data-label="Change Ownership"><i class="fad fa-pencil" id="update" onclick="myFunction()"></i></div>
+                        <div class="col col-8" data-label="Remove Song"><i class="fas fa-trash" id="deleteMe"></i></div>
+                      </li> -->
                     </ul>
                 </div>
                 
@@ -201,9 +192,12 @@
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
-<script src="../resources/js/M-changeSongOwnership.js"></script>
+  </div>
+<!-- <script src="../resources/js/M-changeSongOwnership.js"></script> -->
+<script src="../resources/js/OO-changeSongOwnership.js"></script>
+<script src="../resources/js/alertFromDown.js"></script>
+<script src="../resources/js/popUp.js"></script>
 <script src="../resources/js/NotificationUI.js"></script>
 <script src="../resources/js/logout.js"></script>
-
 </body>
 </html>
