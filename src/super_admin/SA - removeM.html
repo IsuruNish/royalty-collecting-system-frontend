@@ -6,130 +6,234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-     
-    <link rel="stylesheet" href="../resources/css/style.css">
-    <link rel="stylesheet" href="../resources/css/SA-removeSO.css">
-
-     
-    <link
+     <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/SA - removeSO.css">
+      <link rel="stylesheet" href="../resources/css/popUp.css">
+      <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
-
 </head>
 
 <body>
-
-    <input type="checkbox" id="check">
-
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div class="popup c" id="popUPBox">
+        <!-- <div class="icon">
+          <i class="fa fa-check"></i>
+        </div> -->
+  
+        <div class="icon2">
+          <i class="far fa-times"></i>
+        </div>
+        <div class="title">
+           <h3 class="poUptext" id="poUptext"></h3>
+        </div>
+        <div class="dismiss-btn">
+          <button id="dismiss-popup-btn">Confirm</button>
+          <button id="denyBTN">Cancel</button>
+        </div>
+      </div>
+  
+    <div id="toast">
+      <div id="desc"></div>
     </div>
 
- 
-    <section class="sec">
-            <div class="header">
-                
-                <div class="first">
-                    <h2>Remove members</h2>
-                </div>
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
 
-                <div class="second">
-                    <div class="notification" onclick="window.location.href='SA-notification.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge" id="notifyNumber"></span>
-                        <div class="notification-content">
+    <div class="notsoLoad hideME" id="notsoLoad">
+        <input type="checkbox" id="check">
 
-                        </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname">,</h3>
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+
+            <!-- <div class="all"> -->
+                <div class="header">
                     
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="SA-dashboard.html">Dashboard</a>
-                            <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                    <div class="first">
+                        
+                        <!-- <h2>Change Song Ownership</h2> -->
+                    </div>
+
+                    <div class="second">
+                        
+                        <div class="notification" onclick="window.location.href='SA-notification.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge" id="notifyNumber"></span>
+                            <div class="notification-content">
+    
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SA-dashboard.html">Dashboard</a>
+                                <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+            <!-- <section class="content1"> -->
+            
+                <div class="mainContent">
+                    
+                    <!-- <div class="searchBarContent">
+                        <div class="searchBar">
+                            <i class="fas fa-search"></i><input type="text" placeholder="Search and select the song" id="search">
+                        </div>
+                    </div> -->
+
+                    <div class="searchBarContent">
+                        <div class="searchBar">
+                            <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a member..." name="search" id="search" class="search">
+                        </div>
+                    </div>
+                    <!-- <div class="singers" id="text1" style="display: none;">
+                        <h3>Singers in this song</h3>
+                    </div>
+                    <div class="songWriters" id="text2" style="display: none;">
+                        <h3>Song writers in this song</h3>
+                    </div>
+                    <div class="composers" id="text3" style="display: none;">
+                        <h3>Composers in this song</h3>
+                    </div>
+                    <img src="../resources/images/SongImg.svg" id="img">
+                    <img src="../resources/images/songs.svg" id="songImage" style="display: none;"> -->
+
+                    <div class="tableContainer">
+                        <h2>Member Details</h2>
+                        <ul class="responsive-table" id="ul">
+                        <li class="table-header">
+                            <div class="col col-1">Display Photo</div>
+                            <div class="col col-2">User ID</div>
+                            <div class="col col-3">Full Name</div>
+                            <div class="col col-4">Email Address</div>
+                            <div class="col col-6">Phone Number</div>
+                            <div class="col col-8" id="col8Topic">Remove Ownership</div>
+                        </li>
+                        <!-- <li class="table-row">
+                            <div class="col col-1"><img src="../resources/images/profile.jpg" alt="" class ="tableImage"></div>
+                            <div class="col col-2" data-label="User ID">42235</div>
+                            <div class="col col-3" data-label="Full Name">Isuru Nishadha</div>
+                            <div class="col col-4" data-label="Email">isurunishadha99@gmail.com</div>
+                            <div class="col col-6" data-label="Phone Number">0766699117</div>
+                            <div class="col col-8" data-label="Remove User"><i class="fas fa-trash"></i></div>
+                        </li>
+
+                        <li class="table-row">
+                            <div class="col col-1"><img src="../resources/images/profile.jpg" alt="" class ="tableImage"></div>
+                            <div class="col col-2" data-label="User ID">42235</div>
+                            <div class="col col-3" data-label="Full Name">Oshadha Eshan rodrigo</div>
+                            <div class="col col-4" data-label="Email">oshadhaeshan0299@gmail.com</div>
+                            <div class="col col-6" data-label="Phone Number">0766699117</div>
+                            <div class="col col-8" data-label="Remove User"><i class="fas fa-trash"></i></div>
+                        </li>
 
 
-        <section class="content1">
-            <div class="src">
-            <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a show organizer..." name="search" class="search">
-            </div>
-            <div class="mainCard">
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
+                        
+                        <li class="table-row">
+                            <div class="col col-1"><img src="../resources/images/profile.jpg" alt="" class ="tableImage"></div>
+                            <div class="col col-2" data-label="User ID">888</div>
+                            <div class="col col-3" data-label="Full Name">ejhdf erkhbf rodrigo</div>
+                            <div class="col col-4" data-label="Email">ebfkhbecf@gmail.com</div>
+                            <div class="col col-6" data-label="Phone Number">996</div>
+                            <div class="col col-8" data-label="Remove User"><i class="fas fa-trash"></i></div>
+                        </li> -->
+
+                        
+                        
+    
+                        <!-- <li class="table-row">
+                            <div class="col col-1" data-label="Song ID">42442</div>
+                            <div class="col col-2" data-label="Song Name">Jennifer Smith</div>
+                            <div class="col col-3" data-label="Song Version">$220</div>
+        
+                            <div class="col col-7" data-label="Update Ownership"><i class="fad fa-pencil"></i></div>
+                            <div class="col col-8" data-label="Remove Ownership"><i class="fas fa-trash"></i></div>
+                        </li>
+                        <li class="table-row">
+                            <div class="col col-1" data-label="Song ID">42257</div>
+                            <div class="col col-2" data-label="Song Name">John Smith</div>
+                            <div class="col col-3" data-label="Song Version">$341</div>
+
+                            <div class="col col-7" data-label="Update Ownership"><i class="fad fa-pencil"></i></div>
+                            <div class="col col-8" data-label="Remove Ownership"><i class="fas fa-trash"></i></div>
+                        </li>
+                        <li class="table-row">
+                            <div class="col col-1" data-label="Job Id">42311</div>
+                            <div class="col col-2" data-label="Customer Name">John Carpenter</div>
+                            <div class="col col-3" data-label="Amount">$115</div>
+
+                            <div class="col col-7" data-label="Amount"><i class="fad fa-pencil"></i></div>
+                            <div class="col col-8" data-label="Payment Status"><i class="fas fa-trash"></i></div>
+                        </li> -->
+                        
+                        </ul>
+                    </div>
+                    
+
                 </div>
 
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
+                <!-- <div class="submitDocumentContent">
+                    <div class="text">
+                        <p>Submit the confirmation documents</p><i class="far fa-arrow-alt-right"></i>  
+                    </div>
+                
+                <div class="form">
+                    <form action="#">
+                        <input type="file" id="myFile" name="filename">
+                        <input type="submit" id="btn">
+                    </form>
                 </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
-
-                <div class="profileCard">
-                    <h2>Name A</h2>
-                    <button class="remove-btn">Remove User</button>
-                </div>
+                
+                </div> -->
 
                 
-            </div> 
-        </section>    
-    </section>
+            <!-- </section> -->
+        
+        </section>
+    </div>
 
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
-
+    <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/popUp.js"></script>
+    <script src="../resources/js/SA - removeMem.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
 </body>
 </html>
