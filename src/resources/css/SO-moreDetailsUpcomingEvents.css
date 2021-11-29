@@ -38,6 +38,7 @@
     height: fit-content;
     margin-bottom: 3%;
     margin-top: 2%;
+    min-height: 60vh;
     /* padding-bottom: 2%; */
     padding-top: 3%;
     background-color:  rgb(11, 175, 175);
@@ -191,6 +192,7 @@
     /* text-align: center; */
     /* background-color: #c4c4c4c9; */
     transition: 0.2s;
+    margin-top: 0.5%;
     /* width: 72%; */
     /* height: 5vh; */
     /* make the list items unselectable */
@@ -318,12 +320,13 @@
 
   #myDIV{
     /* background-color: #f44336; */
-    margin-top: 6%;
+    /* margin-top: 6%; */
     height: fit-content;
   }
 
   #myDIV h4{
-    margin-bottom: -4%;
+    /* margin-bottom: -4%; */
+    font-size: 20px;
   }
   
   /* Style the input */
@@ -340,6 +343,8 @@
     box-shadow: grey 1px 3px 5px ;
     /* background-color: #4936f4; */
   }
+
+
   
   /* Style the "Add" button */
   .addBtn {

@@ -1,0 +1,270 @@
+#icons{
+    font-size: 25px;
+}
+
+.responsive-table {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  
+  .responsive-table li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1.5%;
+  }
+  
+  .responsive-table .table-header {
+    background-color: #0bafaf;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  
+  .responsive-table .table-row {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .responsive-table .col-1 {
+    text-align: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-flex-preferred-size: 15%;
+        flex-basis: 10%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  
+  .responsive-table .col-2 {
+    text-align: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 25%;
+  }
+  
+  .responsive-table .col-3 {
+    text-align: center;
+    -ms-flex-preferred-size: 15%;
+        flex-basis:30%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  
+  .responsive-table .col-4 {
+    text-align: center;
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 12%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+
+  .responsive-table .col-5 {
+    text-align: center;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 20%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  
+  .responsive-table .col-6 {
+    text-align: center;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+
+  .responsive-table .col-7 {
+    text-align: center;
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 8%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  
+  .responsive-table .col-8 {
+    text-align: center;
+    -ms-flex-preferred-size: 15%;
+        flex-basis: 15%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+
+  .responsive-table .col-9 {
+    text-align: center;
+    -ms-flex-preferred-size: 15%;
+        flex-basis: 5%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  
+  /* .responsive-table .table-row .col-7:hover {
+    cursor: pointer;
+  } */
+
+  .responsive-table .table-row .col-8:hover {
+    color: rgb(0, 158, 250);
+    cursor: pointer;
+  }
+
+  .responsive-table .table-row .col-9:hover {
+    color: red;
+    cursor: pointer;
+  }
+
+
+
+
+
+  
+  @media all and (max-width: 1100px) {
+    .responsive-table .table-header {
+      display: none;
+    }
+    .responsive-table .first {
+      display: none;
+    }
+    .responsive-table li {
+      display: block;
+      margin-bottom: 8%;
+    }
+    .responsive-table .col {
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+    }
+    .responsive-table .col-2 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col-2:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .col-3 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col-3:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .col-4 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col-4:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .col-6 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col-6:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .col-8 {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col-8:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .tableImage {
+      width: 50%;
+      height: 70%;
+    }
+  }
+  
+  @media all and (max-width: 600px) {
+    .responsive-table .tableImage {
+      width: 90%;
+      height: 130%;
+    }
+    .responsive-table .table-header {
+      display: none;
+    }
+    .responsive-table .first {
+      display: none;
+    }
+    .responsive-table li {
+      display: block;
+      margin-bottom: 8%;
+    }
+    .responsive-table .col {
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+    }
+    .responsive-table .col {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 10px 0;
+    }
+    .responsive-table .col:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
+    .responsive-table .col {
+      display: block;
+      text-align: left;
+    }
+    .responsive-table .responsive-table {
+      display: block;
+    }
+  }
+  /*# sourceMappingURL=SA - removeSO.css.map */

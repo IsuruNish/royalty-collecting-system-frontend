@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         fetch("http://localhost:8080/OSCA_war_exploded/MemAndSODashboardServlet", options)
         .then(res => res.json())
         .then((data) => {
+            console.log(data);
         ut = data['userType']
         if(ut!=4){
             popUpFromDown("Access denied!",'red');
@@ -53,9 +54,9 @@ window.addEventListener('DOMContentLoaded',()=>{
                 picSmall.src = data['DPpath'];
                 name.innerHTML = data['fname']+" "+data['lname'];
                 Topname.innerHTML = "Hello "+ data['fname']+",";
-                id.innerHTML = data['uid'];
+                id.innerHTML = data['id'];
                 email.innerHTML = data['email'];
-                phone.innerHTML = data['phone'];
+                phone.innerHTML = data['phoneNo'];
                 uIncome.innerHTML = data['upcomingIncome'];
                 pIncome.innerHTML = data['pastIncome'];
 

@@ -8,32 +8,34 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      
     <link rel="stylesheet" href="../resources/css/style.css">
-
-    <link rel="stylesheet" href="../resources/css/SO-dashboard.css">
-    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/A-requests.css">
+    <link rel="stylesheet" href="../resources/css/SO-upcomingEvents.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
     <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+     
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
-      <link rel="stylesheet" href="../resources/css/loadingScreen.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script src="../resources/js/script.js"></script>
 
 </head>
 
 <body>
-
+ 
     <div id="toast">
-        <div id="desc"></div>
+      <div id="desc"></div>
     </div>
-  
+
     <div class="loader-wrapper" id="loader-wrapper">
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
-
+    
     <div class="notsoLoad hideME" id="notsoLoad">
 
         <input type="checkbox" id="check">
@@ -59,12 +61,12 @@
         </div>
 
     
-        <section>
+        <section class="sec">
                 <div class="header">
                     
                     <div class="first">
-                        <h2>Dashboard</h2>
-                        <h3>Welcome to OSCA!!!</h3>
+                        <!-- <h2>Approve requests</h2> -->
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
                     </div>
 
                     <div class="second">
@@ -73,7 +75,7 @@
                             <i class="fas fa-bell" id="bell"></i>
                             <span class="badge" id="notifyNumber"></span>
                             <div class="notification-content">
-                
+
                             </div>
                         </div>
                         <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
@@ -83,63 +85,51 @@
                             <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                             <div class="dropdown-content">
                                 <a href="SO-dashboard.html">Dashboard</a>
-                                <a id="logoutBtn" href="../landing_page/Home.html" onclick="logMeOut()">Log out</a>
+                                <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
             <section class="content1">
+
+                <div class="top">
+                    <h2>Upcoming concerts</h2>
+                </div>
+
                 <div class="mainCard">
-                    <div class="profileCard">
-                        <div class="image">
-                            <img src="../resources/images/profile.jpg" id="profilePic" alt="Avatar" />
-                        </div>
-                        <div class="userDetals">
-                            <ul>
-                                <li><a href="#"><i class="fas fa-file-signature" id="icons"></i><span id="name"></span></a></li>
-                                <li><a href="#"><i class="fas fa-id-card" id="icons"></i><span id="id"></span></a></li>
-                                <li><a href="#"><i class="fas fa-envelope-square" id="icons"></i><span id="email"></span></a></li>
-                                <li><a href="#"><i class="fas fa-phone-square-alt" id="icons"></i><span id="phone"></span></a></li>
-                            </ul>
-                        </div>
+                    <div class="licenseApplications" id="licenseApplications">
 
-                        <div class="changeInfo">
-                            <button class="btn" id="changeiinfo">Change Info</button>
+                        <div class="mainContent">    
+                            <div class="tableContainer" id="table1">
+                                <ul class="responsive-table" id="ul">
+                                    <li class="table-header">
+                                        <div class="col col-1">Concert ID</div>
+                                        <div class="col col-2">Concert name</div>
+                                        <div class="col col-3">Venue</div>
+                                        <div class="col col-4">Concert date</div>
+                                        <div class="col col-5">License type</div>
+                                        <div class="col col-6">Fee</div>
+                                        <div class="col col-7">Applied date</div>
+                                        <div class="col col-8">Songs in the concert</div>
+                                    </li>
+                                    
+                                    <!-- <li class="table-row">
+                                        <div class="col col-1" data-label="License ID">42235</div>
+                                        <div class="col col-2" data-label="Concert Name">urbfkerubferkubfer</div>
+                                        <div class="col col-3" data-label="Venue">viharamaghjadevi colombo 10</div>
+                                        <div class="col col-4" data-label="Concert Date">2021/10/12</div>
+                                        <div class="col col-5" data-label="License type">Open</div>
+                                        <div class="col col-6" data-label="Fee">25000</div>
+                                        <div class="col col-7" data-label="Applied date">2021/02/22</div>
+                                        <div class="col col-8" data-label="MOre information"><i class="fas fa-info-circle"></i></div>
+                                    </li> -->
+                                </ul>
+                            </div>    
                         </div>
                     </div>
-
-                    <div class="licenseDetails">
-                        <div class="left">
-                            <div class="acceptedLicense">
-                                <ul>
-                                    <li><h1>Accepted licenses</h1></li>
-                                    <h3 class="number" id="aLicense"></h3>
-            
-                                </ul>
-                            </div>
-
-                            <div class="pendingLicense">
-                                <ul>
-                                    <li><h1>Pending licenses</h1></li>
-                                    <h3 class="number" id="rLicense"></h3>                 
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="right">
-                            <div class="rejectedLicense">
-                                <ul>
-                                    <li><h1>Next upcoming Event</h1></li>
-                                    <h3 class="number" id="nextLicense"></h3>
-                                
-                                </ul>
-                            </div>
-                        </div> 
-                    </div>
-                </div>       
-            </section>
-        
+                </div>    
+            </section>    
         </section>
 
         <footer>
@@ -148,9 +138,8 @@
     </div>
 
     <script src="../resources/js/alertFromDown.js"></script>
-    <script src="../resources/js/SO-dashboard.js"></script>
-    <script src="../resources/js/script.js"></script>
-    <script src="../resources/js/logout.js"></script>
+    <script src="../resources/js/SO-upcomingEvents.js"></script>
+    <script src="../resources/js/popUp.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
 </body>
 </html>
