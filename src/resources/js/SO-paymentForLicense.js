@@ -202,6 +202,7 @@ function paymentDONE(){
             window.location.href='SO-dashboard.html';
         }
         else{
+          window.location.href='SO-dashboard.html';
           popUpFromDown("Payment successful",'greenColour');
         }
       })
