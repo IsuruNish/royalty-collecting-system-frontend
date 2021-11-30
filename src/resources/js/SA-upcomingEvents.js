@@ -84,7 +84,7 @@ function makeLicenseAppReqArr(data){
         DivCol4.setAttribute("data-label", "Venue");
         DivCol5.setAttribute("data-label", "Concert Date");
         DivCol6.setAttribute("data-label", "License type");
-        DivCol7.setAttribute("data-label", "Fee");
+        DivCol7.setAttribute("data-label", "Income");
         DivCol8.setAttribute("data-label", "Applied date");
         DivCol9.setAttribute("data-label", "More information");
 
