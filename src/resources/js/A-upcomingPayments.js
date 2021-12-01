@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
             let ut = parseInt(data['ut']);
-            if(ut!=1){
+            if(ut!=2){
                 popUpFromDown("Access denied!",'red');
                 setTimeout(function() {
                     window.location.href='../landing_page/login.html';
