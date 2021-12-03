@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+    /* background: linear-gradient(#0bafaf , #0093ff); */
+}
+
+body{
+    background: linear-gradient(-45deg, #0093ff , #0bafaf , #0093ff , #0bafaf );
+    background-size: 400% 400%;
+    animation: change 7s ease-in-out infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 8vh;
+}
+
+h1{
+    font-size: 24px;
+}
+
+img{
+    width: 20vh;
+    height: 20vh;
+    margin-bottom: 7%;
+}
+
+
+
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0 50%;
+    }
+}
