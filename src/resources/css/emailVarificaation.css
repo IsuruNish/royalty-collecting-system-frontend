@@ -28,6 +28,24 @@ body{
     padding: 8vh;
 }
 
+.redoBtn{
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 20vh;
+    margin-top: 5%;
+}
+
+.redoBtn i{
+    margin-right: 5%;
+}
+
+#loginB{
+    margin-right: 5%;
+    width: 20vh;
+}
+
 h1{
     font-size: 24px;
 }
