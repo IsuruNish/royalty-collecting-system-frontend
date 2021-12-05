@@ -12,6 +12,43 @@ input{
   background-color: rgb(11, 175, 175);
 }
 
+#questionMark{
+  position: relative;
+  left: 43vh;
+  bottom: 3.5vh;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+#questionMark:hover{
+  opacity: 1;
+  color: red;
+}
+
+.hideME{
+  display: none;
+}
+
+.theQuestion{
+  height: 10vh;
+}
+
+.questionBox{
+  opacity: 0.6;
+  color: red;
+  padding: 8px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 500;
+  background-color: white;
+  border: 2px solid red;
+  width: 310px;
+  position: relative;
+  left: 5vh;
+  bottom: 16vh;
+  z-index: 9;
+}
+
 .containerLogin{
   transition: all 0.6s linear;
   position: relative;
@@ -381,7 +418,8 @@ input{
 #strength{
   width: 150%;
   background-color: red;
-  
+  position:relative;
+  bottom: 3vh;
 }
 
 .red::-webkit-progress-value { background: red; }

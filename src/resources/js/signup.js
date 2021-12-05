@@ -4,6 +4,21 @@ const containerLogin = document.querySelector(".visuallyhidden");
 const containerSignup = document.querySelector(".containerSignup");
 
 
+let questionMark = document.getElementById("questionMark");
+let questionBox = document.getElementById("questionBox");
+
+questionMark.addEventListener("mouseenter", function(){
+    questionBox.classList.remove("hideME");
+})
+
+questionMark.addEventListener("mouseleave", function(){
+    questionBox.classList.add("hideME");
+})
+
+
+
+
+
 // function popUp(text){
 //   document.getElementsByClassName("popup")[0].classList.add("active");
 //   var list = document.getElementById("notsoLoad");
