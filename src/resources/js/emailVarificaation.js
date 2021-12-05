@@ -12,7 +12,7 @@ redo.addEventListener("click", function(){
     let uid = document.URL.split("?")[1];
 
     let payload = {
-        "uid":uid,
+        "pin":uid,
         "reqType":1
       }
       
@@ -28,7 +28,7 @@ redo.addEventListener("click", function(){
       fetch("http://localhost:8080/OSCA_war_exploded/EmailVerificationServlet", options)
       .then(res => res.json())
       .then(data => {
-        ut = data['ok'];
+        console.log(data);
   
     })
 })

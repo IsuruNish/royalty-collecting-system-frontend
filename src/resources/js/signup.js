@@ -118,9 +118,8 @@ $(document).ready(function(){
               window.location.href='../show_organizer/SO-dashboard.html';
             }
             else {
-              // alert("Email or Password is wrong");
-              popUpFromDown("Email or Password is wrong",'red')
-              // popUp("Email or Password is wrong");
+              console.log(ut);
+              window.location.href='../show_organizer/emailVarificaation.html?'+ut;
             }
           })
           .catch(err =>{
@@ -382,7 +381,8 @@ function signupSO(){
 
       if(ut==5){
         // alert(ut);
-        window.location.href='../show_organizer/SO-dashboard.html';
+        // window.location.href='../show_organizer/SO-dashboard.html';
+        window.location.href='emailVarificaation.html?'+data['pin'];
       }
       else if(ut = -1){
         // popUp("Email already exist");
