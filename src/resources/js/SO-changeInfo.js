@@ -337,6 +337,10 @@ personalInfoBtn.addEventListener('click', function(){
     }
 
 
+    if (emailVal != email) {
+        emailFlag = 1;
+    }
+
     if(filled){
         let payload = {
             "reqNo" : 2,
@@ -344,7 +348,9 @@ personalInfoBtn.addEventListener('click', function(){
             "lname":lname,
             "nic":nic,
             "email":email,
-            "phoneNo":phoneNo
+            "phoneNo":phoneNo,
+            "emailFlag":emailFlag
+
         }
         
         let options = {
@@ -371,8 +377,8 @@ personalInfoBtn.addEventListener('click', function(){
 
             fnameVal = data['fname'];
             lnameVal = data['lname'];
-            emailVal = data['nic'];
-            nicVal = data['email'];
+            emailVal = data['email'];
+            nicVal = data['nic'];
             phoneVal = data['phoneNo'];
             makeTextBoxDefault();
             // alert("Details updated!");
