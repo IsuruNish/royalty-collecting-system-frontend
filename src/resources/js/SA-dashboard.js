@@ -53,6 +53,12 @@ window.addEventListener('DOMContentLoaded',()=>{
                     popUpFromDown("Welcome back "+data['fname'], 'default');
                 }
 
+                if(document.referrer == "http://127.0.0.1:5500/landing_page/twoFactorAuth.html"){
+                    popUpFromDown("Welcome back "+data['fname'], 'default');
+                }
+
+                
+
                 setTimeout(function() {
                     picLarge.src = data['DPpath'];
                     picSmall.src = data['DPpath'];

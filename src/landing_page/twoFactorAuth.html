@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/twoFactor.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+ 
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
+    <div class="notsoLoad hideME" id="notsoLoad">
+
+        <div class="box">
+
+            <img src="../resources/images/twoFactor.svg" alt="">
+            <h1>Enter the pin which is sent  </br>to your mobile phone</h1>
+
+
+            <input type="text" name="" id="SMS" class="SMS" placeholder="Enter pin">
+                    
+            <div class="btn">
+                <button type="submit" id="btn">Send Verification</button>
+
+                <div class="redoBtn" id="redo"><i class="fas fa-redo"></i><h3>Resend code</h3></div>
+                <div class="redoBtn" id="home"><i class="fas fa-home"></i><h3>Home</h3></div>
+            </div>
+
+
+        </div>
+    </div>
+   
+    <script src="../resources/js/twoFactor.js"></script>
+    <script src="../resources/js/alertFromDown.js"></script>
+
+</body>
+</html>

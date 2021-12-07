@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+    /* background: linear-gradient(#0bafaf , #0093ff); */
+}
+
+body{
+    background: linear-gradient(-45deg, #0093ff , #0bafaf , #0093ff , #0bafaf );
+    background-size: 400% 400%;
+    animation: change 7s ease-in-out infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 8vh;
+}
+
+.redoBtn{
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 20vh;
+    margin-top: 5%;
+}
+
+.redoBtn i{
+    margin-right: 5%;
+}
+
+#loginB{
+    margin-right: 5%;
+    width: 20vh;
+}
+
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+
+img{
+    width: 30vh;
+    height: 30vh;
+    margin-bottom: 7%;
+}
+
+.SMS{
+    text-align: center;
+    margin-top: 10%;
+    color: black;
+    width: 50%;
+    outline: none;
+    border: none;
+    border-bottom:3px solid #b8b8b8 ;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.SMS:focus{
+    transition: 0.3s;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgb(11, 175, 175);
+}
+
+button{
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1rem;
+    font-weight:bold;
+    outline: none;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    background-color: rgb(11, 175, 175);
+
+    background: linear-gradient(-45deg, #0093ff , #0bafaf , #0093ff , #0bafaf );
+    background-size: 400% 400%;
+    animation: change 7s ease-in-out infinite;
+  }
+  
+  button:hover{
+    transition: 0.5s ease;
+    background-color: rgb(34, 196, 196);
+  
+  }
+
+  .btn{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0 50%;
+    }
+}

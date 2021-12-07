@@ -138,7 +138,8 @@ $(document).ready(function(){
             console.log(ut);
             Cookies.set('Authorization', data['token'])
             if(ut==1){
-              window.location.href='../super_admin/SA-dashboard.html';
+              window.location.href='twoFactorAuth.html';
+              // window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
               window.location.href='../admin/A-dashboard.html';
