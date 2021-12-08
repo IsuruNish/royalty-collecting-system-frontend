@@ -13,8 +13,10 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="../resources/css/popUp.css">
     <script src="../resources/js/script.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -37,10 +39,10 @@
             <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
             <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
             <li><a href="SO-cancelLicense.html"><i class="far fa-window-close"></i>Cancel License</a></li>
-            <li><a href="SO-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
             <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
             <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
@@ -57,23 +59,25 @@
 
                 <div class="second">
                     
-                    <div class="notification" onclick="window.location.href='SO-notification.html'">
+                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
                         <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge" id="notifyNumber"></span>
-                        <!-- <div class="notification-content">
+                        <span class="badge">3</span>
+                        <div class="notification-content">
                             <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
                             <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
                             <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div> -->
+                        </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3>Hello Ann,</h3>
+                    <h3 id="Topname">,</h3>
+                   
                     
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                         <div class="dropdown-content">
-                            <a href="SO-dashboard.html">Dashboard</a>
-                            <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                            <a href="#">Home</a>
+                            <a href="#">settings</a>
+                            <a href="#">Log out</a>
                         </div>
                     </div>
                 </div>
@@ -83,11 +87,22 @@
             <div class="mainContent">
 
                 
-                <div class="dropdown4">
+                <!-- <div class="dropdown4">
                     <div class="center">
-                        <select name="sources" id="sources" class="custom-select sources" placeholder="Select monthly or annulally">
-                          <option value="profile">Monthly</option>
-                          <option value="word">Annually</option>
+                        <select name="sources" id="single" onchange="myFunction()" class="custom-select sources" placeholder="Select monthly or annulally">
+                          <option  value="monthly" id="monthly">Monthly</option>
+                          <option value="annulay" id="anually">Annually</option>
+                          
+                        </select>
+                      </div>
+
+                </div> -->
+
+                <div class="dropdown4">
+                    <div class="box">
+                        <select id="single">
+                          <option>Monthly</option>
+                          <option>Annually</option>
                           
                         </select>
                       </div>
@@ -97,6 +112,7 @@
                    
                    
                          <canvas id="myChart" style="min-width:fit-content;max-width:60%"></canvas>
+                         
 
 
                 </div>
@@ -128,12 +144,13 @@
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
 <script src="../resources/js/M-changeSongOwnership.js"></script>
 <script src="../resources/js/SO-checkStats.js"></script>
 
-
+<script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/popUp.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
-<script src="../resources/js/NotificationUI.js"></script>
-<script src="../resources/js/logout.js"></script>
+
 </body>
 </html>

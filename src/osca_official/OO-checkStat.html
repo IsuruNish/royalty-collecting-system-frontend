@@ -7,14 +7,17 @@
     <title>Side Menu Bar</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      <link rel="stylesheet" href="../resources/css/style.css">
-      <link rel="stylesheet" href="../resources/css/OO-checkStat.css">
+      <link rel="stylesheet" href="../resources/css/SO-checkStat.css">
+      <!-- <link rel="stylesheet" href="../resources/css/A-checkStat.css"> -->
      <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+    <link rel="stylesheet" href="../resources/css/popUp.css">
     <script src="../resources/js/script.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -34,14 +37,13 @@
         <header>OSCA</header>
 
         <ul> 
-            <li><a href="OO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="OO-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
-            <li><a href="OO-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
-            <li><a href="OO-addMembers.html"><i class="fas fa-user-plus"></i>Add Members</a></li>
-            <li><a href="OO-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="OO-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="OO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+            <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
+            <li><a href="SO-cancelLicense.html"><i class="far fa-window-close"></i>Cancel License</a></li>
+            <li><a href="SO-upcoming.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+            <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+            <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+            <li><a href="../landing_page/Home.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
 
@@ -53,20 +55,23 @@
                 
                 <div class="first">
                     
-                    <h2>System report</h2>
+                    <h2>Check Stats</h2>
                 </div>
 
                 <div class="second">
                     
-                    <div class="notification" onclick="window.location.href='OO-notification.html'">
+                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
                         <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge" id="notifyNumber"></span>
+                        <span class="badge">3</span>
                         <div class="notification-content">
-             
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
                         </div>
                     </div>
                     <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname"></h3>
+                    <h3 id="Topname">,</h3>
+                   
                     
                     <div class="dropdown">
                         <i class="fas fa-chevron-circle-down" id="dropdown"></i>
@@ -83,19 +88,32 @@
             <div class="mainContent">
 
                 
-                <div class="dropdown4">
+                <!-- <div class="dropdown4">
                     <div class="center">
-                        <select name="sources" id="sources" class="custom-select sources" placeholder="Select monthly or annulally">
-                          <option value="profile">Monthly</option>
-                          <option value="word">Annually</option>
+                        <select name="sources" id="single" onchange="myFunction()" class="custom-select sources" placeholder="Select monthly or annulally">
+                          <option  value="monthly" id="monthly">Monthly</option>
+                          <option value="annulay" id="anually">Annually</option>
                           
                         </select>
                       </div>
-                      <div class="center">
-                        <select name="sources" id="sources" class="custom-select sources" placeholder="Select a report type">
-                          <option value="profile">Payment history of show organizers</option>
-                          <option value="word">Income of members</option>
-                          <option value="word">Income of OSCA</option>
+
+                </div> -->
+
+                <div class="dropdown4" style="display: flex; justify-content: space-around;">
+                    <div class="box">
+                        <select id="single">
+                          <option>Monthly</option>
+                          <option>Annually</option>
+                          
+                        </select>
+                      </div>
+
+                      <div class="box">
+                        <select id="single2">
+                            <option>Payment history of show organizers</option>
+                            <option>Income of members</option>
+                            <option>Income of OSCA</option>
+                            
                           
                         </select>
                       </div>
@@ -105,6 +123,7 @@
                    
                    
                          <canvas id="myChart" style="min-width:fit-content;max-width:60%"></canvas>
+                         
 
 
                 </div>
@@ -114,8 +133,10 @@
                     <div class="container">
                         <label>
                             <input class="check" type="checkbox">
-                            <div class="btn">
-                                <span class="me">Download PDF</span>
+                            <div class="btn" id="downlaod" >
+                                <!-- <a href="javascript:genPDF()">Click Here To</a> -->
+                                <!-- <button id="downlaod">D</button> -->
+                                <span class="me" onclick="genPDF()">Download PDF</span>
                                 <span class="mo">Hang on a moment, download in progress</span>
                             </div>
                         </label>
@@ -134,10 +155,14 @@
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
 <script src="../resources/js/M-changeSongOwnership.js"></script>
-<script src="../resources/js/OO-checkStats.js"></script>
-<script src="../resources/js/NotificationUI.js"></script>
-<script src="../resources/js/logout.js"></script>
+<script src="../resources/js/OO-checkStat.js"></script>
+
+<script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/popUp.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
 
 </body>
 </html>
