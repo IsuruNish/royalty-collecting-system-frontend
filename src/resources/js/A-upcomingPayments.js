@@ -137,7 +137,7 @@ function makeLicenseAppReqArr(data){
         ul.appendChild(li);
 
         DivColTag_i2.onclick = function(){
-            window.location.href='SA-paymentMoreinfo.html?'+data[i][0]+"?S";
+            window.location.href='A-paymentMoreinfo.html?'+data[i][0]+"?S";
         }
 
         DivColTag_i1.onclick = function(){
@@ -177,14 +177,14 @@ function makeLicenseAppReqArr(data){
               .then( data => {
                 popUpFromDown("Removed", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-upcomingPayments.html';
+                  window.location.href='A-upcomingPayments.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-upcomingPayments.html';
+                    window.location.href='A-upcomingPayments.html';
                 },5000);
                 console.error(err);
               });
@@ -271,7 +271,7 @@ function makeSongReqArr(data){
 
 
         DivColTag_i2.onclick = function(){
-            window.location.href='SA-paymentMoreinfo.html?'+data[i][2]+"?M";
+            window.location.href='A-paymentMoreinfo.html?'+data[i][2]+"?M";
         }
 
         DivColTag_i1.onclick = function(){
@@ -316,14 +316,14 @@ function makeSongReqArr(data){
               .then( data => {
                 popUpFromDown("Removed", 'greenColour');
                 setTimeout(function() {
-                  window.location.href='SA-upcomingPayments.html';
+                  window.location.href='A-upcomingPayments.html';
               },3000);
               })
 
               .catch(err =>{
                 popUpFromDown("Error try again", 'red');
                 setTimeout(function() {
-                    window.location.href='SA-upcomingPayments.html';
+                    window.location.href='A-upcomingPayments.html';
                 },5000);
                 console.error(err);
               });
