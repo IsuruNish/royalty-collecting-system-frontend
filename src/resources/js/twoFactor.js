@@ -162,8 +162,7 @@ redo.addEventListener('click',()=>{
         .then((data) => {
         if (data['ok'] == 0) {
             popUpFromDown("The pin is incorrect try again!",'red');
-            window.location.href='../landing_page/login.html';
-            
+            // window.location.href='../landing_page/login.html';
         }
           
         else if(data['ok'] == 1){
