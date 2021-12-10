@@ -164,10 +164,10 @@ document.getElementById('btnSubmit2').addEventListener('click', function(){
         .then(data =>{
           console.log(data);
           if(data['ok'] == 1){
-            // popUpFromDown("License request sent",'greenColour');
+            popUpFromDown("License request sent",'greenColour');
             
             setTimeout(function() {
-                window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
+                window.location.href='SO-dashboard.html';
             },3000);
           }
           else{
@@ -250,9 +250,10 @@ document.getElementById('btnSubmit1').addEventListener('click', function(){
       .then(data =>{
         console.log(data);
         if(data['ok'] == 1){
-          // popUpFromDown("License request sent",'greenColour');
+          popUpFromDown("License request sent",'greenColour');
+            
           setTimeout(function() {
-            window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
+              window.location.href='SO-dashboard.html';
           },3000);
         }
         else{
