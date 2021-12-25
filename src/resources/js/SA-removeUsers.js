@@ -1,8 +1,10 @@
 window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
+
     if(token == undefined){
+        console.log("eljfnekjfnekjfn");
         alert("login to continue")
-        window.location.href='../landing_page/login.html';
+        // window.location.href='../landing_page/login.html';
     }
 
     else{
@@ -17,6 +19,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         fetch("http://localhost:8080/OSCA_war_exploded/SARemoveUsersServlet", options)
         .then(res => res.json())
         .then((data) => {
+
         ut = data['utype']
         if(ut!=1){
             alert("Access denied!");
@@ -41,6 +44,13 @@ window.addEventListener('DOMContentLoaded',()=>{
 
             }
         
+        })
+        .catch(err =>{
+            popUpFromDown("Login again",'red');
+            setTimeout(function() {
+                // window.location.href='../landing_page/login.html';
+            },3000);
+            console.error(err);
         });
     }
 });

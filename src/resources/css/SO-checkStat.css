@@ -17,6 +17,10 @@
   /* background-color: blueviolet; */
 }
 
+.sidebar{
+  z-index: 10;
+}
+
 .sec{
   height: fit-content;
   min-height: 50vh;

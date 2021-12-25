@@ -2,15 +2,13 @@ window.addEventListener("DOMContentLoaded", () => {
   let token = Cookies.get("Authorization");
   const loading = document.getElementById("loader-wrapper");
   const realpage = document.getElementById("notsoLoad");
-  loading.classList.add("hideME");
-  realpage.classList.remove("hideME");
+
   if (token == undefined) {
     popUpFromDown("login to continue", "red");
-    alert("login to continue");
+    // alert("login to continue");
     setTimeout(function () {
       window.location.href = "../landing_page/login.html";
     }, 3000);
-    window.location.href = "../landing_page/login.html";
   } else {
     let options = {
       method: "GET",
@@ -19,6 +17,9 @@ window.addEventListener("DOMContentLoaded", () => {
         Authorization: `Bearer ${token}`,
       },
     };
+
+    loading.classList.add("hideME");
+    realpage.classList.remove("hideME");
 
     fetch("http://localhost:8080/OSCA_war_exploded/SOCheckStatServlet", options)
       .then((res) => res.json())
@@ -34,10 +35,6 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
           var Topname = document.getElementById("Topname");
           Topname.innerHTML = "Hello " + data["fName"] + ",";
-
-          
-          loading.classList.remove("hideME");
-          realpage.classList.add("hideME");
           
           var picSmall = document.getElementById("profilePicSmall");
           picSmall.src = data["dpPath"];
