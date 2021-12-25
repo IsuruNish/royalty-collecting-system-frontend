@@ -33,137 +33,144 @@
         <i class="fas fa-times" id="cancel"></i>
     </label>
 
-    <div class="sidebar">
-        <header>OSCA</header>
-
-        <ul> 
-            <li><a href="OO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="OO-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
-            <li><a href="OO-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
-            <li><a href="OO-addMembers.html"><i class="fas fa-user-plus"></i>Add Members</a></li>
-            <li><a href="OO-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="OO-licensePayment.html"><i class="fas fa-money-bill-alt"></i>License payment</a></li>
-            <li><a href="OO-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="OO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section >
 
-        <!-- <div class="all"> -->
-            <div class="header">
-                
-                <div class="first">
-                    
-                    <h2>Check Stats</h2>
-                </div>
+    <div class="notsoLoad hideME" id="notsoLoad">
 
-                <div class="second">
+        <div class="sidebar">
+            <header>OSCA</header>
+
+            <ul> 
+                <li><a href="OO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="OO-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+                <li><a href="OO-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+                <li><a href="OO-addMembers.html"><i class="fas fa-user-plus"></i>Add Members</a></li>
+                <li><a href="OO-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="OO-licensePayment.html"><i class="fas fa-money-bill-alt"></i>License payment</a></li>
+                <li><a href="OO-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="OO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+
+            <!-- <div class="all"> -->
+                <div class="header">
                     
-                    <div class="notification" onclick="window.location.href='../landing_page/notificationUI.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge">3</span>
-                        <div class="notification-content">
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
-                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a>
-                        </div>
+                    <div class="first">
+                        
+                        <h2>Check Stats</h2>
                     </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname">,</h3>
-                   
-                    
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="#">Home</a>
-                            <a href="#">settings</a>
-                            <a href="#">Log out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-      
-            <div class="mainContent">
+                    <div class="second">
+                        <div class="notification" onclick="window.location.href='OO-notification.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge" id="notifyNumber"></span>
+                            <div class="notification-content">
 
-                
-                <!-- <div class="dropdown4">
-                    <div class="center">
-                        <select name="sources" id="single" onchange="myFunction()" class="custom-select sources" placeholder="Select monthly or annulally">
-                          <option  value="monthly" id="monthly">Monthly</option>
-                          <option value="annulay" id="anually">Annually</option>
-                          
-                        </select>
-                      </div>
-
-                </div> -->
-
-                <div class="dropdown4" style="display: flex; justify-content: space-around;">
-                    <div class="box">
-                        <select id="single">
-                          <option>Monthly</option>
-                          <option>Annually</option>
-                          
-                        </select>
-                      </div>
-
-                      <div class="box">
-                        <select id="single2">
-                            <option>Payment history of show organizers</option>
-                            <option>Income of members</option>
-                            <option>Income of OSCA</option>
-                            
-                          
-                        </select>
-                      </div>
-
-                </div>
-                <div class="chart">
-                   
-                   
-                         <canvas id="myChart" style="min-width:fit-content;max-width:60%"></canvas>
-                         
-
-
-                </div>
-
-                <div class="submit">
-
-                    <div class="container">
-                        <label>
-                            <input class="check" type="checkbox">
-                            <div class="btn" id="downlaod" >
-                                <!-- <a href="javascript:genPDF()">Click Here To</a> -->
-                                <!-- <button id="downlaod">D</button> -->
-                                <span class="me" onclick="genPDF()">Download PDF</span>
-                                <span class="mo">Hang on a moment, download in progress</span>
                             </div>
-                        </label>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="OO-dashboard.html">Dashboard</a>
+                                <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
 
-            </div>
+        
+                <div class="mainContent">
 
-          
+                    
+                    <!-- <div class="dropdown4">
+                        <div class="center">
+                            <select name="sources" id="single" onchange="myFunction()" class="custom-select sources" placeholder="Select monthly or annulally">
+                            <option  value="monthly" id="monthly">Monthly</option>
+                            <option value="annulay" id="anually">Annually</option>
+                            
+                            </select>
+                        </div>
 
-    
-    
-    </section>
+                    </div> -->
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
+                    <div class="dropdown4" style="display: flex; justify-content: space-around;">
+                        <div class="box">
+                            <select id="single">
+                            <option>Monthly</option>
+                            <option>Annually</option>
+                            
+                            </select>
+                        </div>
+
+                        <div class="box">
+                            <select id="single2">
+                                <option>Payment history of show organizers</option>
+                                <option>Income of members</option>
+                                <option>Income of OSCA</option>
+                                
+                            
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="chart">
+                    
+                    
+                            <canvas id="myChart" style="min-width:fit-content;max-width:60%"></canvas>
+                            
+
+
+                    </div>
+
+                    <div class="submit">
+
+                        <div class="container">
+                            <label>
+                                <input class="check" type="checkbox">
+                                <div class="btn" id="downlaod" >
+                                    <!-- <a href="javascript:genPDF()">Click Here To</a> -->
+                                    <!-- <button id="downlaod">D</button> -->
+                                    <span class="me" onclick="genPDF()">Download PDF</span>
+                                    <span class="mo">Hang on a moment, download in progress</span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            
+
+        
+        
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> -->
 <script src="../resources/js/M-changeSongOwnership.js"></script>
 <script src="../resources/js/OO-checkStat.js"></script>
 
 <script src="../resources/js/alertFromDown.js"></script>
-    <script src="../resources/js/popUp.js"></script>
-
+<script src="../resources/js/popUp.js"></script>
+<script src="../resources/js/logout.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
 
 </body>
