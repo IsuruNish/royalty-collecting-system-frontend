@@ -2,9 +2,10 @@ window.addEventListener('DOMContentLoaded',()=>{
     let token = Cookies.get('Authorization');
 
     if(token == undefined){
-        console.log("eljfnekjfnekjfn");
-        alert("login to continue")
-        // window.location.href='../landing_page/login.html';
+        popUpFromDown("login to continue",'red');
+        setTimeout(function() {
+            window.location.href='../landing_page/login.html';
+        },3000);
     }
 
     else{
@@ -22,7 +23,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 
         ut = data['utype']
         if(ut!=1){
-            alert("Access denied!");
+            popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
             },1000);
