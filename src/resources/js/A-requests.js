@@ -160,11 +160,11 @@ function makeLicenseAppReqArr(data){
         var DivCol4 = document.createElement("div");
         var DivCol5 = document.createElement("div");
         var DivCol6 = document.createElement("div");
-        var DivCol7 = document.createElement("div");
+        // var DivCol7 = document.createElement("div");
         var DivCol8 = document.createElement("div");
         var DivCol9 = document.createElement("div");
         
-        var DivColTag_i1 = document.createElement("i");
+        // var DivColTag_i1 = document.createElement("i");
         var DivColTag_i2 = document.createElement("i");
         var DivColTag_i3 = document.createElement("i");
 
@@ -176,11 +176,11 @@ function makeLicenseAppReqArr(data){
         DivCol5.setAttribute("data-label", "Venue");
         DivCol6.setAttribute("data-label", "License Type");
 
-        DivCol7.setAttribute("data-label", "Payment status");
+        // DivCol7.setAttribute("data-label", "Payment status");
         DivCol8.setAttribute("data-label", "Accept");
         DivCol9.setAttribute("data-label", "Reject");
 
-        DivCol7.setAttribute("id", "Payment Slip");
+        // DivCol7.setAttribute("id", "Payment Slip");
         DivCol8.setAttribute("id", "Accept");
         DivCol9.setAttribute("id", "Reject");
 
@@ -197,8 +197,8 @@ function makeLicenseAppReqArr(data){
         DivCol5.classList.add("col-5");
         DivCol6.classList.add("col");
         DivCol6.classList.add("col-6");
-        DivCol7.classList.add("col");
-        DivCol7.classList.add("col-7");
+        // DivCol7.classList.add("col");
+        // DivCol7.classList.add("col-7");
         DivCol8.classList.add("col");
         DivCol8.classList.add("col-8");
         DivCol9.classList.add("col");
@@ -232,21 +232,21 @@ function makeLicenseAppReqArr(data){
         DivCol5.innerHTML = data[i][5];
         DivCol6.innerHTML = data[i][6];
 
-        if (data[i][7] == null) {
-            DivCol7.innerHTML = "Paid online"
-        }
-        else{
-            DivColTag_i1.classList.add("fas");
-            DivColTag_i1.classList.add("fa-money-check-alt");
+        // if (data[i][7] == null) {
+        //     DivCol7.innerHTML = "Paid online"
+        // }
+        // else{
+        //     DivColTag_i1.classList.add("fas");
+        //     DivColTag_i1.classList.add("fa-money-check-alt");
 
-            DivColTag_i1.onclick = function(){
-                window.location.href = data[i][7];
-            }
-        }
+        //     DivColTag_i1.onclick = function(){
+        //         window.location.href = data[i][7];
+        //     }
+        // }
         
-        DivCol7.appendChild(DivColTag_i1);
+        // DivCol7.appendChild(DivColTag_i1);
         li.appendChild(DivCol6);
-        li.appendChild(DivCol7);
+        // li.appendChild(DivCol7);
         li.appendChild(DivCol8);
         li.appendChild(DivCol9);
         ul.appendChild(li);
