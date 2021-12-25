@@ -10,12 +10,18 @@
     <link rel="stylesheet" href="../resources/css/style.css">
     <link rel="stylesheet" href="../resources/css/SA-addUsers.css">
 
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/style.css">
+
      
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"/>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
 
@@ -23,75 +29,84 @@
 
 <body>
 
-    <input type="checkbox" id="check">
-
-    <label for="check">
-        <i class="fas fa-bars" id="btn"></i>
-
-        <i class="fas fa-times" id="cancel"></i>
-    </label>
-
-    <div class="sidebar">
-        <header>OSCA</header>
-
- 
-        <ul> 
-            <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-            <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
-            <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
-            <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
-            <li><a href="SA-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-            <li><a href="SA-upcomingPayments.html"><i class="fas fa-money-check-alt"></i>Pending payments</a></li>
-            <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
-            <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-            <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-        </ul>
+    <div id="toast">
+        <div id="desc"></div>
+    </div>
+  
+    <div class="loader-wrapper" id="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
- 
-    <section class="sec">
-            <div class="header">
-                
-                <div class="first">
-                    <h2>Add users</h2>
-                    <!-- <h3>Welcome to OSCA!!!</h3> -->
-                </div>
 
-                <div class="second">
-                    <div class="notification" onclick="window.location.href='SA-notification.html'">
-                        <i class="fas fa-bell" id="bell"></i>
-                        <span class="badge" id="notifyNumber"></span>
-                        <div class="notification-content">
+    <div class="notsoLoad hideME" id="notsoLoad">
 
-                        </div>
-                    </div>
-                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                    <h3 id="Topname">,</h3>
+        <div class="sidebar">
+            <header>OSCA</header>
+
+    
+            <ul> 
+                <li><a href="SA-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="SA-addUsers .html"><i class="fas fa-user-plus"></i>Add Users</a></li>
+                <li><a href="SA-removeUsers .html"><i class="fas fa-user-minus"></i>Remove Users</a></li>
+                <li><a href="SA-requests.html"><i class="fas fa-envelope"></i>Requests</a></li>
+                <li><a href="SA-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
+                <li><a href="SA-upcomingPayments.html"><i class="fas fa-money-check-alt"></i>Pending payments</a></li>
+                <li><a href="SA-systemConf.html"><i class="fas fa-cog"></i>System details</a></li>
+                <li><a href="SA-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
+
+    
+        <section class="sec">
+                <div class="header">
                     
-                    <div class="dropdown">
-                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                        <div class="dropdown-content">
-                            <a href="SA-dashboard.html">Dashboard</a>
-                            <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                    <div class="first">
+                        <h2>Add users</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
+
+                    <div class="second">
+                        <div class="notification" onclick="window.location.href='SA-notification.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge" id="notifyNumber"></span>
+                            <div class="notification-content">
+
+                            </div>
+                        </div>
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="SA-dashboard.html">Dashboard</a>
+                                <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-        <section class="content1">
-            <div class="selectButtons">
-                <button class="btn" id="cp">Members</button>
-                <button class="btn" id="lcd">Officials</button>
-                <button class="btn" id="ck">Admins</button>
-            </div>
-        </section>    
-    </section>
+            <section class="content1">
+                <div class="selectButtons">
+                    <button class="btn" id="cp">Members</button>
+                    <button class="btn" id="lcd">Officials</button>
+                    <button class="btn" id="ck">Admins</button>
+                </div>
+            </section>    
+        </section>
 
-    <footer>
-        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-    </footer>
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+    </div>
+
     <script src="../resources/js/SA-addUsers.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
+    <script src="../resources/js/addUsersSAandA.js"></script>
+    <script src="../resources/js/alertFromDown.js"></script>
+    <script src="../resources/js/script.js"></script>
+    <script src="../resources/js/logout.js"></script>
 </body>
 </html>

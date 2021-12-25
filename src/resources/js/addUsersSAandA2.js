@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then((data) => {
 
         ut = data['utype']
-        if(ut!=1){
+        if(ut!=2){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
@@ -54,47 +54,4 @@ window.addEventListener('DOMContentLoaded',()=>{
             console.error(err);
         });
     }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const rso = document.getElementById("rso");
-const rm = document.getElementById("rm");
-const roo = document.getElementById("roo");
-const ra = document.getElementById("ra");
-
-
-rso.addEventListener("click", ()=>{
-    window.location = "SA - removeSO.html";
-});
-
-rm.addEventListener("click", ()=>{
-    window.location = "SA - removeM.html";
-});
-
-roo.addEventListener("click", ()=>{
-    window.location = "SA - removeOO.html";
-});
-
-ra.addEventListener("click", ()=>{
-    window.location = "SA - removeA.html";
 });
