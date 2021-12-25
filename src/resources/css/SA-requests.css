@@ -356,6 +356,15 @@
       width: 50%;
       height: 70%;
     }
+
+    .responsive-table .col:before {
+      color: #6C7A89;
+      padding-right: 10px;
+      content: attr(data-label);
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      text-align: right;
+    }
   }
   
   @media all and (max-width: 600px) {
