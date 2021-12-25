@@ -151,7 +151,8 @@ window.addEventListener('DOMContentLoaded',()=>{
           if(data['ok'] == 1){
             popUpFromDown("License request sent",'greenColour');
             setTimeout(function() {
-              window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
+              // window.location.href='SO-paymentForLicense.html'+"?"+data['numbers'];
+              window.location.href='SO-dashboard.html';
             },3000);
           }
           else{

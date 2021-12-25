@@ -491,9 +491,17 @@ footer h4 {
     margin-left: 100px;
   }
 
-  .second {
+  .second .dropdown, #profilePicSmall, #Topname{
     display: none;
+
   }
+
+  .second .notification{
+    position: relative;
+    bottom: 11vh;
+    left: 10%;
+  }
+
 
   .content1 {
     width: 100%;
