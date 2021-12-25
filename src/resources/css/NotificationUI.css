@@ -21,6 +21,7 @@
 .content4{
     display: flex;
     flex-direction: row;
+    min-height: 60vh;
     /* width: 80%; */
     /* background: burlywood; */
 }
