@@ -19,6 +19,47 @@ h4{
     text-align: center;
 }
 
+.questionsss{
+    max-height: 12vh;
+}
+
+#questionMark{
+    position: relative;
+    left: 65vh;
+    bottom: 4vh;
+    opacity: 0.5;
+    z-index: 10;
+  }
+  
+  #questionMark:hover{
+    opacity: 1;
+    color: red;
+  }
+  
+  .hideME{
+    display: none;
+  }
+  
+  .theQuestion{
+    height: 10vh;
+  }
+  
+  .questionBox{
+    opacity: 0.8;
+    color: red;
+    padding: 8px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    background-color: white;
+    border: 2px solid red;
+    width: 310px;
+    position: relative;
+    left: 24.5vh;
+    bottom: 17vh;
+    z-index: 9;
+  }
+
 /* img {
     border-radius: 60%;
     color: #fff;
