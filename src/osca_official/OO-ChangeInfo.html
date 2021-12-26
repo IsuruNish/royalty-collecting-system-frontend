@@ -211,7 +211,16 @@
                         </div>
 
                         <div class="insideInfo">
-                            <input type="password" name="" class="passInput" placeholder="New password " onfocus="hideValidate('newpass1')" id="newpass1" >
+                            <div class="questionsss">
+                                <input type="password" name="" class="passInput" placeholder="New password " onfocus="hideValidate('newpass1')" id="newpass1" >
+                                <i class="fas fa-exclamation-circle" id="questionMark"></i>
+                                <div class="questionBox hideME" id="questionBox">
+                                <p>Should contain at least 4 lower case letters</p>
+                                <p>Should contain at least 1 upper case letter</p>
+                                <p>Should contain at least 2 digit</p>
+                                <p>Should be at 1 special character</p>
+                                </div>
+                            </div>
                             <progress max="100" value="0" id="strength"></progress>
                             <span class="words" id="newPassWord1"></span>
                         </div>
@@ -267,6 +276,7 @@
     <script src="../resources/js/OO-changeInfo.js"></script>
     <script src="../resources/js/alertFromDown.js"></script>
     <script src="../resources/js/logout.js"></script>
+    <script src="../resources/js/qustionBox.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
 </body>
 </html>
