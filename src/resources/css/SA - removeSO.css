@@ -315,7 +315,7 @@ h2 small {
       align-self: center;
 }
 
-.responsive-table .col-8:hover {
+.responsive-table .table-row .col-8:hover {
   color: red;
   cursor: pointer;
 }

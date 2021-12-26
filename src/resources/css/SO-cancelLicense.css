@@ -380,7 +380,7 @@ h2 small {
       align-self: center;
 }
 
-.responsive-table .col-7:hover {
+.responsive-table .table-row .col-7:hover {
   color: red;
   cursor: pointer;
 }
