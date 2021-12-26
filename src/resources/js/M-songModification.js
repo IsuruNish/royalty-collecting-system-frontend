@@ -187,11 +187,23 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
       let newSingers = document.querySelector(".myUL");
       let newComposers = document.querySelector(".myUL1");
       let newWritters = document.querySelector(".myUL2");
+      let curSingers = document.querySelector(".singer");
+      let curComposer = document.querySelector(".composer");
+      let curWritter = document.querySelector(".writer");
+
     
       let s = newSingers.childNodes;
       let c = newComposers.childNodes;
       let w = newWritters.childNodes;
-    
+
+      let curSingerChilds = curSingers.childNodes;
+      let curComposerChilds = curComposer.childNodes;
+      let curWriterChilds = curWritter.childNodes;
+   
+      // console.log(curSingerChilds[0].nextSibling.firstChild.innerHTML);
+      // console.log(curComposerChilds[0].nextSibling.firstChild.innerHTML);
+      // console.log(curWriterChilds[0].nextSibling.firstChild.innerHTML);
+
       let memSingers = []
       let NOmemSingers = []
       let memComposers = []
@@ -201,6 +213,14 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
     
       let count1 = 0
       let count2 = 0
+      for (let index = 0; index < curSingers.childElementCount; index++) {
+        if (!curSingerChilds[index].nextSibling.classList.contains('redCol')) {
+          let name = curSingerChilds[index].nextSibling.firstChild.innerHTML;
+          memSingers[count1] = name
+          count1 +=1
+        }
+      }
+
       for (let index = 0; index < newSingers.childElementCount; index++) {
         let name = s[index].nextSibling.firstChild.innerHTML;
         let mORnot = s[index].nextSibling.firstChild.nextSibling.innerHTML;
@@ -217,6 +237,14 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
     
       count1 = 0
       count2 = 0
+      for (let index = 0; index < curComposer.childElementCount; index++) {
+        if (!curComposerChilds[index].nextSibling.classList.contains('redCol')) {
+          let name = curComposerChilds[index].nextSibling.firstChild.innerHTML;
+          memComposers[count1] = name
+          count1 +=1
+        }
+      }
+
       for (let index = 0; index < newComposers.childElementCount; index++) {
         let name = c[index].nextSibling.firstChild.innerHTML;
         let mORnot = c[index].nextSibling.firstChild.nextSibling.innerHTML;
@@ -233,6 +261,13 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
     
       count1 = 0
       count2 = 0
+      for (let index = 0; index < curWritter.childElementCount; index++) {
+        if (!curWriterChilds[index].nextSibling.classList.contains('redCol')) {
+          let name = curWriterChilds[index].nextSibling.firstChild.innerHTML;
+          memWritters[count1] = name
+          count1 +=1
+        }
+      }
       for (let index = 0; index < newWritters.childElementCount; index++) {
         let name = w[index].nextSibling.firstChild.innerHTML;
         let mORnot = w[index].nextSibling.firstChild.nextSibling.innerHTML;
@@ -253,36 +288,42 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
 
 
 
+
       let deleteSingers = document.querySelector(".newUL1");
       let deleteComposers = document.querySelector(".newUL2");
       let deleteWritters = document.querySelector(".newUL3");
       
-      let ss = deleteSingers.childNodes;
-      let cc = deleteComposers.childNodes;
-      let ww = deleteWritters.childNodes;
+      // let ss = deleteSingers.childNodes;
+      // let cc = deleteComposers.childNodes;
+      // let ww = deleteWritters.childNodes;
 
-      let delSingers = []
-      let delComposers = []
-      let delWritters = []
-    
-      for (let index = 0; index < deleteSingers.childElementCount; index++) {
-        let name = ss[index].nextSibling.firstChild.innerHTML;
-        delSingers[index] = name
-      }
-    
-      for (let index = 0; index < deleteComposers.childElementCount; index++) {
-        let name = cc[index].nextSibling.firstChild.innerHTML;
-        delComposers[index] = name
-        }
-    
-      for (let index = 0; index < deleteWritters.childElementCount; index++) {
-        let name = ww[index].nextSibling.firstChild.innerHTML;
-        delWritters[index] = name
-      }
+      let delSingers = [];
+      delSingers[0] = deleteSingers.childElementCount;
 
-      currentSingers(delSingers);
-      currentComposers(delComposers);
-      currentWriters(delWritters);
+      let delComposers = [];
+      deleteComposers[0] = deleteComposers.childElementCount;
+
+      let delWritters = [];
+      delWritters[0] = delWritters.childElementCount;
+    
+      // for (let index = 0; index < deleteSingers.childElementCount; index++) {
+      //   let name = ss[index].nextSibling.firstChild.innerHTML;
+      //   delSingers[index] = name
+      // }
+    
+      // for (let index = 0; index < deleteComposers.childElementCount; index++) {
+      //   let name = cc[index].nextSibling.firstChild.innerHTML;
+      //   delComposers[index] = name
+      //   }
+    
+      // for (let index = 0; index < deleteWritters.childElementCount; index++) {
+      //   let name = ww[index].nextSibling.firstChild.innerHTML;
+      //   delWritters[index] = name
+      // }
+
+      // currentSingers(delSingers);
+      // currentComposers(delComposers);
+      // currentWriters(delWritters);
 
       // console.log(deleteSingersID);
       // console.log(deleteComposersID);
@@ -312,6 +353,14 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
 
       else{
     
+        memSingersIDs = memSingersIDs.filter((item, i, ar) => ar.indexOf(item) === i);
+        memComposersIDs = memComposersIDs.filter((item, i, ar) => ar.indexOf(item) === i);
+        memWrittersIDs = memWrittersIDs.filter((item, i, ar) => ar.indexOf(item) === i);
+
+        NOmemSingers = NOmemSingers.filter((item, i, ar) => ar.indexOf(item) === i);
+        NOmemComposers = NOmemComposers.filter((item, i, ar) => ar.indexOf(item) === i);
+        NOmemWritters = NOmemWritters.filter((item, i, ar) => ar.indexOf(item) === i);
+
         let formData = new FormData();
         formData.append("file", file);
         formData.append("info", JSON.stringify(info));
@@ -322,11 +371,11 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
         formData.append('NOmemComposers', JSON.stringify(NOmemComposers));
         formData.append('NOmemWritters', JSON.stringify(NOmemWritters));
 
-        formData.append('delSinger', JSON.stringify(deleteSingersID));
-        formData.append('delComposers', JSON.stringify(deleteComposersID));
-        formData.append('delWritters', JSON.stringify(deleteWritersID));
+        // formData.append('delSinger', JSON.stringify(deleteSingersID));
+        // formData.append('delComposers', JSON.stringify(deleteComposersID));
+        // formData.append('delWritters', JSON.stringify(deleteWritersID));
 
-        formData.append('info', JSON.stringify(info));
+        // formData.append('info', JSON.stringify(info));
 
 
         let options = {
@@ -338,7 +387,7 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
             body: formData
       
         }
-      
+
         fetch("http://localhost:8080/OSCA_war_exploded/ChangeSongOwnershipServlet", options)
         .then( res => res.json())
         .then(data =>{
