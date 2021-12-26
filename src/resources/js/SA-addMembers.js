@@ -115,8 +115,10 @@ $('#add').on('click', ()=>{
 
         else if(data['ok'] == 0){
           popUpFromDown("Error try again",'red');
+          loading.classList.add("hideME");
+          realpage.classList.remove("hideME");
           setTimeout(function() {
-              window.location.href='SA-addMembers.html';
+              // window.location.href='SA-addMembers.html';
           },3000);
         }
 
