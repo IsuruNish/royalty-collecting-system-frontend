@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Details</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+     <link rel="stylesheet" href="../resources/css/style.css">
+      <link rel="stylesheet" href="../resources/css/pendingSongReq.css">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../resources/css/M-songModification.css">
+    <link rel="stylesheet" href="../resources/css/M-changeownDropDown.css">
+
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="../resources/js/script.js"></script>
+</head>
+
+<body>
+
+  <div class="popup c" id="popUPBox">
+    <!-- <div class="icon">
+      <i class="fa fa-check"></i>
+    </div> -->
+
+    <div class="icon2">
+      <i class="far fa-times"></i>
+    </div>
+    <div class="title">
+       <h3 class="poUptext" id="poUptext"></h3>
+    </div>
+    <div class="dismiss-btn">
+      <button id="dismiss-popup-btn">Confirm</button>
+      <button id="denyBTN">Cancel</button>
+    </div>
+  </div>
+
+  <div id="toast">
+    <div id="desc"></div>
+</div>
+
+<div class="loader-wrapper" id="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+
+<div class="notsoLoad hideME" id="notsoLoad">
+
+    <input type="checkbox" id="check">
+
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+        <header>OSCA</header>
+
+        <ul> 
+          <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+          <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+          <li><a href="M-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+          <li><a href="M-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+          <li><a href="M-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+          <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+          <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+      </ul>
+    </div>
+
+ 
+    <section class="sec">
+
+        <!-- <div class="all"> -->
+            <div class="header">
+                
+                <div class="first">
+                    
+                    <!-- <h2>Change Song Ownership</h2> -->
+                </div>
+
+                <div class="second">
+                    
+                    <div class="notification" onclick="window.location.href='M-notification.html'">
+                        <i class="fas fa-bell" id="bell"></i>
+                        <span class="badge" id="notifyNumber"></span>
+                        <div class="notification-content">
+                            <!-- <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again</a>
+                            <a href="#"><i class="fad fa-comments-alt"></i> Message from Isuru again:)</a> -->
+                        </div>
+                    </div>
+                    <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                    <h3 id="Topname"></h3>
+                    
+                    <div class="dropdown">
+                        <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                        <div class="dropdown-content">
+                          <a href="M-dashboard.html">Dashboard</a>
+                          <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- <section class="content1"> -->
+           
+            <div class="mainContent">
+                
+                <div class="searchBarContent">
+                    <div class="searchBar">
+                        <label for=""><i class="fa fa-search"></i></label> <input type="text" placeholder="Search for a show organizer..." name="search" id="search" class="search">
+                    </div>
+                </div>
+                <!-- <div class="singers" id="text1" style="display: none;">
+                    <h3>Singers in this song</h3>
+                </div>
+                <div class="songWriters" id="text2" style="display: none;">
+                    <h3>Song writers in this song</h3>
+                </div>
+                <div class="composers" id="text3" style="display: none;">
+                    <h3>Composers in this song</h3>
+                </div>
+                <img src="../resources/images/SongImg.svg" id="img">
+                <img src="../resources/images/songs.svg" id="songImage" style="display: none;"> -->
+
+                <div class="tableContainer">
+                    <h2>Song Details</h2>
+                    <ul class="responsive-table" id="ul">
+                      <li class="table-header">
+                        <div class="col col-1">Song ID</div>
+                        <div class="col col-2">Song Name</div>
+                        <div class="col col-3">Song Version</div>
+                        <div class="col col-4">Published Year</div>
+                        <div class="col col-6">Request type</div>
+                        <div class="col col-7">More Details</div>
+                        <div class="col col-8">Cancel Request</div>
+                      </li>
+                      <!-- <li class="table-row">
+                        <div class="col col-1" data-label="Song ID">123</div>
+                        <div class="col col-2" data-label="Song Name">Sunflower</div>
+                        <div class="col col-3" data-label="Song Version">1</div>
+                        <div class="col col-4" data-label="Published Year">2019</div>
+                        <div class="col col-6" data-label="More Details"><i class="fas fa-info-circle" id="moreInfo"></i></div>
+                        <div class="col col-7" data-label="Change Ownership"><i class="fad fa-pencil" id="update" onclick="myFunction()"></i></div>
+                        <div class="col col-8" data-label="Remove Song"><i class="fas fa-trash" id="deleteMe"></i></div>
+                      </li>
+                      <li class="table-row">
+                        <div class="col col-1" data-label="Song ID">123</div>
+                        <div class="col col-2" data-label="Song Name">Sunflower</div>
+                        <div class="col col-3" data-label="Song Version">1</div>
+                        <div class="col col-4" data-label="Published Year">2019</div>
+                        <div class="col col-6" data-label="More Details"><i class="fas fa-info-circle" id="moreInfo"></i></div>
+                        <div class="col col-7" data-label="Change Ownership"><i class="fad fa-pencil" id="update" onclick="myFunction()"></i></div>
+                        <div class="col col-8" data-label="Remove Song"><i class="fas fa-trash" id="deleteMe"></i></div>
+                      </li> -->
+                    </ul>
+                </div>
+                
+
+            </div>
+
+            <!-- <div class="submitDocumentContent">
+                <div class="text">
+                    <p>Submit the confirmation documents</p><i class="far fa-arrow-alt-right"></i>  
+                </div>
+              
+              <div class="form">
+                <form action="#">
+                    <input type="file" id="myFile" name="filename">
+                    <input type="submit" id="btn">
+                  </form>
+              </div>
+              
+            </div> -->
+
+            
+        <!-- </section> -->
+    
+    </section>
+
+    <footer>
+        <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+    </footer>
+  </div>
+<!-- <script src="../resources/js/M-changeSongOwnership.js"></script> -->
+<script src="../resources/js/M-pendingSongReq.js"></script>
+<script src="../resources/js/alertFromDown.js"></script>
+<script src="../resources/js/popUp.js"></script>
+<script src="../resources/js/NotificationUI.js"></script>
+<script src="../resources/js/logout.js"></script>
+</body>
+</html>
