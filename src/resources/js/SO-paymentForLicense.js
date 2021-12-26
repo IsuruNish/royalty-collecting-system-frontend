@@ -180,6 +180,11 @@ window.addEventListener('DOMContentLoaded',()=>{
 
 
 function paymentDONE(){
+    const loading = document.getElementById("loader-wrapper");
+    const realpage = document.getElementById("notsoLoad");
+    loading.classList.remove("hideME");
+    realpage.classList.add("hideME");
+
     let id = document.URL.split("?")[1];
     let token = Cookies.get('Authorization');
 
@@ -200,11 +205,16 @@ function paymentDONE(){
       .then((data) => {
         if (data['ok'] != 1) {
             popUpFromDown("Error try again",'red');
-            window.location.href='SO-dashboard.html';
+            setTimeout(function() {
+              window.location.href='SO-paymentForLicense.html?'+document.URL.split("?")[1];;
+          },3000);
+           
         }
         else{
-          window.location.href='SO-dashboard.html';
           popUpFromDown("Payment successful",'greenColour');
+          setTimeout(function() {
+            window.location.href='SO-dashboard.html';
+        },3000);
         }
       })
       .catch(err =>{

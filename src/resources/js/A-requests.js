@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded',()=>{
     if(token == undefined){
       popUpFromDown("login to continue",'red')
         window.location.href='../landing_page/login.html';
-        alert("dkhjb")
     }
   
     else{

@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded',()=>{
             if(ut!=5){
                 popUpFromDown("Access denied!",'red');
                 setTimeout(function() {
-                    // window.location.href='../landing_page/login.html';
+                    window.location.href='../landing_page/login.html';
                 },1000);
             }
             else{
@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .catch(err =>{
           popUpFromDown("Login again",'red');
           setTimeout(function() {
-            //   window.location.href='../landing_page/login.html';
+              window.location.href='../landing_page/login.html';
           },5000);
           console.error(err);
         });
