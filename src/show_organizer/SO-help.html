@@ -18,10 +18,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../resources/js/script.js"></script>
+    <link rel="stylesheet" href="../resources/css/alertFromDown.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../resources/css/popUp.css">
+    <script src="../resources/js/alertFromDown.js"></script>
+<!--    <script src="../resources/js/popUp.js"></script>-->
 
 </head>
 
 <body>
+<div id="toast">
+    <div id="desc"></div>
+</div>
 
     <input type="checkbox" id="check">
 
@@ -80,13 +89,13 @@
             <div class="main">
                 <div class="top">
                     <div class="right">
-                        <form class="form">
+                        <!-- <form class="form">
                             <textarea id="help" name="helpMessage" placeholder="Type your message here..." rows="6" cols="50"></textarea>
                             <br>
                             <div class="changeInfo">
                                 <button class="btn">Send email</button>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                     
                 </div>
@@ -100,6 +109,9 @@
                             <li><a href="email">cineoscaal@gmail.com</a></li>
                         </ul>
                     </div>
+                    <div class="forImage">
+                        <img src="../resources/images/aboutus.svg" class="img">
+                    </div>
                 </div>
             </div>
         </section>
@@ -109,9 +121,10 @@
     <footer>
         <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
     </footer>
-
+     <script src="../resources/js/SO-help.js"></script>
     <script src="../resources/js/NotificationUI.js"></script>
     <script src="../resources/js/logout.js"></script>
+
 
 </body>
 </html>
