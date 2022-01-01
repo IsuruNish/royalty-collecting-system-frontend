@@ -18,6 +18,13 @@ window.addEventListener("DOMContentLoaded", () => {
       fetch("http://localhost:8080/OSCA_war_exploded/SOHelpServlet", options)
         .then((res) => res.json())
         .then((data) => {
+
+          const loading = document.getElementById("loader-wrapper");
+          const realpage = document.getElementById("notsoLoad");
+
+          loading.classList.add("hideME");
+          realpage.classList.remove("hideME");
+          
           ut = data["uType"];
           console.log(data);
   

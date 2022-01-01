@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Menu Bar</title>
+    <title>Help</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 
@@ -14,6 +14,9 @@
     <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
             rel="stylesheet"/>
+
+    <link rel="stylesheet" href="../resources/css/loadingScreen.css">
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -32,97 +35,105 @@
     <div id="desc"></div>
 </div>
 
-<input type="checkbox" id="check">
-
-<label for="check">
-    <i class="fas fa-bars" id="btn"></i>
-
-    <i class="fas fa-times" id="cancel"></i>
-</label>
-
-<div class="sidebar">
-    <header>OSCA</header>
-
-    <ul> 
-        <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-        <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
-        <li><a href="M-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
-        <li><a href="M-pendingSongReq.html"><i class="fad fa-calendar-star"></i>Pending requests</a></li>
-        <li><a href="M-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
-        <li><a href="M-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-        <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-        <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-    </ul>
+<div class="loader-wrapper" id="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
 </div>
 
+<div class="notsoLoad hideME" id="notsoLoad">
 
-<section class="sec">
-       <div class="header">
-                    
-                    <div class="first">
-                        <h2>Assistance From OSCA</h2>
-                        <!-- <h3>Welcome to OSCA!!!</h3> -->
-                    </div>
+        <input type="checkbox" id="check">
 
-                    <div class="second">
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
 
-                        <div class="notification" onclick="window.location.href='M-notification.html'">
-                            <i class="fas fa-bell" id="bell"></i>
-                            <span class="badge" id="notifyNumber"></span>
-                            <div class="notification-content">
-                        
-                            </div>
-                        </div>
-                        <!-- <i class="fas fa-bell" id="bell"></i> -->
-                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                        <h3 id="Topname">,</h3>
-                        
-                        <div class="dropdown">
-                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                            <div class="dropdown-content">
-                                <a href="M-dashboard.html">Dashboard</a>
-                                <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
 
-    <section class="content">
-        <div class="main">
-            <div class="top">
-                <div class="right">
-                    <!-- <form class="form">
-                        <textarea id="help" name="helpMessage" placeholder="Type your message here..." rows="6" cols="50"></textarea>
-                        <br>
-                        <div class="changeInfo">
-                            <button class="btn">Send email</button>
-                        </div>
-                    </form> -->
-                </div>
+        <div class="sidebar">
+            <header>OSCA</header>
 
-            </div>
-            <div class="bottom">
-                <div class="details">
-                    <ul>
-                        <li><h1>Contact us for further assistance</h1></li>
-                        <li>Address - No.73, Sir James Peris Mawatha, Colombo 02</li>
-                        <li>Tel: 0094 11 230 5070</li>
-                        <li>Tel/Fax: 0094 11 230 4070</li>
-                        <li><a href="email">cineoscaal@gmail.com</a></li>
-                    </ul>
-                </div>
-                <div class="forImage">
-                    <img src="../resources/images/hello.svg" class="img">
-                </div>
-            </div>
+            <ul> 
+                <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+                <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+                <li><a href="M-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+                <li><a href="M-pendingSongReq.html"><i class="fad fa-calendar-star"></i>Pending requests</a></li>
+                <li><a href="M-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+                <li><a href="M-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+                <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+                <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
         </div>
-    </section>
 
-</section>
 
-<footer>
-    <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
-</footer>
+        <section class="sec">
+            <div class="header">
+                            
+                            <div class="first">
+                                <h2>Assistance From OSCA</h2>
+                                <!-- <h3>Welcome to OSCA!!!</h3> -->
+                            </div>
+
+                            <div class="second">
+
+                                <div class="notification" onclick="window.location.href='M-notification.html'">
+                                    <i class="fas fa-bell" id="bell"></i>
+                                    <span class="badge" id="notifyNumber"></span>
+                                    <div class="notification-content">
+                                
+                                    </div>
+                                </div>
+                                <!-- <i class="fas fa-bell" id="bell"></i> -->
+                                <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                                <h3 id="Topname">,</h3>
+                                
+                                <div class="dropdown">
+                                    <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                                    <div class="dropdown-content">
+                                        <a href="M-dashboard.html">Dashboard</a>
+                                        <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            <section class="content">
+                <div class="main">
+                    <div class="top">
+                        <div class="right">
+                            <!-- <form class="form">
+                                <textarea id="help" name="helpMessage" placeholder="Type your message here..." rows="6" cols="50"></textarea>
+                                <br>
+                                <div class="changeInfo">
+                                    <button class="btn">Send email</button>
+                                </div>
+                            </form> -->
+                        </div>
+
+                    </div>
+                    <div class="bottom">
+                        <div class="details">
+                            <ul>
+                                <li><h1>Contact us for further assistance</h1></li>
+                                <li>Address - No.73, Sir James Peris Mawatha, Colombo 02</li>
+                                <li>Tel: 0094 11 230 5070</li>
+                                <li>Tel/Fax: 0094 11 230 4070</li>
+                                <li><a href="email">cineoscaal@gmail.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="forImage">
+                            <img src="../resources/images/hello.svg" class="img">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+
+        <footer>
+            <h4>copyright <i class="far fa-copyright"></i> OSCA, Designed by CS 04</h4>
+        </footer>
+
+    </div>
 <script src="../resources/js/M-help.js"></script>
 <script src="../resources/js/NotificationUI.js"></script>
 <script src="../resources/js/logout.js"></script>
