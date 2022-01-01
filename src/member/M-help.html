@@ -43,47 +43,49 @@
 <div class="sidebar">
     <header>OSCA</header>
 
-    <ul>
-        <li><a href="SO-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
-        <li><a href="SO-applyLicense.html"><i class="fas fa-file-certificate"></i>Apply License</a></li>
-        <li><a href="SO-cancelLicense.html"><i class="far fa-window-close"></i>Cancel License</a></li>
-        <li><a href="SO-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming events</a></li>
-        <li><a href="SO-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
-        <li><a href="SO-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
-        <li><a href="../landing_page/Home.html" id="logoutBtn"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+    <ul> 
+        <li><a href="M-dashboard.html"><i class="fas fa-qrcode"></i>My Profile</a></li>
+        <li><a href="M-songRegistration.html"><i class="fas fa-music"></i>Register songs</a></li>
+        <li><a href="M-changeSongOwnership.html"><i class="fas fa-tag"></i>Song information</a></li>
+        <li><a href="M-pendingSongReq.html"><i class="fad fa-calendar-star"></i>Pending requests</a></li>
+        <li><a href="M-upcomingEvents.html"><i class="fad fa-calendar-star"></i>Upcoming income</a></li>
+        <li><a href="M-checkStat.html"><i class="fas fa-chart-pie"></i>Check stats</a></li>
+        <li><a href="M-help.html"><i class="fas fa-user-headset"></i>Help</a></li>
+        <li><a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
     </ul>
 </div>
 
 
 <section class="sec">
-    <div class="header">
+       <div class="header">
+                    
+                    <div class="first">
+                        <h2>Assistance From OSCA</h2>
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
+                    </div>
 
-        <div class="first">
-            <h2>Contact us</h2>
+                    <div class="second">
 
-        </div>
-
-        <div class="second">
-
-            <div class="notification" onclick="window.location.href='SO-notification.html'">
-                <i class="fas fa-bell" id="bell"></i>
-                <span class="badge" id="notifyNumber"></span>
-                <div class="notification-content">
-
+                        <div class="notification" onclick="window.location.href='M-notification.html'">
+                            <i class="fas fa-bell" id="bell"></i>
+                            <span class="badge" id="notifyNumber"></span>
+                            <div class="notification-content">
+                        
+                            </div>
+                        </div>
+                        <!-- <i class="fas fa-bell" id="bell"></i> -->
+                        <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
+                        <h3 id="Topname">,</h3>
+                        
+                        <div class="dropdown">
+                            <i class="fas fa-chevron-circle-down" id="dropdown"></i>
+                            <div class="dropdown-content">
+                                <a href="M-dashboard.html">Dashboard</a>
+                                <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-            <h3 id="Topname"></h3>
-
-            <div class="dropdown">
-                <i class="fas fa-chevron-circle-down" id="dropdown"></i>
-                <div class="dropdown-content">
-                    <a href="SO-dashboard.html">Dashboard</a>
-                    <a id="logoutBtn" href="../landing_page/Home.html">Log out</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <section class="content">
         <div class="main">
