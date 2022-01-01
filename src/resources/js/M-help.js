@@ -2,11 +2,10 @@ window.addEventListener("DOMContentLoaded", () => {
     let token = Cookies.get("Authorization");
     if (token == undefined) {
       popUpFromDown("login to continue", "red");
-      alert("login to continue");
       setTimeout(function () {
         window.location.href = "../landing_page/login.html";
       }, 3000);
-      window.location.href = "../landing_page/login.html";
+
     } else {
       let options = {
         method: "GET",
@@ -22,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
           ut = data["uType"];
           console.log(data);
   
-          if (ut != 5) {
+          if (ut != 4) {
             popUpFromDown("Access denied!", "red");
             setTimeout(function () {
               window.location.href = "../landing_page/login.html";
@@ -33,19 +32,16 @@ window.addEventListener("DOMContentLoaded", () => {
   
             var picSmall = document.getElementById("profilePicSmall");
             picSmall.src = data["dpPath"];
-  
-  
            
           }
         })
   
         .catch((err) => {
-          alert("Email or Password is wrong");
-          popUpFromDown("Login again", "red");
+          popUpFromDown("Error login again", "red");
           setTimeout(function () {
             window.location.href = "../landing_page/login.html";
           }, 3000);
-          popUp("Email or Password is wrong");
+          // popUp("Email or Password is wrong");
           console.error(err);
         });
     }
