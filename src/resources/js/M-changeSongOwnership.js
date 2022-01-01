@@ -221,7 +221,7 @@ function makeSongArr(data){
 
               console.log(data);
 
-              popUpFromDown("License application accepted", 'greenColour');
+              popUpFromDown("Song delete request sent", 'greenColour');
               setTimeout(function() {
                 window.location.href='M-changeSongOwnership.html';
             },3000);

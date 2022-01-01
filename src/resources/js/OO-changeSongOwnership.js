@@ -221,7 +221,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   
                 console.log(data);
   
-                popUpFromDown("License application accepted", 'greenColour');
+                popUpFromDown("Song delete request sent", 'greenColour');
                 setTimeout(function() {
                   window.location.href='OO-changeSongOwnership.html';
               },3000);

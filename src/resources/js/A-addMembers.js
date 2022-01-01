@@ -105,14 +105,14 @@ $('#add').on('click', ()=>{
           setTimeout(function() {
             // alert("iinside catch")
   
-              window.location.href='SA-addMembers.html';
+              window.location.href='A-addMembers.html';
           },3000);
         }
 
         else if(data['ok'] == 0){
           popUpFromDown("Error try again",'red');
           setTimeout(function() {
-              window.location.href='SA-addMembers.html';
+              window.location.href='A-addMembers.html';
           },3000);
         }
 
@@ -126,7 +126,7 @@ $('#add').on('click', ()=>{
       .catch(err =>{
         popUpFromDown("Error",'red');
         setTimeout(function() {
-            // window.location.href='SA-addAdmins.html';
+            window.location.href='A-addAdmins.html';
         },3000);
         console.error(err);
       });
