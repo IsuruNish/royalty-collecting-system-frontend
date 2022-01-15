@@ -119,7 +119,8 @@ $(document).ready(function(){
             console.log(ut);
             Cookies.set('Authorization', data['token'])
             if(ut==1){
-              window.location.href='../super_admin/SA-dashboard.html';
+              window.location.href='twoFactorAuth.html';
+              // window.location.href='../super_admin/SA-dashboard.html';
             }
             else if(ut==2){
               window.location.href='../admin/A-dashboard.html';
@@ -134,7 +135,8 @@ $(document).ready(function(){
             }
             else {
               console.log(ut);
-              window.location.href='../show_organizer/emailVarificaation.html?'+ut;
+              window.location.href='../landing_page/emailVarificaation.html?'+ut;
+              // window.location.href='../show_organizer/emailVarificaation.html?'+ut;
             }
           })
           .catch(err =>{
