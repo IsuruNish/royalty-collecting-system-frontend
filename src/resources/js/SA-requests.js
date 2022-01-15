@@ -717,7 +717,7 @@ function makeSongOwnReqArr(data){
             realpage.classList.add("hideME");
   
             window.location.href='SA-pendingRequestMoreDetails.html?'+songID ;
-          }
+        }
 
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the song ownership change request ?")

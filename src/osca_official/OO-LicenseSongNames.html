@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Details</title>
+    <title>Payment</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
      <link rel="stylesheet" href="../resources/css/style.css">
-      <link rel="stylesheet" href="../resources/css/M-songModification.css">
+      <link rel="stylesheet" href="../resources/css/SO-moreDetailsUpcomingEvents.css">
       <link rel="stylesheet" href="../resources/css/M-changeownDropDown.css">
 
      <link
@@ -65,29 +65,29 @@
 
     
         <section class="sec">
-
                 <div class="header">
                     
                     <div class="first">
-                        <h2>Change Song Information</h2>
+                        <!-- <h2>Approve requests</h2> -->
+                        <!-- <h3>Welcome to OSCA!!!</h3> -->
                     </div>
 
                     <div class="second">
                         
-                        <div class="notification" onclick="window.location.href='M-notificationUI.html'">
+                        <div class="notification" onclick="window.location.href='OO-notification.html'">
                             <i class="fas fa-bell" id="bell"></i>
                             <span class="badge" id="notifyNumber"></span>
                             <div class="notification-content">
-                                
+
                             </div>
                         </div>
                         <img src="../resources/images/profile.jpg" id="profilePicSmall" alt="Avatar" />
-                        <h3 id="Topname"></h3>
+                        <h3 id="Topname">,</h3>
                         
                         <div class="dropdown">
                             <i class="fas fa-chevron-circle-down" id="dropdown"></i>
                             <div class="dropdown-content">
-                                <a href="M-dashboard.html">Dashboard</a>
+                                <a href="OO-dashboard.html">Dashboard</a>
                                 <a href="../landing_page/Home.html" id="logoutBtn" onclick="logMeOut()">Log out</a>
                             </div>
                         </div>
@@ -97,65 +97,16 @@
             
                 
                 <div class="content">
-                    <h2 class="topic">Song details</h2>
-                    <div class="input">
-                        <div>
-                            <label for="">Song name &nbsp; &nbsp; &nbsp; </label>
-                            <input type="text" name="name" value="ABC" id="input" class="input1" disabled>
-                        </div>
-
-                        <div>
-                            <label for="">Song version &nbsp; &nbsp; </label>
-                            <input type="text" name="version" value="1" id="input" class="input2" disabled>
-                        </div>
-
-                        <div>
-                            <label for="">Published year </label>
-                            <input type="text" name="singers" value="2019" id="input" class="input3" disabled>
-                        </div>
-                    </div>
+                    <!-- <h2 class="topic">Song details</h2> -->
                     
                     <div class="formContent2">
                         <div id="myDIV" class="header">
-                            <h4>Singers of the song</h4>
+                            <h4>Songs in the concert</h4>
                             <ul id="myUL" class="singer">
                         
                             </ul>
                         </div>
                             
-                        <div id="myDIV" class="header">
-                            <h4 class="">Composers of the song</h4>
-                            <ul id="myUL" class="composer">
-                                <!-- <li class="normalCol"> 
-                                    <h5>Mr.bA</h5>
-                                    <span id="spanME" class="close" onclick="take2(this)">×</span>
-                                </li>
-
-                                <li class="normalCol"> 
-                                    <h5>Mr.bbA</h5>
-                                    <span id="spanME" class="close" onclick="take2(this)">×</span>
-                                </li>
-
-                                <li class="normalCol"> 
-                                    <h5>Mr.bbbA</h5>
-                                    <span id="spanME" class="close" onclick="take2(this)">×</span>
-                                </li> -->
-                            </ul>
-                        </div>
-                            
-                        <div id="myDIV" class="header">
-                            <h4>Song writers of the song</h4>
-                            <ul id="myUL" class="writer">
-                                <!-- <li class="normalCol"> 
-                                    <h5>Mr.cA</h5>
-                                    <span id="spanME" class="close" onclick="take3(this)">×</span>
-                                </li>
-                                <li class="normalCol"> 
-                                    <h5>Mr.cA</h5>
-                                    <span id="spanME" class="close" onclick="take3(this)">×</span>
-                                </li> -->
-                            </ul>
-                        </div>
                     </div>
                 </div>        
         
@@ -168,7 +119,7 @@
 
 
 <script src="../resources/js/alertFromDown.js"></script>
-<script src="../resources/js/OO-pendingRequestsMoreDetails.js"></script>
+<script src="../resources/js/SO-moreDetailsUpcomingEvents.js"></script>
 <script src="../resources/js/logout.js"></script>
 <script src="../resources/js/validation.js"></script>
 <script src="../resources/js/NotificationUI.js"></script>
