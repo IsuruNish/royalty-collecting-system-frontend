@@ -247,6 +247,11 @@
         -ms-grid-row-align: center;
         align-self: center;
   }
+
+  .responsive-table2 .table-row .col-6:hover {
+    color: rgb(218, 185, 1);
+    cursor: pointer;
+  }
   
   .responsive-table2 .table-row .col-7:hover {
     color: rgb(0, 158, 250);

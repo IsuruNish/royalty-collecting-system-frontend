@@ -389,10 +389,12 @@ function makeSongRegReqArr(data){
         var DivCol3 = document.createElement("div");
         var DivCol4 = document.createElement("div");
         var DivCol5 = document.createElement("div");
+        var DivCol6 = document.createElement("div");
         var DivCol7 = document.createElement("div");
         var DivCol8 = document.createElement("div");
         var DivCol9 = document.createElement("div");
         
+        var DivColTag_i0 = document.createElement("i");
         var DivColTag_i1 = document.createElement("i");
         var DivColTag_i2 = document.createElement("i");
         var DivColTag_i3 = document.createElement("i");
@@ -404,11 +406,13 @@ function makeSongRegReqArr(data){
         DivCol4.setAttribute("data-label", "Published Year");
         DivCol5.setAttribute("data-label", "Requested By");
 
-        DivCol7.setAttribute("data-label", "Documentation");
+        DivCol6.setAttribute("data-label", "Documentation");
+        DivCol7.setAttribute("data-label", "Artists");
         DivCol8.setAttribute("data-label", "Accept");
         DivCol9.setAttribute("data-label", "Reject");
 
-        DivCol7.setAttribute("id", "Documentation");
+        DivCol6.setAttribute("id", "Documentation");
+        DivCol7.setAttribute("id", "Artists");
         DivCol8.setAttribute("id", "Accept");
         DivCol9.setAttribute("id", "Reject");
 
@@ -423,6 +427,8 @@ function makeSongRegReqArr(data){
         DivCol4.classList.add("col-4");
         DivCol5.classList.add("col");
         DivCol5.classList.add("col-5");
+        DivCol6.classList.add("col");
+        DivCol6.classList.add("col-6");
         DivCol7.classList.add("col");
         DivCol7.classList.add("col-7");
         DivCol8.classList.add("col");
@@ -430,12 +436,14 @@ function makeSongRegReqArr(data){
         DivCol9.classList.add("col");
         DivCol9.classList.add("col-9");
 
-
+        DivColTag_i0.classList.add("fas");
+        DivColTag_i0.classList.add("fa-exclamation-circle");
         DivColTag_i2.classList.add("fas");
         DivColTag_i2.classList.add("fa-check-circle");
         DivColTag_i3.classList.add("fas");
         DivColTag_i3.classList.add("fa-times-circle");
 
+        DivCol7.appendChild(DivColTag_i0);
         DivCol8.appendChild(DivColTag_i2);
         DivCol9.appendChild(DivColTag_i3);
         
@@ -464,8 +472,21 @@ function makeSongRegReqArr(data){
                 window.location.href = data[i][4];
             }
         }
+
+        DivColTag_i0.onclick = function(){
+            songID = this.parentElement.parentElement.firstChild.innerHTML;
+    
+            const loading = document.getElementById("loader-wrapper");
+            const realpage = document.getElementById("notsoLoad");
+            loading.classList.remove("hideME");
+            realpage.classList.add("hideME");
+  
+            window.location.href='SA-pendingRequestMoreDetails.html?'+songID ;
+          }
+
         
-        DivCol7.appendChild(DivColTag_i1);
+        DivCol6.appendChild(DivColTag_i1);
+        li.appendChild(DivCol6);
         li.appendChild(DivCol7);
         li.appendChild(DivCol8);
         li.appendChild(DivCol9);
@@ -594,10 +615,12 @@ function makeSongOwnReqArr(data){
         var DivCol3 = document.createElement("div");
         var DivCol4 = document.createElement("div");
         var DivCol5 = document.createElement("div");
+        var DivCol6 = document.createElement("div");
         var DivCol7 = document.createElement("div");
         var DivCol8 = document.createElement("div");
         var DivCol9 = document.createElement("div");
         
+        var DivColTag_i0 = document.createElement("i");
         var DivColTag_i1 = document.createElement("i");
         var DivColTag_i2 = document.createElement("i");
         var DivColTag_i3 = document.createElement("i");
@@ -609,11 +632,13 @@ function makeSongOwnReqArr(data){
         DivCol4.setAttribute("data-label", "Published Year");
         DivCol5.setAttribute("data-label", "Requested By");
 
-        DivCol7.setAttribute("data-label", "Documentation");
+        DivCol6.setAttribute("data-label", "Documentation");
+        DivCol7.setAttribute("data-label", "Artists");
         DivCol8.setAttribute("data-label", "Accept");
         DivCol9.setAttribute("data-label", "Reject");
 
-        DivCol7.setAttribute("id", "Documentation");
+        DivCol6.setAttribute("id", "Documentation");
+        DivCol7.setAttribute("id", "Artists");
         DivCol8.setAttribute("id", "Accept");
         DivCol9.setAttribute("id", "Reject");
 
@@ -628,6 +653,8 @@ function makeSongOwnReqArr(data){
         DivCol4.classList.add("col-4");
         DivCol5.classList.add("col");
         DivCol5.classList.add("col-5");
+        DivCol6.classList.add("col");
+        DivCol6.classList.add("col-6");
         DivCol7.classList.add("col");
         DivCol7.classList.add("col-7");
         DivCol8.classList.add("col");
@@ -635,12 +662,14 @@ function makeSongOwnReqArr(data){
         DivCol9.classList.add("col");
         DivCol9.classList.add("col-9");
 
-
+        DivColTag_i0.classList.add("fas");
+        DivColTag_i0.classList.add("fa-exclamation-circle");
         DivColTag_i2.classList.add("fas");
         DivColTag_i2.classList.add("fa-check-circle");
         DivColTag_i3.classList.add("fas");
         DivColTag_i3.classList.add("fa-times-circle");
 
+        DivCol7.appendChild(DivColTag_i0);
         DivCol8.appendChild(DivColTag_i2);
         DivCol9.appendChild(DivColTag_i3);
         
@@ -659,7 +688,7 @@ function makeSongOwnReqArr(data){
 
 
         if (data[i][4] == null) {
-            DivCol7.innerHTML = "Not Provided"
+            DivCol6.innerHTML = "Not Provided"
         }
         else{
             DivColTag_i1.classList.add("fas");
@@ -670,7 +699,8 @@ function makeSongOwnReqArr(data){
             }
         }
         
-        DivCol7.appendChild(DivColTag_i1);
+        DivCol6.appendChild(DivColTag_i1);
+        li.appendChild(DivCol6);
         li.appendChild(DivCol7);
         li.appendChild(DivCol8);
         li.appendChild(DivCol9);
@@ -678,6 +708,18 @@ function makeSongOwnReqArr(data){
 
         let theID = data[i][7];
         let theNameofSong = data[i][1];
+
+
+        DivColTag_i0.onclick = function(){
+            songID = this.parentElement.parentElement.firstChild.innerHTML;
+    
+            const loading = document.getElementById("loader-wrapper");
+            const realpage = document.getElementById("notsoLoad");
+            loading.classList.remove("hideME");
+            realpage.classList.add("hideME");
+  
+            window.location.href='SA-pendingRequestMoreDetails.html?'+songID ;
+          }
 
         DivColTag_i2.onclick = function(){
             popUp("Do you want to accept the song ownership change request ?")
@@ -803,11 +845,11 @@ function makeSongDelReqArr(data){
         var DivCol3 = document.createElement("div");
         var DivCol4 = document.createElement("div");
         var DivCol5 = document.createElement("div");
-        // var DivCol7 = document.createElement("div");
+        var DivCol7 = document.createElement("div");
         var DivCol8 = document.createElement("div");
         var DivCol9 = document.createElement("div");
         
-        // var DivColTag_i1 = document.createElement("i");
+        var DivColTag_i1 = document.createElement("i");
         var DivColTag_i2 = document.createElement("i");
         var DivColTag_i3 = document.createElement("i");
 
@@ -818,11 +860,11 @@ function makeSongDelReqArr(data){
         DivCol4.setAttribute("data-label", "Published Year");
         DivCol5.setAttribute("data-label", "Requested By");
 
-        // DivCol7.setAttribute("data-label", "Documentation");
+        DivCol7.setAttribute("data-label", "Artists");
         DivCol8.setAttribute("data-label", "Accept");
         DivCol9.setAttribute("data-label", "Reject");
 
-        // DivCol7.setAttribute("id", "Documentation");
+        DivCol7.setAttribute("id", "Artists");
         DivCol8.setAttribute("id", "Accept");
         DivCol9.setAttribute("id", "Reject");
 
@@ -837,19 +879,21 @@ function makeSongDelReqArr(data){
         DivCol4.classList.add("col-4");
         DivCol5.classList.add("col");
         DivCol5.classList.add("col-5");
-        // DivCol7.classList.add("col");
-        // DivCol7.classList.add("col-7");
+        DivCol7.classList.add("col");
+        DivCol7.classList.add("col-7");
         DivCol8.classList.add("col");
         DivCol8.classList.add("col-8");
         DivCol9.classList.add("col");
         DivCol9.classList.add("col-9");
 
-
+        DivColTag_i1.classList.add("fas");
+        DivColTag_i1.classList.add("fa-exclamation-circle");
         DivColTag_i2.classList.add("fas");
         DivColTag_i2.classList.add("fa-check-circle");
         DivColTag_i3.classList.add("fas");
         DivColTag_i3.classList.add("fa-times-circle");
 
+        DivCol7.appendChild(DivColTag_i1);
         DivCol8.appendChild(DivColTag_i2);
         DivCol9.appendChild(DivColTag_i3);
         
@@ -877,6 +921,20 @@ function makeSongDelReqArr(data){
         
         // DivCol7.appendChild(DivColTag_i1);
         // li.appendChild(DivCol7);
+
+        DivColTag_i1.onclick = function(){
+            songID = this.parentElement.parentElement.firstChild.innerHTML;
+    
+            const loading = document.getElementById("loader-wrapper");
+            const realpage = document.getElementById("notsoLoad");
+            loading.classList.remove("hideME");
+            realpage.classList.add("hideME");
+  
+            window.location.href='SA-pendingRequestMoreDetails.html?'+songID ;
+        }
+
+
+        li.appendChild(DivCol7);
         li.appendChild(DivCol8);
         li.appendChild(DivCol9);
         ul.appendChild(li);

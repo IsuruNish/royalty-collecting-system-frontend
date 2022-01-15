@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then((data) => {
         ut = data['userType']
         console.log(data);
-        if(ut!=3){
+        if(ut==4 || ut==5){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
