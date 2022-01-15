@@ -147,8 +147,6 @@ let songCanReq = []
   
 
 function makeLicenseAppReqArr(data){
-    console.log("data");
-    console.log(data);
     var ul = document.getElementById('table1').firstChild.nextSibling;
 
     for (let i = 0; i < data.length; i++) {
