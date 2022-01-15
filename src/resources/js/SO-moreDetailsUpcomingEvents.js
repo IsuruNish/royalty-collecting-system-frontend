@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then((data) => {
         ut = data['ut']
         console.log(data);
-        if(ut!=5){
+        if(ut == 4){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
                 window.location.href='../landing_page/login.html';
