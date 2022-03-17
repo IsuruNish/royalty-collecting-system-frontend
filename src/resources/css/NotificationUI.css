@@ -7,7 +7,7 @@
   overflow: hidden;
 } */
 #notification{
-    width: 35%;
+    width: 40%;
     height: 50%;
     margin-top: 10%;
     /* background: burlywood; */
@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: row;
     min-height: 60vh;
+    max-width: 120vh;
     /* width: 80%; */
     /* background: burlywood; */
 }
