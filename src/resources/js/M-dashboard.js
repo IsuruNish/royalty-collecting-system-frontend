@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded',()=>{
+    console.log("heeee");
     let token = Cookies.get('Authorization');
 
     if(token == undefined){
@@ -22,7 +23,9 @@ window.addEventListener('DOMContentLoaded',()=>{
         .then(res => res.json())
         .then((data) => {
             console.log(data);
+            console.log("data");
         ut = data['userType']
+        console.log("hellooooo");
         if(ut!=4){
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
@@ -68,11 +71,11 @@ window.addEventListener('DOMContentLoaded',()=>{
     
     })
         .catch(err =>{
-            popUpFromDown("Login again",'red');
-            setTimeout(function() {
-                window.location.href='../landing_page/login.html';
-            },5000);
-            console.error(err);
+            // popUpFromDown("Login again",'red');
+            // setTimeout(function() {
+            //     window.location.href='../landing_page/login.html';
+            // },5000);
+            // console.error(err);
           });
     }
 });

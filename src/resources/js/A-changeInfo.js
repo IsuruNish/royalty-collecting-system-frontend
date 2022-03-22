@@ -336,6 +336,7 @@ personalInfoBtn.addEventListener('click', function(){
           }
     }
 
+    var emailFlag = 0;
     if (emailVal != email) {
         emailFlag = 1;
     }
