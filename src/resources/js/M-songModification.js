@@ -64,6 +64,8 @@ window.addEventListener('DOMContentLoaded',()=>{
               let songname = document.getElementsByClassName("input1");
               let version = document.getElementsByClassName("input2");
               let year = document.getElementsByClassName("input3");
+
+              noneMemberNames = data['allNoneMemberNames'];
               
               songname[0].value = data['POSTinfo'][1];
               version[0].value = data['POSTinfo'][2];
@@ -120,6 +122,9 @@ let POSTcomposersLname = [];
 let POSTwirtersID = [];
 let POSTwirtersFname = [];
 let POSTwirtersLname = [];
+
+let noneMemberNames = [];
+
 
 function POSTelement(fnames, lnames, className) {
     
@@ -210,7 +215,7 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
       let NOmemComposers = []
       let memWritters = []
       let NOmemWritters = []
-    
+
       let count1 = 0
       let count2 = 0
       for (let index = 0; index < curSingers.childElementCount; index++) {
@@ -281,6 +286,30 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
           count2 +=1
         }
       }
+
+
+      //code here
+
+      for (let index123 = 0; index123 < memSingers.length; index123++) {
+        if (noneMemberNames.includes(memSingers[index123])) {
+          NOmemSingers.push(memSingers[index123]);
+        }
+      }
+
+      for (let index123 = 0; index123 < memComposers.length; index123++) {
+        if (noneMemberNames.includes(memComposers[index123])) {
+          NOmemComposers.push(memComposers[index123]);
+        }
+      }
+
+      for (let index123 = 0; index123 < memWritters.length; index123++) {
+        if (noneMemberNames.includes(memWritters[index123])) {
+          NOmemWritters.push(memWritters[index123]);
+        }
+      }
+
+      
+
     
       let memSingersIDs = getID(memSingers)
       let memComposersIDs = getID(memComposers)
@@ -376,6 +405,14 @@ document.querySelector(".submitBTN").addEventListener('click', function(){
         // formData.append('delWritters', JSON.stringify(deleteWritersID));
 
         // formData.append('info', JSON.stringify(info));
+
+        console.log("here comesssssssss");
+        console.log(memSingersIDs);
+        console.log(memComposersIDs);
+        console.log(memWrittersIDs);
+        console.log(NOmemSingers);
+        console.log(NOmemComposers);
+        console.log(NOmemWritters);
 
 
         let options = {
