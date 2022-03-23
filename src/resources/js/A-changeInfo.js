@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded',()=>{
                 var picSmall = document.getElementById('profilePicSmall');
 
                 setTimeout(function() {
+                    emailListFromBackend = data['emailListForBackend'];
                     imageCard.style.backgroundImage = `url(${data['DPpath']})`;
                     picSmall.src = data['DPpath'];
                     fname.value = data['fname'];
@@ -228,6 +229,8 @@ photoDelBtn.addEventListener('click', function(){
 
 
 
+  var emailListFromBackend = [];
+
 
 
 personalInfoBtn.addEventListener('click', function(){
@@ -341,65 +344,83 @@ personalInfoBtn.addEventListener('click', function(){
         emailFlag = 1;
     }
 
-    if(filled){
-        let payload = {
-            "reqNo" : 2,
-            "fname":fname,
-            "lname":lname,
-            "nic":nic,
-            "email":email,
-            "phoneNo":phoneNo,
-            "emailFlag":emailFlag
+    //emial here
+    //emial here
+    //emial here
+    //emial here
+
+    var AllEmailbackend = 0;
+    for (let kkk = 0; kkk < emailListFromBackend.length; kkk++) {
+        if (email == emailListFromBackend[kkk]) {
+            AllEmailbackend = 1;
         }
-        
-        let options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-
-            body: JSON.stringify(payload) 
-
     }
 
-    fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        if(data['utype'] == 2){
-            document.getElementById('fname').value = data['fname'];
-            document.getElementById('lname').value = data['lname'];
-            document.getElementById('nic').value = data['nic'];
-            document.getElementById('email').value = data['email'];
-            document.getElementById('phone').value = data['phoneNo'];
-
-            fnameVal = data['fname'];
-            lnameVal = data['lname'];
-            emailVal = data['email'];
-            nicVal = data['nic'];
-            phoneVal = data['phoneNo'];
-            makeTextBoxDefault();
-            // alert("Details updated!");
-            popUpFromDown("Details updated!",'greenColour');
-            // setTimeout(function() {
-            //     window.location.href='SA-ChangeInfo.html';
-            // },5000);
+    if (AllEmailbackend == 1) {
+        popUpFromDown("Email already exist!",'red');
+    }
+    
+    else{
+        if(filled){
+            let payload = {
+                "reqNo" : 2,
+                "fname":fname,
+                "lname":lname,
+                "nic":nic,
+                "email":email,
+                "phoneNo":phoneNo,
+                "emailFlag":emailFlag
+            }
             
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+
+                body: JSON.stringify(payload) 
+
         }
 
-        else{
-            popUpFromDown("Error try again!",'red');
+        fetch("http://localhost:8080/OSCA_war_exploded/ChangeInfoServlet", options)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data['utype'] == 2){
+                document.getElementById('fname').value = data['fname'];
+                document.getElementById('lname').value = data['lname'];
+                document.getElementById('nic').value = data['nic'];
+                document.getElementById('email').value = data['email'];
+                document.getElementById('phone').value = data['phoneNo'];
 
-            //   alert("Invalid details!");
+                fnameVal = data['fname'];
+                lnameVal = data['lname'];
+                emailVal = data['email'];
+                nicVal = data['nic'];
+                phoneVal = data['phoneNo'];
+                makeTextBoxDefault();
+                // alert("Details updated!");
+                popUpFromDown("Details updated!",'greenColour');
+                // setTimeout(function() {
+                //     window.location.href='SA-ChangeInfo.html';
+                // },5000);
+                
+            }
+
+            else{
+                popUpFromDown("Error try again!",'red');
+
+                //   alert("Invalid details!");
+            }
+            })
+
+        .catch(err=> {
+            // alert("Details invalid try again!");
+            popUpFromDown("Details invalid try again!",'red');
+            console.log(err);
+            })
         }
-        })
-
-    .catch(err=> {
-        // alert("Details invalid try again!");
-        popUpFromDown("Details invalid try again!",'red');
-        console.log(err);
-        })
     }
 })
 
