@@ -125,7 +125,7 @@ $(document).ready(function(){
             else if(ut==2){
               window.location.href='../admin/A-dashboard.html';
             }else if(ut==3){
-              window.location.href='../osca_officail/OO-dashboard.html';
+              window.location.href='../osca_official/OO-dashboard.html';
             }
             else if(ut==4){
               window.location.href='../member/M-dashboard.html';

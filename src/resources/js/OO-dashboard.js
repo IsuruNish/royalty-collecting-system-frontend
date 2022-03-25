@@ -23,11 +23,12 @@ window.addEventListener('DOMContentLoaded',()=>{
         ut = data['utype']
         console.log(data['utype']);
         console.log(data);
+        
         if(ut!=3){
             // alert("Access denied!");
             popUpFromDown("Access denied!",'red');
             setTimeout(function() {
-                // window.location.href='../landing_page/login.html';
+                window.location.href='../landing_page/login.html';
             },5000);
             }
             else{
