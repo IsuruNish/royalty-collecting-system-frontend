@@ -2,6 +2,10 @@
     font-size: 25px;
 }
 
+.sec{
+  height: fit-content;
+}
+
 .responsive-table {
     height: -webkit-fit-content;
     height: -moz-fit-content;
